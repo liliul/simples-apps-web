@@ -1,0 +1,35 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+
+header{width:100%;padding:10px 20px;}
+header .info-head{float:right;display:flex;align-items:center;}
+header .info-head .menu{width:19px;height:19px;}
+
+header .info-head p,.menu{margin-right:10px;}
+
+header .info-head p{font-size:0.9em;}
+header .info-head button{font-size:13px;font-family:Arial;border:none;padding:10px 23px;color:white;font-weight:bold;border-radius:4px;background:#516bff;}
+
+main{width:100%;display:flex;justify-content: center;}
+main .center{display:flex;flex-direction: column;}
+main .logo-google{margin-top:90px;display:flex;justify-content: center;}
+
+main .input{width:600px;margin-top:20px;}
+main .input .grupo-in{display:flex;align-items:center;padding:8px 10px;border-radius:40px;border:1px solid #ddd;}
+
+  main .input .grupo-in:hover{box-shadow:1px 1px 5px #999;}
+
+main .input .grupo-in .icon{width:26px;margin-right:10px;display: flex;align-items: center;justify-content: center;}
+main .input .grupo-in input{width:100%;padding:5px 5px;border:none;outline:none;font-size:14px;}
+
+main .button{display:flex;justify-content:center;margin-top:13px;}
+main .button .but-space{margin-right:40px;}
+main .button button{border:none;border-radius:4px;padding:10px 25px;}
+main .button button:hover{box-shadow:1px 1px 4px #999;}
+
+footer{width:100%;position:absolute;bottom:0;}
+footer .row-1{padding:10px 10px;background:#EEE;border-bottom:1px solid #ddd;}
+footer .row-1 p{color:#999;font-size:15px;}
+
+footer .row-2{display:flex;justify-content:space-between;padding:10px 10px;background:#EEE;}
+footer .row-2 .tex{display:flex;}
+footer .row-2 .tex p{margin-right:10px;color:#999;font-size:15px;}
