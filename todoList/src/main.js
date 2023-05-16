@@ -4,6 +4,7 @@ const buttonTask  = document.getElementById('button-task');
 let db = [];
 let radom = 1;
 let inputTask = idInputTask.value;
+let checkInputDB = [];
 
 function create() {
 	const pushDB = idInputTask.value;
@@ -53,7 +54,7 @@ function addTask(db, index){
 	div.innerHTML = `
 		<article class="tasks">
 			<div class="checked">
-				<input type="checkbox" class="checked_input" name="nome">
+				<input type="checkbox" class="checked_input" name="nome" data-id=${index}>
 			</div>
 
 			<div class="tasks_text">
@@ -62,7 +63,7 @@ function addTask(db, index){
 				</p>
 			</div>
 
-			<div class="trash" data-id=${index}>
+			<div class="trash" data-id=${index} onclick="deleteTask(${index})">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M14.2021 9.98548H12.8716V15.5073H14.2021V9.98548Z" fill="#808080"/>
 					<path d="M11.4624 9.98548H10.1318V15.5073H11.4624V9.98548Z" fill="#808080"/>
@@ -73,17 +74,38 @@ function addTask(db, index){
 	`
 	document.getElementById('add-task').appendChild(div);
 	idInputTask.value = ""
+		
 }
 function tasksCreateLength() {
 	document.getElementById('task-create').innerText = db.length
+}
+
+// function checked() {
+// 	const checkTask = document.querySelector('.checked_input');
+// 	if(checkTask.checked) {
+// 		// checkInputDB.push(true);
+// 		document.querySelector('.tasks-p').setAttribute('style', 'text-decoration:line-through');
+// 	}else {
+// 		// checkInputDB.push(false)
+// 		document.querySelector('.tasks-p').getAttribute('style');
+// 	}
+// }
+
+function deleteTask(index) {
+	db.splice(index, 1)
+	// create()
 }
 buttonTask.addEventListener('click', function() {
 	create()
 	// addTask(db)
 	console.log('db', db)
-	db.forEach((list) => console.log('l', list))
+	// console.log('ckedb', checkInputDB)
+
+	// db.forEach((list) => console.log('l', list))
 	setHtml()
 	tasksCreateLength()
+//	checked()
 	// console.log(document.querySelector('[data-id]').value)
+	
 })
-
+// document.querySelector('.checked_input').addEventListener('change', checked)
