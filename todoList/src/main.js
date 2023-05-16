@@ -74,13 +74,16 @@ function addTask(db, index){
 	document.getElementById('add-task').appendChild(div);
 	idInputTask.value = ""
 }
-
+function tasksCreateLength() {
+	document.getElementById('task-create').innerText = db.length
+}
 buttonTask.addEventListener('click', function() {
 	create()
 	// addTask(db)
 	console.log('db', db)
 	db.forEach((list) => console.log('l', list))
 	setHtml()
+	tasksCreateLength()
 	// console.log(document.querySelector('[data-id]').value)
 })
 
