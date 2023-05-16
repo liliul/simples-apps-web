@@ -11,7 +11,6 @@ function create() {
 
 	db.push(pushDB);
 	// addTask(db)
-	
 }
 
 function setHtml() {
@@ -93,7 +92,11 @@ function tasksCreateLength() {
 
 function deleteTask(index) {
 	db.splice(index, 1)
-	// create()
+	//create()
+	updateDB()
+}
+function updateDB() {
+	setHtml()
 }
 buttonTask.addEventListener('click', function() {
 	create()
@@ -109,3 +112,4 @@ buttonTask.addEventListener('click', function() {
 	
 })
 // document.querySelector('.checked_input').addEventListener('change', checked)
+// setHtml()
