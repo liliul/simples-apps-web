@@ -54,7 +54,7 @@ function addTask(db, index){
 	div.innerHTML = `
 		<article class="tasks">
 			<div class="checked">
-				<input type="checkbox" class="checked_input" name="nome" data-id=${index}>
+				<input type="checkbox" class="checked_input" name="nameCheck" data-input=${index}>
 			</div>
 
 			<div class="tasks_text">
@@ -74,23 +74,54 @@ function addTask(db, index){
 	`
 	document.getElementById('add-task').appendChild(div);
 	idInputTask.value = ""
-		
 }
 function tasksCreateLength() {
 	document.getElementById('task-create').innerText = db.length
 }
+function tasksCompleted(){
+	document.querySelector('.completed-counter').innerText = checkInputDB.length
+}
+function checked() {
+	const checkTask = document.getElementsByName('nameCheck');
+	// console.log(checkTask);
+	for(let checkbox of checkTask) {
+		// checkbox.checked = true;
+		// console.log(checkInputDB.push(checkbox.getAttribute('data-input')))
+		// let box = checkbox.checked = true
+		// if(box) {
+		// 	console.log('box')
+		// 	checkInputDB.push('checked')
+		// 	document.querySelector('.tasks-p').setAttribute('style','text-decoration:line-through')
+		// 	// console.log(s);
+		// 	checkbox.setAttribute('checked','checked')
+		// }
+		// console.log('naa');
 
-// function checked() {
-// 	const checkTask = document.querySelector('.checked_input');
-// 	if(checkTask.checked) {
-// 		// checkInputDB.push(true);
-// 		document.querySelector('.tasks-p').setAttribute('style', 'text-decoration:line-through');
-// 	}else {
-// 		// checkInputDB.push(false)
-// 		document.querySelector('.tasks-p').getAttribute('style');
-// 	}
-// }
-
+		checkbox.addEventListener('change', () => {
+			if(checkbox.checked === true) {
+				console.log('sim');
+				checkInputDB.push('checked')
+			document.querySelector('.tasks-p').setAttribute('style','text-decoration:line-through')
+				checkbox.setAttribute('checked', 'checked')
+			}else{
+				console.log('nao');
+		document.querySelector('.tasks-p').setAttribute('style','text-decoration:none')
+				checkInputDB.splice(1,1)
+			}
+		})
+	}
+	
+	
+	// console.log(checkTask.checked = true);
+	// if(!checkTask.checked) {
+	// 	checkInputDB.push('checked');
+	// 	document.querySelector('.tasks-p').setAttribute('style','text-decoration:line-through')
+	// }else {
+	// 	// checkInputDB.push(false)
+	// 	// document.querySelector('.tasks-p').classList.remove('line')
+	// 	document.querySelector('.tasks-p').setAttribute('style','text-decoration:none')
+	// }
+}
 function deleteTask(index) {
 	db.splice(index, 1)
 	//create()
@@ -99,12 +130,14 @@ function deleteTask(index) {
 function updateDB() {
 	setHtml()
 	tasksCreateLength()	
+	// checked()
+	tasksCompleted()
 }
 buttonTask.addEventListener('click', function() {
 	create()
 	// addTask(db)
 	console.log('db', db)
-	// console.log('ckedb', checkInputDB)
+	console.log('ckedb', checkInputDB)
 
 	// db.forEach((list) => console.log('l', list))
 	setHtml()
@@ -112,6 +145,11 @@ buttonTask.addEventListener('click', function() {
 //	checked()
 	// console.log(document.querySelector('[data-id]').value)
 	updateDB()
+
+	// console.log(checkInputDB);
+	console.log(checked());
+
 })
 // document.querySelector('.checked_input').addEventListener('change', checked)
 // setHtml()
+// checkInputDB.push('checked')
