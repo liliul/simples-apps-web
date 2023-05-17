@@ -11,6 +11,7 @@ function create() {
 
 	db.push(pushDB);
 	// addTask(db)
+	updateDB()
 }
 
 function setHtml() {
@@ -97,6 +98,7 @@ function deleteTask(index) {
 }
 function updateDB() {
 	setHtml()
+	tasksCreateLength()	
 }
 buttonTask.addEventListener('click', function() {
 	create()
@@ -106,10 +108,10 @@ buttonTask.addEventListener('click', function() {
 
 	// db.forEach((list) => console.log('l', list))
 	setHtml()
-	tasksCreateLength()
+	// tasksCreateLength()
 //	checked()
 	// console.log(document.querySelector('[data-id]').value)
-	
+	updateDB()
 })
 // document.querySelector('.checked_input').addEventListener('change', checked)
 // setHtml()
