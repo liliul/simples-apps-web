@@ -86,7 +86,7 @@ function checked() {
 	const checkTask = document.getElementsByName('nameCheck');
 	// const checkTask = document.querySelectorAll('data-input=""');
 	
-	// console.log(checkTask);
+	console.log(checkTask);
 	for (let checkbox of checkTask) {
 		// checkbox.checked = true;
 		// console.log(checkInputDB.push(checkbox.getAttribute('data-input')))
@@ -109,7 +109,7 @@ function checked() {
 				tasksCompleted()
 			} else {
 				console.log('nao');
-				document.querySelector('.tasks-p').setAttribute('style', 'text-decoration:none')
+				document.querySelector('.tasks-p').removeAttribute('style')
 				checkInputDB.pop('checked')
 				checkbox.removeAttribute('checked')
 				tasksCompleted()
@@ -138,7 +138,6 @@ function updateDB() {
 	tasksCreateLength()
 	// checked()
 	// tasksCompleted()
-	checked()
 
 }
 buttonTask.addEventListener('click', function () {
@@ -155,7 +154,7 @@ buttonTask.addEventListener('click', function () {
 	updateDB()
 
 	// console.log(checkInputDB);
-	// console.log(checked());
+	console.log(checked());
 
 })
 // document.querySelector('.checked_input').addEventListener('change', checked)
