@@ -1,5 +1,5 @@
 const idInputTask = document.getElementById('idInputTask');
-const buttonTask  = document.getElementById('button-task');
+const buttonTask = document.getElementById('button-task');
 
 let db = [];
 let radom = 1;
@@ -22,7 +22,7 @@ function setHtml() {
 }
 // setHtml()
 // function addTask(db, index){
-	
+
 // 	let output = `
 // 		<article class="tasks">
 // 			<div class="checked">
@@ -48,7 +48,7 @@ function setHtml() {
 
 // }
 
-function addTask(db, index){
+function addTask(db, index) {
 	const div = document.createElement('div')
 
 	div.innerHTML = `
@@ -78,13 +78,16 @@ function addTask(db, index){
 function tasksCreateLength() {
 	document.getElementById('task-create').innerText = db.length
 }
-function tasksCompleted(){
+function tasksCompleted() {
 	document.querySelector('.completed-counter').innerText = checkInputDB.length
 }
+
 function checked() {
 	const checkTask = document.getElementsByName('nameCheck');
+	// const checkTask = document.querySelectorAll('data-input=""');
+	
 	// console.log(checkTask);
-	for(let checkbox of checkTask) {
+	for (let checkbox of checkTask) {
 		// checkbox.checked = true;
 		// console.log(checkInputDB.push(checkbox.getAttribute('data-input')))
 		// let box = checkbox.checked = true
@@ -98,20 +101,23 @@ function checked() {
 		// console.log('naa');
 
 		checkbox.addEventListener('change', () => {
-			if(checkbox.checked === true) {
+			if (checkbox.checked === true) {
 				console.log('sim');
 				checkInputDB.push('checked')
-			document.querySelector('.tasks-p').setAttribute('style','text-decoration:line-through')
-				checkbox.setAttribute('checked', 'checked')
-			}else{
+				document.querySelector('.tasks-p').setAttribute('style', 'text-decoration:line-through')
+				checkbox.setAttribute('checked', '')
+				tasksCompleted()
+			} else {
 				console.log('nao');
-		document.querySelector('.tasks-p').setAttribute('style','text-decoration:none')
-				checkInputDB.splice(1,1)
+				document.querySelector('.tasks-p').setAttribute('style', 'text-decoration:none')
+				checkInputDB.pop('checked')
+				checkbox.removeAttribute('checked')
+				tasksCompleted()
 			}
 		})
 	}
-	
-	
+
+
 	// console.log(checkTask.checked = true);
 	// if(!checkTask.checked) {
 	// 	checkInputDB.push('checked');
@@ -129,11 +135,13 @@ function deleteTask(index) {
 }
 function updateDB() {
 	setHtml()
-	tasksCreateLength()	
+	tasksCreateLength()
 	// checked()
-	tasksCompleted()
+	// tasksCompleted()
+	checked()
+
 }
-buttonTask.addEventListener('click', function() {
+buttonTask.addEventListener('click', function () {
 	create()
 	// addTask(db)
 	console.log('db', db)
@@ -142,12 +150,12 @@ buttonTask.addEventListener('click', function() {
 	// db.forEach((list) => console.log('l', list))
 	setHtml()
 	// tasksCreateLength()
-//	checked()
+	//	checked()
 	// console.log(document.querySelector('[data-id]').value)
 	updateDB()
 
 	// console.log(checkInputDB);
-	console.log(checked());
+	// console.log(checked());
 
 })
 // document.querySelector('.checked_input').addEventListener('change', checked)
