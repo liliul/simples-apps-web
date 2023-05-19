@@ -6,6 +6,11 @@ let radom = 1;
 let inputTask = idInputTask.value;
 let checkInputDB = [];
 
+// let db = JSON.parse(localStorage.getItem('todolist')) ?? []
+// console.log(db.length);
+// let DB = localStorage.setItem('todolist', JSON.stringify(db))
+	
+
 function create() {
 	const pushDB = idInputTask.value;
 
@@ -16,6 +21,9 @@ function create() {
 
 function setHtml() {
 	document.getElementById('add-task').innerHTML = '';
+	db = JSON.parse(localStorage.getItem('todolist')) ?? []
+	console.log(db.length);
+	tasksCreateLength(db.length)
 	db.map((list, index) => {
 		addTask(list, index)
 	})
@@ -75,8 +83,15 @@ function addTask(db, index) {
 	document.getElementById('add-task').appendChild(div);
 	idInputTask.value = ""
 }
-function tasksCreateLength() {
-	document.getElementById('task-create').innerText = db.length
+function tasksCreateLength(index) {
+	// document.getElementById('task-create').innerText = db.length
+	document.getElementById('task-create').innerText = index
+
+	// for (let i = 0; i < localStorage.length; i++){
+	// 	let key = localStorage.key(i);
+	// 	let value = localStorage.getItem(key);
+	// 	console.log('local',value);
+	//   }
 }
 function tasksCompleted() {
 	document.querySelector('.completed-counter').innerText = checkInputDB.length
@@ -117,7 +132,6 @@ function checked() {
 		})
 	}
 
-
 	// console.log(checkTask.checked = true);
 	// if(!checkTask.checked) {
 	// 	checkInputDB.push('checked');
@@ -134,9 +148,11 @@ function deleteTask(index) {
 	updateDB()
 }
 function updateDB() {
+	localStorage.setItem('todolist', JSON.stringify(db))
+
 	setHtml()
-	tasksCreateLength()
-	// checked()
+	// tasksCreateLength()
+	checked()
 	// tasksCompleted()
 
 }
@@ -147,16 +163,16 @@ buttonTask.addEventListener('click', function () {
 	console.log('ckedb', checkInputDB)
 
 	// db.forEach((list) => console.log('l', list))
-	setHtml()
+	// setHtml()
 	// tasksCreateLength()
 	//	checked()
 	// console.log(document.querySelector('[data-id]').value)
 	updateDB()
 
 	// console.log(checkInputDB);
-	console.log(checked());
+	// console.log(checked());
 
 })
 // document.querySelector('.checked_input').addEventListener('change', checked)
-// setHtml()
+setHtml()
 // checkInputDB.push('checked')
