@@ -9,7 +9,9 @@ let checkInputDB = [];
 // let db = JSON.parse(localStorage.getItem('todolist')) ?? []
 // console.log(db.length);
 // let DB = localStorage.setItem('todolist', JSON.stringify(db))
-	
+
+// localStorage.setItem('checkTaskDB', JSON.stringify(checkInputDB))
+// let com = JSON.parse(localStorage.getItem('checkTaskDB'))
 
 function create() {
 	const pushDB = idInputTask.value;
@@ -21,12 +23,17 @@ function create() {
 
 function setHtml() {
 	document.getElementById('add-task').innerHTML = '';
+	
 	db = JSON.parse(localStorage.getItem('todolist')) ?? []
 	console.log(db.length);
 	tasksCreateLength(db.length)
+	
+	// if(db.length > 0) console.log('aaaaaaaaaaaaaaaa');
+	
 	db.map((list, index) => {
 		addTask(list, index)
 	})
+	
 }
 // setHtml()
 // function addTask(db, index){
@@ -56,9 +63,14 @@ function setHtml() {
 
 // }
 
-function addTask(db, index) {
+function addTask(text, index) {
 	const div = document.createElement('div')
+	document.getElementById('add-task').innerHTML = `
+	<h1>naruto</h1>
+	`
 
+	if(db.length > 0){
+		console.log('text')
 	div.innerHTML = `
 		<article class="tasks">
 			<div class="checked">
@@ -67,7 +79,7 @@ function addTask(db, index) {
 
 			<div class="tasks_text">
 				<p class="tasks-p">
-					${db}
+					${text}
 				</p>
 			</div>
 
@@ -82,6 +94,7 @@ function addTask(db, index) {
 	`
 	document.getElementById('add-task').appendChild(div);
 	idInputTask.value = ""
+	}
 }
 function tasksCreateLength(index) {
 	// document.getElementById('task-create').innerText = db.length
@@ -94,9 +107,18 @@ function tasksCreateLength(index) {
 	//   }
 }
 function tasksCompleted() {
-	document.querySelector('.completed-counter').innerText = checkInputDB.length
-}
+	// document.querySelector('.completed-counter').innerText = checkInputDB.length
+	// localStorage.setItem('checkTaskDB', checkInputDB)
+	let com = JSON.parse(localStorage.getItem('checkTaskDB'))
+	document.querySelector('.completed-counter').innerText = com.length
 
+}
+function checkboxUp() {
+	// const inputch = document.querySelector('.checked_input').dataset.input 
+	// checkInputDB = JSON.parse(localStorage.getItem('checkTask'))
+	// inputch.
+
+}
 function checked() {
 	const checkTask = document.getElementsByName('nameCheck');
 	// const checkTask = document.querySelectorAll('data-input=""');
@@ -120,12 +142,16 @@ function checked() {
 				console.log('sim');
 				checkInputDB.push('checked')
 				document.querySelector('.tasks-p').setAttribute('style', 'text-decoration:line-through')
+				// localStorage.setItem('checkTaskDB', JSON.stringify(checkInputDB))
+				
 				checkbox.setAttribute('checked', '')
 				tasksCompleted()
 			} else {
 				console.log('nao');
 				document.querySelector('.tasks-p').removeAttribute('style')
 				checkInputDB.pop('checked')
+
+				// localStorage.removeItem('checkTaskDB')
 				checkbox.removeAttribute('checked')
 				tasksCompleted()
 			}
@@ -149,12 +175,13 @@ function deleteTask(index) {
 }
 function updateDB() {
 	localStorage.setItem('todolist', JSON.stringify(db))
+	localStorage.setItem('checkTaskDB', JSON.stringify(checkInputDB))
+
 
 	setHtml()
 	// tasksCreateLength()
 	checked()
 	// tasksCompleted()
-
 }
 buttonTask.addEventListener('click', function () {
 	create()
@@ -171,8 +198,11 @@ buttonTask.addEventListener('click', function () {
 
 	// console.log(checkInputDB);
 	// console.log(checked());
-
+	// checkboxUp()
+	
 })
 // document.querySelector('.checked_input').addEventListener('change', checked)
+
 setHtml()
+
 // checkInputDB.push('checked')
