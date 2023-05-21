@@ -27,8 +27,16 @@ function setHtml() {
 	db = JSON.parse(localStorage.getItem('todolist')) ?? []
 	console.log(db.length);
 	tasksCreateLength(db.length)
-	tasksCompleted(db.length)
-	
+	// db.forEach((d, index)=> {
+	// 	console.log('dd', d);
+	// 	if(d.checkedDB === '') {
+	// 		console.log('sim')
+	// 		tasksCompleted(--index)
+	// 	}else {
+	// 		console.log('nao')
+	// 		tasksCompleted(index)
+	// 	}
+	// })
 	// if(db.length > 0) console.log('aaaaaaaaaaaaaaaa');
 	if(db.length === 0) {
 		console.log('text')
@@ -94,7 +102,7 @@ function addTask(text, checkedDB, index) {
 			</div>
 
 			<div class="tasks_text">
-				<p class="tasks-p">
+				<p class="tasks-p" data-p="${index}">
 					${text}
 				</p>
 			</div>
@@ -109,6 +117,13 @@ function addTask(text, checkedDB, index) {
 		</article>
 	`
 	document.getElementById('add-task').appendChild(div);
+	
+	if (checkedDB) {
+		document.querySelector(`[data-p="${index}"]`).setAttribute('style', 'text-decoration:line-through;');
+	}else {
+		document.querySelector(`[data-p="${index}"]`).removeAttribute('style');
+	}
+
 	idInputTask.value = ""
 }
 function tasksCreateLength(index) {
@@ -201,6 +216,7 @@ function updateDB() {
 
 
 	setHtml()
+	
 	// tasksCreateLength()
 	// checked()
 	// tasksCompleted()
