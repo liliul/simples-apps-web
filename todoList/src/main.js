@@ -16,9 +16,9 @@ let checkInputDB = [];
 function create() {
 	const pushDB = idInputTask.value;
 
-	db.push({ 'inputDB': pushDB, 'checkedDB': ''});
+	db.push({ 'inputDB': pushDB,'checkedDB': ''});
 	// addTask(db)
-	updateDB()
+	updateDB()	
 }
 
 function setHtml() {
@@ -27,16 +27,14 @@ function setHtml() {
 	db = JSON.parse(localStorage.getItem('todolist')) ?? []
 	console.log(db.length);
 	tasksCreateLength(db.length)
-	// db.forEach((d, index)=> {
-	// 	console.log('dd', d);
-	// 	if(d.checkedDB === '') {
-	// 		console.log('sim')
-	// 		tasksCompleted(--index)
-	// 	}else {
-	// 		console.log('nao')
-	// 		tasksCompleted(index)
-	// 	}
-	// })
+	
+	var counter=0
+	db.forEach(d => {
+		if(d.checkedDB === 'checked') {
+			console.log('ddd',)
+			tasksCompleted(counter++ + 1)
+		} else tasksCompleted(counter)
+	})
 	// if(db.length > 0) console.log('aaaaaaaaaaaaaaaa');
 	if(db.length === 0) {
 		console.log('text')
@@ -59,7 +57,7 @@ function setHtml() {
 		`
 	}
 	db.map((list, index) => {
-		addTask(list.inputDB, list.checkedDB, index)
+		addTask(list.inputDB, list.checkedDB , index)
 	})
 	
 }
@@ -141,8 +139,11 @@ function tasksCompleted(index) {
 	// localStorage.setItem('checkTaskDB', checkInputDB)
 	// let com = JSON.parse(localStorage.getItem('checkTaskDB'))
 	// document.querySelector('.completed-counter').innerText = com.length
-	document.querySelector('.completed-counter').innerText = index
-	
+	// db.forEach(l => {
+	// 	console.log('nn',l.checkedDB)
+	// 	document.querySelector('.completed-counter').innerText = l.checkedDB
+	// })
+	document.querySelector('.completed-counter').innerText= index; 
 }
 function checkboxUp(check, index) {
 	// const inputch = document.querySelector('.checked_input').dataset.input 
