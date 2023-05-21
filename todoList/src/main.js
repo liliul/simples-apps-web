@@ -16,7 +16,7 @@ let checkInputDB = [];
 function create() {
 	const pushDB = idInputTask.value;
 
-	db.push(pushDB);
+	db.push({ 'inputDB': pushDB, 'checkedDB': ''});
 	// addTask(db)
 	updateDB()
 }
@@ -27,6 +27,7 @@ function setHtml() {
 	db = JSON.parse(localStorage.getItem('todolist')) ?? []
 	console.log(db.length);
 	tasksCreateLength(db.length)
+	tasksCompleted(db.length)
 	
 	// if(db.length > 0) console.log('aaaaaaaaaaaaaaaa');
 	if(db.length === 0) {
@@ -50,7 +51,7 @@ function setHtml() {
 		`
 	}
 	db.map((list, index) => {
-		addTask(list, index)
+		addTask(list.inputDB, list.checkedDB, index)
 	})
 	
 }
@@ -82,14 +83,14 @@ function setHtml() {
 
 // }
 
-function addTask(text, index) {
+function addTask(text, checkedDB, index) {
 	
 	const div = document.createElement('div')
 		
 	div.innerHTML = `
 		<article class="tasks">
 			<div class="checked">
-				<input type="checkbox" class="checked_input" name="nameCheck" data-input=${index}>
+				<input type="checkbox" ${checkedDB} onchange="checkboxUp(this,${index})" class="checked_input" name="nameCheck" data-input=${index}>
 			</div>
 
 			<div class="tasks_text">
@@ -120,68 +121,76 @@ function tasksCreateLength(index) {
 	// 	console.log('local',value);
 	//   }
 }
-function tasksCompleted() {
+function tasksCompleted(index) {
 	// document.querySelector('.completed-counter').innerText = checkInputDB.length
 	// localStorage.setItem('checkTaskDB', checkInputDB)
-	let com = JSON.parse(localStorage.getItem('checkTaskDB'))
-	document.querySelector('.completed-counter').innerText = com.length
-
+	// let com = JSON.parse(localStorage.getItem('checkTaskDB'))
+	// document.querySelector('.completed-counter').innerText = com.length
+	document.querySelector('.completed-counter').innerText = index
+	
 }
-function checkboxUp() {
+function checkboxUp(check, index) {
 	// const inputch = document.querySelector('.checked_input').dataset.input 
 	// checkInputDB = JSON.parse(localStorage.getItem('checkTask'))
 	// inputch.
 
-}
-function checked() {
-	const checkTask = document.getElementsByName('nameCheck');
-	// const checkTask = document.querySelectorAll('data-input=""');
-	
-	console.log(checkTask);
-	for (let checkbox of checkTask) {
-		// checkbox.checked = true;
-		// console.log(checkInputDB.push(checkbox.getAttribute('data-input')))
-		// let box = checkbox.checked = true
-		// if(box) {
-		// 	console.log('box')
-		// 	checkInputDB.push('checked')
-		// 	document.querySelector('.tasks-p').setAttribute('style','text-decoration:line-through')
-		// 	// console.log(s);
-		// 	checkbox.setAttribute('checked','checked')
-		// }
-		// console.log('naa');
-
-		checkbox.addEventListener('change', () => {
-			if (checkbox.checked === true) {
-				console.log('sim');
-				checkInputDB.push('checked')
-				document.querySelector('.tasks-p').setAttribute('style', 'text-decoration:line-through')
-				// localStorage.setItem('checkTaskDB', JSON.stringify(checkInputDB))
-				
-				checkbox.setAttribute('checked', '')
-				tasksCompleted()
-			} else {
-				console.log('nao');
-				document.querySelector('.tasks-p').removeAttribute('style')
-				checkInputDB.pop('checked')
-
-				// localStorage.removeItem('checkTaskDB')
-				checkbox.removeAttribute('checked')
-				tasksCompleted()
-			}
-		})
+	if (check.checked) {
+		db[index].checkedDB = 'checked';
+	}else {
+		db[index].checkedDB = '';
 	}
 
-	// console.log(checkTask.checked = true);
-	// if(!checkTask.checked) {
-	// 	checkInputDB.push('checked');
-	// 	document.querySelector('.tasks-p').setAttribute('style','text-decoration:line-through')
-	// }else {
-	// 	// checkInputDB.push(false)
-	// 	// document.querySelector('.tasks-p').classList.remove('line')
-	// 	document.querySelector('.tasks-p').setAttribute('style','text-decoration:none')
-	// }
+	updateDB()
 }
+// function checked() {
+// 	const checkTask = document.getElementsByName('nameCheck');
+// 	// const checkTask = document.querySelectorAll('data-input=""');
+	
+// 	console.log(checkTask);
+// 	for (let checkbox of checkTask) {
+// 		// checkbox.checked = true;
+// 		// console.log(checkInputDB.push(checkbox.getAttribute('data-input')))
+// 		// let box = checkbox.checked = true
+// 		// if(box) {
+// 		// 	console.log('box')
+// 		// 	checkInputDB.push('checked')
+// 		// 	document.querySelector('.tasks-p').setAttribute('style','text-decoration:line-through')
+// 		// 	// console.log(s);
+// 		// 	checkbox.setAttribute('checked','checked')
+// 		// }
+// 		// console.log('naa');
+
+// 		checkbox.addEventListener('change', () => {
+// 			if (checkbox.checked === true) {
+// 				console.log('sim');
+// 				checkInputDB.push('checked')
+// 				document.querySelector('.tasks-p').setAttribute('style', 'text-decoration:line-through')
+// 				localStorage.setItem('checkTaskDB', JSON.stringify(checkInputDB))
+				
+// 				checkbox.setAttribute('checked', '')
+// 				tasksCompleted()
+// 			} else {
+// 				console.log('nao');
+// 				document.querySelector('.tasks-p').removeAttribute('style')
+// 				checkInputDB.pop('checked')
+
+// 				localStorage.removeItem('checkTaskDB')
+// 				checkbox.removeAttribute('checked')
+// 				tasksCompleted()
+// 			}
+// 		})
+// 	}
+
+// 	// console.log(checkTask.checked = true);
+// 	// if(!checkTask.checked) {
+// 	// 	checkInputDB.push('checked');
+// 	// 	document.querySelector('.tasks-p').setAttribute('style','text-decoration:line-through')
+// 	// }else {
+// 	// 	// checkInputDB.push(false)
+// 	// 	// document.querySelector('.tasks-p').classList.remove('line')
+// 	// 	document.querySelector('.tasks-p').setAttribute('style','text-decoration:none')
+// 	// }
+// }
 function deleteTask(index) {
 	db.splice(index, 1)
 	//create()
@@ -189,12 +198,11 @@ function deleteTask(index) {
 }
 function updateDB() {
 	localStorage.setItem('todolist', JSON.stringify(db))
-	localStorage.setItem('checkTaskDB', JSON.stringify(checkInputDB))
 
 
 	setHtml()
 	// tasksCreateLength()
-	checked()
+	// checked()
 	// tasksCompleted()
 }
 buttonTask.addEventListener('click', function () {
