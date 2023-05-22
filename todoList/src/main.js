@@ -140,6 +140,9 @@ function updateDB() {
 
 // butão que cria tarefa e atualiza dados
 buttonTask.addEventListener('click', function () {
+	
+	if(idInputTask.value == '') return
+	
 	create()
 	
 	updateDB()	
