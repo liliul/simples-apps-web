@@ -1,9 +1,12 @@
+// id no html
 const idInputTask = document.getElementById('idInputTask');
 const buttonTask = document.getElementById('button-task');
 
+// variaveis
 let db = [];
 let inputTask = idInputTask.value;
 
+// function adiciona no input e checked no banco de dados e atualiza 
 function create() {
 	const pushDB = idInputTask.value;
 
@@ -12,13 +15,18 @@ function create() {
 	updateDB()	
 }
 
+// funcão rederiza o html das tarefas 
 function setHtml() {
+	// limpa html
 	document.getElementById('add-task').innerHTML = '';
 	
+	// recuperando dados do localStorage
 	db = JSON.parse(localStorage.getItem('todolist')) ?? []
 	
+	// adicionando quantas tarefas foram criadas na fução contar tarefas criada
 	tasksCreateLength(db.length)
 	
+	// adicionar na fução taskCompleted quantas tarefas estão checadas
 	var counter=0
 	db.forEach(d => {
 		if(d.checkedDB === 'checked') {
@@ -26,6 +34,7 @@ function setHtml() {
 		} else tasksCompleted(counter)
 	})
 	
+	// verifica se o banco de dados esta zerado e rederiza html
 	if(db.length === 0) {
 		
 		document.getElementById('add-task').innerHTML = `
@@ -47,13 +56,16 @@ function setHtml() {
 		`
 	}
 
+	// renderizar as informações do banco de dados no html
 	db.map((list, index) => {
 		addTask(list.inputDB, list.checkedDB , index)
 	})	
 }
 
+// fução cria o html das tarefas
 function addTask(text, checkedDB, index) {
 	
+	// cria uma div com html das tarefas e adiciona no id add-task
 	const div = document.createElement('div')
 		
 	div.innerHTML = `
@@ -79,23 +91,28 @@ function addTask(text, checkedDB, index) {
 	`
 	document.getElementById('add-task').appendChild(div);
 	
+	// virifica se input:checkbox esta checado e adiciona style ou remove style
 	if (checkedDB) {
 		document.querySelector(`[data-p="${index}"]`).setAttribute('style', 'text-decoration:line-through;');
 	}else {
 		document.querySelector(`[data-p="${index}"]`).removeAttribute('style');
 	}
 
+	// limpa o input de cria tarefas
 	idInputTask.value = ""
 }
 
+// contador de quantas tarefas foram criadas
 function tasksCreateLength(index) {
 	document.getElementById('task-create').innerText = index
 }
 
+// contador de quantas tarefas estão checadas 
 function tasksCompleted(index) {
 	document.querySelector('.completed-counter').innerText= index; 
 }
 
+// se o input:checkbox foi selecionado. guarda ou remove do localStorage 
 function checkboxUp(check, index) {
 
 	if (check.checked) {
@@ -107,22 +124,26 @@ function checkboxUp(check, index) {
 	updateDB()
 }
 
+// remover tarefas e atualiza os dados
 function deleteTask(index) {
 	db.splice(index, 1)
 	
 	updateDB()
 }
 
+// atualizar os dados e html
 function updateDB() {
 	localStorage.setItem('todolist', JSON.stringify(db))
 
 	setHtml()
 }
 
+// butão que cria tarefa e atualiza dados
 buttonTask.addEventListener('click', function () {
 	create()
 	
 	updateDB()	
 })
 
+// se a tarefa foi criada mostra
 setHtml()
