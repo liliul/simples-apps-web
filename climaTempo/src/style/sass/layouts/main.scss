@@ -1,0 +1,57 @@
+
+
+.container {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    
+    gap: 10px;
+    padding: 2.5rem;
+
+    .week {
+        @extend %week;
+    }
+
+    @include tempNow(unset);      
+
+    @include airQuality(unset);
+
+    @include sunTime(unset);
+
+    @include weekWeather(unset);
+}
+
+
+@media screen and (min-width: 880px) {
+    .container {
+        max-width: 1366px;
+        max-height: 768px;
+        height: 768px;
+
+        display: grid;
+        grid-template-areas: 
+            "tempNow air sun"
+            "tempNow week week"
+        ;
+        
+        place-content: center center;
+        gap: 22px;
+        padding: 0px 132px;
+
+        margin: 0 auto;
+
+        .week {
+            @extend %week;
+        }
+
+       @include tempNow(tempNow);
+
+       @include airQuality(air);
+
+       @include sunTime(sun);
+
+       @include weekWeather(week);
+
+    }
+}

@@ -1,0 +1,698 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap");
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.dracula {
+  --img-bg: initial;
+  --img-bg-tempNow: initial;
+  --bg-color: #262626;
+  --bg-color-week: #282A36;
+  --shawdow-b-week: #9B6BDF;
+  --icon-head: #50FA7B;
+  --text-city: #E356A7;
+  --h1-temp: #F1FA8C;
+  --span-temp: #42E66C;
+  --p-temp: #E4F34A;
+  --bg-statistics: transparent;
+  --icon-statics: #EFA554;
+  --info-statics: #8BE9FD;
+  --span-info: #75D7EC;
+  --icon-air-sun: #50FA7B;
+  --head-air-sun: #E356A7;
+  --air-p-num: #42E66C;
+  --air-strong-info: #F1FA8C;
+  --icon-main-sun: #E64747;
+  --h3-days: #FFB86C;
+  --foo-p-days: #75D7EC;
+  --s-foo-days: #FF5555;
+}
+
+body.temaBlack {
+  --img-bg:initial;
+  --img-bg-tempNow: initial;
+  --blur-bg: filter: blur(20px);
+  --bg-color: #000000f3;
+  --bg-color-week: #212121;
+  --shawdow-b-week: initial;
+  --icon-head: #DAD8F7;
+  --text-city: #E7E6FB;
+  --h1-temp: #FFFFFF;
+  --span-temp: #DAD8F7;
+  --p-temp: #FFFFFF;
+  --bg-statistics: #07976c;
+  --icon-statics: white;
+  --info-statics: #FFFFFF;
+  --span-info: #DAD8F7;
+  --icon-air-sun: #DAD8F7;
+  --head-air-sun: #E7E6FB;
+  --air-p-num: #87EBCD;
+  --air-strong-info: #E7E6FB;
+  --icon-main-sun: white;
+  --h3-days: #DAD8F7;
+  --foo-p-days: #FFFFFF;
+  --s-foo-days:#DAD8F7;
+}
+
+body.massaRosa {
+  --img-bg: initial;
+  --img-bg-tempNow: initial;
+  --blur-bg: filter: blur(20px);
+  --bg-color: #ce7095 ;
+  --bg-color-week: #855e6e;
+  --shawdow-b-week: #f7f1e1;
+  --icon-head: #ffdbd7;
+  --text-city: #ffdbd7;
+  --h1-temp: #f7f1e1;
+  --span-temp: #f7f1e1;
+  --p-temp: #f7f1e1;
+  --bg-statistics: #ce7095;
+  --icon-statics: #ffdbd7;
+  --info-statics: #f7f1e1;
+  --span-info: #f7f1e1;
+  --icon-air-sun: #ffdbd7;
+  --head-air-sun: #ffdbd7;
+  --air-p-num: #ffb2c1;
+  --air-strong-info: #ce7095;
+  --icon-main-sun: #ffdbd7;
+  --h3-days: #ffb2c1;
+  --foo-p-days: #f7f1e1;
+  --s-foo-days:#ffdbd7;
+}
+
+body.sorvete {
+  --img-bg: initial;
+  --img-bg-tempNow: initial;
+  --blur-bg: filter: blur(20px);
+  --bg-color: #E7E6FB;
+  --bg-color-week: #05a1ad;
+  --shawdow-b-week: initial;
+  --icon-head: #4e031e;
+  --text-city: #5a4c6e;
+  --h1-temp: #5a4c6e;
+  --span-temp: #5d2d4e;
+  --p-temp: #5a4c6e;
+  --bg-statistics: #447390;
+  --icon-statics: #5d2d4e;
+  --info-statics: #4e031e;
+  --span-info: #4e031e;
+  --icon-air-sun: #4e031e;
+  --head-air-sun: #5a4c6e;
+  --air-p-num: #4e031e;
+  --air-strong-info: #5a4c6e;
+  --icon-main-sun: #4e031e;
+  --h3-days: #5d2d4e;
+  --foo-p-days: #4e031e;
+  --s-foo-days:#5a4c6e;
+}
+
+body.geleia {
+  --img-bg: url("../../assets/Background.png");
+  --img-bg-tempNow: initial;
+  --blur-bg: filter: blur(20px);
+  --bg-color: #6D67D0;
+  --bg-color-week: #ef3353;
+  --shawdow-b-week: #f4b036;
+  --img-nuvem-tempNow: initial;
+  --icon-head: #f4b036;
+  --text-city: #f4b036;
+  --h1-temp: #723e4e;
+  --span-temp: #b03851;
+  --p-temp: #723e4e;
+  --bg-statistics: #f4b036;
+  --icon-statics: #b03851;
+  --info-statics: #b03851;
+  --span-info: ;
+  --icon-air-sun: #f4b036;
+  --head-air-sun: #f4b036;
+  --air-p-num: #f17144;
+  --air-strong-info: #723e4e;
+  --icon-main-sun: #f4b036;
+  --h3-days: #723e4e;
+  --foo-p-days: #f4b036;
+  --s-foo-days:#f17144;
+}
+
+:root {
+  --img-bg: url("../../assets/Background.png");
+  --img-bg-tempNow: url("../../assets/bgnuvem.jpg");
+  --blur-bg: filter: blur(20px);
+  --bg-color: initial;
+  --bg-color-week: #6D67D0;
+  --shawdow-b-week: initial;
+  --img-nuvem-tempNow: url("../../assets/nuvens.svg");
+  --icon-head: #9D99E4;
+  --text-city: #C2BFF4;
+  --h1-temp: #FFFFFF;
+  --span-temp: #DAD8F7;
+  --p-temp: #FFFFFF;
+  --bg-statistics: rgba(102, 96, 200, 0.6);
+  --icon-statics: white;
+  --info-statics: #FFFFFF;
+  --span-info: #DAD8F7;
+  --icon-air-sun: #DAD8F7;
+  --head-air-sun: #E7E6FB;
+  --air-p-num: #87EBCD;
+  --air-strong-info: #E7E6FB;
+  --icon-main-sun: white;
+  --h3-days: #DAD8F7;
+  --foo-p-days: #FFFFFF;
+  --s-foo-days:#DAD8F7;
+}
+
+body {
+  background-image: var(--img-bg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  background-color: var(--bg-color);
+}
+
+.selectTheme {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 2.2rem;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+.selectTheme .iconTheme {
+  width: 22px;
+  height: 22px;
+}
+.selectTheme #select {
+  height: 100%;
+  background-color: #212121;
+  color: #DDD;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-family: "Fira Code", monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 3px 3px;
+}
+.selectTheme #select option {
+  font-family: "Fira Code", monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 3px 0px;
+  border: none;
+  outline: none;
+}
+
+.container .week {
+  background-color: var(--bg-color-week);
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px var(--shawdow-b-week);
+}
+
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  padding: 2.5rem;
+}
+.container .tempNow {
+  height: 480px;
+  grid-area: unset;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: var(--img-bg-tempNow);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+.container .tempNow .head-tempNow {
+  width: 100%;
+  height: 80px;
+  position: relative;
+}
+.container .tempNow .head-tempNow .nuvens {
+  width: 176px;
+  height: 176px;
+  background-image: var(--img-nuvem-tempNow);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: -56px;
+  left: -56px;
+}
+.container .tempNow .head-tempNow .city {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  top: 33px;
+  right: 32px;
+}
+.container .tempNow .head-tempNow .city .icon-city svg path {
+  fill: var(--icon-head);
+}
+.container .tempNow .head-tempNow .city .text-city {
+  color: var(--text-city);
+  font-family: "Fira Code", monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.container .tempNow .main-tempNow {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.container .tempNow .main-tempNow .temperature {
+  margin-top: -6rem;
+}
+.container .tempNow .main-tempNow .temperature .div-temperature {
+  width: 10.3rem;
+  height: 10.6rem;
+}
+.container .tempNow .main-tempNow .temperature .div-temperature .h1-temp {
+  color: var(--h1-temp);
+  margin: 0;
+  padding: 0;
+  font-family: "Fira Code", monospace;
+  font-weight: 700;
+  font-size: 8.8rem;
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+}
+.container .tempNow .main-tempNow .temperature .div-temperature .h1-temp .span-temp {
+  color: var(--span-temp);
+  font-family: "Fira Code", monospace;
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+.container .tempNow .main-tempNow .temperature .p-temp {
+  color: var(--p-temp);
+  font-family: "Fira Code", monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2rem;
+  text-align: center;
+}
+.container .tempNow .foo-tempNow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+.container .tempNow .foo-tempNow .statistics {
+  background-color: var(--bg-statistics);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+.container .tempNow .foo-tempNow .statistics .icon-statics svg path {
+  fill: var(--icon-statics);
+}
+.container .tempNow .foo-tempNow .statistics .info-statics {
+  color: var(--info-statics);
+  font-family: "Fira Code", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+}
+.container .tempNow .foo-tempNow .statistics .info-statics span {
+  color: var(--info-span);
+}
+.container .airQuality {
+  grid-area: unset;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .airQuality .head-air {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3.4rem;
+}
+.container .airQuality .head-air .icon-air svg path {
+  fill: var(--icon-air-sun);
+}
+.container .airQuality .head-air .h2-air {
+  font-family: "Fira Code", monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--head-air-sun);
+}
+.container .airQuality .main-air {
+  margin-top: -1.2rem;
+}
+.container .airQuality .main-air .p-main-air {
+  font-family: "Fira Code", monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--air-p-num);
+}
+.container .airQuality .main-air .stg-main-air {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 4rem;
+  color: var(--air-strong-info);
+}
+.container .airQuality .numbers-air {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.container .airQuality .numbers-air .info-num {
+  margin-bottom: 1rem;
+}
+.container .airQuality .numbers-air .info-num .p-info-num {
+  font-family: "Fira Code", monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--air-p-num);
+}
+.container .airQuality .numbers-air .info-num .span-info-num {
+  text-align: center;
+  color: var(--air-strong-info);
+  font-family: "Fira Code", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+}
+.container .sunTime {
+  grid-area: unset;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .sunTime .head-sun {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3.4rem;
+}
+.container .sunTime .head-sun .icon-sun svg path {
+  fill: var(--icon-air-sun);
+}
+.container .sunTime .head-sun .h2-sun {
+  font-family: "Fira Code", monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--head-air-sun);
+}
+.container .sunTime .main-sun {
+  margin-bottom: 1rem;
+}
+.container .sunTime .main-sun svg .icon-main-sun {
+  fill: var(--icon-main-sun);
+}
+.container .weekWeather {
+  grid-area: unset;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  place-items: center;
+}
+.container .weekWeather .days {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .weekWeather .days .h-days .h3-days {
+  font-family: "Fira Code", monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--h3-days);
+}
+.container .weekWeather .days .foo-days .foo-p-days {
+  font-family: "Fira Code", monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--foo-p-days);
+}
+.container .weekWeather .days .foo-days .foo-p-days .s-foo-days {
+  font-family: "Fira Code", monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--s-foo-days);
+}
+
+@media screen and (min-width: 880px) {
+  .container {
+    max-width: 1366px;
+    max-height: 768px;
+    height: 768px;
+    display: grid;
+    grid-template-areas: "tempNow air sun" "tempNow week week";
+    place-content: center center;
+    gap: 22px;
+    padding: 0px 132px;
+    margin: 0 auto;
+  }
+  .container .tempNow {
+    height: 480px;
+    grid-area: tempNow;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: var(--img-bg-tempNow);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+  }
+  .container .tempNow .head-tempNow {
+    width: 100%;
+    height: 80px;
+    position: relative;
+  }
+  .container .tempNow .head-tempNow .nuvens {
+    width: 176px;
+    height: 176px;
+    background-image: var(--img-nuvem-tempNow);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: -56px;
+    left: -56px;
+  }
+  .container .tempNow .head-tempNow .city {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    top: 33px;
+    right: 32px;
+  }
+  .container .tempNow .head-tempNow .city .icon-city svg path {
+    fill: var(--icon-head);
+  }
+  .container .tempNow .head-tempNow .city .text-city {
+    color: var(--text-city);
+    font-family: "Fira Code", monospace;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  .container .tempNow .main-tempNow {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .container .tempNow .main-tempNow .temperature {
+    margin-top: -6rem;
+  }
+  .container .tempNow .main-tempNow .temperature .div-temperature {
+    width: 10.3rem;
+    height: 10.6rem;
+  }
+  .container .tempNow .main-tempNow .temperature .div-temperature .h1-temp {
+    color: var(--h1-temp);
+    margin: 0;
+    padding: 0;
+    font-family: "Fira Code", monospace;
+    font-weight: 700;
+    font-size: 8.8rem;
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+  }
+  .container .tempNow .main-tempNow .temperature .div-temperature .h1-temp .span-temp {
+    color: var(--span-temp);
+    font-family: "Fira Code", monospace;
+    font-weight: 700;
+    font-size: 2.4rem;
+  }
+  .container .tempNow .main-tempNow .temperature .p-temp {
+    color: var(--p-temp);
+    font-family: "Fira Code", monospace;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    text-align: center;
+  }
+  .container .tempNow .foo-tempNow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .container .tempNow .foo-tempNow .statistics {
+    background-color: var(--bg-statistics);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .container .tempNow .foo-tempNow .statistics .icon-statics svg path {
+    fill: var(--icon-statics);
+  }
+  .container .tempNow .foo-tempNow .statistics .info-statics {
+    color: var(--info-statics);
+    font-family: "Fira Code", monospace;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  .container .tempNow .foo-tempNow .statistics .info-statics span {
+    color: var(--info-span);
+  }
+  .container .airQuality {
+    grid-area: air;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .container .airQuality .head-air {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3.4rem;
+  }
+  .container .airQuality .head-air .icon-air svg path {
+    fill: var(--icon-air-sun);
+  }
+  .container .airQuality .head-air .h2-air {
+    font-family: "Fira Code", monospace;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--head-air-sun);
+  }
+  .container .airQuality .main-air {
+    margin-top: -1.2rem;
+  }
+  .container .airQuality .main-air .p-main-air {
+    font-family: "Fira Code", monospace;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--air-p-num);
+  }
+  .container .airQuality .main-air .stg-main-air {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4rem;
+    color: var(--air-strong-info);
+  }
+  .container .airQuality .numbers-air {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .container .airQuality .numbers-air .info-num {
+    margin-bottom: 1rem;
+  }
+  .container .airQuality .numbers-air .info-num .p-info-num {
+    font-family: "Fira Code", monospace;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--air-p-num);
+  }
+  .container .airQuality .numbers-air .info-num .span-info-num {
+    text-align: center;
+    color: var(--air-strong-info);
+    font-family: "Fira Code", monospace;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  .container .sunTime {
+    grid-area: sun;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .container .sunTime .head-sun {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3.4rem;
+  }
+  .container .sunTime .head-sun .icon-sun svg path {
+    fill: var(--icon-air-sun);
+  }
+  .container .sunTime .head-sun .h2-sun {
+    font-family: "Fira Code", monospace;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--head-air-sun);
+  }
+  .container .sunTime .main-sun {
+    margin-bottom: 1rem;
+  }
+  .container .sunTime .main-sun svg .icon-main-sun {
+    fill: var(--icon-main-sun);
+  }
+  .container .weekWeather {
+    grid-area: week;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    place-items: center;
+  }
+  .container .weekWeather .days {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .container .weekWeather .days .h-days .h3-days {
+    font-family: "Fira Code", monospace;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--h3-days);
+  }
+  .container .weekWeather .days .foo-days .foo-p-days {
+    font-family: "Fira Code", monospace;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--foo-p-days);
+  }
+  .container .weekWeather .days .foo-days .foo-p-days .s-foo-days {
+    font-family: "Fira Code", monospace;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--s-foo-days);
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
