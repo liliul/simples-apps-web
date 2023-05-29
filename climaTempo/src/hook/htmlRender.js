@@ -1,4 +1,4 @@
-import { kelvinCelsius } from './utils.js';
+import { kelvinCelsius, visibility } from './utils.js';
 
 export function tempNow(res) {
     const cityLocate = document.getElementById('cityLocate');
@@ -39,3 +39,8 @@ export function tempNow(res) {
 //   windSpeed.textContent = wind + 'km/h';
 // }
 
+export function airQuality(res) {
+    const visible = document.getElementById('visible')
+
+    visible.textContent = visibility(res.visibility);
+}

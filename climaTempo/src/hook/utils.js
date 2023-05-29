@@ -5,3 +5,7 @@ export function kelvinCelsius(tempDay) {
     // return resTemp, resMax, resMin;
     return tempDay - 273.15
 }
+
+export function visibility(visible) {
+    return visible / 1000;
+}
