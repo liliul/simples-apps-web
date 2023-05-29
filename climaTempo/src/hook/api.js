@@ -5,13 +5,18 @@
 
 import { TOKEN_API_OPEN_WEATHER, URL_API_OPEN_WEATHER, APPID_TOKEN, LANG } from './token.js';
 
-const city = 'urubici';
+import { tempNow, airQuality, sunTime } from './htmlRender.js';
+
+const city = 'tokio';
 const lang = 'pt_br';
 
 async function getApi() {
   const req = await fetch(`${URL_API_OPEN_WEATHER}${city}${APPID_TOKEN}${TOKEN_API_OPEN_WEATHER}${LANG}${lang}`)
   const res = await req.json()
-  
   console.log(res)
+
+  tempNow(res)
+  airQuality(res)
+  sunTime(res)
 }
 getApi()
