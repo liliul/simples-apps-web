@@ -44,3 +44,33 @@ export function airQuality(res) {
 
     visible.textContent = visibility(res.visibility);
 }
+
+const sttleDivCoords = `display:flex;align-items:center;gap:10px;`
+const styleCoords = `
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: white;
+`
+const stylePCoords = `
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color:#dad8f7;
+`
+
+export function sunTime(res) {
+    const coords = document.getElementById('coordenadas');
+
+    coords.innerHTML = `
+        <div style="${sttleDivCoords}">
+            <strong style="${styleCoords}">Latitude: </strong> 
+            <p style="${stylePCoords}">${res.coord.lat}</p>
+        </div>
+
+        <div style="${sttleDivCoords}">
+            <strong style="${styleCoords}">Longitude: </strong> 
+            <p style="${stylePCoords}">${res.coord.lon}</p>
+        </div>
+    `
+} 
