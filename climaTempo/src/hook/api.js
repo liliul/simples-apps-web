@@ -5,7 +5,7 @@
 
 import { TOKEN_API_OPEN_WEATHER, URL_API_OPEN_WEATHER, APPID_TOKEN, LANG } from './token.js';
 
-import { tempNow, airQuality, sunTime, weather } from './htmlRender.js';
+import { tempNow, airQuality, visible ,sunTime, weather } from './htmlRender.js';
 
 const city = 'curitiba';
 const lang = 'pt_br';
@@ -16,6 +16,7 @@ async function getApi() {
   // console.log(res)
 
   tempNow(res)
+  visible(res)
   sunTime(res)
   weather(res)
 }

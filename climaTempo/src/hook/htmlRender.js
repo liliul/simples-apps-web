@@ -77,6 +77,17 @@ export function airQuality(res) {
     `
 }
 
+export function visible(res) {
+    const visible = document.getElementById('visible')
+
+    visible.innerHTML = `
+        <div>
+            <h1>${visibility(res.visibility)}</h1>
+            <b>km/h</b>
+        </div>
+    `
+}
+    
 
 export function sunTime(res) {
     const coords = document.getElementById('coordenadas');
