@@ -93,3 +93,9 @@ export function weather(res) {
         </footer>
     `
 }
+
+export function searchCity(res) {
+    const inputSearchCity  = document.getElementById('input-search-city');
+    const buttonSearchCity = document.getElementById('button-search-city');
+
+}
