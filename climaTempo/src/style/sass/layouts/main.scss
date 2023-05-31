@@ -31,8 +31,9 @@
 
         display: grid;
         grid-template-areas: 
-            "tempNow air sun"
-            "tempNow week week"
+            "tempNow air ar"
+            "tempNow visible sun"
+            "week week week"
         ;
         
         place-content: center center;
