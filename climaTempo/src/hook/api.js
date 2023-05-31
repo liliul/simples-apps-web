@@ -18,7 +18,6 @@ async function getApi() {
   tempNow(res)
   visible(res)
   sunTime(res)
-  weather(res)
 }
 getApi()
 
@@ -33,12 +32,13 @@ async function getApiAirQuality() {
 getApiAirQuality()
 
 async function getApiDaysTemp() {
-  const req = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=curitiba&appid=9033de8545dfa66184beaa29576f414b&units=metric&lang=pt_br`)
+  const req = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=curitiba&cnt=8&appid=9033de8545dfa66184beaa29576f414b&units=metric&lang=pt_br`)
   const res = await req.json();
 
   console.log(res)
+  weather(res)
 }
-// getApiDaysTemp()
+getApiDaysTemp()
 
 
 

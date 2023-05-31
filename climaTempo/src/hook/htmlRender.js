@@ -122,17 +122,24 @@ const stylePCoords = `
 export function weather(res) {
     const weather = document.getElementById('weather');
 
-    weather.innerHTML = `
-        <header class="h-days">
-        <h3 class="h3-days">${res.weather[0].main}</h3>
-        </header>
+    res.list.map((list) => {
+        console.log(list);
+        const article = document.createElement('article');
+        article.classList.add('days');
 
-        <section class="main-days">
-            <img src="https://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png" />                      
-        </section>
+        article.innerHTML = `
+            <header class="h-days">
+            <h3 class="h3-days">${list.weather[0].description}</h3>
+            </header>
 
-        <footer class="foo-days">
-            <p class="foo-p-days"><span class="s-foo-days">${res.weather[0].description}</span></p>
-        </footer>
-    `
+            <section class="main-days">
+                <img src="https://openweathermap.org/img/wn/${list.weather[0].icon}@2x.png" />                      
+            </section>
+
+            <footer class="foo-days">
+                <p class="foo-p-days">${list.main.temp_max} <span class="s-foo-days">${list.main.temp_min}</span></p>
+            </footer>
+        `
+        weather.append(article);
+    })
 }
