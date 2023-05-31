@@ -1,4 +1,4 @@
-import { kelvinCelsius, visibility } from './utils.js';
+import { kelvinCelsius, visibility, byId, timeStamp } from './utils.js';
 
 export function tempNow(res) {
     const cityLocate = document.getElementById('cityLocate');
@@ -10,7 +10,7 @@ export function tempNow(res) {
     cityLocate.textContent = res.name +' '+ res.sys.country;
     temp.innerHTML = `
       <h1 id="temp" class="h1-temp">
-        ${kelvinCelsius(res.main.temp).toFixed(0)}
+        ${kelvinCelsius(res.main.feels_like).toFixed(0)}
         <span class="span-temp">°C</span>
       </h1>
     `
@@ -40,9 +40,41 @@ export function tempNow(res) {
 // }
 
 export function airQuality(res) {
-    const visible = document.getElementById('visible')
+    const airAqi = document.getElementById('air-aqi');
+    airAqi.textContent = res.list[0].main.aqi;
 
-    visible.textContent = visibility(res.visibility);
+    const airComponents = byId('air-components');
+    airComponents.innerHTML = `
+        <div class="info-num">
+            <p class="p-info-num">${res.list[0].components.pm2_5}</p>
+
+            <span class="span-info-num">PM2.5</span>
+        </div>
+
+        <div class="info-num">
+            <p class="p-info-num">${res.list[0].components.co}</p>
+
+            <span class="span-info-num">CO</span>
+        </div>
+
+        <div class="info-num">
+            <p class="p-info-num">${res.list[0].components.so2}</p>
+
+            <span class="span-info-num">SO2</span>
+        </div>
+
+        <div class="info-num">
+            <p class="p-info-num">${res.list[0].components.pm10}</p>
+
+            <span class="span-info-num">PM10</span>
+        </div>
+
+        <div class="info-num">
+            <p class="p-info-num">${res.list[0].components.o3}</p>
+
+            <span class="span-info-num">O₃</span>
+        </div>    
+    `
 }
 
 
@@ -51,13 +83,13 @@ export function sunTime(res) {
 
     coords.innerHTML = `
         <div style="${sttleDivCoords}">
-            <strong style="${styleCoords}">Latitude: </strong> 
-            <p style="${stylePCoords}">${res.coord.lat}</p>
+            <strong style="${styleCoords}">Nacer do sol: </strong> 
+            <p style="${stylePCoords}">${timeStamp(res.sys.sunrise)} Am</p>
         </div>
 
         <div style="${sttleDivCoords}">
-            <strong style="${styleCoords}">Longitude: </strong> 
-            <p style="${stylePCoords}">${res.coord.lon}</p>
+            <strong style="${styleCoords}">Pôr do sol: </strong> 
+            <p style="${stylePCoords}">${timeStamp(res.sys.sunset)} Tr</p>
         </div>
     `
 } 
@@ -92,10 +124,4 @@ export function weather(res) {
             <p class="foo-p-days"><span class="s-foo-days">${res.weather[0].description}</span></p>
         </footer>
     `
-}
-
-export function searchCity(res) {
-    const inputSearchCity  = document.getElementById('input-search-city');
-    const buttonSearchCity = document.getElementById('button-search-city');
-
 }

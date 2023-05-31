@@ -1,11 +1,15 @@
+export function byId(id){
+    return document.getElementById(id)
+}
+
 export function kelvinCelsius(tempDay) {
-    // const resTemp = tempDay - 273.15
-    // const resMax  = tempMax - 273.15
-    // const resMin  = tempMin - 273.15
-    // return resTemp, resMax, resMin;
     return tempDay - 273.15
 }
 
 export function visibility(visible) {
     return visible / 1000;
+}
+
+export function timeStamp(codigo) {
+    return new Date(codigo * 1000).getHours();
 }
