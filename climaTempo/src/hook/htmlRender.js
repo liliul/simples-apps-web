@@ -138,6 +138,7 @@ export function weather(res) {
 
             <footer class="foo-days">
                 <p class="foo-p-days">${list.main.temp_max.toFixed()}° <span class="s-foo-days">${list.main.temp_min.toFixed()}°</span></p>
+                <small>${list.dt_txt}</small>
             </footer>
         `
         weather.append(article);
