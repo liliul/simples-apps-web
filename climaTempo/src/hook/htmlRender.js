@@ -77,6 +77,14 @@ export function airQuality(res) {
     `
 }
 
+export function openWeatherMap(res) {
+    const maps = byId('openWeather-maps');
+
+    maps.innerHTML = `
+        <img width='100%' height='auto'style='overflow:hidden;border-radius:10px;' src="https://tile.openweathermap.org/map/temp_new/1/${res.message}/${res.message}.png?appid=9033de8545dfa66184beaa29576f414b&lang=pt_br" />
+    `
+} 
+
 export function visible(res) {
     const visible = document.getElementById('visible')
 
