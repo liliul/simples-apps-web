@@ -82,7 +82,7 @@ export function visible(res) {
 
     visible.innerHTML = `
         <div>
-            <h1>${visibility(res.visibility)}</h1>
+            <h1>${visibility(res.visibility).toFixed(0)}</h1>
             <b>km/h</b>
         </div>
     `
@@ -137,7 +137,7 @@ export function weather(res) {
             </section>
 
             <footer class="foo-days">
-                <p class="foo-p-days">${list.main.temp_max} <span class="s-foo-days">${list.main.temp_min}</span></p>
+                <p class="foo-p-days">${list.main.temp_max.toFixed()}° <span class="s-foo-days">${list.main.temp_min.toFixed()}°</span></p>
             </footer>
         `
         weather.append(article);
