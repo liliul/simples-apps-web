@@ -77,12 +77,28 @@ export function airQuality(res) {
     `
 }
 
-export function openWeatherMap(res) {
-    const maps = byId('openWeather-maps');
+export async function openWeatherMap(res) {
+    // const maps = byId('openWeather-maps');
 
-    maps.innerHTML = `
-        <img width='100%' height='auto'style='overflow:hidden;border-radius:10px;' src="https://tile.openweathermap.org/map/temp_new/1/${res.message}/${res.message}.png?appid=9033de8545dfa66184beaa29576f414b&lang=pt_br" />
-    `
+    // maps.innerHTML = `
+    //     <img width='100%' height='211px'style='overflow:hidden;border-radius:10px;' src="https://tile.openweathermap.org/map/temp_new/4/${res.message}/5.png?appid=9033de8545dfa66184beaa29576f414b&lang=pt_br" />
+    // `
+
+
+    // maps.innerHTML = `
+    // <img src="http://maps.googleapis.com/maps/api/staticmap?center=${res.coord.lat},${res.coord.lon}&zoom=11&size=211x211">
+    // `
+
+    var map = L.map('openWeather-maps').setView([res.coord.lat,res.coord.lon], 10);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker([res.coord.lat,res.coord.lon]).addTo(map)
+        .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+        .openPopup();
+ 
 } 
 
 export function visible(res) {
@@ -131,7 +147,7 @@ export function weather(res) {
     const weather = document.getElementById('weather');
 
     res.list.map((list) => {
-        console.log(list);
+        // console.log(list);
         const article = document.createElement('article');
         article.classList.add('days');
 

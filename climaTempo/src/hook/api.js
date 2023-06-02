@@ -13,11 +13,14 @@ const lang = 'pt_br';
 async function getApi() {
   const req = await fetch(`${URL_API_OPEN_WEATHER}${city}${APPID_TOKEN}${TOKEN_API_OPEN_WEATHER}${LANG}${lang}`)
   const res = await req.json()
-  // console.log(res)
+  console.log(res)
 
   tempNow(res)
   visible(res)
   sunTime(res)
+
+  openWeatherMap(res)
+
 }
 getApi()
 
@@ -35,9 +38,8 @@ async function getApiDaysTemp() {
   const req = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=curitiba&cnt=8&appid=9033de8545dfa66184beaa29576f414b&units=metric&lang=pt_br`)
   const res = await req.json();
 
-  console.log(res)
+  // console.log(res)
   weather(res)
-  openWeatherMap(res)
 }
 getApiDaysTemp()
 
