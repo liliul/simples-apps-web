@@ -96,8 +96,8 @@ export async function openWeatherMap(res) {
     }).addTo(map);
 
     L.marker([res.coord.lat,res.coord.lon]).addTo(map)
-        .bindPopup('A pretty CSS popup.<br> Easily customizable.')
-        .openPopup();
+        // .bindPopup('')
+        // .openPopup();
  
 } 
 
