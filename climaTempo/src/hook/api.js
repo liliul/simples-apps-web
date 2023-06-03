@@ -3,7 +3,13 @@
 //  https://home.openweathermap.org/api_keys
 //  romero ark sirome4179@farebus.com senha:romero1234?
 
-import { TOKEN_API_OPEN_WEATHER, URL_API_OPEN_WEATHER, APPID_TOKEN, LANG } from './token.js';
+import { 
+  TOKEN_API_OPEN_WEATHER, 
+  URL_API_OPEN_WEATHER, 
+  APPID_TOKEN,
+  LANG,
+  URL_AR, 
+} from './token.js';
 
 import { tempNow, airQuality, visible ,sunTime, weather, openWeatherMap } from './htmlRender.js';
 
@@ -21,18 +27,20 @@ async function getApi() {
 
   openWeatherMap(res)
 
+  getApiAirQuality(res.coord.lat,res.coord.lon,res.sys.sunrise,res.sys.sunset)
+
 }
 getApi()
 
-async function getApiAirQuality() {
-  const req = fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=-25.504&lon=-49.2908&start=1685526909&end=1685565289&appid=9033de8545dfa66184beaa29576f414b&lang=pt_br`);
+async function getApiAirQuality(lat, lon,sunrise,sunset) {
+  const req = fetch(`${URL_AR}lat=${lat}&lon=${lon}&start=${sunrise}&end=${sunset}${APPID_TOKEN}${TOKEN_API_OPEN_WEATHER}&lang=${lang}`);
   const res = await (await req).json();
 
   // console.log(res);
 
   airQuality(res)
 }
-getApiAirQuality()
+//getApiAirQuality()
 
 async function getApiDaysTemp() {
   const req = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=curitiba&cnt=8&appid=9033de8545dfa66184beaa29576f414b&units=metric&lang=pt_br`)
