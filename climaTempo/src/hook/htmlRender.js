@@ -177,7 +177,7 @@ export function weather(res) {
             </header>
 
             <section class="main-days">
-                <img src="https://openweathermap.org/img/wn/${list.weather[0].icon}@2x.png" />                      
+                <img src="./src/assets/iconsTemp/${list.weather[0].icon}.svg" />                      
             </section>
 
             <footer class="foo-days">
@@ -187,4 +187,8 @@ export function weather(res) {
         `
         weather.append(article);
     })
+
+    // <section class="main-days">
+    //             <img src="https://openweathermap.org/img/wn/${list.weather[0].icon}@2x.png" />                      
+    //         </section>
 }
