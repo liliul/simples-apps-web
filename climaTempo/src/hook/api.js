@@ -17,7 +17,17 @@ import { tempNow, airQuality, visible ,sunTime, weather, openWeatherMap } from '
 const city = 'curitiba';
 const lang = 'pt_br';
 
-async function getApi() {
+const inputSearchCity  = document.getElementById('input-search-city');
+const buttonSearchCity = document.getElementById('button-search-city');
+
+buttonSearchCity.addEventListener('click', searchCity);
+
+function searchCity() {
+  getApi(inputSearchCity.value)
+  getApiDaysTemp(inputSearchCity.value)
+}
+
+async function getApi(city) {
   const req = await fetch(`${URL_API_OPEN_WEATHER}${city}${APPID_TOKEN}${TOKEN_API_OPEN_WEATHER}${LANG}${lang}`)
   const res = await req.json()
   console.log(res)
@@ -31,7 +41,7 @@ async function getApi() {
   getApiAirQuality(res.coord.lat,res.coord.lon,res.sys.sunrise,res.sys.sunset)
 
 }
-getApi()
+// getApi(city)
 
 async function getApiAirQuality(lat, lon,sunrise,sunset) {
   const req = fetch(`${URL_AR}lat=${lat}&lon=${lon}&start=${sunrise}&end=${sunset}${APPID_TOKEN}${TOKEN_API_OPEN_WEATHER}&lang=${lang}`);
@@ -50,12 +60,4 @@ async function getApiDaysTemp(city) {
   // console.log(res)
   weather(res)
 }
-getApiDaysTemp('curitiba')
-
-
-
-function searchCity(res) {
-  const inputSearchCity  = document.getElementById('input-search-city');
-  const buttonSearchCity = document.getElementById('button-search-city');
-
-}
+// getApiDaysTemp('curitiba')
