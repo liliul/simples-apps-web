@@ -9,6 +9,7 @@ import {
   APPID_TOKEN,
   LANG,
   URL_AR, 
+  URL_FORECAST
 } from './token.js';
 
 import { tempNow, airQuality, visible ,sunTime, weather, openWeatherMap } from './htmlRender.js';
@@ -42,14 +43,14 @@ async function getApiAirQuality(lat, lon,sunrise,sunset) {
 }
 //getApiAirQuality()
 
-async function getApiDaysTemp() {
-  const req = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=curitiba&cnt=8&appid=9033de8545dfa66184beaa29576f414b&units=metric&lang=pt_br`)
+async function getApiDaysTemp(city) {
+  const req = await fetch(`${URL_FORECAST}${city}&cnt=8&appid=${TOKEN_API_OPEN_WEATHER}&units=metric&lang=${lang}`);
   const res = await req.json();
 
   // console.log(res)
   weather(res)
 }
-getApiDaysTemp()
+getApiDaysTemp('curitiba')
 
 
 
