@@ -25,6 +25,7 @@ buttonSearchCity.addEventListener('click', searchCity);
 function searchCity() {
   getApi(inputSearchCity.value)
   getApiDaysTemp(inputSearchCity.value)
+  inputSearchCity.value = ""
 }
 
 async function getApi(city) {

@@ -78,7 +78,6 @@ export function airQuality(res) {
 }
 
 export async function openWeatherMap(res) {
-    // const maps = byId('openWeather-maps');
 
     // maps.innerHTML = `
     //     <img width='100%' height='211px'style='overflow:hidden;border-radius:10px;' src="https://tile.openweathermap.org/map/temp_new/4/${res.message}/5.png?appid=9033de8545dfa66184beaa29576f414b&lang=pt_br" />
@@ -165,7 +164,7 @@ const stylePCoords = `
 
 export function weather(res) {
     const weather = document.getElementById('weather');
-
+    weather.innerHTML=""
     res.list.map((list) => {
         // console.log(list);
         const article = document.createElement('article');
