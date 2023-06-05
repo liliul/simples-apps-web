@@ -11,5 +11,9 @@ export function visibility(visible) {
 }
 
 export function timeStamp(codigo) {
-    return new Date(codigo * 1000).getHours();
+    const data = new Date(codigo * 1000);
+    const h = data.getHours()
+    const m = data.getMinutes()
+
+    return `${h}:${m}`
 }
