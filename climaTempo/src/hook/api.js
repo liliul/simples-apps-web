@@ -21,6 +21,12 @@ const inputSearchCity  = document.getElementById('input-search-city');
 const buttonSearchCity = document.getElementById('button-search-city');
 
 buttonSearchCity.addEventListener('click', searchCity);
+inputSearchCity.addEventListener('keydown', (e) => {
+  
+  if(e.key === "Enter") {
+    searchCity()
+  }
+})
 
 function searchCity() {
   getApi(inputSearchCity.value)
