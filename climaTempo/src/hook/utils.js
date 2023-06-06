@@ -11,11 +11,10 @@ export function visibility(visible) {
 }
 
 export function timeStamp(codigo, timezone) {
-    const data = new Date((timezone + codigo) *1000).toUTCString();
+    const data = new Date((timezone + codigo) *1000);
     
-    // const h = data.getHours()
-    // const m = data.getMinutes()
-
-    // return `${h}:${m}`
-    return data
+    const h = data.getUTCHours();
+    const m = data.getUTCMinutes();
+    
+    return `${h}:${m}`;
 }
