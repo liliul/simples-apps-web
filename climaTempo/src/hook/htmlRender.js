@@ -136,12 +136,12 @@ export function sunTime(res) {
 
         <section style="${sectionTime}">
             <div style="${sttleDivCoords}">
-                <strong style="${styleCoords}">${timeStamp(res.sys.sunrise)}</strong> 
+                <strong style="${styleCoords}">${timeStamp(res.sys.sunrise, res.timezone)}</strong> 
                 <small style="${stylePCoords}">Am</small>
             </div>
 
             <div style="${sttleDivCoords}">
-                <strong style="${styleCoords}">${timeStamp(res.sys.sunset)}</strong> 
+                <strong style="${styleCoords}">${timeStamp(res.sys.sunset, res.timezone)}</strong> 
                 <p style="${stylePCoords}">Tr</p>
             </div>
         </section>

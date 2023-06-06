@@ -10,10 +10,12 @@ export function visibility(visible) {
     return visible / 1000;
 }
 
-export function timeStamp(codigo) {
-    const data = new Date(codigo * 1000);
-    const h = data.getHours()
-    const m = data.getMinutes()
+export function timeStamp(codigo, timezone) {
+    const data = new Date((timezone + codigo) *1000).toUTCString();
+    
+    // const h = data.getHours()
+    // const m = data.getMinutes()
 
-    return `${h}:${m}`
+    // return `${h}:${m}`
+    return data
 }
