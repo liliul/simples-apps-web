@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Temas</title>
+    <title>Clima Tempo</title>
     <link rel="stylesheet" href="./src/style/css/index.css">
    
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -49,17 +49,17 @@
                         </svg>    
                     </div>
 
-                    <span id="cityLocate" class="text-city">Rio do Sul, SC</span>
+                    <span id="cityLocate" class="text-city">Cidade, BR</span>
                 </div>
             </header>
 
             <section class="main-tempNow">
                 <article class="temperature">
                     <div id="temp"class="div-temperature">
-                        <!-- <h1 id="temp" class="h1-temp">18<span class="span-temp">°C</span></h1> -->
+                        <h1 id="temp" class="h1-temp">T<span class="span-temp">°C</span></h1>
                     </div>
                     
-                    <p id="tempMaxMin" class="p-temp">22° 16°</p>
+                    <p id="tempMaxMin" class="p-temp">14° 16°</p>
                 </article>
             </section>
 
@@ -131,7 +131,7 @@
             </section>
 
             <footer id="air-components" class="numbers-air">
-                <!-- <div class="info-num">
+                <div class="info-num">
                     <p class="p-info-num">12.9</p>
 
                     <span class="span-info-num">PM2.5</span>
@@ -159,7 +159,7 @@
                     <p class="p-info-num">21.2</p>
 
                     <span class="span-info-num">O₃</span>
-                </div> -->
+                </div>
             </footer>
         </section>
 
@@ -178,7 +178,7 @@
             <!-- <article id="coordenadas"></article> -->
 
             <section id="coordenadas" class="main-sun">
-                <!-- <svg width="255" height="138" viewBox="0 0 245 148" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="255" height="138" viewBox="0 0 245 148" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16 122C16 108.08 18.7418 94.296 24.0688 81.4355C29.3958 68.575 37.2037 56.8896 47.0467 47.0466C56.8897 37.2036 68.5751 29.3957 81.4356 24.0687C94.2961 18.7418 108.08 16 122 16C135.92 16 149.704 18.7418 162.565 24.0688C175.425 29.3958 187.11 37.2037 196.953 47.0467C206.796 56.8897 214.604 68.5751 219.931 81.4356C225.258 94.2961 228 108.08 228 122" stroke="#F6C833" stroke-width="2" stroke-dasharray="2 13"/>
                     <path d="M24.0688 81.4355C18.7418 94.296 16 108.08 16 122L175 122V30.2013C171.002 27.8928 166.848 25.8432 162.565 24.0688C149.704 18.7418 135.92 16 122 16C108.08 16 94.2961 18.7418 81.4356 24.0687C68.5751 29.3957 56.8897 37.2036 47.0467 47.0466C37.2037 56.8896 29.3958 68.575 24.0688 81.4355Z" fill="url(#paint0_linear_328_81)"/>
                     <line opacity="0.4" x1="14" y1="121.5" x2="230" y2="121.5" stroke="#F6C833"/>
@@ -194,7 +194,7 @@
                     <stop offset="1" stop-color="#FBDB60" stop-opacity="0"/>
                     </linearGradient>
                     </defs>
-                </svg>                     -->
+                </svg>                    
             </section>
         </section>
 
@@ -216,10 +216,11 @@
                 <h2 class="h2-sun">Visibilidade</h2>
             </header>
 
-            <article id="visible"></article>
+            <article id="visible">10 km/h</article>
 
         </section>
         <section id="openWeather-maps" class="week sunTime" style="grid-area: ar;">
+            <h2 class="">Maps</h2>
             <!-- <header class="head-sun">
                 <div class="icon-sun">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -257,7 +258,7 @@
         <!-- Week Weather -->
         <section id="weather" class="week weekWeather">
             <!-- <article id="weather" class="days"></article> -->
-            <!-- <article id="weather" class="days">
+            <article id="weather" class="days">
                 <header class="h-days">
                     <h3 class="h3-days">Amanhã</h3>
                 </header>
@@ -357,7 +358,7 @@
                 <footer class="foo-days">
                     <p class="foo-p-days">21° <span class="s-foo-days">16°</span></p>
                 </footer>
-            </article> -->
+            </article> 
         </section>
     </main>
 
