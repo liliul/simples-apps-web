@@ -1,0 +1,59 @@
+
+.searchCity {
+    width: 100%;
+    height: 10.1rem;
+    
+    // @include flexEixoY;
+    display: grid;
+    place-items: center;
+    
+    .c-input-button {
+
+        display: flex;
+        gap: 1rem;
+
+        .input {
+
+
+            #input-search-city {
+                width: 30rem;
+                height: 3rem;
+                padding: 0.5rem;
+
+                border: none;
+                border-radius: 5px;
+                outline: none;
+                color: var(--cor-font-input);
+
+                background-color: var(--bg-input-search);
+
+                &::placeholder {
+                    color: var(--cor-placeholder-input);
+                    font-weight: bold;
+                }
+
+                &:focus {
+                    border: 2px solid var(--focus-input);
+                }
+                
+            }
+
+        }
+        #button-search-city {
+            outline: none;
+            border: none;
+            background-color: var(--bg-button-search);
+
+            height: 3rem;
+            padding: 0rem 1.2rem;
+
+            font-weight: bold;
+            color: var(--cor-button-search);
+
+            &:hover {
+                transform: scale(.9);
+                background-color: var(--bg-button-search-hover);
+            }
+        }
+    }
+}
