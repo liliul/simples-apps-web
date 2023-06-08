@@ -29,9 +29,13 @@ inputSearchCity.addEventListener('keydown', (e) => {
 })
 
 function searchCity() {
+  if(!inputSearchCity.value) return
+  // if(!inputSearchCity.value) return getApi(city), getApiDaysTemp(city)
+
   getApi(inputSearchCity.value)
   getApiDaysTemp(inputSearchCity.value)
   inputSearchCity.value = ""
+//  console.log(window.location.hostname)
 }
 
 async function getApi(city) {
