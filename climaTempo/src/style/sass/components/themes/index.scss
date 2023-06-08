@@ -5,6 +5,14 @@
 @import './geleia.scss';
 
 :root {
+    --bg-input-search: #6D67D0;
+    --cor-font-input: #FFFFFF;
+    --focus-input: #FFFFFF;
+    --cor-placeholder-input: #FFF;
+    --bg-button-search: rgb(102 96 200 / 80%);
+    --cor-button-search: #FFF;
+    --bg-button-search-hover: rgb(102 96 200 / 30%);
+
     --img-bg: url('../../assets/Background.png');
     --img-bg-tempNow: url('../../assets/bgnuvem.jpg');
     --blur-bg: filter: blur(20px);
