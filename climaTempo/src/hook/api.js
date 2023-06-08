@@ -30,8 +30,9 @@ inputSearchCity.addEventListener('keydown', (e) => {
 
 function searchCity() {
   if(!inputSearchCity.value) return
+  
   // if(!inputSearchCity.value) return getApi(city), getApiDaysTemp(city)
-
+  
   getApi(inputSearchCity.value)
   getApiDaysTemp(inputSearchCity.value)
   inputSearchCity.value = ""
@@ -40,7 +41,9 @@ function searchCity() {
 
 async function getApi(city) {
   const req = await fetch(`${URL_API_OPEN_WEATHER}${city}${APPID_TOKEN}${TOKEN_API_OPEN_WEATHER}${LANG}${lang}`)
-  const res = await req.json()
+  const res = await req.json();
+  if(!req.ok) return
+
   console.log(res)
 
   tempNow(res)
@@ -67,8 +70,12 @@ async function getApiAirQuality(lat, lon,sunrise,sunset) {
 async function getApiDaysTemp(city) {
   const req = await fetch(`${URL_FORECAST}${city}&cnt=8&appid=${TOKEN_API_OPEN_WEATHER}&units=metric&lang=${lang}`);
   const res = await req.json();
+  if(!req.ok) {
+    throw Error(res.statusText), alert('Nome de cidade Invalida', window.location.reload(true))
+  }
+  
 
   // console.log(res)
-  weather(res)
+  return weather(res)
 }
 // getApiDaysTemp('curitiba')
