@@ -16,12 +16,13 @@
 
 
             #input-search-city {
-                width: 30rem;
-                height: 3rem;
-                padding: 0.5rem;
+                width: 55rem;
+                height: 4.5rem;
+                padding: 1.4rem;
 
                 border: none;
                 border-radius: 5px;
+                box-shadow: .2rem .2rem 1rem var(--boxShadow-input-search);
                 outline: none;
                 color: var(--cor-font-input);
 
@@ -42,10 +43,11 @@
         #button-search-city {
             outline: none;
             border: none;
+            box-shadow: .2rem .2rem 1rem var(--boxShadow-input-search);
             background-color: var(--bg-button-search);
 
-            height: 3rem;
-            padding: 0rem 1.2rem;
+            height: 4.5rem;
+            padding: 0rem 3rem;
 
             font-weight: bold;
             color: var(--cor-button-search);

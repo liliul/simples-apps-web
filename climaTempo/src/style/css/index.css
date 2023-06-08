@@ -17,6 +17,7 @@ body.dracula {
   --bg-button-search: #282A36;
   --cor-button-search: #50FA7B;
   --bg-button-search-hover: #282A36;
+  --boxShadow-input-search: #9B6BDF;
   --img-bg: initial;
   --img-bg-tempNow: initial;
   --bg-color: #262626;
@@ -82,6 +83,7 @@ body.massaRosa {
   --bg-button-search: #855e6e;
   --cor-button-search: #f7f1e1;
   --bg-button-search-hover: #855e6e;
+  --boxShadow-input-search: #ffdbd7;
   --img-bg: initial;
   --img-bg-tempNow: initial;
   --blur-bg: filter: blur(20px);
@@ -148,6 +150,7 @@ body.geleia {
   --bg-button-search: #ef3353;
   --cor-button-search: #f4b036;
   --bg-button-search-hover: #ef3353;
+  --boxShadow-input-search: #f4b036;
   --img-bg: url("../../assets/Background.png");
   --img-bg-tempNow: initial;
   --blur-bg: filter: blur(20px);
@@ -268,11 +271,12 @@ body {
   gap: 1rem;
 }
 .searchCity .c-input-button .input #input-search-city {
-  width: 30rem;
-  height: 3rem;
-  padding: 0.5rem;
+  width: 55rem;
+  height: 4.5rem;
+  padding: 1.4rem;
   border: none;
   border-radius: 5px;
+  box-shadow: 0.2rem 0.2rem 1rem var(--boxShadow-input-search);
   outline: none;
   color: var(--cor-font-input);
   background-color: var(--bg-input-search);
@@ -287,9 +291,10 @@ body {
 .searchCity .c-input-button #button-search-city {
   outline: none;
   border: none;
+  box-shadow: 0.2rem 0.2rem 1rem var(--boxShadow-input-search);
   background-color: var(--bg-button-search);
-  height: 3rem;
-  padding: 0rem 1.2rem;
+  height: 4.5rem;
+  padding: 0rem 3rem;
   font-weight: bold;
   color: var(--cor-button-search);
 }
