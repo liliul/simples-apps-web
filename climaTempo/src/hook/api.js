@@ -20,6 +20,7 @@ const lang = 'pt_br';
 const inputSearchCity  = document.getElementById('input-search-city');
 const buttonSearchCity = document.getElementById('button-search-city');
 
+
 buttonSearchCity.addEventListener('click', searchCity);
 inputSearchCity.addEventListener('keydown', (e) => {
   
@@ -30,12 +31,20 @@ inputSearchCity.addEventListener('keydown', (e) => {
 
 function searchCity() {
   if(!inputSearchCity.value) return
+  sessionStorage.setItem("searchCity", inputSearchCity.value);
   
   // if(!inputSearchCity.value) return getApi(city), getApiDaysTemp(city)
+  // window.location.reload()
+  const getItemSearchCity = sessionStorage.getItem("searchCity")
+  console.log(getItemSearchCity);
   
-  getApi(inputSearchCity.value)
-  getApiDaysTemp(inputSearchCity.value)
-  inputSearchCity.value = ""
+  getApi(getItemSearchCity)
+  getApiDaysTemp(getItemSearchCity)
+  
+
+  // getApi(inputSearchCity.value)
+  // getApiDaysTemp(inputSearchCity.value)
+  // inputSearchCity.value = ""
 //  console.log(window.location.hostname)
 }
 
