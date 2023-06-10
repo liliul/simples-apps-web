@@ -41,8 +41,8 @@ async function searchCity() {
   // inputSearchCity.value = ""
   //  console.log(window.location.hostname)
 }
-chamar()
-async function chamar() {
+toCall()
+async function toCall() {
   const getItemSearchCity =await sessionStorage.getItem("searchCity")
   console.log(getItemSearchCity);
   
