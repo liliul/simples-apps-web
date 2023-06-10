@@ -29,12 +29,12 @@ inputSearchCity.addEventListener('keydown', (e) => {
   }
 })
 
-async function searchCity() {
+function searchCity() {
   if(!inputSearchCity.value) return
   sessionStorage.setItem("searchCity", inputSearchCity.value);
   
   // if(!inputSearchCity.value) return getApi(city), getApiDaysTemp(city)
-  await window.location.reload(false)
+  window.location.reload(false)
   
   // getApi(inputSearchCity.value)
   // getApiDaysTemp(inputSearchCity.value)
@@ -42,8 +42,8 @@ async function searchCity() {
   //  console.log(window.location.hostname)
 }
 toCall()
-async function toCall() {
-  const getItemSearchCity =await sessionStorage.getItem("searchCity")
+function toCall() {
+  const getItemSearchCity = sessionStorage.getItem("searchCity")
   console.log(getItemSearchCity);
 
   if(getItemSearchCity == null) return
