@@ -88,7 +88,7 @@ export async function openWeatherMap(res) {
     // <img src="http://maps.googleapis.com/maps/api/staticmap?center=${res.coord.lat},${res.coord.lon}&zoom=11&size=211x211">
     // `
 
-    var map = L.map('openWeather-maps').setView([res.coord.lat,res.coord.lon], 10);
+    var map = await L.map('openWeather-maps').setView([res.coord.lat,res.coord.lon], 10);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -97,7 +97,6 @@ export async function openWeatherMap(res) {
     L.marker([res.coord.lat,res.coord.lon]).addTo(map)
         // .bindPopup('')
         // .openPopup();
- 
 } 
 
 export function visible(res) {

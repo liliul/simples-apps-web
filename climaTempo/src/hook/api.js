@@ -29,23 +29,26 @@ inputSearchCity.addEventListener('keydown', (e) => {
   }
 })
 
-function searchCity() {
+async function searchCity() {
   if(!inputSearchCity.value) return
   sessionStorage.setItem("searchCity", inputSearchCity.value);
   
   // if(!inputSearchCity.value) return getApi(city), getApiDaysTemp(city)
-  // window.location.reload()
-  const getItemSearchCity = sessionStorage.getItem("searchCity")
+  await window.location.reload(false)
+  
+  // getApi(inputSearchCity.value)
+  // getApiDaysTemp(inputSearchCity.value)
+  // inputSearchCity.value = ""
+  //  console.log(window.location.hostname)
+}
+chamar()
+async function chamar() {
+  const getItemSearchCity =await sessionStorage.getItem("searchCity")
   console.log(getItemSearchCity);
   
   getApi(getItemSearchCity)
   getApiDaysTemp(getItemSearchCity)
   
-
-  // getApi(inputSearchCity.value)
-  // getApiDaysTemp(inputSearchCity.value)
-  // inputSearchCity.value = ""
-//  console.log(window.location.hostname)
 }
 
 async function getApi(city) {
