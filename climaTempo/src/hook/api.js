@@ -45,6 +45,8 @@ toCall()
 async function toCall() {
   const getItemSearchCity =await sessionStorage.getItem("searchCity")
   console.log(getItemSearchCity);
+
+  if(getItemSearchCity == null) return
   
   getApi(getItemSearchCity)
   getApiDaysTemp(getItemSearchCity)
