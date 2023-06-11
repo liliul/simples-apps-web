@@ -85,7 +85,7 @@ async function getApiDaysTemp(city) {
   const req = await fetch(`${URL_FORECAST}${city}&cnt=8&appid=${TOKEN_API_OPEN_WEATHER}&units=metric&lang=${lang}`);
   const res = await req.json();
   if(!req.ok) {
-    throw Error(res.statusText), alert('Nome de cidade Invalida', window.location.reload(true))
+    throw Error(res.statusText), alert('Nome de cidade Invalida')
   }
   
 
