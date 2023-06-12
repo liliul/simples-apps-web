@@ -186,12 +186,10 @@ body.geleia {
   --cor-button-search: #FFF;
   --bg-button-search-hover: rgb(102 96 200 / 30%);
   --img-bg: url("../../assets/Background.png");
-  --img-bg-tempNow: url("../../assets/bgnuvem.jpg");
   --blur-bg: filter: blur(20px);
   --bg-color: initial;
   --bg-color-week: #6D67D0;
   --shawdow-b-week: initial;
-  --img-nuvem-tempNow: url("../../assets/nuvens.svg");
   --icon-head: #9D99E4;
   --text-city: #C2BFF4;
   --h1-temp: #FFFFFF;
@@ -335,6 +333,10 @@ body {
   position: absolute;
   top: -56px;
   left: -56px;
+}
+.container .tempNow .head-tempNow .nuvens img {
+  width: 176px;
+  height: 176px;
 }
 .container .tempNow .head-tempNow .city {
   display: flex;
@@ -577,6 +579,10 @@ body {
     position: absolute;
     top: -56px;
     left: -56px;
+  }
+  .container .tempNow .head-tempNow .nuvens img {
+    width: 176px;
+    height: 176px;
   }
   .container .tempNow .head-tempNow .city {
     display: flex;

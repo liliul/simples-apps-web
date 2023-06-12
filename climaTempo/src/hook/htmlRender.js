@@ -1,6 +1,10 @@
 import { kelvinCelsius, visibility, byId, timeStamp } from './utils.js';
 
 export function tempNow(res) {
+    byId('iconTempNow').innerHTML = `
+        <img src="./src/assets/iconsTemp/${res.weather[0].icon}.svg" />
+    `;
+
     const cityLocate = document.getElementById('cityLocate');
     const temp       = document.getElementById('temp');
     const tempMaxMix = document.getElementById('tempMaxMin');
