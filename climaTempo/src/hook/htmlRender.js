@@ -156,13 +156,13 @@ const styleCoords = `
     font-style: normal;
     font-weight: 700;
     font-size: 1.4rem;
-    color: white;
+    color: #E64747;
 `
 const stylePCoords = `
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
-    color:#dad8f7;
+    color: #75D7EC;
 `
 
 export function weather(res) {
