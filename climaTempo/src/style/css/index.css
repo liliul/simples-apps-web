@@ -20,6 +20,7 @@ body.dracula {
   --boxShadow-input-search: #9B6BDF;
   --visible-info-cor:#F1FA8C;
   --visible-info2-cor: #E64747;
+  --openW-maps-h2-cor: #EFA554;
   --img-bg: initial;
   --img-bg-tempNow: initial;
   --bg-color: #262626;
@@ -484,6 +485,19 @@ body {
   font-weight: 400;
   font-size: 1rem;
 }
+.container .openWeather-maps {
+  grid-area: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .openWeather-maps .maps-h2 {
+  font-family: "Fira Code", monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--openW-maps-h2-cor);
+}
 .container .visible {
   grid-area: unset;
   display: flex;
@@ -593,7 +607,7 @@ body {
     max-height: 768px;
     height: 768px;
     display: grid;
-    grid-template-areas: "tempNow air ar" "tempNow visible sun" "week week week";
+    grid-template-areas: "tempNow air maps" "tempNow visible sun" "week week week";
     place-content: center center;
     gap: 22px;
     padding: 0px 132px;
@@ -772,6 +786,19 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
+  }
+  .container .openWeather-maps {
+    grid-area: maps;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container .openWeather-maps .maps-h2 {
+    font-family: "Fira Code", monospace;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--openW-maps-h2-cor);
   }
   .container .visible {
     grid-area: visible;

@@ -17,6 +17,8 @@
 
     @include airQuality(unset);
 
+    @include openWeather-maps(unset);
+
     @include visible(unset);
 
     @include sunTime(unset);
@@ -33,7 +35,7 @@
 
         display: grid;
         grid-template-areas: 
-            "tempNow air ar"
+            "tempNow air maps"
             "tempNow visible sun"
             "week week week"
         ;
@@ -51,6 +53,8 @@
        @include tempNow(tempNow);
 
        @include airQuality(air);
+
+       @include openWeather-maps(maps);
 
        @include visible(visible);
 
