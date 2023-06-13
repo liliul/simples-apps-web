@@ -107,9 +107,9 @@ export function visible(res) {
     const visible = document.getElementById('visible')
 
     visible.innerHTML = `
-        <div>
-            <h1>${visibility(res.visibility).toFixed(0)}</h1>
-            <b>km/h</b>
+        <div class="visible-content">
+            <h1 class="visible-info">${visibility(res.visibility).toFixed(0)}</h1>
+            <b class="visible-info2">km/h</b>
         </div>
     `
 }

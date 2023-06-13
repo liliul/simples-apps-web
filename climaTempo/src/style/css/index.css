@@ -18,6 +18,8 @@ body.dracula {
   --cor-button-search: #50FA7B;
   --bg-button-search-hover: #282A36;
   --boxShadow-input-search: #9B6BDF;
+  --visible-info-cor:#F1FA8C;
+  --visible-info2-cor: #E64747;
   --img-bg: initial;
   --img-bg-tempNow: initial;
   --bg-color: #262626;
@@ -482,6 +484,49 @@ body {
   font-weight: 400;
   font-size: 1rem;
 }
+.container .visible {
+  grid-area: unset;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.container .visible .head-sun {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3.4rem;
+}
+.container .visible .head-sun .icon-sun svg path {
+  fill: var(--icon-air-sun);
+}
+.container .visible .head-sun .h2-sun {
+  font-family: "Fira Code", monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--head-air-sun);
+}
+.container .visible #visible .visible-content {
+  width: 100%;
+  height: 100%;
+  margin-top: 3rem;
+  text-align: center;
+}
+.container .visible #visible .visible-content .visible-info {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 4rem;
+  color: var(--visible-info-cor);
+}
+.container .visible #visible .visible-content .visible-info2 {
+  margin-top: 1.9rem;
+  font-family: "Fira Code", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--visible-info2-cor);
+}
 .container .sunTime {
   grid-area: unset;
   display: flex;
@@ -727,6 +772,49 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
+  }
+  .container .visible {
+    grid-area: visible;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .container .visible .head-sun {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3.4rem;
+  }
+  .container .visible .head-sun .icon-sun svg path {
+    fill: var(--icon-air-sun);
+  }
+  .container .visible .head-sun .h2-sun {
+    font-family: "Fira Code", monospace;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--head-air-sun);
+  }
+  .container .visible #visible .visible-content {
+    width: 100%;
+    height: 100%;
+    margin-top: 3rem;
+    text-align: center;
+  }
+  .container .visible #visible .visible-content .visible-info {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4rem;
+    color: var(--visible-info-cor);
+  }
+  .container .visible #visible .visible-content .visible-info2 {
+    margin-top: 1.9rem;
+    font-family: "Fira Code", monospace;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--visible-info2-cor);
   }
   .container .sunTime {
     grid-area: sun;
