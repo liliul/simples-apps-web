@@ -30,6 +30,30 @@
                     fill: var(--icon-main-sun);
                 }
             }
+
+            .sectionTime {
+                display:flex;
+                justify-content: space-between;
+                
+                .sttleDivCoords {
+                    display:flex;
+                    align-items:center;
+                    gap:2px;
+                    
+                    .styleCoords {
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 1.4rem;
+                        color: var(--styleCoords);
+                    }
+                    .stylePCoords { 
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 1rem;
+                        color: var(--stylePCoords);
+                    }
+                }
+            }
         }
     }
 }

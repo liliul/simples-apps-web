@@ -44,6 +44,8 @@ body.dracula {
   --foo-p-days: #75D7EC;
   --s-foo-days: #FF5555;
   --foo-data-cor: #EFA554;
+  --styleCoords: #E64747;
+  --stylePCoords: #7A7A7A;
 }
 
 body.temaBlack {
@@ -571,6 +573,27 @@ body {
 .container .sunTime .main-sun svg .icon-main-sun {
   fill: var(--icon-main-sun);
 }
+.container .sunTime .main-sun .sectionTime {
+  display: flex;
+  justify-content: space-between;
+}
+.container .sunTime .main-sun .sectionTime .sttleDivCoords {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.container .sunTime .main-sun .sectionTime .sttleDivCoords .styleCoords {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--styleCoords);
+}
+.container .sunTime .main-sun .sectionTime .sttleDivCoords .stylePCoords {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--stylePCoords);
+}
 .container .weekWeather {
   grid-area: unset;
   display: grid;
@@ -885,6 +908,27 @@ body {
   }
   .container .sunTime .main-sun svg .icon-main-sun {
     fill: var(--icon-main-sun);
+  }
+  .container .sunTime .main-sun .sectionTime {
+    display: flex;
+    justify-content: space-between;
+  }
+  .container .sunTime .main-sun .sectionTime .sttleDivCoords {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+  .container .sunTime .main-sun .sectionTime .sttleDivCoords .styleCoords {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--styleCoords);
+  }
+  .container .sunTime .main-sun .sectionTime .sttleDivCoords .stylePCoords {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--stylePCoords);
   }
   .container .weekWeather {
     grid-area: week;

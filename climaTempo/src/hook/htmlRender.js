@@ -137,33 +137,33 @@ export function sunTime(res) {
             </defs>
         </svg>
 
-        <section style="${sectionTime}">
-            <div style="${sttleDivCoords}">
-                <strong style="${styleCoords}">${timeStamp(res.sys.sunrise, res.timezone)}</strong> 
-                <small style="${stylePCoords}">Am</small>
+        <section class="sectionTime">
+            <div class="sttleDivCoords">
+                <strong class="styleCoords">${timeStamp(res.sys.sunrise, res.timezone)}</strong> 
+                <small class="stylePCoords">Am</small>
             </div>
 
-            <div style="${sttleDivCoords}">
-                <strong style="${styleCoords}">${timeStamp(res.sys.sunset, res.timezone)}</strong> 
-                <p style="${stylePCoords}">Tr</p>
+            <div class="sttleDivCoords">
+                <strong class="styleCoords">${timeStamp(res.sys.sunset, res.timezone)}</strong> 
+                <p class="stylePCoords">Tr</p>
             </div>
         </section>
     `
 } 
-const sectionTime = `display:flex;justify-content: space-between;`
-const sttleDivCoords = `display:flex;align-items:center;gap:2px;`
-const styleCoords = `
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1.4rem;
-    color: #E64747;
-`
-const stylePCoords = `
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1rem;
-    color: #7A7A7A;
-`
+// const sectionTime = `display:flex;justify-content: space-between;`
+// const sttleDivCoords = `display:flex;align-items:center;gap:2px;`
+// const styleCoords = `
+//     font-style: normal;
+//     font-weight: 700;
+//     font-size: 1.4rem;
+//     color: #E64747;
+// `
+// const stylePCoords = `
+//     font-style: normal;
+//     font-weight: 700;
+//     font-size: 1rem;
+//     color: #7A7A7A;
+// `
 
 export function weather(res) {
     const weather = document.getElementById('weather');
