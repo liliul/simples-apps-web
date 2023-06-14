@@ -20,8 +20,12 @@ export function tempNow(res) {
     `
     // temp.innerHTML = ` ${kelvinCelsius(res.main.temp).toFixed(0)}`;
     // temp.textContent = kelvinCelsius(res.main.temp).toFixed(0);
-    tempMaxMix.textContent = kelvinCelsius(res.main.temp_max).toFixed(0) +'°'+' '+ kelvinCelsius(res.main.temp_min).toFixed(0) +'°';
-  
+    // tempMaxMix.textContent = kelvinCelsius(res.main.temp_max).toFixed(0) +'°'+' '+ kelvinCelsius(res.main.temp_min).toFixed(0) +'°';
+    tempMaxMix.innerHTML = `
+        ${kelvinCelsius(res.main.temp_min).toFixed(0)}°
+        <b class="temp-b">${kelvinCelsius(res.main.temp_max).toFixed(0)}°</b>
+    `
+
     const windSpeed = document.getElementById('windSpeed');
   
     windSpeed.textContent = res.wind.speed.toFixed(0) + 'km/h';

@@ -104,6 +104,10 @@
                     @include font-20;
 
                     text-align: center;
+
+                    .temp-b {
+                        color: var(--b-temp);
+                    }
                 }
             }
         }
