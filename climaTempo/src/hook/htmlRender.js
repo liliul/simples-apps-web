@@ -162,7 +162,7 @@ const stylePCoords = `
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
-    color: #75D7EC;
+    color: #7A7A7A;
 `
 
 export function weather(res) {
@@ -175,7 +175,7 @@ export function weather(res) {
 
         article.innerHTML = `
             <header class="h-days">
-            <h3 class="h3-days">${list.weather[0].description}</h3>
+                <h3 class="h3-days">${list.weather[0].description}</h3>
             </header>
 
             <section class="main-days">
@@ -184,8 +184,8 @@ export function weather(res) {
 
             <footer class="foo-days">
                 <p class="foo-p-days">${list.main.temp_max.toFixed()}° <span class="s-foo-days">${list.main.temp_min.toFixed()}°</span></p>
-                <small>${list.dt_txt}</small>
             </footer>
+            <small class="foo-data">${list.dt_txt}</small>
         `
         weather.append(article);
     })

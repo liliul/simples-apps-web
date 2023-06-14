@@ -6,11 +6,15 @@
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         place-items: center;
 
+        padding: 2rem .5rem;
+
         .days {
             display: flex;
             flex-direction: column;
             align-items: center;
-        
+            
+            height: auto;
+
             .h-days {
 
                 .h3-days {
@@ -18,6 +22,10 @@
 
                     color: var(--h3-days);
                 }
+            }
+
+            .main-days {
+                margin: .5rem 0rem;
             }
 
             .foo-days {
@@ -32,6 +40,14 @@
                         color: var(--s-foo-days);
                     }
                 }
+                
+            }
+
+            .foo-data {
+                @include font-12;
+
+                color: var(--foo-data-cor);
+                margin-top: 1.5rem;
             }
         }
     }

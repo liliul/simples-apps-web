@@ -43,6 +43,7 @@ body.dracula {
   --h3-days: #FFB86C;
   --foo-p-days: #75D7EC;
   --s-foo-days: #FF5555;
+  --foo-data-cor: #EFA554;
 }
 
 body.temaBlack {
@@ -575,17 +576,22 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   place-items: center;
+  padding: 2rem 0.5rem;
 }
 .container .weekWeather .days {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: auto;
 }
 .container .weekWeather .days .h-days .h3-days {
   font-family: "Fira Code", monospace;
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--h3-days);
+}
+.container .weekWeather .days .main-days {
+  margin: 0.5rem 0rem;
 }
 .container .weekWeather .days .foo-days .foo-p-days {
   font-family: "Fira Code", monospace;
@@ -599,6 +605,14 @@ body {
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--s-foo-days);
+}
+.container .weekWeather .days .foo-data {
+  font-family: "Fira Code", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--foo-data-cor);
+  margin-top: 1.5rem;
 }
 
 @media screen and (min-width: 880px) {
@@ -877,17 +891,22 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     place-items: center;
+    padding: 2rem 0.5rem;
   }
   .container .weekWeather .days {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: auto;
   }
   .container .weekWeather .days .h-days .h3-days {
     font-family: "Fira Code", monospace;
     font-size: 1.4rem;
     font-weight: 700;
     color: var(--h3-days);
+  }
+  .container .weekWeather .days .main-days {
+    margin: 0.5rem 0rem;
   }
   .container .weekWeather .days .foo-days .foo-p-days {
     font-family: "Fira Code", monospace;
@@ -901,6 +920,14 @@ body {
     font-size: 1.4rem;
     font-weight: 700;
     color: var(--s-foo-days);
+  }
+  .container .weekWeather .days .foo-data {
+    font-family: "Fira Code", monospace;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--foo-data-cor);
+    margin-top: 1.5rem;
   }
 }
 
