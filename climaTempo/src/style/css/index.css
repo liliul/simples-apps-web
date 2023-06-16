@@ -260,6 +260,12 @@ body {
   background-color: var(--bg-color);
 }
 
+.container .weekWeather .days .h-days .h3-days {
+  font-family: "Fira Code", monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
 .selectTheme {
   display: flex;
   align-items: center;
@@ -647,9 +653,6 @@ body {
   height: auto;
 }
 .container .weekWeather .days .h-days .h3-days {
-  font-family: "Fira Code", monospace;
-  font-size: 1.4rem;
-  font-weight: 700;
   color: var(--h3-days);
 }
 .container .weekWeather .days .main-days {
@@ -986,9 +989,6 @@ body {
     height: auto;
   }
   .container .weekWeather .days .h-days .h3-days {
-    font-family: "Fira Code", monospace;
-    font-size: 1.4rem;
-    font-weight: 700;
     color: var(--h3-days);
   }
   .container .weekWeather .days .main-days {

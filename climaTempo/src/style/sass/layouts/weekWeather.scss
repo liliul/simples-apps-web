@@ -18,7 +18,7 @@
             .h-days {
 
                 .h3-days {
-                    @include font-14;
+                    @extend %font-clear;
 
                     color: var(--h3-days);
                 }

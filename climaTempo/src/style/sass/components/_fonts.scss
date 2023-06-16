@@ -1,5 +1,11 @@
 $fontFira: 'Fira Code', monospace;
 
+%font-clear {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
 @mixin font-12 {
     font-family: $fontFira;
     font-style: normal;
