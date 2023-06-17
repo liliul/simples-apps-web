@@ -309,15 +309,16 @@ body {
 .searchCity {
   width: 100%;
   height: 10.1rem;
+  margin: 2rem 0rem 3rem 0rem;
   display: grid;
   place-items: center;
 }
 .searchCity .c-input-button {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 .searchCity .c-input-button .input #input-search-city {
-  width: 55rem;
+  width: 100%;
   height: 4.5rem;
   padding: 1.4rem;
   border: none;
@@ -349,6 +350,50 @@ body {
   background-color: var(--bg-button-search-hover);
 }
 
+@media screen and (min-width: 880px) {
+  .searchCity {
+    width: 100%;
+    height: 10.1rem;
+    display: grid;
+    place-items: center;
+  }
+  .searchCity .c-input-button {
+    display: flex;
+    gap: 1rem;
+  }
+  .searchCity .c-input-button .input #input-search-city {
+    width: 55rem;
+    height: 4.5rem;
+    padding: 1.4rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0.2rem 0.2rem 1rem var(--boxShadow-input-search);
+    outline: none;
+    color: var(--cor-font-input);
+    background-color: var(--bg-input-search);
+  }
+  .searchCity .c-input-button .input #input-search-city::placeholder {
+    color: var(--cor-placeholder-input);
+    font-weight: bold;
+  }
+  .searchCity .c-input-button .input #input-search-city:focus {
+    border: 2px solid var(--focus-input);
+  }
+  .searchCity .c-input-button #button-search-city {
+    outline: none;
+    border: none;
+    box-shadow: 0.2rem 0.2rem 1rem var(--boxShadow-input-search);
+    background-color: var(--bg-button-search);
+    height: 4.5rem;
+    padding: 0rem 3rem;
+    font-weight: bold;
+    color: var(--cor-button-search);
+  }
+  .searchCity .c-input-button #button-search-city:hover {
+    transform: scale(0.9);
+    background-color: var(--bg-button-search-hover);
+  }
+}
 .container {
   width: 100%;
   display: grid;
