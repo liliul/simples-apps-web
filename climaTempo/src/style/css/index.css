@@ -696,6 +696,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: auto;
+  margin: 1rem 0rem;
 }
 .container .weekWeather .days .h-days .h3-days {
   color: var(--h3-days);
@@ -1032,6 +1033,7 @@ body {
     flex-direction: column;
     align-items: center;
     height: auto;
+    margin: 1rem 0rem;
   }
   .container .weekWeather .days .h-days .h3-days {
     color: var(--h3-days);
