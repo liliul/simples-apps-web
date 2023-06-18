@@ -397,7 +397,7 @@ body {
 .container {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2.5rem;
   padding: 2.5rem;
 }
@@ -540,7 +540,7 @@ body {
   color: var(--head-air-sun);
 }
 .container .airQuality .main-air {
-  margin-top: -1.2rem;
+  margin: 1.9rem 0rem;
 }
 .container .airQuality .main-air .p-main-air {
   font-family: "Fira Code", monospace;
@@ -613,6 +613,9 @@ body {
   font-size: 1.6rem;
   color: var(--head-air-sun);
 }
+.container .visible #visible {
+  margin-bottom: 1.2rem;
+}
 .container .visible #visible .visible-content {
   width: 100%;
   height: 100%;
@@ -627,7 +630,7 @@ body {
   color: var(--visible-info-cor);
 }
 .container .visible #visible .visible-content .visible-info2 {
-  margin-top: 1.9rem;
+  margin: 1.9rem 0rem 1.3rem 0rem;
   font-family: "Fira Code", monospace;
   font-style: normal;
   font-weight: 400;
@@ -729,8 +732,7 @@ body {
 @media screen and (min-width: 880px) {
   .container {
     max-width: 1366px;
-    max-height: 768px;
-    height: 768px;
+    height: auto;
     display: grid;
     grid-template-areas: "tempNow air maps" "tempNow visible sun" "week week week";
     place-content: center center;
@@ -877,7 +879,7 @@ body {
     color: var(--head-air-sun);
   }
   .container .airQuality .main-air {
-    margin-top: -1.2rem;
+    margin: 1.9rem 0rem;
   }
   .container .airQuality .main-air .p-main-air {
     font-family: "Fira Code", monospace;
@@ -950,6 +952,9 @@ body {
     font-size: 1.6rem;
     color: var(--head-air-sun);
   }
+  .container .visible #visible {
+    margin-bottom: 1.2rem;
+  }
   .container .visible #visible .visible-content {
     width: 100%;
     height: 100%;
@@ -964,7 +969,7 @@ body {
     color: var(--visible-info-cor);
   }
   .container .visible #visible .visible-content .visible-info2 {
-    margin-top: 1.9rem;
+    margin: 1.9rem 0rem 1.3rem 0rem;
     font-family: "Fira Code", monospace;
     font-style: normal;
     font-weight: 400;

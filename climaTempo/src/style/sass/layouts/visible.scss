@@ -26,7 +26,7 @@
         }
 
         #visible {
-            
+            margin-bottom: 1.2rem;
 
             .visible-content {
                 width: 100%;
@@ -40,7 +40,7 @@
                     color: var(--visible-info-cor);
                 }
                 .visible-info2 {
-                    margin-top: 1.9rem;
+                    margin: 1.9rem 0rem 1.3rem 0rem;
 
                     @include font-12;
                     color: var(--visible-info2-cor);

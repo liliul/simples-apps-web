@@ -4,7 +4,7 @@
     width: 100%;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     
     gap: 2.5rem;
     padding: 2.5rem;
@@ -30,8 +30,7 @@
 @media screen and (min-width: 880px) {
     .container {
         max-width: 1366px;
-        max-height: 768px;
-        height: 768px;
+        height: auto;
 
         display: grid;
         grid-template-areas: 
