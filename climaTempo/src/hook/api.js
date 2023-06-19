@@ -16,15 +16,6 @@ import { tempNow, airQuality, visible ,sunTime, weather, openWeatherMap } from '
 
 const lang = 'pt_br';
 
-const geo = () => {
-  if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(pos) {
-      console.log(pos.coords.latitude, pos.coords.longitude)
-    })
-  }
-}
-//geo()
-
 const inputSearchCity  = document.getElementById('input-search-city');
 const buttonSearchCity = document.getElementById('button-search-city');
 
