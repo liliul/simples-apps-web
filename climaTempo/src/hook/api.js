@@ -14,7 +14,6 @@ import {
 
 import { tempNow, airQuality, visible ,sunTime, weather, openWeatherMap } from './htmlRender.js';
 
-const city = 'curitiba';
 const lang = 'pt_br';
 
 const geo = () => {
@@ -38,36 +37,35 @@ inputSearchCity.addEventListener('keydown', (e) => {
   }
 })
 
+
+
 function searchCity() {
   if(!inputSearchCity.value) return
+  
   sessionStorage.setItem("searchCity", inputSearchCity.value);
   
-  // if(!inputSearchCity.value) return getApi(city), getApiDaysTemp(city)
   window.location.reload(false)
-  
-  // getApi(inputSearchCity.value)
-  // getApiDaysTemp(inputSearchCity.value)
-  // inputSearchCity.value = ""
-  //  console.log(window.location.hostname)
 }
-toCall()
-function toCall() {
-  const getItemSearchCity = sessionStorage.getItem("searchCity")
-  console.log(getItemSearchCity);
 
+
+
+function toCall() {
+  const getItemSearchCity = sessionStorage.getItem("searchCity");
+  
   if(getItemSearchCity == null) return
   
   getApi(getItemSearchCity)
   getApiDaysTemp(getItemSearchCity)
   
 }
+toCall()
+
+
 
 async function getApi(city) {
   const req = await fetch(`${URL_API_OPEN_WEATHER}${city}${APPID_TOKEN}${TOKEN_API_OPEN_WEATHER}${LANG}${lang}`)
   const res = await req.json();
   if(!req.ok) return
-
-  console.log(res)
 
   tempNow(res)
   visible(res)
@@ -78,27 +76,25 @@ async function getApi(city) {
   getApiAirQuality(res.coord.lat,res.coord.lon,res.sys.sunrise,res.sys.sunset)
 
 }
-// getApi(city)
+
+
 
 async function getApiAirQuality(lat, lon,sunrise,sunset) {
   const req = fetch(`${URL_AR}lat=${lat}&lon=${lon}&start=${sunrise}&end=${sunset}${APPID_TOKEN}${TOKEN_API_OPEN_WEATHER}&lang=${lang}`);
   const res = await (await req).json();
 
-  // console.log(res);
-
   airQuality(res)
 }
-//getApiAirQuality()
+
+
 
 async function getApiDaysTemp(city) {
   const req = await fetch(`${URL_FORECAST}${city}&cnt=8&appid=${TOKEN_API_OPEN_WEATHER}&units=metric&lang=${lang}`);
   const res = await req.json();
+
   if(!req.ok) {
     throw Error(res.statusText), alert('Nome de cidade Invalida')
   }
   
-
-  // console.log(res)
   return weather(res)
 }
-// getApiDaysTemp('curitiba')
