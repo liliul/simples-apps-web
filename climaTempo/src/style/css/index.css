@@ -258,6 +258,7 @@ body {
   background-attachment: fixed;
   background-position: center center;
   background-color: var(--bg-color);
+  margin-bottom: 3rem;
 }
 
 .container .weekWeather .days .h-days .h3-days {
