@@ -1,8 +1,6 @@
-import {
-  TOKEN_API_OPEN_WEATHER,  
-  APPID_TOKEN,
-  URL_AR
-} from './token.js';
+import { TOKEN_API_OPEN_WEATHER, APPID_TOKEN, URL_AR } from './token.js';
+
+// import { tempNow, airQuality, visible ,sunTime, weather, openWeatherMap } from './htmlRender.js';
 
 const geo = () => {
     if(navigator.geolocation) {
@@ -13,7 +11,7 @@ const geo = () => {
       })
     }
   }
-  geo()
+  //geo()
 
   async function getApis(lat, lon) {
     const [reqApi1, reqApi2, reqApi3] = await Promise.all([
@@ -22,5 +20,9 @@ const geo = () => {
       fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${TOKEN_API_OPEN_WEATHER}&units=metric&lang=pt_br`),
     ])
 
-    console.log(reqApi1, reqApi2, reqApi3);
+    const resApi1 = await reqApi1.json();
+    const resApi2 = await reqApi2.json();
+    const resApi3 = await reqApi3.json();
+    console.log(resApi1, resApi2, resApi3);
+  
   }
