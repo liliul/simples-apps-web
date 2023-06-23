@@ -1,10 +1,7 @@
 import {
-  TOKEN_API_OPEN_WEATHER, 
-  URL_API_OPEN_WEATHER, 
+  TOKEN_API_OPEN_WEATHER,  
   APPID_TOKEN,
-  LANG,
-  URL_AR, 
-  URL_FORECAST
+  URL_AR
 } from './token.js';
 
 const geo = () => {
@@ -19,9 +16,9 @@ const geo = () => {
   //geo()
 
   async function getApis(lat, lon) {
-    const [reqApi1, reqApi2] = await Promise.all([
+    const [reqApi1, reqApi2, reqApi3] = await Promise.all([
       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${TOKEN_API_OPEN_WEATHER}&units=metric&lang=pt_br`),
       fetch(`${URL_AR}lat=${lat}&lon=${lon}${APPID_TOKEN}${TOKEN_API_OPEN_WEATHER}&lang=pt_br`),
-      fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APPID_TOKEN}`)
+      fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APPID_TOKEN}&units=metric&lang=pt_br`),
     ])
   }
