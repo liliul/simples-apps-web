@@ -2,6 +2,8 @@ import { TOKEN_API_OPEN_WEATHER, APPID_TOKEN, URL_AR } from './token.js';
 
 import { tempNow, airQuality, visible ,sunTime, weather, openWeatherMap } from './htmlRender.js';
 
+// geo()
+
 const geo = () => {
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(async function(pos) {
@@ -10,8 +12,7 @@ const geo = () => {
          await getApis(pos.coords.latitude, pos.coords.longitude)
       })
     }
-  }
-  geo()
+}
 
   async function getApis(lat, lon) {
     const [reqApi1, reqApi2, reqApi3] = await Promise.all([
