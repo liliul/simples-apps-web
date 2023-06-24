@@ -28,7 +28,7 @@ const geo = () => {
 
     tempNow(resApi1)
     airQuality(resApi2)
-    // weather(reqApi3)
+    weather(reqApi3)
     visible(resApi1)
     sunTime(resApi1)   
     openWeatherMap(resApi1)
