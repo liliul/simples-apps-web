@@ -28,8 +28,8 @@ async function getApis(lat, lon) {
 
   tempNow(resApi1)
   airQuality(resApi2)
-  weather(reqApi3)
   visible(resApi1)
   sunTime(resApi1)   
   openWeatherMap(resApi1)
+  weather(reqApi3)
 }
