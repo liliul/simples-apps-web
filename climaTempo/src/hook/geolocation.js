@@ -18,7 +18,7 @@ async function getApis(lat, lon) {
   const [reqApi1, reqApi2, reqApi3] = await Promise.all([
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${TOKEN_API_OPEN_WEATHER}&lang=pt_br`),
     fetch(`${URL_AR}lat=${lat}&lon=${lon}${APPID_TOKEN}${TOKEN_API_OPEN_WEATHER}&lang=pt_br`),
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${TOKEN_API_OPEN_WEATHER}&units=metric&lang=pt_br`),
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=8&appid=${TOKEN_API_OPEN_WEATHER}&units=metric&lang=pt_br`),
   ])
 
   const resApi1 = await reqApi1.json();
