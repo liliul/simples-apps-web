@@ -12,7 +12,7 @@ const geo = () => {
     })
   }
 }
-geo()
+//geo()
 
 async function getApis(lat, lon) {
   const [reqApi1, reqApi2, reqApi3] = await Promise.all([
