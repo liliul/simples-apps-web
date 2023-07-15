@@ -8,9 +8,7 @@
 
 		padding-top: 6.4rem;
 
-		.main_left {
-
-		}
+		
 		.main_content {
 
 			.content_header {
@@ -62,7 +60,7 @@
 
 					@extend %flex_column_center;
 
-					.void-icon {}
+					
 					.void-p {
 						color: $void_cor;
 
@@ -129,8 +127,6 @@
 				}
 			}
 		}
-		.main_right {
-
-		}
+		
 	}
 }
