@@ -8,4 +8,4 @@ export function getApiRandomUser() {
    })
     
 } 
-getApiRandomUser()
+//getApiRandomUser()

@@ -1,8 +1,10 @@
+import {CardIndex} from '../components/index.ts';
+
 export function Card() {
 	return (
 		`	
 			<section>
-				${document.title}
+				${CardIndex()}
 			</section>
 
 		`
