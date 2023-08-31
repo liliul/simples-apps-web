@@ -3,7 +3,7 @@ import {CardIndex} from '../components/index.ts';
 export function Card() {
 	return (
 		`	
-			<section>
+			<section id="card">
 				${CardIndex()}
 			</section>
 
