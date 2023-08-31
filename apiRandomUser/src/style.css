@@ -18,4 +18,48 @@
   -webkit-text-size-adjust: 100%;
 }
 
-h5{color: purple;}
+body {
+  margin: 25px 0px;
+}
+
+#card {
+  width: 810px;
+  height: auto;
+  margin: 0 auto;
+  padding: 10px;
+
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px #999;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+/*  place-content: center;*/
+  grid-gap: 5px;
+}
+
+.cards {
+/*  width: 150px;*/
+  border-radius: 5px;
+  box-shadow: 3px 3px 8px #999;
+
+  padding: 10px;
+}
+
+.c-img {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+.c-img img {
+  border-radius: 5px;
+  box-shadow: 3px 3px 8px #999;
+}
+.names,.local,.infos {
+  margin-top: 8px;
+}
+.names {}
+
+.local {}
+
+.infos {}
