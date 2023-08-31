@@ -7,34 +7,9 @@ export async function CardIndex() {
 
 	return randomUser			  
 }
-// window.onload = function(){
-// 	CardIndex()
-//}
 
 function renderCard(api) {
 	const {cell, dob, email, gender, id, location, name, phone, picture, nat} = api;
-	// const {phone, email, name}=api
-	// console.log(phone)
-	// return (
-	// 	`
-	// 		<h5>${phone}</h5>
-	// 		<h5>${email}</h5>
-	// 		<h5>${name.first}</h5>
-
-	// 	`
-	// )
-
-	// const containerImg = document.createElement('div')
-	// 	containerImg.classList.add('c-img')
-	// const imgPicture = document.createElement('img')
-	// 	imgPicture.src = picture.medium
-
-
-	// containerImg.appendChild(imgPicture)
-
-	// const cards = document.createElement('article')
-	// 	cards.classList.add('cards')
-	// cards.appendChild(containerImg)
 
 	document.querySelector<HtmlSectionElement>("#card").innerHTML +=`
 		<article class='cards'data-id='${id.value}'>
