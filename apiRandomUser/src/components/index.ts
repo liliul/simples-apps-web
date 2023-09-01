@@ -11,7 +11,7 @@ export async function CardIndex() {
 function renderCard(api) {
 	const {cell, dob, email, gender, id, location, name, phone, picture, nat} = api;
 
-	document.querySelector<HtmlSectionElement>("#card").innerHTML +=`
+	document.querySelector<HTMLDivElement>("#card").innerHTML +=`
 		<article class='cards'data-id='${id.value}'>
 			<section class='c-img'>
 				<img src='${picture.medium}' alt='Img' />

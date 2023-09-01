@@ -1,6 +1,6 @@
 import {CardIndex} from '../components/index.ts';
 
-export function Card() {
+export function Card(): string {
 	return (
 		`	
 			<section id="card">
