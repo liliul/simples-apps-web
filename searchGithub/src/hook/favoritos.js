@@ -1,6 +1,6 @@
 import {search} from "./api.js";
 
-export default class Favoritos {
+export class Favoritos {
 
     constructor(root) {
         this.root = document.querySelector(root)
