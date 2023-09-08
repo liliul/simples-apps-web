@@ -1,5 +1,9 @@
 import { Favoritos } from "./favoritos.js"
 
+/**
+    @class {string}
+    @augments {Favoritos}
+*/
 
 export default class FavoritesView extends Favoritos {
     constructor(root) {
