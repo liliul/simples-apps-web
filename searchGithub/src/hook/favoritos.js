@@ -1,5 +1,11 @@
 import {search} from "./api.js";
 
+/**
+    @class {string}
+    @augments {root}
+    @descriptions crud ex save add delete update do projeto
+*/
+
 export class Favoritos {
 
     constructor(root) {
