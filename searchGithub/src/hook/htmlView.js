@@ -28,8 +28,11 @@ export default class FavoritesView extends Favoritos {
 
         }
         input.addEventListener('keypress', (e) => {
-            if(e.key === 'Enter'){
             const { value } = this.root.querySelector('.search input')
+
+            if(value === '') return
+
+            if(e.key === 'Enter'){
             console.log(this.add(value))
             }
 
