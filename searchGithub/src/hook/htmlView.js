@@ -19,12 +19,22 @@ export default class FavoritesView extends Favoritos {
 
     onadd() {
         const addButton = this.root.querySelector('.search button')
+        const input = this.root.querySelector('.search input')
         addButton.onclick = () => {
             const { value } = this.root.querySelector('.search input')
 
-            this.add(value)
+            console.log(this.add(value))
+
 
         }
+        input.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter'){
+            const { value } = this.root.querySelector('.search input')
+            console.log(this.add(value))
+            }
+
+
+        })
     }
     
 
