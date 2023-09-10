@@ -1,0 +1,12 @@
+{
+  "name": "jscrud",
+  "version": "1.0.0",
+  "description": "Criando crud com javascript",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server --port=8081 --no-browser"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
