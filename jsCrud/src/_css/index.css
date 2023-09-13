@@ -10,6 +10,13 @@ body {
 }
 :root {
     font-size: 64.2%;
+
+    --bg-card: white;
+    --radius-card: 0.8rem;
+    --size-h1: 1.9rem;
+    --size-h4: 1.5rem;
+    --bg-button: #212121;
+    --bg-button-hover: tomato;
 }
 .header {
     width: 100%;
@@ -26,5 +33,61 @@ body {
     width: 40rem;
     height: 3rem;
     margin-top: 1.5rem;
-    
+    border: 0;
+    border-radius: var(--radius-card);
+    padding-left: 1rem;
+    outline: none;
+}
+
+.main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 1rem;
+}
+.c-card {
+    width: 60rem;
+    height: auto;
+
+    background-color: var(--bg-card);
+    border-radius: var(--radius-card);
+
+    padding: 1rem;
+}
+
+.c-card .name {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+}
+.c-card .name img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 1rem;
+}
+.c-card .name .h1 {
+    color: #212121;
+    font-size: var(--size-h1);
+}
+.c-card .name .h4 {
+    color: #212121;
+    font-size: var(--size-h4);
+}
+
+.c-card .button button {
+    margin-top: 1.5rem;
+    padding: .4rem 1.4rem;
+
+    border: 0px;
+    border-radius: var(--radius-card);
+    color: white;
+    font-weight: bold;
+    background-color: var(--bg-button);
+}
+.c-card .button button:hover {
+    background-color: var(--bg-button-hover);
 }
