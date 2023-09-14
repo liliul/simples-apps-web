@@ -20,8 +20,16 @@ input.addEventListener('change', async (e) => {
 
     document.getElementById('container').innerHTML +=Card(json.id,json.avatar,json.name,json.login)
     
+    const del = document.getElementById('del')
+    del.onclick = removeButton(json.id)
 })
-// function removeButton() {
-//     const del = document.getElementById('del')
-//     del.remove()
+
+function removeButton(idData) {
+    const del = document.querySelector(`[data-id='${idData}']`)
+    del.remove()
+}
+// function deleteButton() {
+//     const ex = document.getElementById('del')
+//     ex.remove()
 // }
+
