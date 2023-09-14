@@ -8,6 +8,8 @@ input.addEventListener('change', async (e) => {
     
     const w = await search.searchGithub(input.value)
     console.log(w)
+    if(w.message === "Not Found") return
+
     const json = {
         'id':w.id,
         'avatar':w.avatar_url,
