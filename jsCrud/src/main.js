@@ -4,6 +4,8 @@ import Card from "./components/Card.js"
 const input = document.getElementById('search')
 
 input.addEventListener('change', async (e) => {
+    if(input.value === undefined) return
+    
     const w = await search.searchGithub(input.value)
     console.log(w)
     const json = {
