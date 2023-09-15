@@ -3,7 +3,7 @@ function setLocalStorage(nameValue, value) {
 }
 
 function getLocalStorage(nameValue) {
-    return window.localStorage.getItem(nameValue) ?? []
+    return JSON.parse(window.localStorage.getItem(nameValue)) ?? []
 }
 
 export const localStorage = {
