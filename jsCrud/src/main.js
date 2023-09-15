@@ -1,7 +1,9 @@
 import {search} from "./service/api.js"
 import Card from "./components/Card.js"
+import {localStorage} from "./service/localStorage.js"
 
 const input = document.getElementById('search')
+let db = []
 
 input.addEventListener('change', async (e) => {
     if(input.value === undefined) return
@@ -15,19 +17,37 @@ input.addEventListener('change', async (e) => {
         'avatar':w.avatar_url,
         'name':w.name,
         'login':w.login
-
+        
     }
 
-    document.getElementById('container').innerHTML +=Card(json.id,json.avatar,json.name,json.login)
-    
-    const del = document.getElementById('del')
-    del.onclick = removeButton(json.id)
-})
+    db.push(json)
+ 
 
-function removeButton(idData) {
-    const del = document.querySelector(`[data-id='${idData}']`)
-    del.remove()
+    
+    update()
+
+})
+window.onload = renderCardHTML()
+
+function renderCardHTML() {
+  let json = localStorage.getLocalStorage('jsCrud')
+    json.forEach(json => {
+
+        document.getElementById('container').innerHTML += Card(json.id,json.avatar,json.name,json.login)
+    })
+//    console.log(f);
+   
 }
+
+function update() {
+    localStorage.setLocalStorage('jsCrud', db)
+}
+
+// function removeButton() {
+//     const del = document.querySelector('.c-card')
+//     del.classList.add('dis')
+// }
+// document.getElementById('del').onclick = removeButton()
 // function deleteButton() {
 //     const ex = document.getElementById('del')
 //     ex.remove()
