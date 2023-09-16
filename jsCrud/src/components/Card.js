@@ -1,6 +1,10 @@
 export default function Card(id, avatar,name, login) {
-    return (`
-        <section class='c-card' data-id='${id}'>
+    const sectionContainer = document.createElement('section')
+    sectionContainer.classList.add('c-card')
+    sectionContainer.setAttribute('data-id',`${id}`)
+
+    sectionContainer.innerHTML = `
+        
             <article class='name'>
                 <img src='${avatar}' />
                 <h1 class='h1'>${name}></h1>
@@ -10,6 +14,8 @@ export default function Card(id, avatar,name, login) {
             <div class='button'>
                 <button id='del' data-id='${id}'>Excluir</button>
             </div>
-        </section>
-    `)
+       
+    `
+
+    document.getElementById('container').appendChild(sectionContainer)
 }
