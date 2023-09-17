@@ -39,12 +39,14 @@ function renderCardHTML() {
         Card(json.id,json.avatar,json.name,json.login)
     })
 //    console.log(f);
+
 }
 renderCardHTML()
 function update() {
     localStorage.setLocalStorage('jsCrud', db)
+    renderCardHTML()
 }
-
+// update()
 // function removeButton() {
 //     const del = document.querySelector('.c-card')
 //     del.classList.add('dis')
