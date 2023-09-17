@@ -33,7 +33,6 @@ input.addEventListener('change', async (e) => {
     update()
 
 })
-// window.onload = renderCardHTML()
 
 function renderCardHTML() {
     document.getElementById('container').innerHTML = ""
@@ -52,6 +51,12 @@ renderCardHTML()
 function update() {
     localStorage.setLocalStorage('jsCrud', db)
     renderCardHTML()
+}
+
+function deleteUser(user) {
+    db.splice(user, 1)
+
+    update()
 }
 // update()
 // function removeButton() {
