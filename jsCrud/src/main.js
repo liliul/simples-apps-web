@@ -8,6 +8,12 @@ let db = []
 input.addEventListener('change', async (e) => {
     if(input.value === undefined) return
     
+     db = localStorage.getLocalStorage('jsCrud')
+
+     const a = db.find(user => user.login === input.value)
+
+    if(a) return
+
     const w = await search.searchGithub(input.value)
     console.log(w)
     if(w.message === "Not Found") return
@@ -33,6 +39,7 @@ function renderCardHTML() {
     document.getElementById('container').innerHTML = ""
 
     db = localStorage.getLocalStorage('jsCrud')
+
     db.forEach(json => {
 
         // document.getElementById('container').innerHTML += Card(json.id,json.avatar,json.name,json.login)
