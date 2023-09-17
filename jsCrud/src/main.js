@@ -32,8 +32,8 @@ input.addEventListener('change', async (e) => {
 function renderCardHTML() {
     document.getElementById('container').innerHTML = ""
 
-    let json = localStorage.getLocalStorage('jsCrud')
-    json.forEach(json => {
+    db = localStorage.getLocalStorage('jsCrud')
+    db.forEach(json => {
 
         // document.getElementById('container').innerHTML += Card(json.id,json.avatar,json.name,json.login)
         Card(json.id,json.avatar,json.name,json.login)
