@@ -27,7 +27,7 @@ input.addEventListener('change', async (e) => {
     }
 
     db.push(json)
- 
+    deleteUser(json.id)
 
     
     update()
