@@ -27,9 +27,7 @@ input.addEventListener('change', async (e) => {
     }
 
     db.push(json)
-    deleteUser(json.id)
-
-    
+      
     update()
 
 })
@@ -39,33 +37,53 @@ function renderCardHTML() {
 
     db = localStorage.getLocalStorage('jsCrud')
 
-    db.forEach(json => {
+    db.forEach((json, index) => {
 
         // document.getElementById('container').innerHTML += Card(json.id,json.avatar,json.name,json.login)
-        Card(json.id,json.avatar,json.name,json.login)
+        Card(json.id,json.avatar,json.name,json.login,index)
     })
-//    console.log(f);
 
+    // document.getElementById('del').onclick = removeButton(document.getAttribute('data-id')) 
+    
 }
+
 renderCardHTML()
 function update() {
     localStorage.setLocalStorage('jsCrud', db)
+
     renderCardHTML()
+
 }
+// deleteUser('18133')
+// function deleteUser(user) {
+//    let ddd = db.filter(del => {
+//     console.log(del)    
+//    })
+//     console.log(ddd)
+//     update()
+// }
+// let del = document.getElementById('del')
+// del.onclick = deleteUser(document.querySelector("[data-id='18133']"))
 
-function deleteUser(user) {
-    db.splice(user, 1)
 
+// update()
+function removeButton(del) {
+    // const del = document.querySelector('.c-card')
+    // del.classList.add('dis')
+    db.splice(del, 1)
     update()
 }
-// update()
-// function removeButton() {
-//     const del = document.querySelector('.c-card')
-//     del.classList.add('dis')
-// }
-// document.getElementById('del').onclick = removeButton()
+document.getElementById('del').addEventListener('click', (e) => {
+    console.log(e.target.dataset.id)
+    removeButton(e.target.dataset.id)
+})
+
+
+// removeButton(2)
+ 
+// document.getElementById('del').onclick = deleteButton()
 // function deleteButton() {
-//     const ex = document.getElementById('del')
+//     const ex = document.querySelector('.c-card')
 //     ex.remove()
 // }
 
