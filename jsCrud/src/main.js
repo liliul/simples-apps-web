@@ -73,8 +73,10 @@ function removeButton(del) {
     db.splice(del, 1)
     update()
 }
-document.getElementById('del').addEventListener('click', (e) => {
-    console.log(e.target.dataset.id)
+window.document.addEventListener('click', (e) => {
+    let del = document.getElementById('del')
+    let p = del.dataset.id
+    console.log('weqwe',e.target.dataset.id)
     removeButton(e.target.dataset.id)
 })
 
