@@ -1,3 +1,5 @@
+'use strict'
+
 import {search} from "./service/api.js"
 import Card from "./components/Card.js"
 import {localStorage} from "./service/localStorage.js"
@@ -14,6 +16,7 @@ input.addEventListener('change', async (e) => {
 
     if(a) return
 
+
     const w = await search.searchGithub(input.value)
     console.log(w)
     if(w.message === "Not Found") return
@@ -27,8 +30,11 @@ input.addEventListener('change', async (e) => {
     }
 
     db.push(json)
-      
+
+    
     update()
+
+    
 
 })
 
@@ -39,53 +45,18 @@ function renderCardHTML() {
 
     db.forEach((json, index) => {
 
-        // document.getElementById('container').innerHTML += Card(json.id,json.avatar,json.name,json.login)
         Card(json.id,json.avatar,json.name,json.login,index)
     })
-
-    // document.getElementById('del').onclick = removeButton(document.getAttribute('data-id')) 
-    
 }
 
 renderCardHTML()
 function update() {
     localStorage.setLocalStorage('jsCrud', db)
-
     renderCardHTML()
 
 }
-// deleteUser('18133')
-// function deleteUser(user) {
-//    let ddd = db.filter(del => {
-//     console.log(del)    
-//    })
-//     console.log(ddd)
-//     update()
-// }
-// let del = document.getElementById('del')
-// del.onclick = deleteUser(document.querySelector("[data-id='18133']"))
 
-
-// update()
 function removeButton(del) {
-    // const del = document.querySelector('.c-card')
-    // del.classList.add('dis')
     db.splice(del, 1)
     update()
 }
-window.document.addEventListener('click', (e) => {
-    let del = document.getElementById('del')
-    let p = del.dataset.id
-    console.log('weqwe',e.target.dataset.id)
-    removeButton(e.target.dataset.id)
-})
-
-
-// removeButton(2)
- 
-// document.getElementById('del').onclick = deleteButton()
-// function deleteButton() {
-//     const ex = document.querySelector('.c-card')
-//     ex.remove()
-// }
-
