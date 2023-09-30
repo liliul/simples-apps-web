@@ -1,3 +1,5 @@
+import { fetchApi } from './utils/api.js';
+
 const characterId = document.getElementById('characterId');
 const btnGo = document.getElementById('btn-go');
 const btnReset = document.getElementById('btn-reset');
@@ -5,16 +7,6 @@ const content = document.getElementById('content');
 const conteinerResult = document.getElementById('result-style');
 const image = document.getElementById('img');
 
-const fetchApi = (value) => {
-  const result = fetch(`https://rickandmortyapi.com/api/character/${value}`)
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data);
-    return data;
-  });
-
-  return result;
-}
 
 const keys = ['name', 'status', 'species', 'gender', 'origin', 'episode'];
 const newKeys = {
