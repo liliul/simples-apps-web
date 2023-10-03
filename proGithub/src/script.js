@@ -1,3 +1,10 @@
+import { Header } from './components/header.js';
+import { Main } from './components/main.js';
+import { Footer } from './components/footer.js';
+Header()
+Main()
+Footer()
+
 const nome = document.querySelector('#userNome')
 const avatar = document.querySelector('#avatar')
 const bio = document.querySelector('#bio')
@@ -14,7 +21,6 @@ const reposPublic = document.querySelector('#repo-public')
 const gistsPublic = document.querySelector('#gists-public')
 
 
-
 let http = 'https://'
 let httptwiter = `${http}twitter.com/`
 
@@ -24,7 +30,6 @@ fetch(`https://api.github.com/users/${username}`)
     .then((response) => response.json())
     .then((data) =>  {
 
-     
         nome.innerText = data.name
         avatar.src = data.avatar_url
 
