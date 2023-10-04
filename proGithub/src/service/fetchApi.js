@@ -5,7 +5,35 @@ const urlUser = `${URL.URL_GITHUB_API}${userConfig.githubUser}`;
 
 async function apiGithubUser() {
 	const req = await fetch(urlUser);
-	return await req.json();
+	const { 
+		name,
+	 	avatar_url,
+	 	html_url, 
+	 	bio, 
+	 	blog, 
+	 	location, 
+	 	company,
+	 	twitter_username,
+	 	followers,
+	 	following,
+	 	public_repos,
+	 	public_gists
+	} = await req.json();
+
+	return { 
+		name, 
+		avatar_url, 
+		html_url, 
+		bio, 
+		blog, 
+		location, 
+		company,
+		twitter_username,
+		followers,
+		following,
+		public_repos,
+		public_gists
+	}
 }
 
 async function apiGithubRepos() {
