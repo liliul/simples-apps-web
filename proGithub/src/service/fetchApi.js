@@ -1,11 +1,16 @@
-async function apiGithubUser() {
-	const req = fetch();
+async function apiGithubUser(url) {
+	const req = await fetch(url);
 
-	return res.json();
+	return await req.json();
 }
 
-async function apiGithubRepos() {
-	const req = fetch();
+async function apiGithubRepos(url) {
+	const req = await fetch(url);
 
-	return res.json();
+	return await req.json();
+}
+
+export const FetchApi = {
+	apiGithubUser,
+	apiGithubRepos
 }
