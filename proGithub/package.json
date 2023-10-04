@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev":"live-server --no-browser & sass -w style.scss:style.css"
+    "dev":"live-server --no-browser & sass -w src/style/style.scss:src/style/style.css"
   },
   "repository": {
     "type": "git",
