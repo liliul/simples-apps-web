@@ -27,10 +27,10 @@ const gistsPublic = document.querySelector('#gists-public')
 const urlTwitter = `${URL.URL_TWITTER}`
 let http = 'https://'
 
-const urlUser = `${URL.URL_GITHUB_API}${userConfig.githubUser}`;
+// const urlUser = `${URL.URL_GITHUB_API}${userConfig.githubUser}`;
 
-async function user(url) {
-    const data = await FetchApi.apiGithubUser(url);
+async function user() {
+    const data = await FetchApi.apiGithubUser();
     console.log('use',data)
     nome.innerText = data.name
     avatar.src = data.avatar_url
@@ -54,7 +54,7 @@ async function user(url) {
     reposPublic.innerText = data.public_repos
     gistsPublic.innerText = data.public_gists
 }
-user(urlUser)
+user()
 // let http = 'https://'
 // let httptwiter = `${http}twitter.com/`
 
@@ -91,8 +91,8 @@ user(urlUser)
 
 // buscar dados da api do github users repos
 const cards = document.querySelector('#cards')
-async function repos(url) {
-     const grepos = await FetchApi.apiGithubRepos(`${url}/repos`);
+async function repos() {
+     const grepos = await FetchApi.apiGithubRepos();
      console.log('repos', grepos)
      grepos.map(list => {
         const nameRepo = document.createElement('h1')
@@ -120,7 +120,7 @@ async function repos(url) {
 
     })   
 }
-repos(urlUser)
+repos()
 
 // let nomehub = 'maykbrito'
 // let url = `https://api.github.com/users/${nomehub}/repos` 
