@@ -24,8 +24,8 @@ const following = document.querySelector('#following')
 const reposPublic = document.querySelector('#repo-public')
 const gistsPublic = document.querySelector('#gists-public')
 
+const urlTwitter = `${URL.URL_TWITTER}`
 let http = 'https://'
-let httptwiter = `${http}twitter.com/`
 
 const urlUser = `${URL.URL_GITHUB_API}${userConfig.githubUser}`;
 
@@ -46,7 +46,7 @@ async function user(url) {
     
     const twitterlink = data.twitter_username
     twitter.innerText = data.twitter_username
-    twitter.href = `${httptwiter}${twitterlink}`
+    twitter.href = `${urlTwitter}${twitterlink}`
     
     followers.innerText = data.followers
     following.innerText = data.following
