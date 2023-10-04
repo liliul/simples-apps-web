@@ -1,3 +1,7 @@
+import { FetchApi } from './service/fetchApi.js';
+import { URL } from './service/url.js';
+import { userConfig } from './config/config.js';
+
 import { Header } from './components/header.js';
 import { Main } from './components/main.js';
 import { Footer } from './components/footer.js';
@@ -20,52 +24,77 @@ const following = document.querySelector('#following')
 const reposPublic = document.querySelector('#repo-public')
 const gistsPublic = document.querySelector('#gists-public')
 
-
 let http = 'https://'
 let httptwiter = `${http}twitter.com/`
 
-const username = 'diego3g'
+const urlUser = `${URL.URL_GITHUB_API}${userConfig.githubUser}`;
 
-fetch(`https://api.github.com/users/${username}`)
-    .then((response) => response.json())
-    .then((data) =>  {
+async function user(url) {
+    const data = await FetchApi.apiGithubUser(url);
+    console.log('use',data)
+    nome.innerText = data.name
+    avatar.src = data.avatar_url
 
-        nome.innerText = data.name
-        avatar.src = data.avatar_url
+    linkGithub.href = data.html_url
+    bio.innerText = data.bio
 
-        linkGithub.href = data.html_url
-        bio.innerText = data.bio
+    const bloglink = data.blog
+    linkBlog.href = `${http}${bloglink}`
 
-        const bloglink = data.blog
-        linkBlog.href = `${http}${bloglink}`
+    local.innerText = data.location
+    company.innerText = data.company
+    
+    const twitterlink = data.twitter_username
+    twitter.innerText = data.twitter_username
+    twitter.href = `${httptwiter}${twitterlink}`
+    
+    followers.innerText = data.followers
+    following.innerText = data.following
 
-        local.innerText = data.location
-        company.innerText = data.company
+    reposPublic.innerText = data.public_repos
+    gistsPublic.innerText = data.public_gists
+}
+user(urlUser)
+// let http = 'https://'
+// let httptwiter = `${http}twitter.com/`
+
+// const username = 'diego3g'
+
+// fetch(`https://api.github.com/users/${username}`)
+//     .then((response) => response.json())
+//     .then((data) =>  {
+
+//         nome.innerText = data.name
+//         avatar.src = data.avatar_url
+
+//         linkGithub.href = data.html_url
+//         bio.innerText = data.bio
+
+//         const bloglink = data.blog
+//         linkBlog.href = `${http}${bloglink}`
+
+//         local.innerText = data.location
+//         company.innerText = data.company
         
-        const twitterlink = data.twitter_username
-        twitter.innerText = data.twitter_username
-        twitter.href = `${httptwiter}${twitterlink}`
+//         const twitterlink = data.twitter_username
+//         twitter.innerText = data.twitter_username
+//         twitter.href = `${httptwiter}${twitterlink}`
         
-        followers.innerText = data.followers
-        following.innerText = data.following
+//         followers.innerText = data.followers
+//         following.innerText = data.following
 
-        reposPublic.innerText = data.public_repos
-        gistsPublic.innerText = data.public_gists
+//         reposPublic.innerText = data.public_repos
+//         gistsPublic.innerText = data.public_gists
         
-})
+// })
 
 
 // buscar dados da api do github users repos
 const cards = document.querySelector('#cards')
-
-let nomehub = 'maykbrito'
-let url = `https://api.github.com/users/${nomehub}/repos` 
-fetch(url)
-  .then((response) => response.json())
-  .then((grepos) => {
-   
-      
-    grepos.map(list => {
+async function repos(url) {
+     const grepos = await FetchApi.apiGithubRepos(`${url}/repos`);
+     console.log('repos', grepos)
+     grepos.map(list => {
         const nameRepo = document.createElement('h1')
         const htmlUrl = document.createElement('a')
         const article = document.createElement('article')
@@ -89,6 +118,41 @@ fetch(url)
         article.appendChild(description)
         article.appendChild(language)
 
-    })
+    })   
+}
+repos(urlUser)
+
+// let nomehub = 'maykbrito'
+// let url = `https://api.github.com/users/${nomehub}/repos` 
+// fetch(url)
+//   .then((response) => response.json())
+//   .then((grepos) => {
    
-})
+      
+//     grepos.map(list => {
+//         const nameRepo = document.createElement('h1')
+//         const htmlUrl = document.createElement('a')
+//         const article = document.createElement('article')
+//         const description = document.createElement('p')
+//         const language = document.createElement('span')
+
+        
+//         htmlUrl.href = list.html_url
+
+//         article.classList.add('card')
+
+//         nameRepo.innerHTML = list.name
+//         description.innerHTML = list.description
+//         description.classList.add('s-desc')
+//         language.innerHTML = list.language
+//         language.classList.add('lang')
+
+//         cards.appendChild(htmlUrl)
+//         htmlUrl.appendChild(article)
+//         article.appendChild(nameRepo)
+//         article.appendChild(description)
+//         article.appendChild(language)
+
+//     })
+   
+// })
