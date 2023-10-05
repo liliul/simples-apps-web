@@ -1,6 +1,5 @@
 import { FetchApi } from './service/fetchApi.js';
-import { URL } from './service/url.js';
-import { userConfig } from './config/config.js';
+import { User } from './hook/githubUser.js';
 
 import { Header } from './components/header.js';
 import { Main } from './components/main.js';
@@ -9,50 +8,13 @@ Header()
 Main()
 Footer()
 
-const nome = document.querySelector('#userNome')
-const avatar = document.querySelector('#avatar')
-const bio = document.querySelector('#bio')
-
-const linkGithub = document.querySelector('#link-github')
-const linkBlog = document.querySelector('#link-blog')
-
-const local = document.querySelector('#local')
-const company = document.querySelector('#company')
-const twitter = document.querySelector('#twitter')
-const followers = document.querySelector('#followers')
-const following = document.querySelector('#following')
-const reposPublic = document.querySelector('#repo-public')
-const gistsPublic = document.querySelector('#gists-public')
-
-const urlTwitter = `${URL.URL_TWITTER}`
-let http = 'https://'
 
 // const urlUser = `${URL.URL_GITHUB_API}${userConfig.githubUser}`;
 
 async function user() {
     const data = await FetchApi.apiGithubUser();
     console.log('use',data)
-    nome.innerText = data.name
-    avatar.src = data.avatar_url
-
-    linkGithub.href = data.html_url
-    bio.innerText = data.bio
-
-    const bloglink = data.blog
-    linkBlog.href = `${http}${bloglink}`
-
-    local.innerText = data.location
-    company.innerText = data.company
-    
-    const twitterlink = data.twitter_username
-    twitter.innerText = data.twitter_username
-    twitter.href = `${urlTwitter}${twitterlink}`
-    
-    followers.innerText = data.followers
-    following.innerText = data.following
-
-    reposPublic.innerText = data.public_repos
-    gistsPublic.innerText = data.public_gists
+    User(data)
 }
 user()
 // let http = 'https://'
