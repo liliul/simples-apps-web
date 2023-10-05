@@ -1,5 +1,6 @@
 import { FetchApi } from './service/fetchApi.js';
 import { User } from './hook/githubUser.js';
+import { Repos } from './hook/githubRepos.js';
 
 import { Header } from './components/header.js';
 import { Main } from './components/main.js';
@@ -52,35 +53,10 @@ user()
 
 
 // buscar dados da api do github users repos
-const cards = document.querySelector('#cards')
 async function repos() {
      const grepos = await FetchApi.apiGithubRepos();
      console.log('repos', grepos)
-     grepos.map(list => {
-        const nameRepo = document.createElement('h1')
-        const htmlUrl = document.createElement('a')
-        const article = document.createElement('article')
-        const description = document.createElement('p')
-        const language = document.createElement('span')
-
-        
-        htmlUrl.href = list.html_url
-
-        article.classList.add('card')
-
-        nameRepo.innerHTML = list.name
-        description.innerHTML = list.description
-        description.classList.add('s-desc')
-        language.innerHTML = list.language
-        language.classList.add('lang')
-
-        cards.appendChild(htmlUrl)
-        htmlUrl.appendChild(article)
-        article.appendChild(nameRepo)
-        article.appendChild(description)
-        article.appendChild(language)
-
-    })   
+     Repos(grepos)
 }
 repos()
 
