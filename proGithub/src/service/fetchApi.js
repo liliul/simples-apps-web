@@ -38,8 +38,9 @@ async function apiGithubUser() {
 
 async function apiGithubRepos() {
 	const req = await fetch(`${urlUser}/repos`);
+	const res = await req.json();
 
-	return await req.json();
+	return res
 }
 
 export const FetchApi = {
