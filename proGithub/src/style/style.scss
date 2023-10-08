@@ -303,7 +303,7 @@ a {
 
 
 
-@media screen and (min-width: 551px){
+@media screen and (min-width: 551px) and (max-width: 800px) {
     
     .container {
         max-width: 1120px;
@@ -568,7 +568,7 @@ a {
     }
 }
 
-@media (min-width: 800px){
+@media (min-width: 800px) {
     
     .container {
         max-width: 1120px;
@@ -657,11 +657,10 @@ a {
 
 
             .skills-user {
-                // @include border-div();
 
                 margin-top: 0px;
                 margin-left: 0px;
-                padding: 20px 20px 20px 20px;
+                padding: 0px 0px 20px 20px;
 
                 h2 {
                     font-size: medium;
