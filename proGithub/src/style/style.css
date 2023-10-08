@@ -48,7 +48,7 @@ a {
   color: var(--bg-techs);
 }
 
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 550px) {
   .container .head {
     max-width: 450px;
     height: auto;
@@ -230,7 +230,7 @@ a {
     height: 24px;
   }
 }
-@media screen and (min-width: 451px) {
+@media screen and (min-width: 551px) {
   .container {
     max-width: 1120px;
     margin: 0 auto;
@@ -240,7 +240,9 @@ a {
     width: 100%;
     padding: 20px 40px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
     border-radius: 19px;
     background: var(--bg-cards);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
@@ -294,16 +296,19 @@ a {
     height: 28px;
   }
   .container .head .skills-user {
+    border-radius: 19px;
+    background: var(--bg-cards);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
     margin-top: 0px;
     margin-left: 0px;
-    padding: 0px 0px 20px 20px;
+    padding: 20px 20px 20px 20px;
   }
   .container .head .skills-user h2 {
     font-size: medium;
     color: var(--bg-techs);
   }
   .container .head .skills-user .skill {
-    margin-top: 25px;
+    margin-top: 14px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;

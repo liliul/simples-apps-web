@@ -59,7 +59,7 @@ a {
 }
 
 
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 550px) {
     .container {
         
        
@@ -303,7 +303,7 @@ a {
 
 
 
-@media screen and (min-width: 451px){
+@media screen and (min-width: 551px){
     
     .container {
         max-width: 1120px;
@@ -316,7 +316,9 @@ a {
             width: 100%;
             padding: 20px  40px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
 
             @include border-div();
 
@@ -391,11 +393,11 @@ a {
 
 
             .skills-user {
-                
+                @include border-div();
 
                 margin-top: 0px;
                 margin-left: 0px;
-                padding: 0px 0px 20px 20px;
+                padding: 20px 20px 20px 20px;
 
                 h2 {
                     font-size: medium;
@@ -404,9 +406,10 @@ a {
                 }
 
                 .skill {
-                    margin-top: 25px;
+                    margin-top: 14px;
                     display: grid;
                     grid-template-columns: 1fr 1fr 1fr;
+
                     gap: 10px;
 
                     .item-skills {
