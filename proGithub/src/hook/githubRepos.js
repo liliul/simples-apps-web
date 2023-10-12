@@ -1,3 +1,10 @@
+/**
+ * função que renderiza html
+ *
+ * @param {object} Repos
+ * @returns {html}
+*/
+
 export function Repos(grepos) {
 	const cards = document.querySelector('#cards')
 

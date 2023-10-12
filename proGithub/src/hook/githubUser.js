@@ -3,6 +3,13 @@ import { URL } from '../service/url.js';
 const urlTwitter = `${URL.URL_TWITTER}`;
 let http = 'https://';
 
+/**
+ * função que renderiza html
+ *
+ * @param {object} User
+ * @returns {html}
+*/
+
 export function User(data) {
     const nome = document.querySelector('#userNome')
     const avatar = document.querySelector('#avatar')
