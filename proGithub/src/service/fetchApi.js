@@ -3,6 +3,14 @@ import { userConfig } from '../config/config.js';
 
 const urlUser = `${URL.URL_GITHUB_API}${userConfig.githubUser}`;
 
+/**
+ * @param {object} apiGithubUser
+ * @returns {object} da api github usuario
+ *
+ * @typedef {object} destructions
+ * @property {string} name,avatar_url,html_url,bio,blog,location,company,twitter_username
+ * @property {number} followers,following,public_repos,public_gists
+*/
 async function apiGithubUser() {
 	const req = await fetch(urlUser);
 	const { 
@@ -36,6 +44,12 @@ async function apiGithubUser() {
 	}
 }
 
+/**
+ * @param {object} apiGithubRepos
+ * @returns {object} da api do github repos
+ *
+ * @typedef {object} res
+*/
 async function apiGithubRepos() {
 	const req = await fetch(`${urlUser}/repos`);
 	const res = await req.json();
