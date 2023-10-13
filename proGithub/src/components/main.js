@@ -1,3 +1,8 @@
+/**
+ * @param {string} Main
+ * @return template html conteudo principal
+ */
+
 export function Main() {
 	const mainContainer = document.createElement('main');
 	mainContainer.classList.add('content');

@@ -1,3 +1,8 @@
+/**
+ * @param {string} Footer
+ * @return template html footer
+ */
+
 export function Footer() {
 	const footerContainer = document.createElement('footer');
 	footerContainer.classList.add('footer');
