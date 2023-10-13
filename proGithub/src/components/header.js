@@ -1,3 +1,8 @@
+/**
+ * @param {string} Header
+ * @return template html header
+ */
+
 export function Header() {
 	const headContainer = document.createElement('header');
 	headContainer.classList.add('head');
