@@ -66,7 +66,7 @@ function del() {
     const del=document.getElementById('del')
     window.addEventListener('click', (e) => {
     let del = document.getElementById('del')
-    let p = del.dataset.id
+    // let p = del.dataset.id
    console.log('db',e.target.dataset.id)
      removeButton(e.target.dataset.id)
      update()
