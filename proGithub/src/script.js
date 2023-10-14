@@ -19,6 +19,10 @@ Header()
 Main()
 Footer()
 
+/**
+ * @funtion user
+ * @return informações da api github usuario e renderiza no html
+ */
 
 async function user() {
     const data = await FetchApi.apiGithubUser();
@@ -26,22 +30,17 @@ async function user() {
     User(data)
 }
 
-/**
- * @funtion user
- * @return informações da api github usuario e renderiza no html
- */
-
 user()
+
+/**
+ * @function repos
+ * @return informações da api github repositorios e renderiza no html
+ */
 
 async function repos() {
     const grepos = await FetchApi.apiGithubRepos();
     console.log('repos', grepos)
     Repos(grepos)
 }
-
-/**
- * @function repos
- * @return informações da api github repositorios e renderiza no html
- */
 
 repos()
