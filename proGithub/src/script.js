@@ -6,6 +6,15 @@ import { Header } from './components/header.js';
 import { Main } from './components/main.js';
 import { Footer } from './components/footer.js';
 
+
+/**
+ * @description ### funções que retorna template html
+ * @param {string} Header
+ * @param {string} Main
+ * @param {string} Footer
+ * @return template html
+ */
+
 Header()
 Main()
 Footer()
@@ -17,6 +26,11 @@ async function user() {
     User(data)
 }
 
+/**
+ * @funtion user
+ * @return informações da api github usuario e renderiza no html
+ */
+
 user()
 
 async function repos() {
@@ -24,5 +38,10 @@ async function repos() {
     console.log('repos', grepos)
     Repos(grepos)
 }
+
+/**
+ * @function repos
+ * @return informações da api github repositorios e renderiza no html
+ */
 
 repos()
