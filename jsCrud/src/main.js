@@ -26,16 +26,11 @@ input.addEventListener('change', async (e) => {
         'avatar':w.avatar_url,
         'name':w.name,
         'login':w.login
-        
     }
 
     db.push(json)
 
-    
     update()
-
-    
-
 })
 
 function renderCardHTML() {
@@ -48,25 +43,28 @@ function renderCardHTML() {
         Card(json.id,json.avatar,json.name,json.login,index)
     })
 }
-
 renderCardHTML()
+
+
 function update() {
     localStorage.setLocalStorage('jsCrud', db)
     renderCardHTML()
 
 }
 
+
 function removeButton(del) {
     db.splice(del, 1)
     update()
 }
+
 
 window.onload=del()
 function del() {
     const del=document.getElementById('del')
     window.addEventListener('click', (e) => {
     let del = document.getElementById('del')
-    // let p = del.dataset.id
+
    console.log('db',e.target.dataset.id)
      removeButton(e.target.dataset.id)
      update()
