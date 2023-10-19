@@ -1,3 +1,5 @@
+import { userConfig } from '../config/config.js';
+
 /**
  * @param {string} Header
  * @return template html header
@@ -76,6 +78,46 @@ export function Header() {
 	            </div>
 	        </div>
 	    </div>
+	    ${skills()}
 	`
 	document.querySelector('#root').insertAdjacentElement('afterbegin',headContainer)
+}
+//console.log(userConfig.skills)
+
+const skills = (tech1='java') => {
+	return (`
+		<div class="skills-user">
+	        <h2>Tecnologias</h2>
+
+	        <div class="skill">
+	            <div class="item-skills">
+	                <p>${userConfig.skills.tech1}</p>
+	            </div>
+	            <div class="item-skills">
+	                <p>${userConfig.skills.tech2}</p>
+	            </div>
+	            <div class="item-skills">
+	                <p>${userConfig.skills.tech3}</p>
+	            </div>
+	            <div class="item-skills">
+	                <p>${userConfig.skills.tech4}</p>
+	            </div>
+	            <div class="item-skills">
+	                <p>${userConfig.skills.tech5}</p>
+	            </div>
+	            <div class="item-skills">
+	                <p>${userConfig.skills.tech6}</p>
+	            </div>
+	            <div class="item-skills">
+	                <p>${userConfig.skills.tech7}</p>
+	            </div>
+	            <div class="item-skills">
+	                <p>${userConfig.skills.tech8}</p>
+	            </div>
+	            <div class="item-skills">
+	                <p>${userConfig.skills.tech9}</p>
+	            </div>
+	        </div>
+	    </div>
+	`)
 }
