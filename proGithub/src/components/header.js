@@ -79,87 +79,20 @@ export function Header() {
 	        </div>
 	    </div>
 
-	    ${skills()}
+	    ${tecnologia()}
 	`
 	document.querySelector('#root').insertAdjacentElement('afterbegin', headContainer);
 }
 
 
-const skills = () => {
+const tecnologia = () => {
 	return (`
 		<div class="skills-user">
 	        <h2>Tecnologias</h2>
 
 	        <div class="skill">
-	            <div class="item-skills">
-	                <p>${userConfig.skills.tech1}</p>
-	            </div>
-	            <div class="item-skills">
-	                <p>${userConfig.skills.tech2}</p>
-	            </div>
-	            <div class="item-skills">
-	                <p>${userConfig.skills.tech3}</p>
-	            </div>
-	            <div class="item-skills">
-	                <p>${userConfig.skills.tech4}</p>
-	            </div>
-	            <div class="item-skills">
-	                <p>${userConfig.skills.tech5}</p>
-	            </div>
-	            <div class="item-skills">
-	                <p>${userConfig.skills.tech6}</p>
-	            </div>
-	            <div class="item-skills">
-	                <p>${userConfig.skills.tech7}</p>
-	            </div>
-	            <div class="item-skills">
-	                <p>${userConfig.skills.tech8}</p>
-	            </div>
-	            <div class="item-skills">
-	                <p>${userConfig.skills.tech9}</p>
-	            </div>
-
-	            ${s}
+	            ${userConfig.skillsTech}
 	        </div>
 	    </div>
 	`)
 }
-
-const s = `
-	<div class="item-skills">
-	    <p>dasdasdas</p>
-	</div>
-
-	<div class="item-skills">
-	                <p>askdas</p>
-	            </div>
-    <div class="item-skills">
-	                <p>aasssdd</p>
-	            </div>
-`
-console.log(s)
-function dd() {
-	let dd = s.forEach((i) => {
-	const div = document.createElement('div')
-	let d = div.innerHTML = `<p>${i}</p>`
-	
-	})
-	console.log(dd)
-}
-// dd()	
-// const o = Object.keys(userConfig.skills).forEach((items) => {
-// 	const div = document.createElement('div')
-// 	div.innerHTML = `<p>${userConfig.skills[items]}</p>`
-// 	return div
-// })
-// console.log(o)
-// function f() {
-// 	for (const items in userConfig.skills) {
-// 	console.log(userConfig.skills[items])
-// 		const div = document.createElement('div')
-// 		div.innerHTML = `<p>${userConfig.skills[items]}</p>`
-// 		return div
-// 	}
-// }
-
-// console.log(f())

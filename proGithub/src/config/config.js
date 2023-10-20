@@ -7,21 +7,44 @@ const githubUser = 'diego3g';
 
 /**
  * @const
- * @type {object} skills
- * @description Skills de tecnologia do header 
+ * @type {strig} skills
+ * @description Skills de tecnologia do header
+ * 
+ * // criar tecnoligia
+ * <div class="item-skills">
+    <p>javascript</p>
+   </div>
  */
-const skills = {
-	'tech1': 'Naruto',
-	'tech2': 'Sasuke',
-	'tech3': 'Itachi',
-	'tech4': 'Kakashi',
-	'tech5': 'Goku',
-	'tech6': 'Vegeta',
-	'tech7': 'Tobi',
-	'tech8': 'Kisame',
-	'tech9': 'Madara'
 
-}
+const skillsTech = `
+	<div class="item-skills">
+        <p>javascript</p>
+    </div>
+    <div class="item-skills">
+        <p>html</p>
+    </div>
+    <div class="item-skills">
+        <p>css</p>
+    </div>
+    <div class="item-skills">
+        <p>nodejs</p>
+    </div>
+    <div class="item-skills">
+        <p>git</p>
+    </div>
+    <div class="item-skills">
+        <p>reactnative</p>
+    </div>
+    <div class="item-skills">
+        <p>react</p>
+    </div>
+    <div class="item-skills">
+        <p>github</p>
+    </div>
+    <div class="item-skills">
+        <p>sass</p>
+    </div>
+`
 
 /**
  * @param {object} userConfig
@@ -30,5 +53,5 @@ const skills = {
 
 export const userConfig = {
 	githubUser,
-	skills
+	skillsTech
 }
