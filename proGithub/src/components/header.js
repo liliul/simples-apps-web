@@ -78,13 +78,14 @@ export function Header() {
 	            </div>
 	        </div>
 	    </div>
+
 	    ${skills()}
 	`
-	document.querySelector('#root').insertAdjacentElement('afterbegin',headContainer)
+	document.querySelector('#root').insertAdjacentElement('afterbegin', headContainer);
 }
-//console.log(userConfig.skills)
 
-const skills = (tech1='java') => {
+
+const skills = () => {
 	return (`
 		<div class="skills-user">
 	        <h2>Tecnologias</h2>
@@ -117,7 +118,48 @@ const skills = (tech1='java') => {
 	            <div class="item-skills">
 	                <p>${userConfig.skills.tech9}</p>
 	            </div>
+
+	            ${s}
 	        </div>
 	    </div>
 	`)
 }
+
+const s = `
+	<div class="item-skills">
+	    <p>dasdasdas</p>
+	</div>
+
+	<div class="item-skills">
+	                <p>askdas</p>
+	            </div>
+    <div class="item-skills">
+	                <p>aasssdd</p>
+	            </div>
+`
+console.log(s)
+function dd() {
+	let dd = s.forEach((i) => {
+	const div = document.createElement('div')
+	let d = div.innerHTML = `<p>${i}</p>`
+	
+	})
+	console.log(dd)
+}
+// dd()	
+// const o = Object.keys(userConfig.skills).forEach((items) => {
+// 	const div = document.createElement('div')
+// 	div.innerHTML = `<p>${userConfig.skills[items]}</p>`
+// 	return div
+// })
+// console.log(o)
+// function f() {
+// 	for (const items in userConfig.skills) {
+// 	console.log(userConfig.skills[items])
+// 		const div = document.createElement('div')
+// 		div.innerHTML = `<p>${userConfig.skills[items]}</p>`
+// 		return div
+// 	}
+// }
+
+// console.log(f())
