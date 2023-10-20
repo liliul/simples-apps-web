@@ -44,7 +44,46 @@ const skillsTech = `
     <div class="item-skills">
         <p>sass</p>
     </div>
-`
+`;
+
+
+/**
+ * @const
+ * @type {string} redeSocial
+ * @description html das redes sociais footer
+ * 
+ * <a href="#">
+        <div class="icon-img">
+            <img src="./assets/linkedin.svg" >
+        </div>
+    </a>
+ */
+
+const redeSocial = `
+    <a href="#">
+        <div class="icon-img">
+            <img src="./assets/linkedin.svg" >
+        </div>
+    </a>
+
+    <a href="#">
+        <div class="icon-img">
+            <img src="./assets/whatsapp.svg" >
+        </div>
+    </a>
+
+    <a href="#">
+        <div class="icon-img">
+            <img src="./assets/instagram.svg" >
+        </div>
+    </a>
+    
+    <a href="#">
+        <div class="icon-img">
+            <img src="./assets/mail.svg" >
+        </div>
+    </a>
+`;
 
 /**
  * @param {object} userConfig
@@ -53,5 +92,6 @@ const skillsTech = `
 
 export const userConfig = {
 	githubUser,
-	skillsTech
+	skillsTech,
+    redeSocial
 }

@@ -1,3 +1,5 @@
+import { userConfig } from '../config/config.js';
+
 /**
  * @param {string} Footer
  * @return template html footer
@@ -10,33 +12,18 @@ export function Footer() {
 	footerContainer.innerHTML = `
         <div class="icon-rede">
             <h2 class="text-footer">Redes social</h2>
-            <div class="icons">
-                <a href="#">
-                    <div class="icon-img">
-                        <img src="./assets/linkedin.svg" >
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="icon-img">
-                        <img src="./assets/whatsapp.svg" >
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="icon-img">
-                        <img src="./assets/instagram.svg" >
-                    </div>
-                </a>
-                
-                <a href="#">
-                    <div class="icon-img">
-                        <img src="./assets/mail.svg" >
-                    </div>
-                </a>
-            </div>
+            
+            ${redesSocial()}
         </div>
 	`
 
 	document.querySelector('#root').appendChild(footerContainer);
+}
+
+const redesSocial = () => {
+    return (`
+        <div class="icons">
+            ${userConfig.redeSocial}
+        </div>
+    `)
 }
