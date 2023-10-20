@@ -45,40 +45,6 @@ export function Header() {
 	      </div>
 	    </div>
 
-	    <div class="skills-user">
-	        <h2>Tecnologias</h2>
-
-	        <div class="skill">
-	            <div class="item-skills">
-	                <p>javascript</p>
-	            </div>
-	            <div class="item-skills">
-	                <p>html</p>
-	            </div>
-	            <div class="item-skills">
-	                <p>css</p>
-	            </div>
-	            <div class="item-skills">
-	                <p>node</p>
-	            </div>
-	            <div class="item-skills">
-	                <p>git</p>
-	            </div>
-	            <div class="item-skills">
-	                <p>reactnative</p>
-	            </div>
-	            <div class="item-skills">
-	                <p>react</p>
-	            </div>
-	            <div class="item-skills">
-	                <p>github</p>
-	            </div>
-	            <div class="item-skills">
-	                <p>sass</p>
-	            </div>
-	        </div>
-	    </div>
-
 	    ${tecnologia()}
 	`
 	document.querySelector('#root').insertAdjacentElement('afterbegin', headContainer);
