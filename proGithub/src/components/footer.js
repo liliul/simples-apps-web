@@ -1,4 +1,4 @@
-import { userConfig } from '../config/config.js';
+import redesSocial from '../hook/redesSocial.js';
 
 /**
  * @param {string} Footer
@@ -18,12 +18,4 @@ export function Footer() {
 	`
 
 	document.querySelector('#root').appendChild(footerContainer);
-}
-
-const redesSocial = () => {
-    return (`
-        <div class="icons">
-            ${userConfig.redeSocial}
-        </div>
-    `)
 }
