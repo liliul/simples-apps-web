@@ -1,4 +1,4 @@
-import { userConfig } from '../config/config.js';
+import tecnologia from '../hook/tecnologia.js';
 
 /**
  * @param {string} Header
@@ -48,17 +48,4 @@ export function Header() {
 	    ${tecnologia()}
 	`
 	document.querySelector('#root').insertAdjacentElement('afterbegin', headContainer);
-}
-
-
-const tecnologia = () => {
-	return (`
-		<div class="skills-user">
-	        <h2>Tecnologias</h2>
-
-	        <div class="skill">
-	            ${userConfig.skillsTech}
-	        </div>
-	    </div>
-	`)
 }
