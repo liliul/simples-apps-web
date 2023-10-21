@@ -1,5 +1,11 @@
 import { userConfig } from '../config/config.js';
 
+/**
+ * @function 
+ * @type {string}
+ * @description template html das skills tech dinamicamente vindo das congif do usuario 
+*/
+
 const tecnologia = () => {
 	return (`
 		<div class="skills-user">
