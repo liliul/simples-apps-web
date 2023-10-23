@@ -1,8 +1,9 @@
 import tecnologia from '../hook/tecnologia.js';
 
 /**
- * @param {string} Header
- * @return template html header
+ * @function
+ * @type {string}
+ * @returns template html header
  */
 
 export function Header() {

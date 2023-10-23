@@ -1,8 +1,9 @@
 import redesSocial from '../hook/redesSocial.js';
 
 /**
- * @param {string} Footer
- * @return template html footer
+ * @function
+ * @type {string} Footer
+ * @returns template html footer
  */
 
 export function Footer() {

@@ -1,6 +1,7 @@
 /**
- * @param {string} Main
- * @return template html conteudo principal
+ * @function
+ * @type {string} Main
+ * @returns template html conteudo principal
  */
 
 export function Main() {
