@@ -1,8 +1,8 @@
 /**
  * função que renderiza html
  *
- * @param {object} Repos
- * @returns {html}
+ * @param {object} grepos
+ * @returns template html que lista os repos da api do github 
 */
 
 export function Repos(grepos) {

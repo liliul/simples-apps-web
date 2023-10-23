@@ -6,8 +6,8 @@ let http = 'https://';
 /**
  * função que renderiza html
  *
- * @param {object} User
- * @returns {html}
+ * @param {object} data
+ * @returns template html que retorna informação do usuario da api github
 */
 
 export function User(data) {
