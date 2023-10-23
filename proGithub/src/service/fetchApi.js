@@ -4,8 +4,8 @@ import { userConfig } from '../config/config.js';
 const urlUser = `${URL.URL_GITHUB_API}${userConfig.githubUser}`;
 
 /**
- * @param {object} apiGithubUser
- * @returns {object} da api github usuario
+ * @function 
+ * @returns {object} da api github usuario apiGithubUser
  *
  * @typedef {object} destructions
  * @property {string} name,avatar_url,html_url,bio,blog,location,company,twitter_username
