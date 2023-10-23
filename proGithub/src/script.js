@@ -9,10 +9,6 @@ import { Footer } from './components/footer.js';
 
 /**
  * @description ### funções que retorna template html
- * @param {string} Header
- * @param {string} Main
- * @param {string} Footer
- * @return template html
  */
 
 Header()
@@ -21,7 +17,7 @@ Footer()
 
 /**
  * @funtion user
- * @return informações da api github usuario e renderiza no html
+ * @returns informações da api github usuario e renderiza no html
  */
 
 async function user() {
@@ -34,7 +30,7 @@ user()
 
 /**
  * @function repos
- * @return informações da api github repositorios e renderiza no html
+ * @returns informações da api github repositorios e renderiza no html
  */
 
 async function repos() {
