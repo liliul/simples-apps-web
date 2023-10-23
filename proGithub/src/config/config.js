@@ -86,8 +86,9 @@ const redeSocial = `
 `;
 
 /**
- * @param {object} userConfig
- * @description ### exportando configurações do usuario para modificar
+ * @const 
+ * @type {object} userConfig
+ * @description ### exportando configurações do usuario
 */
 
 export const userConfig = {
