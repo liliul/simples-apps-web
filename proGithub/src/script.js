@@ -1,3 +1,5 @@
+import './style/cors.js';
+
 import { FetchApi } from './service/fetchApi.js';
 import { User } from './hook/githubUser.js';
 import { Repos } from './hook/githubRepos.js';
@@ -22,7 +24,7 @@ Footer()
 
 async function user() {
     const data = await FetchApi.apiGithubUser();
-    console.log('use',data)
+    console.log('use', data)
     User(data)
 }
 
