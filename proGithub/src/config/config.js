@@ -85,14 +85,20 @@ const redeSocial = `
     </a>
 `;
 
+
+/**
+ * @constant
+ * @type {string} textoCor
+ * @description variavel com a cor que muda a cor do texto com setProperty
+ */
+const textoCor = "#fa7f72";
+
+
 /**
  * @const 
  * @type {object} userConfig
  * @description ### exportando configurações do usuario
 */
-
-const textoCor = "#fa7f72";
-
 export const userConfig = {
     githubUser,
     skillsTech,
