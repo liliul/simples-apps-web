@@ -91,8 +91,11 @@ const redeSocial = `
  * @description ### exportando configurações do usuario
 */
 
+const textoCor = "#fa7f72";
+
 export const userConfig = {
-	githubUser,
-	skillsTech,
-    redeSocial
+    githubUser,
+    skillsTech,
+    redeSocial,
+    textoCor
 }
