@@ -19,4 +19,5 @@ document.documentElement.style.setProperty(cardHover, userConfig.cardHoverCor);
 	salmon fa7f72
 	salmonDark E9967A
 
+	azul #75D7EC
 */
