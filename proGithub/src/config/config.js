@@ -91,7 +91,8 @@ const redeSocial = `
  * @type {string} textoCor
  * @description variavel com a cor que muda a cor do texto com setProperty
  */
-const textoCor = "#fa7f72";
+const textoCor     = "#75D7EC";
+const cardHoverCor = "#75D7EC";
 
 
 /**
@@ -103,5 +104,6 @@ export const userConfig = {
     githubUser,
     skillsTech,
     redeSocial,
-    textoCor
+    textoCor,
+    cardHoverCor
 }
