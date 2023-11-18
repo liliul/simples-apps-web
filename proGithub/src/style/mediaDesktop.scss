@@ -189,8 +189,9 @@
                     &:hover {
                         transform: scale(1.1);
                         transition: all 500ms;
-                        background-color: #464658;
-                        color:#75D7EC;
+                        // background-color: #464658;
+                        // color:#75D7EC;
+                        color: var(--card-hover-cor);
                         font-weight: var(--bold);
                     }
 

@@ -139,8 +139,7 @@
   .container .content .cards-container .card:hover {
     transform: scale(1.1);
     transition: all 500ms;
-    background-color: #464658;
-    color: #75D7EC;
+    color: var(--card-hover-cor);
     font-weight: var(--bold);
   }
   .container .content .cards-container .card .s-desc {
@@ -420,6 +419,8 @@
   --font-normal: 400;
   --semi-bold: 500;
   --bold: 700;
+  /* Cors */
+  --card-hover-cor: #75D7EC;
 }
 
 body {
