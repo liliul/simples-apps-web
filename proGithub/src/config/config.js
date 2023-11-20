@@ -88,8 +88,8 @@ const redeSocial = `
 
 /**
  * @constant
- * @type {string} textoCor
- * @description variavel com a cor que muda a cor do texto com setProperty
+ * @type {string}
+ * @description variaveis com as cores
  */
 const textoCor     = "#fa7f72";
 const cardHoverCor = "#E9967A";
