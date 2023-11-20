@@ -1,7 +1,8 @@
 import { userConfig } from '../config/config.js';
 
 /**
- * @description ### codigo que mudo a cor vindo da config do usuario
+ * @type {string} lets
+ * @description ### codigo que muda a cor da variavel css com setProperty
  */
 
 let txt        = "--bg-techs";
