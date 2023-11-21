@@ -10,6 +10,8 @@ const urlUser = `${URL.URL_GITHUB_API}${userConfig.githubUser}`;
  * @typedef {object} destructions
  * @property {string} name,avatar_url,html_url,bio,blog,location,company,twitter_username
  * @property {number} followers,following,public_repos,public_gists
+ *
+ * @description requisição a api https://api.github.com/users/nomeGithub
 */
 async function apiGithubUser() {
 	const req = await fetch(urlUser);
@@ -49,6 +51,8 @@ async function apiGithubUser() {
  * @returns {object} da api do github repos
  *
  * @typedef {object} res
+ *
+ *@description requisição a api https://api.github.com/users/nomeGithub/repos
 */
 async function apiGithubRepos() {
 	const req = await fetch(`${urlUser}/repos`);
