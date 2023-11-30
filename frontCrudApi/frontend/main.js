@@ -35,3 +35,13 @@ function atualizarDados(id, dados) {
         .then(data => console.log(data))
         .catch(error => console.error(error))
 }
+
+// Crie uma função para deletar dados no servidor usando uma requisição DELETE:
+function deletarDados(id) {
+    fetch(`url-do-servidor/${id}`, {
+        method: 'DELETE'
+    })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error(error))
+}
