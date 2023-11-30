@@ -21,3 +21,17 @@ function enviarDados(dados) {
         .then(data => console.log(data))
         .catch(error => console.error(error))
 }
+
+// Crie uma função para atualizar dados no servidor usando uma requisição PUT:
+function atualizarDados(id, dados) {
+    fetch(`url-do-servidor/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dados)
+    })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error(error))
+}
