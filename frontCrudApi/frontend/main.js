@@ -47,14 +47,26 @@ function deletarDados(id) {
 }
 
 
+const dados = {
+    name: "Mayk Brito",
+    avatar: "https://avatars.githubusercontent.com/u/2254731?v=4",
+    city: "Parana"
+}
+
+const naruto = {
+    name: "Sasuke Uchiha",
+    avatar: "https://avatars.githubusercontent.com/u/2254731?v=5",
+    city: "Vila da folha"
+}
+
 // Busca os dados do servidor
 getDados()
 
 // Envia novos dados para o servidor
-enviarDados({ nome: 'João', idade: 25 })
+// enviarDados(naruto)
 
 // Atualiza os dados do servidor com id = 1
-atualizarDados(1, { nome: 'Maria', idade: 30 })
+// atualizarDados(4, naruto)
 
 // Deleta os dados do servidor com id = 2
-deletarDados(2)
+// deletarDados(3)
