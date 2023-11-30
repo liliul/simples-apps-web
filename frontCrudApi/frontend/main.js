@@ -1,0 +1,1 @@
+const urlApiCrud = 'http://localhost:5500/api';
