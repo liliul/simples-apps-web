@@ -45,3 +45,16 @@ function deletarDados(id) {
         .then(data => console.log(data))
         .catch(error => console.error(error))
 }
+
+
+// Busca os dados do servidor
+getDados()
+
+// Envia novos dados para o servidor
+enviarDados({ nome: 'João', idade: 25 })
+
+// Atualiza os dados do servidor com id = 1
+atualizarDados(1, { nome: 'Maria', idade: 30 })
+
+// Deleta os dados do servidor com id = 2
+deletarDados(2)
