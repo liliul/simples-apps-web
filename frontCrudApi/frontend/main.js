@@ -2,7 +2,7 @@ const urlApiCrud = 'http://localhost:5500/api';
 
 // Crie uma função para fazer uma requisição GET para buscar os dados do servidor:
 function getDados() {
-    fetch('url-do-servidor')
+    fetch(urlApiCrud)
         .then(response => response.json())
         .then(data => console.log(data))
         .catch(error => console.error(error))
@@ -10,7 +10,7 @@ function getDados() {
 
 // Crie uma função para enviar dados ao servidor usando uma requisição POST:
 function enviarDados(dados) {
-    fetch('url-do-servidor', {
+    fetch(urlApiCrud, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -24,7 +24,7 @@ function enviarDados(dados) {
 
 // Crie uma função para atualizar dados no servidor usando uma requisição PUT:
 function atualizarDados(id, dados) {
-    fetch(`url-do-servidor/${id}`, {
+    fetch(`${urlApiCrud}/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ function atualizarDados(id, dados) {
 
 // Crie uma função para deletar dados no servidor usando uma requisição DELETE:
 function deletarDados(id) {
-    fetch(`url-do-servidor/${id}`, {
+    fetch(`${urlApiCrud}/${id}`, {
         method: 'DELETE'
     })
         .then(response => response.json())
