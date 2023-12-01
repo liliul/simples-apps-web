@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #212121;
+    color: aliceblue;
+
+    font-family: 'Fira Code';
+    font-size: 65%;
+}
+
+.root {
+    max-width: 800px;
+    margin: 20px 0px 0px 40px;
+}
+
+.card {
+    width: 100%;
+    height: auto;
+    padding: 1.5rem;
+    margin-bottom: 25px;
+
+    box-shadow: 5px 5px 10px rgba(14, 155, 113, 0.687);
+}
+
+.name {
+    font-size: 2rem;
+    color: rgb(14, 155, 92);
+}
+
+.city,
+.id {
+    margin: 10px 0px 0px 30px;
+}
+
+.avatar {
+    width: 140px;
+    height: 140px;
+
+    margin-top: 20px;
+}
