@@ -9,17 +9,19 @@ function getDados() {
             console.log(data)
 
             data.users.forEach((itens) => {
-                console.log(itens)
+
                 const divCardInfos = document.createElement('section');
+                divCardInfos.classList.add('card');
+                divCardInfos.setAttribute('data-id', `${itens.id}`);
 
                 divCardInfos.innerHTML = `
-                    <h1>${itens.name}</h1>
-                    <h3>${itens.city}</h3>
-                    <b>${itens.id}</b>
+                    <h1 class="name">${itens.name}</h1>
+                    <h3 class="city">${itens.city}</h3>
+                    <b class="id">${itens.id}</b>
 
                     <br />
 
-                    <img src="${itens.avatar}" width="100px" height="100px" />
+                    <img src="${itens.avatar}" class="avatar" />
                 `;
 
                 containerDiv.appendChild(divCardInfos);
@@ -83,7 +85,7 @@ const naruto = {
 getDados()
 
 // Envia novos dados para o servidor
-// enviarDados(dados)
+// enviarDados(naruto)
 
 // Atualiza os dados do servidor com id = 1
 // atualizarDados(4, naruto)
