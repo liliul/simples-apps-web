@@ -1,10 +1,30 @@
 const urlApiCrud = 'http://localhost:5500/api';
+const containerDiv = document.getElementById('container');
 
 // Crie uma função para fazer uma requisição GET para buscar os dados do servidor:
 function getDados() {
     fetch(urlApiCrud)
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data)
+
+            data.users.forEach((itens) => {
+                console.log(itens)
+                const divCardInfos = document.createElement('section');
+
+                divCardInfos.innerHTML = `
+                    <h1>${itens.name}</h1>
+                    <h3>${itens.city}</h3>
+                    <b>${itens.id}</b>
+
+                    <br />
+
+                    <img src="${itens.avatar}" width="100px" height="100px" />
+                `;
+
+                containerDiv.appendChild(divCardInfos);
+            })
+        })
         .catch(error => console.error(error))
 }
 
@@ -63,7 +83,7 @@ const naruto = {
 getDados()
 
 // Envia novos dados para o servidor
-// enviarDados(naruto)
+// enviarDados(dados)
 
 // Atualiza os dados do servidor com id = 1
 // atualizarDados(4, naruto)
