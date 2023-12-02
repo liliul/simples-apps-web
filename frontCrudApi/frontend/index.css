@@ -13,8 +13,10 @@ body {
 }
 
 .root {
-    max-width: 800px;
+    max-width: 650px;
     margin: 20px 0px 0px 40px;
+
+    margin: 0 auto;
 }
 
 .card {
