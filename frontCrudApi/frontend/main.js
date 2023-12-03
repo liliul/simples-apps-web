@@ -22,6 +22,10 @@ function getDados() {
                     <br />
 
                     <img src="${itens.avatar}" class="avatar" />
+
+                    <br />
+
+                    <button onclick="deletarDados(${itens.id})">Deletar</button>
                 `;
 
                 containerDiv.appendChild(divCardInfos);
@@ -81,14 +85,26 @@ const naruto = {
     city: "Vila da folha"
 }
 
+const gaku = {
+    name: "Som Goku",
+    avatar: "https://avatars.githubusercontent.com/u/2254731?v=5",
+    city: "Terra"
+}
+
+const itachi = {
+    name: "Itachi Uchiha",
+    avatar: "https://avatars.githubusercontent.com/u/2254731?v=5",
+    city: "Akatsuki"
+}
+
 // Busca os dados do servidor
 getDados()
 
 // Envia novos dados para o servidor
-// enviarDados(naruto)
+// enviarDados(itachi)
 
 // Atualiza os dados do servidor com id = 1
-// atualizarDados(4, naruto)
+// atualizarDados(5, itachi)
 
 // Deleta os dados do servidor com id = 2
-// deletarDados(3)
+// deletarDados(5)
