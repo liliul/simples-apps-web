@@ -83,3 +83,12 @@ body {
     font-weight: bold;
 
 }
+.b-deletar {
+    margin-top: 5px;
+    padding: 6px 15px;
+    color: white;
+    font-weight: bold;
+    background-color: tomato;
+    border: none;
+    border-radius: 8px;
+}

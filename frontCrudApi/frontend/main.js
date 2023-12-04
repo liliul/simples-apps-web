@@ -25,7 +25,7 @@ function getDados() {
 
                     <br />
 
-                    <button onclick="deletarDados(${itens.id})">Deletar</button>
+                    <button onclick="deletarDados(${itens.id})" class="b-deletar">Deletar</button>
                 `;
 
                 containerDiv.appendChild(divCardInfos);
@@ -101,7 +101,7 @@ const itachi = {
 getDados()
 
 // Envia novos dados para o servidor
-// enviarDados(itachi)
+// enviarDados(gaku)
 
 // Atualiza os dados do servidor com id = 1
 // atualizarDados(5, itachi)
