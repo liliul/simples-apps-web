@@ -1,6 +1,14 @@
 const urlApiCrud = 'http://localhost:5500/api';
 const containerDiv = document.getElementById('container');
 
+// inputs
+const idForm = document.getElementById('idForm');
+const idButtonForm = document.getElementById('buttonForm');
+const idName = document.getElementById('name');
+const idCity = document.getElementById('city');
+const idAvatar = document.getElementById('avatar');
+
+
 // Crie uma função para fazer uma requisição GET para buscar os dados do servidor:
 function getDados() {
     fetch(urlApiCrud)
