@@ -8,6 +8,16 @@ const idName = document.getElementById('name');
 const idCity = document.getElementById('city');
 const idAvatar = document.getElementById('avatar');
 
+idButtonForm.addEventListener('click', (e) => {
+    e.defaultPrevented
+    const idsJson = {
+        name: idName.value,
+        avatar: idAvatar.value,
+        city: idCity.value
+    }
+    console.log(idsJson)
+    enviarDados(idsJson)
+})
 
 // Crie uma função para fazer uma requisição GET para buscar os dados do servidor:
 function getDados() {
