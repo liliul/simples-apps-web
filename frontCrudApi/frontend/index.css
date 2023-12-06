@@ -81,8 +81,22 @@ body {
     background-color: #000;
 
     font-weight: bold;
-
 }
+
+.form-update {
+    border-radius: 8px;
+    border: none;
+
+    margin: 15px 0px;
+    padding: 16px;
+
+    box-shadow: 2px 3px 8px rgba(14, 155, 113, 0.687);
+    color: rgba(14, 155, 113, 0.687);
+    background-color: #000;
+
+    font-weight: bold;
+}
+
 .b-deletar {
     margin-top: 5px;
     padding: 6px 15px;
