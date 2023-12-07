@@ -36,10 +36,18 @@ idButtonUpdate.addEventListener('click', (e) => {
         <label for="avatar">Atualizar do Avatar do Github</label>
         <input type="text" id="avatarUp" >
 
-        <button class="form-update" onclick="updateInterface()">Atualizar</button>
+        <button class="form-update" id="updateBut">${updatetst()}</button>
     `;
+
+    const updateBut = document.getElementById('updateBut');
+    updateBut.addEventListener('click',updateInterface);
     
 })
+function updatetst(){
+    return (`
+        <b>TEstando update</b>
+    `)
+}
 
 function updateInterface() {
     const idNameUp   = document.getElementById('nameUp');
