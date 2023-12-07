@@ -4,6 +4,7 @@ const containerDiv = document.getElementById('container');
 // inputs
 const idForm = document.getElementById('idForm');
 const idButtonForm = document.getElementById('buttonForm');
+const idButtonUpdate = document.getElementById('buttonUpdate');
 const idName = document.getElementById('name');
 const idCity = document.getElementById('city');
 const idAvatar = document.getElementById('avatar');
@@ -18,6 +19,28 @@ idButtonForm.addEventListener('click', (e) => {
     console.log(idsJson)
     enviarDados(idsJson)
 })
+
+idButtonUpdate.addEventListener('click', (e) => {
+    e.defaultPrevented
+
+    idForm.innerHTML = `
+        <label for="name">id Update Usuario</label>
+        <input type="number" id="idUpdate">
+
+        <label for="name">Atualizar Usuario</label>
+        <input type="text" id="nameUp" >
+
+        <label for="city">Atualizar Cidade</label>
+        <input type="text" id="cityUp" >
+
+        <label for="avatar">Atualizar do Avatar do Github</label>
+        <input type="text" id="avatarUp" >
+
+        <button class="form-update" onclick="updateInterface()">Atualizar</button>
+    `;
+    
+})
+
 
 // Crie uma função para fazer uma requisição GET para buscar os dados do servidor:
 function getDados() {
