@@ -24,16 +24,16 @@ idButtonUpdate.addEventListener('click', (e) => {
     e.defaultPrevented
 
     idForm.innerHTML = `
-        <label for="name">id Update Usuario</label>
+        <label for="idUpdate">id Update Usuario</label>
         <input type="number" id="idUpdate">
 
-        <label for="name">Atualizar Usuario</label>
+        <label for="nameUp">Atualizar Usuario</label>
         <input type="text" id="nameUp" >
 
-        <label for="city">Atualizar Cidade</label>
+        <label for="cityUp">Atualizar Cidade</label>
         <input type="text" id="cityUp" >
 
-        <label for="avatar">Atualizar do Avatar do Github</label>
+        <label for="avatarUp">Atualizar do Avatar do Github</label>
         <input type="text" id="avatarUp" >
 
         <button class="form-update" id="updateBut">${updatetst()}</button>
