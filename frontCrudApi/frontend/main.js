@@ -90,11 +90,37 @@ function getDados() {
 
                     <button onclick="deletarDados(${itens.id})" class="b-deletar">Deletar</button>
                 `;
+                // <button onclick="${deletarDados(itens.id)}" class="b-deletar">Deletar</button>
+
+                // if(itens )
+
+                // const buttonDel = document.createElement('button');
+                // buttonDel.setAttribute('id', 'deleteBut');
+                // buttonDel.textContent = 'deletar';
+                // buttonDel.classList.add('b-deletar');
+                // buttonDel.setAttribute('onclick','deletar()');
+                //
+                // divCardInfos.append(buttonDel);
+                // buttonDel.addEventListener('click', (e) => {
+                //     const divCardInfos = document.getElementById()
+                // })
+
+                console.log(itens.id)
 
                 containerDiv.appendChild(divCardInfos);
             })
         })
         .catch(error => console.error(error))
+}
+window.deletar = function() {
+    console.log('deletando')
+
+    // const buttonDel = document.createElement('button');
+    // buttonDel.setAttribute('id', 'deleteBut');
+    // buttonDel.textContent = 'deletar';
+
+    //const deleteBut = document.getElementById('deleteBut');
+    //deleteBut.addEventListener('click', deletarDados(itens.id))
 }
 
 // Crie uma função para enviar dados ao servidor usando uma requisição POST:
@@ -126,7 +152,7 @@ function atualizarDados(id, dados) {
 }
 
 // Crie uma função para deletar dados no servidor usando uma requisição DELETE:
-function deletarDados(id) {
+window.deletarDados = function(id) {
     fetch(`${urlApiCrud}/${id}`, {
         method: 'DELETE'
     })
