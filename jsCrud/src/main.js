@@ -53,7 +53,7 @@ function update() {
 }
 
 
-window.removeButton = function(del) {
+window.deletarCard = function(del) {
     db.splice(del, 1)
     update()
 }

@@ -1,7 +1,7 @@
 export default function Card(id, avatar,name, login, index) {
     const sectionContainer = document.createElement('section')
     sectionContainer.classList.add('c-card')
-    // sectionContainer.setAttribute('data-id',`${id}`)
+    sectionContainer.setAttribute('data-id',`${id}`)
 
     sectionContainer.innerHTML = `
         
@@ -12,7 +12,7 @@ export default function Card(id, avatar,name, login, index) {
             </article>
             
             <div class='button'>
-                <button onclick="removeButton(${index})">Excluir</button>
+                <button onclick="deletarCard(${index})">Excluir</button>
             </div>
        
     `
