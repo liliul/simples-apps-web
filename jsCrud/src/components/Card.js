@@ -12,7 +12,7 @@ export default function Card(id, avatar,name, login, index) {
             </article>
             
             <div class='button'>
-                <button id='del' data-id='${index}'>Excluir</button>
+                <button onclick="removeButton(${index})">Excluir</button>
             </div>
        
     `
