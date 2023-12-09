@@ -53,20 +53,20 @@ function update() {
 }
 
 
-function removeButton(del) {
+window.removeButton = function(del) {
     db.splice(del, 1)
     update()
 }
 
 
-window.onload=del()
-function del() {
-    const del=document.getElementById('del')
-    window.addEventListener('click', (e) => {
-    let del = document.getElementById('del')
-
-   console.log('db',e.target.dataset.id)
-     removeButton(e.target.dataset.id)
-     update()
- })
-}
+// window.onload=del()
+// function del() {
+//     const del=document.getElementById('del')
+//     window.addEventListener('click', (e) => {
+//     let del = document.getElementById('del')
+//
+//    console.log('db',e.target.dataset.id)
+//      removeButton(e.target.dataset.id)
+//      update()
+//  })
+// }
