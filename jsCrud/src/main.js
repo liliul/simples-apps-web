@@ -17,15 +17,15 @@ input.addEventListener('change', async (e) => {
     if(a) return
 
 
-    const w = await search.searchGithub(input.value)
-    console.log(w)
-    if(w.message === "Not Found") return
+    const responseGithubApi = await search.searchGithub(input.value)
+    console.log(responseGithubApi)
+    if(responseGithubApi.message === "Not Found") return
 
     const json = {
-        'id':w.id,
-        'avatar':w.avatar_url,
-        'name':w.name,
-        'login':w.login
+        'id': responseGithubApi.id,
+        'avatar': responseGithubApi.avatar_url,
+        'name': responseGithubApi.name,
+        'login': responseGithubApi.login
     }
 
     db.push(json)
