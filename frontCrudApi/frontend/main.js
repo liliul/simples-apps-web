@@ -1,9 +1,10 @@
 import updateInterface from './hook/atualizandoDados.js';
+import renderizandoCardDados from './hook/creandoCardDados.js';
 
 import {ButtonTxt} from './utils/utils.js';
 
 const urlApiCrud = 'http://localhost:5500/api';
-const containerDiv = document.getElementById('container');
+// const containerDiv = document.getElementById('container');
 
 // inputs
 const idForm = document.getElementById('idForm');
@@ -72,26 +73,7 @@ function getDados() {
             console.log(data)
 
             data.users.forEach((itens) => {
-
-                const divCardInfos = document.createElement('section');
-                divCardInfos.classList.add('card');
-                divCardInfos.setAttribute('data-id', `${itens.id}`);
-
-                divCardInfos.innerHTML = `
-                    <h1 class="name">${itens.name}</h1>
-                    <h3 class="city">${itens.city}</h3>
-                    <b class="id">${itens.id}</b>
-
-                    <br />
-
-                    <img src="${itens.avatar}" class="avatar" />
-
-                    <br />
-
-                    <button onclick="deletarDados(${itens.id})" class="b-deletar">Deletar</button>
-                `;
-
-                containerDiv.appendChild(divCardInfos);
+                renderizandoCardDados(itens);
             })
         })
         .catch(error => console.error(error))
