@@ -1,3 +1,5 @@
+import {ButtonTxt} from './utils/utils.js';
+
 const urlApiCrud = 'http://localhost:5500/api';
 const containerDiv = document.getElementById('container');
 
@@ -36,18 +38,14 @@ idButtonUpdate.addEventListener('click', (e) => {
         <label for="avatarUp">Atualizar do Avatar do Github</label>
         <input type="text" id="avatarUp" >
 
-        <button class="form-update" id="updateBut">${updatetst()}</button>
+        <button class="form-update" id="updateBut">${ButtonTxt()}</button>
     `;
 
     const updateBut = document.getElementById('updateBut');
     updateBut.addEventListener('click',updateInterface);
     
 })
-function updatetst(){
-    return (`
-        <b>TEstando update</b>
-    `)
-}
+
 
 function updateInterface() {
     const idNameUp   = document.getElementById('nameUp');
