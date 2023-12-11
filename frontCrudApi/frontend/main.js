@@ -1,3 +1,5 @@
+import updateInterface from './hook/atualizandoDados.js';
+
 import {ButtonTxt} from './utils/utils.js';
 
 const urlApiCrud = 'http://localhost:5500/api';
@@ -47,20 +49,20 @@ idButtonUpdate.addEventListener('click', (e) => {
 })
 
 
-function updateInterface() {
-    const idNameUp   = document.getElementById('nameUp');
-    const idCityUp   = document.getElementById('cityUp');
-    const idAvatarUp = document.getElementById('avatarUp');
-    const idUpdate = document.getElementById('idUpdate');
+// function updateInterface() {
+//     const idNameUp   = document.getElementById('nameUp');
+//     const idCityUp   = document.getElementById('cityUp');
+//     const idAvatarUp = document.getElementById('avatarUp');
+//     const idUpdate = document.getElementById('idUpdate');
 
-    const idsJson  = {
-        name: idNameUp.value,
-        avatar: idAvatarUp.value,
-        city: idCityUp.value
-    }
-    console.log(idsJson, idUpdate.valueAsNumber)
-    atualizarDados(idUpdate.valueAsNumber, idsJson)
-}
+//     const idsJson  = {
+//         name: idNameUp.value,
+//         avatar: idAvatarUp.value,
+//         city: idCityUp.value
+//     }
+//     console.log(idsJson, idUpdate.valueAsNumber)
+//     atualizarDados(idUpdate.valueAsNumber, idsJson)
+// }
 
 // Crie uma função para fazer uma requisição GET para buscar os dados do servidor:
 function getDados() {
@@ -110,18 +112,18 @@ function enviarDados(dados) {
 }
 
 // Crie uma função para atualizar dados no servidor usando uma requisição PUT:
-function atualizarDados(id, dados) {
-    fetch(`${urlApiCrud}/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dados)
-    })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error(error))
-}
+// function atualizarDados(id, dados) {
+//     fetch(`${urlApiCrud}/${id}`, {
+//         method: 'PUT',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(dados)
+//     })
+//         .then(response => response.json())
+//         .then(data => console.log(data))
+//         .catch(error => console.error(error))
+// }
 
 // Crie uma função para deletar dados no servidor usando uma requisição DELETE:
 window.deletarDados = function(id) {
