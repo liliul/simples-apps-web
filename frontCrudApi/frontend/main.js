@@ -1,5 +1,6 @@
 import updateInterface from './hook/atualizandoDados.js';
-import renderizandoCardDados from './hook/creandoCardDados.js';
+// import renderizandoCardDados from './hook/creandoCardDados.js';
+import renderCardDados from './service/reqGET.js';
 
 import {ButtonTxt} from './utils/utils.js';
 
@@ -66,18 +67,18 @@ idButtonUpdate.addEventListener('click', (e) => {
 // }
 
 // Crie uma função para fazer uma requisição GET para buscar os dados do servidor:
-function getDados() {
-    fetch(urlApiCrud)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
+// function getDados() {
+//     fetch(urlApiCrud)
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log(data)
 
-            data.users.forEach((itens) => {
-                renderizandoCardDados(itens);
-            })
-        })
-        .catch(error => console.error(error))
-}
+//             data.users.forEach((itens) => {
+//                 renderizandoCardDados(itens);
+//             })
+//         })
+//         .catch(error => console.error(error))
+// }
 
 // Crie uma função para enviar dados ao servidor usando uma requisição POST:
 function enviarDados(dados) {
@@ -143,7 +144,8 @@ const itachi = {
 }
 
 // Busca os dados do servidor
-getDados()
+// getDados()
+renderCardDados();
 
 // Envia novos dados para o servidor
 // enviarDados(gaku)
