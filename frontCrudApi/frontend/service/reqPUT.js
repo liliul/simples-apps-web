@@ -1,3 +1,5 @@
+const urlApiCrud = 'http://localhost:5500/api';
+
 // Crie uma função para atualizar dados no servidor usando uma requisição PUT:
 export default function atualizarDados(id, dados) {
     fetch(`${urlApiCrud}/${id}`, {
