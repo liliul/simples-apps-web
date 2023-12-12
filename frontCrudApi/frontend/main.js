@@ -1,6 +1,7 @@
 import updateInterface from './hook/atualizandoDados.js';
 import EnviarDadosParaApi from './hook/enviandoDados.js';
 import renderCardDados from './service/reqGET.js';
+import DeletarCardDados from './service/reqDELETE.js';
 
 import {ButtonTxt} from './utils/utils.js';
 
@@ -16,6 +17,7 @@ const idButtonUpdate = document.getElementById('buttonUpdate');
 // const idAvatar = document.getElementById('avatar');
 
 EnviarDadosParaApi()
+DeletarCardDados()
 
 idButtonUpdate.addEventListener('click', (e) => {
     e.defaultPrevented
@@ -100,14 +102,14 @@ idButtonUpdate.addEventListener('click', (e) => {
 // }
 
 // Crie uma função para deletar dados no servidor usando uma requisição DELETE:
-window.deletarDados = function(id) {
-    fetch(`${urlApiCrud}/${id}`, {
-        method: 'DELETE'
-    })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error(error))
-}
+// window.deletarDados = function(id) {
+//     fetch(`${urlApiCrud}/${id}`, {
+//         method: 'DELETE'
+//     })
+//         .then(response => response.json())
+//         .then(data => console.log(data))
+//         .catch(error => console.error(error))
+// }
 
 
 const dados = {
