@@ -1,3 +1,5 @@
+const urlApiCrud = 'http://localhost:5500/api';
+
 // Crie uma função para enviar dados ao servidor usando uma requisição POST:
 export default function enviarDados(dados) {
     fetch(urlApiCrud, {
