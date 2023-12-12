@@ -1,5 +1,5 @@
 import updateInterface from './hook/atualizandoDados.js';
-// import renderizandoCardDados from './hook/creandoCardDados.js';
+import EnviarDadosParaApi from './hook/enviandoDados.js';
 import renderCardDados from './service/reqGET.js';
 
 import {ButtonTxt} from './utils/utils.js';
@@ -9,22 +9,13 @@ const urlApiCrud = 'http://localhost:5500/api';
 
 // inputs
 const idForm = document.getElementById('idForm');
-const idButtonForm = document.getElementById('buttonForm');
+// const idButtonForm = document.getElementById('buttonForm');
 const idButtonUpdate = document.getElementById('buttonUpdate');
-const idName = document.getElementById('name');
-const idCity = document.getElementById('city');
-const idAvatar = document.getElementById('avatar');
+// const idName = document.getElementById('name');
+// const idCity = document.getElementById('city');
+// const idAvatar = document.getElementById('avatar');
 
-idButtonForm.addEventListener('click', (e) => {
-    e.defaultPrevented
-    const idsJson = {
-        name: idName.value,
-        avatar: idAvatar.value,
-        city: idCity.value
-    }
-    console.log(idsJson)
-    enviarDados(idsJson)
-})
+EnviarDadosParaApi()
 
 idButtonUpdate.addEventListener('click', (e) => {
     e.defaultPrevented
@@ -81,18 +72,18 @@ idButtonUpdate.addEventListener('click', (e) => {
 // }
 
 // Crie uma função para enviar dados ao servidor usando uma requisição POST:
-function enviarDados(dados) {
-    fetch(urlApiCrud, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dados)
-    })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error(error))
-}
+// function enviarDados(dados) {
+//     fetch(urlApiCrud, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(dados)
+//     })
+//         .then(response => response.json())
+//         .then(data => console.log(data))
+//         .catch(error => console.error(error))
+// }
 
 // Crie uma função para atualizar dados no servidor usando uma requisição PUT:
 // function atualizarDados(id, dados) {
