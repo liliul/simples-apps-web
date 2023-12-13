@@ -1,18 +1,19 @@
-import updateInterface from './hook/atualizandoDados.js';
+// import updateInterface from './hook/atualizandoDados.js';
 import EnviarDadosParaApi from './hook/enviandoDados.js';
 import renderCardDados from './service/reqGET.js';
 // import DeletarCardDados from './service/reqDELETE.js';
 import './service/reqDELETE.js';
+import './component/buttonAtualizar.js';
 
-import {ButtonTxt} from './utils/utils.js';
+// import {ButtonTxt} from './utils/utils.js';
 
 const urlApiCrud = 'http://localhost:5500/api';
 // const containerDiv = document.getElementById('container');
 
 // inputs
-const idForm = document.getElementById('idForm');
-// const idButtonForm = document.getElementById('buttonForm');
-const idButtonUpdate = document.getElementById('buttonUpdate');
+// const idForm = document.getElementById('idForm');
+// // const idButtonForm = document.getElementById('buttonForm');
+// const idButtonUpdate = document.getElementById('buttonUpdate');
 // const idName = document.getElementById('name');
 // const idCity = document.getElementById('city');
 // const idAvatar = document.getElementById('avatar');
@@ -20,29 +21,29 @@ const idButtonUpdate = document.getElementById('buttonUpdate');
 EnviarDadosParaApi()
 // DeletarCardDados()
 
-idButtonUpdate.addEventListener('click', (e) => {
-    e.defaultPrevented
+// idButtonUpdate.addEventListener('click', (e) => {
+//     e.defaultPrevented
 
-    idForm.innerHTML = `
-        <label for="idUpdate">id Update Usuario</label>
-        <input type="number" id="idUpdate">
+//     idForm.innerHTML = `
+//         <label for="idUpdate">id Update Usuario</label>
+//         <input type="number" id="idUpdate">
 
-        <label for="nameUp">Atualizar Usuario</label>
-        <input type="text" id="nameUp" >
+//         <label for="nameUp">Atualizar Usuario</label>
+//         <input type="text" id="nameUp" >
 
-        <label for="cityUp">Atualizar Cidade</label>
-        <input type="text" id="cityUp" >
+//         <label for="cityUp">Atualizar Cidade</label>
+//         <input type="text" id="cityUp" >
 
-        <label for="avatarUp">Atualizar do Avatar do Github</label>
-        <input type="text" id="avatarUp" >
+//         <label for="avatarUp">Atualizar do Avatar do Github</label>
+//         <input type="text" id="avatarUp" >
 
-        <button class="form-update" id="updateBut">${ButtonTxt()}</button>
-    `;
+//         <button class="form-update" id="updateBut">${ButtonTxt()}</button>
+//     `;
 
-    const updateBut = document.getElementById('updateBut');
-    updateBut.addEventListener('click',updateInterface);
+//     const updateBut = document.getElementById('updateBut');
+//     updateBut.addEventListener('click',updateInterface);
     
-})
+// })
 
 
 // function updateInterface() {
