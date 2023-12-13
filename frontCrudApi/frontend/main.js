@@ -1,7 +1,8 @@
 import updateInterface from './hook/atualizandoDados.js';
 import EnviarDadosParaApi from './hook/enviandoDados.js';
 import renderCardDados from './service/reqGET.js';
-import DeletarCardDados from './service/reqDELETE.js';
+// import DeletarCardDados from './service/reqDELETE.js';
+import './service/reqDELETE.js';
 
 import {ButtonTxt} from './utils/utils.js';
 
@@ -17,7 +18,7 @@ const idButtonUpdate = document.getElementById('buttonUpdate');
 // const idAvatar = document.getElementById('avatar');
 
 EnviarDadosParaApi()
-DeletarCardDados()
+// DeletarCardDados()
 
 idButtonUpdate.addEventListener('click', (e) => {
     e.defaultPrevented
