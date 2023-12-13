@@ -19,6 +19,8 @@ const urlApiCrud = 'http://localhost:5500/api';
 // const idAvatar = document.getElementById('avatar');
 
 EnviarDadosParaApi()
+renderCardDados();
+
 // DeletarCardDados()
 
 // idButtonUpdate.addEventListener('click', (e) => {
@@ -112,41 +114,3 @@ EnviarDadosParaApi()
 //         .then(data => console.log(data))
 //         .catch(error => console.error(error))
 // }
-
-
-const dados = {
-    name: "Mayk Brito",
-    avatar: "https://avatars.githubusercontent.com/u/2254731?v=4",
-    city: "Parana"
-}
-
-const naruto = {
-    name: "Sasuke Uchiha",
-    avatar: "https://avatars.githubusercontent.com/u/2254731?v=5",
-    city: "Vila da folha"
-}
-
-const gaku = {
-    name: "Som Goku",
-    avatar: "https://avatars.githubusercontent.com/u/2254731?v=5",
-    city: "Terra"
-}
-
-const itachi = {
-    name: "Itachi Uchiha",
-    avatar: "https://avatars.githubusercontent.com/u/2254731?v=5",
-    city: "Akatsuki"
-}
-
-// Busca os dados do servidor
-// getDados()
-renderCardDados();
-
-// Envia novos dados para o servidor
-// enviarDados(gaku)
-
-// Atualiza os dados do servidor com id = 1
-// atualizarDados(5, itachi)
-
-// Deleta os dados do servidor com id = 2
-// deletarDados(5)
