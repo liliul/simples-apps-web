@@ -6,6 +6,9 @@ export default window.deletarDados = function(id) {
         method: 'DELETE'
     })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+            console.log('sdas',data);
+            window.location.reload(true);
+        })
         .catch(error => console.error(error))
 }
