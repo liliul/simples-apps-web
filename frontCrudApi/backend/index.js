@@ -14,7 +14,33 @@ let users = [{
   name: "Jakeliny Gracielly",
   avatar: "https://avatars.githubusercontent.com/u/17316392?v=4",
   city: "São Paulo"
-}]
+},
+{
+  id: 2,
+  name: "Mayk Brito",
+  avatar: "https://avatars.githubusercontent.com/u/2254731?v=4",
+  city: "Parana"
+},
+{
+  id: 3,
+  name: "Sasuke Uchiha",
+  avatar: "https://avatars.githubusercontent.com/u/2254731?v=5",
+  city: "Vila da folha"
+},
+{
+  id: 4,
+  name: "Som Goku",
+  avatar: "https://avatars.githubusercontent.com/u/2254731?v=5",
+  city: "Terra"
+},
+
+{
+  id: 5,
+  name: "Itachi Uchiha",
+  avatar: "https://avatars.githubusercontent.com/u/2254731?v=5",
+  city: "Akatsuki"
+}
+]
 
 
 app.route('/api').get((req, res) => res.json({
