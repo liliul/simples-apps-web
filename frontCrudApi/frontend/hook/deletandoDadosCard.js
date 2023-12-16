@@ -1,3 +1,5 @@
+import deletarDados from '../service/reqDELETE.js';
+
 const container = document.getElementById('container')
 
 container.addEventListener('click', (e) => {
