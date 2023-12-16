@@ -8,7 +8,19 @@ export default window.deletarDados = function(id) {
         .then(response => response.json())
         .then(data => {
             console.log('sdas',data);
-            window.location.reload(true);
+            // window.location.reload(true);
         })
         .catch(error => console.error(error))
 }
+
+const container = document.getElementById('container')
+
+container.addEventListener('click', (e) => {
+    let buttonDelete = e.target.dataset.remove;
+    if (buttonDelete) {
+        console.log(buttonDelete)
+
+        const buttonDataset = document.querySelector(`[data-id="${buttonDelete}"]`)
+        buttonDataset.remove()
+    }
+})
