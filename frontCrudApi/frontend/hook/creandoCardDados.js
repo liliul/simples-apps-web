@@ -17,6 +17,7 @@ export default function renderizandoCardDados(itens) {
         <br />
 
         <button data-remove="${itens.id}" class="b-deletar">Deletar</button>
+        <button data-editar="${itens.id}" class="b-editar">Editar</button>
     `;
 
     containerDiv.appendChild(divCardInfos);
