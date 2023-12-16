@@ -16,7 +16,7 @@ export default function renderizandoCardDados(itens) {
 
         <br />
 
-        <button data-remove="${itens.id}" onclick="deletarDados(${itens.id})" class="b-deletar">Deletar</button>
+        <button data-remove="${itens.id}" class="b-deletar">Deletar</button>
     `;
 
     containerDiv.appendChild(divCardInfos);
