@@ -8,7 +8,6 @@ const idAvatar = document.getElementById('avatar');
 export default function EnviarDadosParaApi() {
 
 	idButtonForm.addEventListener('click', (e) => {
-        e.defaultPrevented
 
         const idsJson = {
             name: idName.value,

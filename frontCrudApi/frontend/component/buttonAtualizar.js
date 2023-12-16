@@ -5,7 +5,7 @@ const idForm = document.getElementById('idForm');
 const idButtonUpdate = document.getElementById('buttonUpdate');
 
 export default idButtonUpdate.addEventListener('click', (e) => {
-    e.defaultPrevented
+    e.preventDefault()
 
     idForm.innerHTML = `
         <label for="idUpdate">id Update Usuario</label>
