@@ -6,3 +6,7 @@ import './component/buttonAtualizar.js';
 
 EnviarDadosParaApi()
 renderCardDados();
+
+import {editarDados} from './utils/utils.js'
+
+editarDados()
