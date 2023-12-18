@@ -34,8 +34,12 @@ export function editarDados(){
             `
 
             const updateBut = document.getElementById('updateBut');
-            updateBut.addEventListener('click',updateInterface);
+            updateBut.addEventListener('click', () => {
+                updateInterface()
+                window.location.reload()
+            });
         }
+
     })
 }
 
