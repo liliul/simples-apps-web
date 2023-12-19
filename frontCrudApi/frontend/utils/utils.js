@@ -6,13 +6,20 @@ export function ButtonTxt(){
 
 import atualizarDados from '../service/reqPUT.js';
 
+
 const container = document.getElementById('container')
-export function editarDados(){
+export async function editarDados(){
+    const get = await getDadosApi()
+    // get.users.filter(i => console.log(i))
+    // console.log(get)
     container.addEventListener('click', (e) => {
         const editarDateset = e.target.dataset.editar
 
         if (editarDateset) {
-            console.log(editarDateset)
+            console.log(typeof editarDateset)
+        const f =get.users.filter(i => {
+           if(i.id == editarDateset){
+            
             container.innerHTML = `
                 <div class="modal">
                     <div class="modal-form">
@@ -20,18 +27,22 @@ export function editarDados(){
                         <input type="number" id="idUpdate" value="${editarDateset}" class="input-modal" readonly />
 
                         <label for="nameUp">Atualizar Usuario</label>
-                        <input type="text" id="nameUp" class="input-modal">
+                        <input type="text" id="nameUp" class="input-modal" value="${i.name}">
 
                         <label for="cityUp">Atualizar Cidade</label>
-                        <input type="text" id="cityUp" class="input-modal">
+                        <input type="text" id="cityUp" class="input-modal" value="${i.city}">
 
                         <label for="avatarUp">Atualizar do Avatar do Github</label>
-                        <input type="text" id="avatarUp" class="input-modal">
+                        <input type="text" id="avatarUp" class="input-modal" value="${i.avatar}">
 
                         <button class="form-update" id="updateBut">update</button>
                     </div>
                 </div>
             `
+           }
+        })
+            
+            
 
             const updateBut = document.getElementById('updateBut');
             updateBut.addEventListener('click', () => {
@@ -58,6 +69,21 @@ export default function updateInterface() {
     console.log(idsJson, idUpdate.valueAsNumber)
     atualizarDados(idUpdate.valueAsNumber, idsJson)
 }
+
+async function getDadosApi() {
+    const req = await fetch(`http://localhost:5500/api`)
+    const res = await req.json()
+
+    // const fil = (name) => {
+    //     return name.id === 2
+    // }
+    // const resulfil = res.users.filter(i => i.id === dataset)
+    
+    // return console.log(resulfil) 
+    return res
+    
+}
+// getDadosApi()
 
 // dados para teste 
 // const dados = {
