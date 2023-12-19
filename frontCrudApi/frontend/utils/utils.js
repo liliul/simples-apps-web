@@ -9,36 +9,37 @@ import atualizarDados from '../service/reqPUT.js';
 
 const container = document.getElementById('container')
 export async function editarDados(){
-    const get = await getDadosApi()
-    // get.users.filter(i => console.log(i))
-    // console.log(get)
+    const getApiEditarUser = await getDadosApi()
+   
     container.addEventListener('click', (e) => {
         const editarDateset = e.target.dataset.editar
 
         if (editarDateset) {
-            console.log(typeof editarDateset)
-        const f =get.users.filter(i => {
-           if(i.id == editarDateset){
+            console.log(editarDateset)
+
+            getApiEditarUser.users.filter(i => {
             
-            container.innerHTML = `
-                <div class="modal">
-                    <div class="modal-form">
-                        <label for="idUpdate">id Update Usuario</label>
-                        <input type="number" id="idUpdate" value="${editarDateset}" class="input-modal" readonly />
+            if(i.id == editarDateset){
+            
+                container.innerHTML = `
+                    <div class="modal">
+                        <div class="modal-form">
+                            <label for="idUpdate">id Update Usuario</label>
+                            <input type="number" id="idUpdate" value="${editarDateset}" class="input-modal" readonly />
 
-                        <label for="nameUp">Atualizar Usuario</label>
-                        <input type="text" id="nameUp" class="input-modal" value="${i.name}">
+                            <label for="nameUp">Atualizar Usuario</label>
+                            <input type="text" id="nameUp" class="input-modal" value="${i.name}">
 
-                        <label for="cityUp">Atualizar Cidade</label>
-                        <input type="text" id="cityUp" class="input-modal" value="${i.city}">
+                            <label for="cityUp">Atualizar Cidade</label>
+                            <input type="text" id="cityUp" class="input-modal" value="${i.city}">
 
-                        <label for="avatarUp">Atualizar do Avatar do Github</label>
-                        <input type="text" id="avatarUp" class="input-modal" value="${i.avatar}">
+                            <label for="avatarUp">Atualizar do Avatar do Github</label>
+                            <input type="text" id="avatarUp" class="input-modal" value="${i.avatar}">
 
-                        <button class="form-update" id="updateBut">update</button>
+                            <button class="form-update" id="updateBut">update</button>
+                        </div>
                     </div>
-                </div>
-            `
+                `
            }
         })
             
