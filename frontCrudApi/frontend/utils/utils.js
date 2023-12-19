@@ -75,16 +75,8 @@ async function getDadosApi() {
     const req = await fetch(`http://localhost:5500/api`)
     const res = await req.json()
 
-    // const fil = (name) => {
-    //     return name.id === 2
-    // }
-    // const resulfil = res.users.filter(i => i.id === dataset)
-    
-    // return console.log(resulfil) 
-    return res
-    
+    return res   
 }
-// getDadosApi()
 
 // dados para teste 
 // const dados = {
