@@ -17,9 +17,9 @@ export async function editarDados(){
         if (editarDateset) {
             console.log(editarDateset)
 
-            getApiEditarUser.users.filter(i => {
+            getApiEditarUser.users.filter(idNumber => {
             
-            if(i.id == editarDateset){
+            if(idNumber.id == editarDateset){
             
                 container.innerHTML = `
                     <div class="modal">
@@ -28,13 +28,13 @@ export async function editarDados(){
                             <input type="number" id="idUpdate" value="${editarDateset}" class="input-modal" readonly />
 
                             <label for="nameUp">Atualizar Usuario</label>
-                            <input type="text" id="nameUp" class="input-modal" value="${i.name}">
+                            <input type="text" id="nameUp" class="input-modal" value="${idNumber.name}">
 
                             <label for="cityUp">Atualizar Cidade</label>
-                            <input type="text" id="cityUp" class="input-modal" value="${i.city}">
+                            <input type="text" id="cityUp" class="input-modal" value="${idNumber.city}">
 
                             <label for="avatarUp">Atualizar do Avatar do Github</label>
-                            <input type="text" id="avatarUp" class="input-modal" value="${i.avatar}">
+                            <input type="text" id="avatarUp" class="input-modal" value="${idNumber.avatar}">
 
                             <button class="form-update" id="updateBut">update</button>
                         </div>
