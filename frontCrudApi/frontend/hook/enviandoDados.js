@@ -8,7 +8,8 @@ const idAvatar = document.getElementById('avatar');
 export default function EnviarDadosParaApi() {
 
 	idButtonForm.addEventListener('click', (e) => {
-
+        e.preventDefault()
+        
         const idsJson = {
             name: idName.value,
             avatar: idAvatar.value,
@@ -17,5 +18,7 @@ export default function EnviarDadosParaApi() {
 
         console.log(idsJson)
         enviarDados(idsJson)
+
+        window.location.reload()
     })
 }
