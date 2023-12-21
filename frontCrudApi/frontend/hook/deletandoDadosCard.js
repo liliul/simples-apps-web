@@ -7,8 +7,11 @@ container.addEventListener('click', (e) => {
     if (buttonDelete) {
         console.log(buttonDelete)
 
-        const buttonDataset = document.querySelector(`[data-id="${buttonDelete}"]`)
-        buttonDataset.remove()
-        deletarDados(buttonDelete)
+        setTimeout(() => {
+            const buttonDataset = document.querySelector(`[data-id="${buttonDelete}"]`)
+            buttonDataset.remove()
+            deletarDados(buttonDelete)
+        }, 800)
+        
     }
 })
