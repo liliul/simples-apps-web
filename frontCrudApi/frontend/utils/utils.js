@@ -48,7 +48,7 @@ export async function editarDados(){
             const updateBut = document.getElementById('updateBut');
             updateBut.addEventListener('click', () => {
                 updateInterface()
-                window.location.reload()
+                window.location = '/';
             });
         }
 
