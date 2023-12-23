@@ -2,8 +2,11 @@ import deletarDados from '../service/reqDELETE.js';
 
 const container = document.getElementById('container')
 
+/**
+ * @description hook que deleta usuario do frontend e api
+ * */
 container.addEventListener('click', (e) => {
-    let buttonDelete = e.target.dataset.remove;
+    const buttonDelete = e.target.dataset.remove;
     if (buttonDelete) {
         console.log(buttonDelete)
 
