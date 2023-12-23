@@ -1,6 +1,10 @@
 import atualizarDados from '../service/reqPUT.js';
 
-
+/**
+ * @function
+ * @returns Editar usuario 
+ * @description componente que seleciona id e edita usuario 
+ * */
 const container = document.getElementById('container')
 export async function editarDados(){
     const getApiEditarUser = await getDadosApi()
