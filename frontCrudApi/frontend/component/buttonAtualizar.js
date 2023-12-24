@@ -4,6 +4,9 @@ import {ButtonTxt} from '../utils/utils.js';
 const idForm = document.getElementById('idForm');
 const idButtonUpdate = document.getElementById('buttonUpdate');
 
+/**
+ * @description idButtonUpdate atualizar infos do cards
+ * */
 export default idButtonUpdate.addEventListener('click', (e) => {
     e.preventDefault()
 
