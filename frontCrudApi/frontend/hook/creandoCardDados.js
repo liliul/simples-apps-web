@@ -1,5 +1,11 @@
 const containerDiv = document.getElementById('container');
 
+/**
+ * @param {object} itens
+ * @returns elementos html crear cards com dados vindo da api
+ * 
+ * @description renderiza cards e coloca dentro da div container 
+ * */
 export default function renderizandoCardDados(itens) {
 	const divCardInfos = document.createElement('section');
     divCardInfos.classList.add('card');
