@@ -1,3 +1,7 @@
+/**
+ * @function
+ * @description ButtonTxt componente texto para o button update
+ * */
 export function ButtonTxt(){
     return (`
         <b>Comfirmar Update</b>
