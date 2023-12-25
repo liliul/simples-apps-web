@@ -5,6 +5,10 @@ const idName = document.getElementById('name');
 const idCity = document.getElementById('city');
 const idAvatar = document.getElementById('avatar');
 
+/**
+ * @function 
+ * @description EnviarDadosParaApi pega os valures dos inputs e enviar para o backend
+ * */
 export default function EnviarDadosParaApi() {
 
 	idButtonForm.addEventListener('click', (e) => {
