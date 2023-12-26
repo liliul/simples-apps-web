@@ -43,46 +43,16 @@ export async function editarDados(){
                     </div>
                 `;
 
-                container.appendChild(htmlModal)
-
-                // const button = document.querySelector('button')
-                // const popup = document.querySelector('.popup-wrapper')
-                // const closebutton = document.querySelector('.popup-close')
-
-                // button.addEventListener('click', () => {
-                //     popup.style.display = 'block'
-                // })
-
-                // popup.addEventListener('click', event => {
-                //     const classNameofclickedelement = event.target.classList[0]
-                //     console.log('target: ', classNameofclickedelement)
-                //     const className = ['popup-close','popup-wrapper', 'popup-link']
-                //     const shouldclosepopup = className.some(className => className === classNameofclickedelement)
-                //     console.log('should: ', shouldclosepopup)   
-                //     if(shouldclosepopup){
-                //         popup.style.display = 'none'
-                //     }
-                // })
+                container.appendChild(htmlModal);
            }
         })
             
             const updateBut = document.getElementById('updateBut');
             updateBut.addEventListener('click', () => {
 
-                // const containerModal1 = document.querySelector('.containerModal')
-                
-                // const classNameofclickedelement = event.target.classList[0]
-                // console.log('target: ', classNameofclickedelement)
-                // const className = ['b-close','containerModal', 'from-update']
-                // const shouldclosepopup = className.some(className => className === classNameofclickedelement)
-                // console.log('should: ', shouldclosepopup) 
-
-                // if(shouldclosepopup){
-                //     containerModal1.remove()
-                // }
-
                 updateInterface()
                 window.location = '/';
+
             });
         }
 
