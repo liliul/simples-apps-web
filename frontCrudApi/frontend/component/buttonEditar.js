@@ -46,6 +46,20 @@ export async function editarDados(){
                 container.appendChild(htmlModal);
            }
         })
+            const containerModal = document.querySelector('.containerModal')
+            containerModal.addEventListener('click', (event) => {
+                const classNameofclickedelement = event.target.classList[0]
+                console.log('target: ', classNameofclickedelement)
+
+                const className = ['b-close','containerModal']
+                
+                const shouldclosepopup = className.some(className => className === classNameofclickedelement)
+                console.log('should: ', shouldclosepopup)   
+                
+                if(shouldclosepopup){
+                    containerModal.remove()
+                }
+            })
             
             const updateBut = document.getElementById('updateBut');
             updateBut.addEventListener('click', () => {
