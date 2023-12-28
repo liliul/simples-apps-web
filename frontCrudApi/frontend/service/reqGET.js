@@ -1,4 +1,4 @@
-import renderizandoCardDados from '../hook/creandoCardDados.js';
+import renderizandoCardDados from '../component/creandoCardDados.js';
 
 const urlApiCrud = 'http://localhost:5500/api';
 
