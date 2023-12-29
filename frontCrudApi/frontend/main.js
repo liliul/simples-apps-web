@@ -4,9 +4,9 @@ import renderCards from './hook/renderizaCards.js';
 import './hook/deletandoDadosCard.js';
 import './component/buttonAtualizar.js';
 
-EnviarDadosParaApi()
-renderCards()
+EnviarDadosParaApi();
+renderCards();
 
-import {editarDados} from './component/buttonEditar.js'
+import {editarDados} from './component/buttonEditar.js';
 
-editarDados()
+editarDados();
