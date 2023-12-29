@@ -1,4 +1,5 @@
 import atualizarDados from '../service/reqPUT.js';
+import getDados from '../service/reqGET.js';
 
 /**
  * @function
@@ -7,7 +8,7 @@ import atualizarDados from '../service/reqPUT.js';
  * */
 const container = document.getElementById('container')
 export async function editarDados(){
-    const getApiEditarUser = await getDadosApi()
+    const getApiEditarUser = await getDados()
    
     container.addEventListener('click', (e) => {
         const editarDateset = e.target.dataset.editar
@@ -86,9 +87,9 @@ export default function updateInterface() {
     atualizarDados(idUpdate.valueAsNumber, idsJson)
 }
 
-async function getDadosApi() {
-    const req = await fetch(`http://localhost:5500/api`)
-    const res = await req.json()
+// async function getDadosApi() {
+//     const req = await fetch(`http://localhost:5500/api`)
+//     const res = await req.json()
 
-    return res   
-}
+//     return res   
+// }
