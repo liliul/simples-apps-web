@@ -1,5 +1,6 @@
 import atualizarDados from '../service/reqPUT.js';
 import getDados from '../service/reqGET.js';
+import updateInterface from '../hook/atualizandoDados.js';
 
 /**
  * @function
@@ -72,20 +73,20 @@ export async function editarDados(){
     })
 }
 
-export default function updateInterface() {
-    const idNameUp   = document.getElementById('nameUp');
-    const idCityUp   = document.getElementById('cityUp');
-    const idAvatarUp = document.getElementById('avatarUp');
-    const idUpdate = document.getElementById('idUpdate');
+// export default function updateInterface() {
+//     const idNameUp   = document.getElementById('nameUp');
+//     const idCityUp   = document.getElementById('cityUp');
+//     const idAvatarUp = document.getElementById('avatarUp');
+//     const idUpdate = document.getElementById('idUpdate');
 
-    const idsJson  = {
-        name: idNameUp.value,
-        avatar: idAvatarUp.value,
-        city: idCityUp.value
-    }
-    console.log(idsJson, idUpdate.valueAsNumber)
-    atualizarDados(idUpdate.valueAsNumber, idsJson)
-}
+//     const idsJson  = {
+//         name: idNameUp.value,
+//         avatar: idAvatarUp.value,
+//         city: idCityUp.value
+//     }
+//     console.log(idsJson, idUpdate.valueAsNumber)
+//     atualizarDados(idUpdate.valueAsNumber, idsJson)
+// }
 
 // async function getDadosApi() {
 //     const req = await fetch(`http://localhost:5500/api`)
