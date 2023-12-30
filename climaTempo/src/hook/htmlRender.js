@@ -1,4 +1,4 @@
-import { kelvinCelsius, visibility, byId, timeStamp } from './utils.js';
+import { kelvinCelsius, visibility, byId, timeStamp, convertWindSpeedKm } from './utils.js';
 
 export function tempNow(res) {
     
@@ -28,7 +28,7 @@ export function tempNow(res) {
 
     const windSpeed = document.getElementById('windSpeed');
   
-    windSpeed.textContent = res.wind.speed.toFixed(0) + 'km/h';
+    windSpeed.textContent = convertWindSpeedKm(res.wind.speed).toFixed(0) + 'km/h';
     humidity.textContent  = res.main.humidity + '%';
     clouds.textContent    = res.clouds.all + '%'
 }
