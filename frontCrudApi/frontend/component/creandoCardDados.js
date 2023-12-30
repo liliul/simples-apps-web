@@ -1,13 +1,13 @@
 const containerDiv = document.getElementById('container');
 
 /**
- * @param {object} itens
- * @returns elementos html crear cards com dados vindo da api
+ * @param {string} itens recebe dados da api reqGET
+ * @returns {string} criando o html do card
  * 
- * @description renderiza cards e coloca dentro da div container 
+ * @description criando o html dos cards e coloca dentro da div container 
  * */
 export default function renderizandoCardDados(itens) {
-	const divCardInfos = document.createElement('section');
+    const divCardInfos = document.createElement('section');
     divCardInfos.classList.add('card');
     divCardInfos.setAttribute('data-id', `${itens.id}`);
 
