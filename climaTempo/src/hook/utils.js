@@ -18,3 +18,7 @@ export function timeStamp(codigo, timezone) {
     
     return `${h}:${m}`;
 }
+
+export function convertWindSpeedKm(km) {
+    return km * 3.6
+}
