@@ -121,10 +121,8 @@ body {
 
 /* Input Modal */
 .containerModal {
-/*    display: none;*/
     background: rgba(0, 0, 0, .8);
     position: fixed;
-/*    transform: translate(50%, 50%);*/
     top: 0;
     left: 0;
     width: 100%;
@@ -132,7 +130,6 @@ body {
 
     display: grid;
     place-content: center;
-
 }
 .modal {
     background-color: #212121;
@@ -145,7 +142,6 @@ body {
 .modal-form {
     width: 100%;
     height: auto;
-
     padding: 10px;
 
     display: flex;
@@ -155,7 +151,6 @@ body {
 .input-modal {
     height: 2rem;
     border-radius: 8px;
-
     padding-left: 10px;
 
     outline-color: rgba(14, 155, 113, 0.687);
