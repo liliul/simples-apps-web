@@ -486,11 +486,15 @@ body {
   font-family: "Fira Code", monospace;
   font-style: normal;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.6rem;
   text-align: center;
 }
 .container .tempNow .main-tempNow .temperature .p-temp .temp-b {
   color: var(--b-temp);
+  font-family: "Fira Code", monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2rem;
 }
 .container .tempNow .foo-tempNow {
   display: flex;
@@ -827,11 +831,15 @@ body {
     font-family: "Fira Code", monospace;
     font-style: normal;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.6rem;
     text-align: center;
   }
   .container .tempNow .main-tempNow .temperature .p-temp .temp-b {
     color: var(--b-temp);
+    font-family: "Fira Code", monospace;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
   }
   .container .tempNow .foo-tempNow {
     display: flex;
