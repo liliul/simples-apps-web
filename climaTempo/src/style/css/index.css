@@ -720,8 +720,9 @@ body {
 }
 .container .weekWeather .days .foo-days .foo-p-days .s-foo-days {
   font-family: "Fira Code", monospace;
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
   color: var(--s-foo-days);
 }
 .container .weekWeather .days .foo-data {
@@ -731,6 +732,7 @@ body {
   font-size: 1rem;
   color: var(--foo-data-cor);
   margin-top: 1.5rem;
+  text-align: center;
 }
 
 @media screen and (min-width: 880px) {
@@ -1059,8 +1061,9 @@ body {
   }
   .container .weekWeather .days .foo-days .foo-p-days .s-foo-days {
     font-family: "Fira Code", monospace;
-    font-size: 1.4rem;
-    font-weight: 700;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
     color: var(--s-foo-days);
   }
   .container .weekWeather .days .foo-data {
@@ -1070,6 +1073,7 @@ body {
     font-size: 1rem;
     color: var(--foo-data-cor);
     margin-top: 1.5rem;
+    text-align: center;
   }
 }
 

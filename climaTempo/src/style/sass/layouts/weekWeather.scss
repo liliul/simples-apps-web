@@ -12,7 +12,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            
+
             height: auto;
 
             margin: 1rem 0rem;
@@ -38,11 +38,11 @@
                     color: var(--foo-p-days);
 
                     .s-foo-days {
-                        @include font-14;
+                        @include font-12;
                         color: var(--s-foo-days);
                     }
                 }
-                
+
             }
 
             .foo-data {
@@ -50,6 +50,7 @@
 
                 color: var(--foo-data-cor);
                 margin-top: 1.5rem;
+                text-align: center;
             }
         }
     }
