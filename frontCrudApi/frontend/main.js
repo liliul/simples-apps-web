@@ -1,3 +1,9 @@
+/**
+ * Arquivo Principal
+ * 
+ * @description Import global features  
+ * */
+
 import EnviarDadosParaApi from './hook/enviandoDados.js';
 import renderCards from './hook/renderizaCards.js';
 
