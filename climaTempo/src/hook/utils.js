@@ -22,6 +22,13 @@ export function timeStamp(codigo, timezone) {
     return `${hr}:${mr}`;
 }
 
+export function formatDateWeather(country, date) {
+    const data = new Date(date);
+    const intlDate = Intl.DateTimeFormat(country, {dateStyle: 'short'}).format(data);
+
+    return intlDate;
+} 
+
 export function convertWindSpeedKm(km) {
     return km * 3.6
 }
