@@ -1,4 +1,4 @@
-import { kelvinCelsius, visibility, byId, timeStamp, convertWindSpeedKm } from './utils.js';
+import { kelvinCelsius, visibility, byId, timeStamp, convertWindSpeedKm, formatDateWeather } from './utils.js';
 
 export function tempNow(res) {
 
@@ -132,6 +132,7 @@ export function weather(res) {
     weather.innerHTML = "";
     
     const timezoneWeather = res.city.timezone;
+    const countryPais = res.city.country;
 
     res.list.map((list) => {
         const article = document.createElement('article');
@@ -149,7 +150,7 @@ export function weather(res) {
             <footer class="foo-days">
                 <p class="foo-p-days">${list.main.temp_max.toFixed()}° <span class="s-foo-days">${convertWindSpeedKm(list.wind.speed).toFixed()}km/h</span></p>
             </footer>
-            <small class="foo-data">${timeStamp(list.dt, timezoneWeather)}</small>
+            <small class="foo-data">${formatDateWeather(countryPais, list.dt_txt)}<br/>${timeStamp(list.dt, timezoneWeather)}</small>
         `
         weather.append(article);
     })
