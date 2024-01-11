@@ -129,10 +129,11 @@ export function sunTime(res) {
 
 export function weather(res) {
     const weather = document.getElementById('weather');
-    weather.innerHTML = ""
+    weather.innerHTML = "";
+    
+    const timezoneWeather = res.city.timezone;
 
     res.list.map((list) => {
-
         const article = document.createElement('article');
         article.classList.add('days');
 
@@ -148,7 +149,7 @@ export function weather(res) {
             <footer class="foo-days">
                 <p class="foo-p-days">${list.main.temp_max.toFixed()}° <span class="s-foo-days">${convertWindSpeedKm(list.wind.speed).toFixed()}km/h</span></p>
             </footer>
-            <small class="foo-data">${list.dt_txt}</small>
+            <small class="foo-data">${timeStamp(list.dt, timezoneWeather)}</small>
         `
         weather.append(article);
     })
