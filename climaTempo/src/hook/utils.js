@@ -15,8 +15,11 @@ export function timeStamp(codigo, timezone) {
     
     const h = data.getUTCHours();
     const m = data.getUTCMinutes();
-    
-    return `${h}:${m}`;
+
+    const hr = ("0" + h).slice(-2)
+    const mr = ("0" + m).slice(-2)
+
+    return `${hr}:${mr}`;
 }
 
 export function convertWindSpeedKm(km) {
