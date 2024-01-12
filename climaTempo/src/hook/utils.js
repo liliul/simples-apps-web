@@ -22,9 +22,9 @@ export function timeStamp(codigo, timezone) {
     return `${hr}:${mr}`;
 }
 
-export function formatDateWeather(country, date) {
-    const data = new Date(date);
-    const intlDate = Intl.DateTimeFormat(country, {dateStyle: 'short'}).format(data);
+export function formatDateWeather(country, timezone, date) {
+    const data = new Date((timezone + date) *1000);
+    const intlDate = Intl.DateTimeFormat(country, {dateStyle: 'short'}).format(data);          
 
     return intlDate;
 } 

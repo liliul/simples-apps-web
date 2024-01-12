@@ -150,7 +150,7 @@ export function weather(res) {
             <footer class="foo-days">
                 <p class="foo-p-days">${list.main.temp_max.toFixed()}° <span class="s-foo-days">${convertWindSpeedKm(list.wind.speed).toFixed()}km/h</span></p>
             </footer>
-            <small class="foo-data">${formatDateWeather(countryPais, list.dt_txt)}<br/>${timeStamp(list.dt, timezoneWeather)}</small>
+            <small class="foo-data">${formatDateWeather(countryPais, timezoneWeather, list.dt)}<br/>${timeStamp(list.dt, timezoneWeather)}</small>
         `
         weather.append(article);
     })
