@@ -2,7 +2,10 @@ import { TOKEN_API_OPEN_WEATHER, APPID_TOKEN, URL_AR } from './token.js';
 
 import { tempNow, airQuality, visible ,sunTime, weather, openWeatherMap } from './htmlRender.js';
 
-
+/**
+ * @function geo
+ * @returns {object} // geolocation do navegador
+ * */
 export const geo = () => {
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(async function(pos) {
@@ -14,6 +17,12 @@ export const geo = () => {
 }
 // geo()
 
+/**
+ * @description função getApis // pega dados da api openweathermap como o ar, clima, e clima em 3 e 3 horas 
+ * 
+ * @param {string} lat lon // latitude e longitude
+ * @returns {object} parametros lat lon da geolocation
+ * */
 async function getApis(lat, lon) {
   const [reqApi1, reqApi2, reqApi3] = await Promise.all([
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${TOKEN_API_OPEN_WEATHER}&lang=pt_br`),
