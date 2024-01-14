@@ -15,7 +15,6 @@ export const geo = () => {
     })
   }
 }
-// geo()
 
 /**
  * @description função getApis // pega dados da api openweathermap como o ar, clima, e clima em 3 e 3 horas 
@@ -33,7 +32,6 @@ async function getApis(lat, lon) {
   const resApi1 = await reqApi1.json();
   const resApi2 = await reqApi2.json();
   const resApi3 = await reqApi3.json();
-  console.log('weather: ',resApi3);
 
   tempNow(resApi1)
   airQuality(resApi2)
