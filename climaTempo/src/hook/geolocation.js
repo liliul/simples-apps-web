@@ -36,6 +36,12 @@ async function getApis(lat, lon) {
   renderHtml(resApi1, resApi2, resApi3);
 }
 
+/**
+ * @discription função que pega as features do climaTempo e passa informações da api openweathermap atravez dos parametros
+ * 
+ * @param {object} resApi1 resApi2 resApi3 // parametros que recebe dados da api openweathermap
+ * @returns {elementHtml} features que renderiza html
+ * */
 function renderHtml(resApi1, resApi2, resApi3) {
   tempNow(resApi1)
   airQuality(resApi2)
