@@ -33,6 +33,10 @@ async function getApis(lat, lon) {
   const resApi2 = await reqApi2.json();
   const resApi3 = await reqApi3.json();
 
+  renderHtml(resApi1, resApi2, resApi3);
+}
+
+function renderHtml(resApi1, resApi2, resApi3) {
   tempNow(resApi1)
   airQuality(resApi2)
   visible(resApi1)
