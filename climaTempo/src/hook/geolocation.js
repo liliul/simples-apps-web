@@ -9,7 +9,6 @@ import { tempNow, airQuality, visible ,sunTime, weather, openWeatherMap } from '
 export const geo = () => {
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(async function(pos) {
-      console.log(pos.coords.latitude, pos.coords.longitude)
       
       await getApis(pos.coords.latitude, pos.coords.longitude)
     })
