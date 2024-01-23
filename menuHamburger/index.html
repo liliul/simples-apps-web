@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | [Blogr]</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="text/javascript">
+  //   module.exports = {
+  //     theme: {
+  //       borderRadius: {
+  //         'none': '0',
+  //         'sm': '0.125rem',
+  //         DEFAULT: '0.25rem',
+  //         DEFAULT: '4px',
+  //         'md': '0.375rem',
+  //         'lg': '0.5rem',
+  //         'full': '9999px',
+  //         'large': '110px',
+  //       }
+  //     }
+  // }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .img-bg-header {
+        background-image: url('./images/bg-pattern-intro-mobile.svg');
+        background-size: 290%;
+        background-position: 50%;
+        background-repeat: no-repeat;
+
+      }
+      .img-bg-header-desktop {
+        background-image: url('./images/bg-pattern-intro-desktop.svg');
+        background-size: 150%;
+        background-position: left;
+        background-repeat: no-repeat;
+      }
+
+      .img-ct-section {
+        background-image: url('./images/illustration-desktop.png');
+        background-position: right 75px; 
+        background-repeat: no-repeat;
+        background-size: 46%;
+
+       }
+
+       .img-circles {
+         background-image: url('./images/bg-pattern-circles2.png');
+         background-repeat: no-repeat;
+         background-size: 100%; 
+         background-position: top;
+         
+
+       }
+       .dark-blue {
+        background-color: hsl(240, 10%, 16%);
+       }
+       .bg-footer {
+        background-color: hsl(240, 10%, 16%);
+       }
+
+       .img-laptop {
+        background-image: url('./images/illustration-laptop-desktop.svg');
+        background-repeat: no-repeat;
+        background-position: -210px center ,0 0;
+        background-size: 56%;
+       }
+    }
+  </style>
+</head>
+<body class="bg-[#999] font-serif">
+  
+    <section class="max-w-screen-2xl m-auto h-auto bg-white">
+    <!-- header -->
+      <header class="w-full h-auto bg-red-400 pt-5 img-bg-header rounded-bl-[90px] md:img-bg-header-desktop">
+        <header class="w-full h-14 px-3 md:flex lg:w-8/12 lg:m-auto xl:w-8/12 xl:m-auto">
+          <div class="w-full flex justify-between items-center md:flex md:justify-start">
+            <img src="./images/logo.svg">
+
+            <nav class="md:ml-10">
+              <div class="md:hidden">
+                <img src="./images/icon-hamburger.svg" alt="">
+              </div>
+
+              <ul class="md:flex hidden">
+                <li class="text-sm text-white flex items-center mr-5">Product <img class="ml-1  h-2 w-2 object-fill" src="./images/icon-arrow-light.svg"></li>
+                <li class="text-sm text-white flex items-center mr-5">Company <img class="ml-1  h-2 w-2 object-fill" src="./images/icon-arrow-light.svg"></li>
+                <li class="text-sm text-white flex items-center mr-5">connect <img class="ml-1  h-2 w-2 object-fill" src="./images/icon-arrow-light.svg"></li>
+              </ul>
+            </nav>
+          </div>
+
+          
+
+          <div class="w-full hidden md:flex items-center justify-end">
+            <a class="text-sm text-white mr-5" href="#">Login</a>
+            <a class="text-sm text-red-400 bg-white border-radius rounded-full py-1 px-2" href="#">Sign Up</a>
+          </div>
+        </header>
+
+        <section class="w-full h-auto text-center my-5 mt-24">
+          <h1 class="text-white text-2xl font-bold mb-2.5 md:text-4xl md:pt-5">A modern <br class="md:hidden">publishing plataform</h1>
+          <p class="text-sm text-gray-300 mt-6">Grow your audience and build your<br class="md:hidden">online brand</p>
+        </section>
+
+        <footer class="w-full flex justify-center pb-28">
+            <button class="py-2 px-5 mr-2 text-sm text-red-400 bg-white hover:bg-transparent hover:text-white border-solid border-2 border-white border-radius rounded-full">Start for free</button>
+            <button class="py-2 px-5 text-sm text-white hover:bg-white hover:text-red-400 border-solid border-2 border-white border-radius rounded-full">Learn more</button>
+        </footer>
+      </header>
+
+      <!-- conteudo -->
+        <main class="w-full h-auto pt-20   md:img-ct-section ">
+          <h1 class="text-center mt-14 text-3xl font-bold md:text-base lg:text-2xl xl:text-4xl">Designed for the future</h1>
+
+          <section class="w-full mb-64 h-auto flex flex-col items-center mt-10  md:pb- md:flex md:flex-row lg:">
+            <img class="md:hidden" src="./images/illustration-editor-mobile.svg">
+
+
+            <div class="md:max-w-md xl:max-w-xl 2xl:max-w-2xl h-auto mt-10 h-auto md:mt-6 lg:ml-24 lg:mt-16 xl:mt-24 xl:ml-24 2xl:mt-28 2xl:ml-24 pr-5 ">
+              <div class="px-4">
+                <h2 class="text-2xl font-bold text-center md:text-left md:text-sm md:font-bold mb-1 xl:mb-3 lg:text-xl xl:text-2xl 2xl:text-4xl">Introducing an<br class="md:hidden">extensible editor</h2>
+
+                <p class="text-sm text-center md:text-left md:text-xs lg:text-sm xl:text-lg 2xl:text-2xl">Blogr features an exceedingly intuitive interface which lets you focus on one thing: creating content. the editor supports management
+                  of multiple blogs and allows easy manipulation of embeds such as images, video, and Markdown. Extensibility with plugins and themes provide easy ways to add funtionality or chage the looks of blog.
+                </p>
+              </div>
+
+              <div class="px-4 h-auto md:mt-3 lg:mt-6 xl:mt-10 2xl:mt-10 mt-10">
+                <h2 class="text-2xl font-bold md:text-left md:text-sm md:font-bold text-center mb-1 xl:mb-3 lg:text-xl xl:text-2xl 2xl:text-4xl">Robust content
+                  <br class="md:hidden"> management</h2>
+
+                <p class="text-sm text-center md:text-left md:text-xs lg:text-sm xl:text-lg 2xl:text-2xl">Flexible content management enables users to easily move through posts. Increase the usability of your blog by adding customized categories, sections, format, or flow, with this funtionality. you re in full control.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="img-circles dark-blue h-auto rounded-bl-[90px] rounded-tr-[90px] grid grid-cols-1 md:mt-52 xl:grid xl:grid-cols-2 lg:grid lg:grid-cols-2 lg:h-[380px] xl:h-[390px]" >
+            <div class="relative">
+              <img class=" absolute top-[-200px] md:top-[-120px] lg:top-[-60px] xl:top-[-80px] xl:left-[100px]" src="./images/illustration-phones.svg">
+            </div>
+
+            <div class="mt-28 pt-56 pb-32 md:mt-56 lg:mt-0 lg:pb-0 lg:pt-20 xl:mt-0 xl:pb-0 xl:pt-20">
+              <h1 class="text-white font-bold text-xl text-center md:text-2xl  lg:text-left xl:text-left xl:text-3xl">State of the Art<br class="md:hidden">Infrastruture</h1>
+
+              <p class="mt-8 text-center text-white px-8 lg:text-left lg:px-0 xl:px-0 xl:text-left md:text-xl xl:mr-20">With reliability and speed in mind. worldwide data centers provide the backbone for ultra-fast connectivity. This ensures your site will load instantly. no matter where your readers are. keeping your site competitive.</p>
+            </div>
+          </section>
+
+
+          <section class="flex flex-col items-center md:img-laptop md:h-[750px] xl:h-[900px]">
+            <img class="my-10 md:hidden" src="./images/illustration-laptop-mobile.svg" alt="">
+
+            <div class="px-5 md:h-full md:w-full md:flex md:flex-col md:justify-center md:items-end md:pl-20">
+              <article class="mb-10 md:w-[480px] lg:w-[600px] xl:w-[700px]">
+                <h1 class="text-center text-2xl font-bold mb-2 md:text-left xl:text-3xl">Free, open, simple</h1>
+
+                <p class="text-center text-sm md:text-left xl:text-lg">Blogr is a free and open source application backed by a large community of helpful developers. It supports features such as code sytax highlighting. RSS feeds, social media integration, trird-party commenting tools, and works seamlessly with Google Analytics. the architecture is clean and is relatively easy to learn.</p>
+              </article>
+
+              <article class="md:w-[480px] lg:w-[600px] xl:w-[700px] ">
+                <h1 class="text-center text-2xl font-bold mb-2 md:text-left xl:text-3xl">Powerful tooling</h1>
+
+                <p class="text-center text-sm md:text-left xl:text-lg">Batteries included. We built a simple and straightforward CLI tool that makes customization and deployment a breeze, but capable of producing even the most complicated sites.</p>
+              </article>
+            </div>
+          </section>
+        </main>
+
+
+
+
+
+        <footer class="bg-footer mt-32 md:mt-0 rounded-tr-[90px] flex flex-col items-center py-16 md:flex md:flex-row md:gap-36">
+          <div class="mb-10 md:ml-32 ">
+            <img src="./images/logo.svg">
+          </div>
+
+          <nav class="text-white lg:grid lg:grid-cols-3 lg:gap-36">
+            <ul class="text-center lg:mt-10 lg:text-left">
+              <span class="text-xl font-bold pb-5">Product</span>
+              <li>Overview</li>
+              <li>Princing</li>
+              <li>Marketplace</li>
+              <li>Features</li>
+              <li>Integration</li>
+            </ul>
+            
+            <ul class="mt-10 text-center lg:text-left">
+              <span class="text-xl font-bold pb-5">Company</span>
+              <li>About</li>
+              <li>Team</li>
+              <li>Blog</li>
+              <li>Careers</li>
+            </ul>
+
+            <ul class="mt-10 text-center lg:text-left">
+              <span class="text-xl font-bold pb-5">Connect</span>
+              <li>Contact</li>
+              <li>Newsletter</li>
+              <li>Linkedin</li>
+            </ul>
+          </nav>
+        </footer>
+    </section>
+</body>
+</html>
