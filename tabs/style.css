@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #6366f2;
+    background-color: #212121;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,11 +41,11 @@ body {
 }
 
 .tab-btn.active {
-    background-color: #c7d2fe;
+    background-color: #DDD;
 }
 
 .tab-btn:hover {
-    background-color: #a5b4fc;
+    background-color: #999;
 }
 
 .content {
@@ -55,7 +55,7 @@ body {
 .content.show {
     display: flex;
     gap: 14px;
-    background-color: #c7d2fe;
+    background-color: #DDD;
     border-radius: 0px 0px 8px 8px;
     padding: 16px;
 }
