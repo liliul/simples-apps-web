@@ -38,6 +38,7 @@ input.addEventListener('change', async (e) => {
         db.push(json)
 
         update()
+
     }
 
     // if(input.value === undefined) return
@@ -67,6 +68,7 @@ input.addEventListener('change', async (e) => {
 
 function renderCardHTML() {
     document.getElementById('container').innerHTML = ""
+    document.getElementById('search').value = ""
 
     db = localStorage.getLocalStorage('jsCrud')
 
