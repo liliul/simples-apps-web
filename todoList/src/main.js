@@ -26,14 +26,17 @@ function setHtml() {
 	// adicionando quantas tarefas foram criadas na fução contar tarefas criada
 	tasksCreateLength(db.length)
 	
-	// adicionar na fução taskCompleted quantas tarefas estão checadas
-	var counter=0
+	// adicionar na fução tasksCompleted quantas tarefas estão checadas
+	let counter=0
+
+	if (db.length === 0) tasksCompleted(counter)
+
 	db.forEach(d => {
 		if(d.checkedDB === 'checked') {
 			tasksCompleted(counter++ + 1)
 		} else tasksCompleted(counter)
 	})
-	
+
 	// verifica se o banco de dados esta zerado e rederiza html
 	if(db.length === 0) {
 		
