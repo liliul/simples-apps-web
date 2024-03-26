@@ -1,8 +1,35 @@
-export default function renderCard(api) {
-	const {cell, dob, email, gender, id, location, name, phone, picture, nat} = api;
+interface User {
+	cell: string;
+	dob: {
+		age: number;
+	};
+	email: string;
+	gender: string;
+	id: {
+		value: string;
+	};
+	location: {
+		city: string;
+		country: string;
+		state: string;
+	};
+	name: {
+		title: string;
+		first: string;
+		last: string;
+	};
+	phone: string;
+	picture: {
+		medium: string;
+	};
+	nat: string;
+}
+
+export default function renderCard(api: User): void {
+	const { cell, dob, email, gender, id, location, name, phone, picture, nat } = api;
 
 	const div = document.createElement('div')
-	div.innerHTML =`
+	div.innerHTML = `
 		<article class='cards'data-id='${id.value}'>
 			<section class='c-img'>
 				<img src='${picture.medium}' alt='Img' />
