@@ -1,4 +1,4 @@
-import {CardIndex} from '../components/index.ts';
+import { CardIndex } from '../components/index.ts';
 
 export function Card(): string {
 	return (
@@ -9,4 +9,5 @@ export function Card(): string {
 
 		`
 	)
+
 }
