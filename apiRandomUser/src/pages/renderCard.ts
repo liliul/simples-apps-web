@@ -1,7 +1,8 @@
 export default function renderCard(api) {
 	const {cell, dob, email, gender, id, location, name, phone, picture, nat} = api;
 
-	document.querySelector<HTMLDivElement>("#card").innerHTML +=`
+	const div = document.createElement('div')
+	div.innerHTML =`
 		<article class='cards'data-id='${id.value}'>
 			<section class='c-img'>
 				<img src='${picture.medium}' alt='Img' />
@@ -27,5 +28,7 @@ export default function renderCard(api) {
 			</section>
 		</article>
 
-	`
+	`;
+
+	document.querySelector<HTMLDivElement>("#card").appendChild(div)
 }

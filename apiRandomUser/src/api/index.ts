@@ -4,5 +4,5 @@ export async function getApiRandomUser() {
    const req = await fetch(url)
    const res = await req.json()
 
-   return res.results
+   return await res.results
 }
