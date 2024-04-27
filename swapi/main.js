@@ -1,5 +1,5 @@
 var swapiModule = (function () {
-  var rootURL = "https://swapi.dev/api/";
+  var rootURL = "https://swapi.py4e.com/api/";
 
   function request(url, cb) {
     return fetch(url)
