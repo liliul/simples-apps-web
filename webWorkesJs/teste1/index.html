@@ -4,9 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testando Web Worker Javascript</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #212121;
+            margin-left: 130px;
+            margin-top: 90px;
+            color: aliceblue;
+        }
+    </style>
 </head>
 <body>
     <h1>Web Worker em Javascript</h1>
+    <br>
+    <br>
+
+    <div>
+        <h2>Mensagem do postMessage worker</h2>
+        <hr>
+        <br>
+
+        <p id="main"></p>
+        <br>
+        <p id="worker"></p>
+    </div>
 
     <script src="main.js"></script>
 </body>
