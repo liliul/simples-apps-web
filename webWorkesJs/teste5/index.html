@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>OffscreenCanvas API</title>
+
+    <style>
+      html,
+      body {
+        font-family: sans-serif;
+        margin: 2rem;
+      }
+
+      main,
+      footer {
+        display: flex;
+        align-content: left;
+        justify-content: left;
+        flex-direction: column;
+        flex-wrap: wrap;
+        text-align: left;
+        margin-bottom: 4rem;
+      }
+
+      header {
+        font-size: 1em;
+        min-height: 1em;
+        line-height: 1.5em;
+        margin: 1rem;
+        max-width: 50%;
+      }
+
+      button,
+      canvas {
+        border-radius: 10px;
+      }
+
+      canvas {
+        border: 2px solid black;
+        margin: 2rem;
+      }
+
+      button {
+        background: #797676;
+        padding: 10px;
+        margin: 10px;
+        border: 0;
+        color: white;
+        font-size: 1em;
+        max-width: 150px;
+      }
+
+      /* Hover effect for buttons */
+      button:hover,
+      canvas:hover {
+        background: rgb(242, 134, 102);
+        transition: transform 0.5s;
+        transform: scale(1.3, 1.3);
+        color: black;
+      }
+
+      #canvas-description {
+        max-width: 50%;
+        text-align: left;
+      }
+
+      .ui-example {
+        margin: 2rem;
+      }
+
+      .ui-example button:hover {
+        transition: transform 0.5s;
+        transform: scale(1.3, 1.3);
+      }
+
+      .canvas-title {
+        display: block;
+        font-size: 1.4em;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      .canvases {
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        align-content: left;
+        padding: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>OffscreenCanvas and worker threads</h1>
+      <p>
+        <b>Note:</b> your browser must support
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+          ><code>OffscreenCanvas</code></a
+        >.
+      </p>
+      <p>This example has two canvases with incrementing counters.</p>
+
+      <p>
+        Canvas A is being drawn to on the main thread. Canvas B uses an
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+          ><code>OffscreenCanvas</code></a
+        >
+        so that we can draw to it in a worker thread. The purpose of this
+        example is to show how a worker thread can keep the rest of our UI
+        responsive.
+      </p>
+
+      <p>
+        The button below each canvas creates <b>blocking work</b> on either the
+        main thread (Canvas A) or a worker thread (Canvas B). When a thread is
+        blocked, incrementing the related counter from that thread is also
+        blocked.
+      </p>
+    </header>
+
+    <main>
+      <div class="canvases">
+        <div>
+          <span class="canvas-title">Canvas A</span>
+          <canvas id="main" width="200" height="200"></canvas>
+          <div>
+            <button id="main-button" onclick="slowMainThread()">
+              Block main thread
+            </button>
+          </div>
+        </div>
+        <div>
+          <span class="canvas-title">Canvas B</span>
+          <canvas id="worker" width="200" height="200"></canvas>
+
+          <div>
+            <button id="worker-button" onclick="slowdownWorker()">
+              Block worker thread
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="canvas-description">
+        <p>
+          <b>When the main thread is blocked</b>, all UI elements are frozen.<br />
+          The hover effect on buttons is also blocked:
+        </p>
+        <button>Example button</button>
+        <p>
+          <b>When the worker thread is blocked</b>, the main thread is free to
+          do work such as the element hover effects and animations. Blocking the
+          worker thread will still prevent Canvas B's counter from being
+          updated, but the rest of the UI stays responsive while this is true.
+        </p>
+      </div>
+
+      <footer>
+        <p>
+          This demo is based on an example by
+          <a href="https://glitch.com/@PicchiKevin">Kevin Picchi</a>.
+        </p>
+      </footer>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
