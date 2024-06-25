@@ -1,5 +1,16 @@
-window.document.getElementById('root').innerHTML = `
-    <h1 class="text-orange-600">Router com javascript puro.</h1>
+window.document.querySelector('body').innerHTML = `
+    <nav>
+      <ul>
+        <li><a href="#home" class="text-white">Home</a></li>
+        <li><a href="#about" class="text-white">About</a></li>
+        <li><a href="#contact" class="text-white">Contact</a></li>
+        <li><a href="#rote" class="text-white">Roteamento</a></li>
+      </ul>
+    </nav>
+
+    <hr>
+
+    <section id="root"></section>
 `;
 
 
@@ -19,12 +30,15 @@ function loadContent() {
         case 'contact':
             content = '<h2>Contact Page</h2><p>Entre em contato conosco.</p>';
             break;
+        case 'rote':
+            content = '<h2 class="text-orange-500">Router: </h2><p class="text-blue-400">Testando Reteamento com javascript puro</p>';
+            break;
         default:
             content = '<h2>Página não encontrada</h2><p>A página solicitada não existe.</p>';
     }
 
     // Atualiza o conteúdo da página dinamicamente
-    const mainContent = document.getElementById('main-content');
+    const mainContent = document.getElementById('root');
     mainContent.innerHTML = content;
 }
 
