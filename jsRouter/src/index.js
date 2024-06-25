@@ -1,3 +1,8 @@
+import { Home } from './layouts/home.js';
+import { Contact } from './layouts/contact.js';
+import { PageError } from './layouts/404.js';
+
+
 window.document.querySelector('body').innerHTML = `
     <nav>
       <ul>
@@ -17,29 +22,29 @@ window.document.querySelector('body').innerHTML = `
 // Função para carregar conteúdo da página com base no hash da URL
 function loadContent() {
     const hash = window.location.hash.substring(1); // Remove o caractere "#" da URL
-
+    document.getElementById('root').innerHTML = '';
     // Define o conteúdo com base no hash da URL
     let content;
     switch (hash) {
         case 'home':
-            content = '<h2>Home Page</h2><p>Bem-vindo à página inicial.</p>';
+            content = Home();
             break;
         case 'about':
             content = '<h2>About Page</h2><p>Saiba mais sobre nós.</p>';
             break;
         case 'contact':
-            content = '<h2>Contact Page</h2><p>Entre em contato conosco.</p>';
+            content = Contact();
             break;
         case 'rote':
             content = '<h2 class="text-orange-500">Router: </h2><p class="text-blue-400">Testando Reteamento com javascript puro</p>';
             break;
         default:
-            content = '<h2>Página não encontrada</h2><p>A página solicitada não existe.</p>';
+            content = PageError();
     }
 
     // Atualiza o conteúdo da página dinamicamente
     const mainContent = document.getElementById('root');
-    mainContent.innerHTML = content;
+    mainContent.append(content);
 }
 
 // Função para configurar o roteamento e lidar com cliques nos links
