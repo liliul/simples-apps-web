@@ -1,6 +1,7 @@
 import { Home } from './layouts/home.js';
 import { Contact } from './layouts/contact.js';
 import { PageError } from './layouts/404.js';
+import { About } from './layouts/about.js';
 
 
 window.document.querySelector('body').innerHTML = `
@@ -24,13 +25,15 @@ function loadContent() {
     const hash = window.location.hash.substring(1); // Remove o caractere "#" da URL
     document.getElementById('root').innerHTML = '';
     // Define o conteúdo com base no hash da URL
+
+
     let content;
     switch (hash) {
         case 'home':
             content = Home();
             break;
         case 'about':
-            content = '<h2>About Page</h2><p>Saiba mais sobre nós.</p>';
+            content = About();
             break;
         case 'contact':
             content = Contact();
