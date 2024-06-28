@@ -7,6 +7,7 @@ import { About } from './layouts/about.js';
 window.document.querySelector('body').innerHTML = `
     <nav>
       <ul>
+        <li><a href="/" class="text-white">Inicio</a></li>
         <li><a href="#home" class="text-white">Home</a></li>
         <li><a href="#about" class="text-white">About</a></li>
         <li><a href="#contact" class="text-white">Contact</a></li>
@@ -23,11 +24,18 @@ window.document.querySelector('body').innerHTML = `
 // Função para carregar conteúdo da página com base no hash da URL
 function loadContent() {
     const hash = window.location.hash.substring(1); // Remove o caractere "#" da URL
+    console.log(hash)
     document.getElementById('root').innerHTML = '';
     // Define o conteúdo com base no hash da URL
 
 
     let content;
+
+    if (hash) {
+        console.log('hash');
+        content = PageError()
+    }
+
     switch (hash) {
         case 'home':
             content = Home();
@@ -43,6 +51,7 @@ function loadContent() {
             break;
         default:
             content = PageError();
+            console.log('rotas');
     }
 
     // Atualiza o conteúdo da página dinamicamente
