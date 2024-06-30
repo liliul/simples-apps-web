@@ -1,4 +1,4 @@
-let nameUser = 'diego3g';
+let nameUser = 'maykbrito';
 
 self.addEventListener('message', function(e) {
   const username = e.data;
