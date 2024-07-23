@@ -15,7 +15,7 @@ document.querySelector('#inputs').innerHTML = `
 let map;
 // Função para inicializar o mapa
 function initMap() {
-    if(map) {
+    if (map) {
         return map;
     }
     // Crie um mapa com Leaflet
@@ -72,29 +72,32 @@ function updateMap(map, newData) {
 // });
 
 document.querySelector("#form-control").addEventListener('submit', (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
-        const lan = document.querySelector('#lan').value.trim();
-        const lon = document.querySelector('#lon').value.trim();
-        console.log('lan:',lan,' lon:',lon)
-        // Inicialize o mapa quando o DOM estiver pronto
-        // var map = initMap();
-         // Verifique se o mapa está inicializado
-        if (!map) {
-            // Se o mapa não estiver inicializado, inicialize-o
-            map = initMap();
+    const lan = document.querySelector('#lan').value.trim();
+    const lon = document.querySelector('#lon').value.trim();
+    console.log('lan:', lan, ' lon:', lon)
+    // Inicialize o mapa quando o DOM estiver pronto
+    // var map = initMap();
+    // Verifique se o mapa está inicializado
+    if (!map) {
+        // Se o mapa não estiver inicializado, inicialize-o
+        map = initMap();
+    }
+
+    // Exemplo de dados de atualização (substitua com sua lógica de obtenção de dados)
+    var newData = {
+        coord: {
+            lat: lan,
+            lon: lon
         }
+        // Outros dados que você deseja atualizar no mapa
+    };
 
-        // Exemplo de dados de atualização (substitua com sua lógica de obtenção de dados)
-        var newData = {
-            coord: {
-                lat: lan,
-                lon: lon
-            }
-            // Outros dados que você deseja atualizar no mapa
-        };
+    // Atualize o mapa com os novos dados
+    updateMap(map, newData);
 
-        // Atualize o mapa com os novos dados
-        updateMap(map, newData);
- })
+    // resetar formulario
+    e.currentTarget.reset()
+})
 
