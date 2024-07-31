@@ -1,11 +1,11 @@
 const divRoot = document.getElementById('root')
 
 divRoot.innerHTML = `
-    ${content()}
+    ${header()}
     ${h1('Naruto VS Goku')}
 `
 
-function content() {
+function header() {
     return (
         `
             <header class='header'>
