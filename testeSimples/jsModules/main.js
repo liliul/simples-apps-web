@@ -1,8 +1,13 @@
+import { getApiNaruto } from './api/index.js'
+const clans = await getApiNaruto('clans')
+const akatsuki = await getApiNaruto('akatsuki')
+const characters = await getApiNaruto('characters')
+
 const divRoot = document.getElementById('root')
 
-divRoot.innerHTML = `
+divRoot.innerHTML += `
     ${header()}
-    ${h1('Naruto VS Goku')}
+    ${content()}
 `
 
 function header() {
@@ -21,6 +26,26 @@ function header() {
             </header>
         `
     )
+}
+
+function content() {
+    return (`
+        <main class='main-container'>
+            <section class='container'>
+                <nav class='c-card'>
+                    ${h1('Clans.')}
+                </nav>
+                
+                <article class='c-card'>
+                    ${h1('Akatsuki.')}
+                </article>
+
+                <aside class='c-card'>
+                    ${h1('Characters.')}
+                </aside>
+            </section>            
+        </main>    
+    `)    
 }
 
 function h1(texto) {
