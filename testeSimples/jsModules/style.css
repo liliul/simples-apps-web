@@ -35,7 +35,10 @@ body {
 .header .he-title {color: indianred;}
 .header .he-title .he-strong {color: khaki;}
 
-/* .h1 {} */
+.h2 {
+    color: darkcyan;
+    font-size: medium;    
+}   
 
 .main-container {
     width: 100%;

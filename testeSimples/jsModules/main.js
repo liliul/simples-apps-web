@@ -34,17 +34,17 @@ function header() {
         <main class='main-container'>
             <section class='container'>
                 <nav class='c-card'>
-                    ${h1('Clans.')}
+                    ${h2('Clans.')}
 
                     <article id ='tagIdClans'></article>                
                 </nav>
                 
                 <article class='c-card'>
-                    ${h1('Akatsuki.')}
+                    ${h2('Akatsuki.')}
                 </article>
 
                 <aside class='c-card'>
-                    ${h1('Characters.')}
+                    ${h2('Characters.')}
                 </aside>
             </section>            
         </main>    
@@ -68,5 +68,11 @@ clansMap()
 function h1(texto) {
     return (
         `<h1 class='h1'>${texto}</h1>`
+    )
+}
+
+function h2(texto) {
+    return (
+        `<h2 class='h2'>${texto}</h2>`
     )
 }
