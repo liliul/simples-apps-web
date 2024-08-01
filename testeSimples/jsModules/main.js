@@ -1,5 +1,5 @@
 import { getApiNaruto } from './api/index.js'
-const clans = await getApiNaruto('clans')
+// const clans = await getApiNaruto('clans')
 const akatsuki = await getApiNaruto('akatsuki')
 const characters = await getApiNaruto('characters')
 
@@ -28,12 +28,15 @@ function header() {
     )
 }
 
-function content() {
+ function content() {
+   
     return (`
         <main class='main-container'>
             <section class='container'>
                 <nav class='c-card'>
                     ${h1('Clans.')}
+
+                    <article id ='tagIdClans'></article>                
                 </nav>
                 
                 <article class='c-card'>
@@ -47,6 +50,20 @@ function content() {
         </main>    
     `)    
 }
+
+async function clansMap() {
+    const clans = await getApiNaruto('clans')
+
+    return clans.clans.forEach((listClans) => {
+        document.getElementById('tagIdClans').innerHTML += `
+            <p class='tagClans'>
+                <strong class='tagClans-id'>${listClans.id}:</strong>
+                ${listClans.name}
+            </p>
+    `
+    })
+}
+clansMap()
 
 function h1(texto) {
     return (

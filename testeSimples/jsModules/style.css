@@ -59,3 +59,19 @@ body {
     padding: 10px;
     text-align: center;
 }
+.main-container .container .c-card #tagIdClans {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    text-align: left;
+}
+.main-container .container .c-card #tagIdClans .tagClans {
+    border-left: 2px solid sienna;
+    font-size: 14px;
+    font-family: 'Fira Code';
+    padding-left: 6px;
+    margin-bottom: 4px;
+}
+.main-container .container .c-card #tagIdClans .tagClans .tagClans-id {
+    color: slateblue;
+}
