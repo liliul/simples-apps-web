@@ -1,6 +1,6 @@
 import { getApiNaruto } from './api/index.js'
 // const clans = await getApiNaruto('clans')
-const akatsuki = await getApiNaruto('akatsuki')
+// const akatsuki = await getApiNaruto('akatsuki')
 const characters = await getApiNaruto('characters')
 
 const divRoot = document.getElementById('root')
@@ -36,11 +36,13 @@ function header() {
                 <nav class='c-card'>
                     ${h2('Clans.')}
 
-                    <article id ='tagIdClans'></article>                
+                    <article id='tagIdClans'></article>                
                 </nav>
                 
                 <article class='c-card'>
                     ${h2('Akatsuki.')}
+
+                    <article id='tagIdAkatsuki'></article>
                 </article>
 
                 <aside class='c-card'>
@@ -64,6 +66,17 @@ async function clansMap() {
     })
 }
 clansMap()
+
+async function akaHtml() {
+    const akatsuki = await getApiNaruto('akatsuki')
+    
+   akatsuki.akatsuki.map((listAkatsuki) => {
+    document.getElementById('tagIdAkatsuki').innerHTML += `
+        <p>${listAkatsuki.name}</p>
+    `
+   })
+}
+akaHtml()
 
 function h1(texto) {
     return (
