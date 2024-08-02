@@ -72,7 +72,7 @@ async function akaHtml() {
     
    akatsuki.akatsuki.map((listAkatsuki) => {
     document.getElementById('tagIdAkatsuki').innerHTML += `
-        <p>${listAkatsuki.name}</p>
+        <p class='tagAkatsuki'>${listAkatsuki.name}</p>
     `
    })
 }

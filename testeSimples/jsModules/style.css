@@ -78,3 +78,15 @@ body {
 .main-container .container .c-card #tagIdClans .tagClans .tagClans-id {
     color: slateblue;
 }
+
+.main-container .container .c-card #tagIdAkatsuki {
+    margin-top: 10px;
+}
+.main-container .container .c-card #tagIdAkatsuki .tagAkatsuki {
+    margin-bottom: 5px;
+    border-left: 2px solid yellow;
+    border-right: 2px solid yellow;
+    color: beige;
+
+    font-size: 12px;
+}
