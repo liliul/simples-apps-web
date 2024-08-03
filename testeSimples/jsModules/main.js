@@ -1,7 +1,7 @@
 import { getApiNaruto } from './api/index.js'
 // const clans = await getApiNaruto('clans')
 // const akatsuki = await getApiNaruto('akatsuki')
-const characters = await getApiNaruto('characters')
+// const characters = await getApiNaruto('characters')
 
 const divRoot = document.getElementById('root')
 
@@ -47,6 +47,8 @@ function header() {
 
                 <aside class='c-card'>
                     ${h2('Characters.')}
+
+                    <article id='tagIdCharacters'></article>
                 </aside>
             </section>            
         </main>    
@@ -77,6 +79,17 @@ async function akaHtml() {
    })
 }
 akaHtml()
+
+async function charactersHtml() {
+    const characters = await getApiNaruto('characters')
+
+    return characters.characters.map((listCharacters) => {
+        document.getElementById('tagIdCharacters').innerHTML += `
+            <p class='tagCharacters'>${listCharacters.name}</p>
+        `
+    })
+}
+charactersHtml()
 
 function h1(texto) {
     return (
