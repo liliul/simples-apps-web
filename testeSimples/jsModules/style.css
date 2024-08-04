@@ -90,3 +90,14 @@ body {
 
     font-size: 12px;
 }
+.main-container .container .c-card #tagIdCharacters {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+.main-container .container .c-card #tagIdCharacters .tagCharacters {
+    font-size: 15px;
+    font-family: 'Ubuntu';
+    margin-bottom: 5px;
+    color: aliceblue;
+}
