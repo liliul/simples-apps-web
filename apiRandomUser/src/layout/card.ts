@@ -1,11 +1,10 @@
 import { CardIndex } from '../components/index.ts';
 
+CardIndex()
 export function Card(): string {
 	return (
-		`	
-			<section id="card">
-				${CardIndex()}
-			</section>
+		`		
+			<section id="card"></section>
 
 		`
 	)
