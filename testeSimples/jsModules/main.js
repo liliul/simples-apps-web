@@ -1,7 +1,4 @@
 import { getApiNaruto } from './api/index.js'
-// const clans = await getApiNaruto('clans')
-// const akatsuki = await getApiNaruto('akatsuki')
-// const characters = await getApiNaruto('characters')
 
 const divRoot = document.getElementById('root')
 
