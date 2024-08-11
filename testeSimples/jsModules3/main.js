@@ -1,7 +1,7 @@
 document.getElementById('root').innerHTML = `
 	${h1()}
 
-	${grid()}
+	${grid('variavel por parametro function')}
 `;
 
 function h1() {
@@ -10,7 +10,7 @@ function h1() {
 	`)
 }
 
-function grid() {
+function grid(msg) {
 	return (`
 		<article class='container-card'>
 			<div class='card'></div>
@@ -29,5 +29,11 @@ function grid() {
 			<div class='card'></div>
 			<div class='card'></div>
 		</article>
+
+		${alerta(msg)}
 	`)
+}
+
+function alerta(msg) {
+	return alert(`function and function: ${msg}`)
 }
