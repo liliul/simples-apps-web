@@ -11,6 +11,7 @@ function h1() {
 }
 
 function grid(msg) {
+	alerta(msg)
 	return (`
 		<article class='container-card'>
 			<div class='card'></div>
@@ -29,8 +30,6 @@ function grid(msg) {
 			<div class='card'></div>
 			<div class='card'></div>
 		</article>
-
-		${alerta(msg)}
 	`)
 }
 
