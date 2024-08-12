@@ -11,13 +11,13 @@ function h1() {
 }
 
 function grid(msg) {
-	const mensagem = true;
+	const mensagem = false;
 	alerta(msg)
 
 	return (`
 		<article class='container-card'>
 			<div class='card'></div>
-			<div class='card'>${!mensagem ? simNao('Ativado') : simNao('Desativado')}</div>
+			<div class='card'>${mensagem === true ? simNao('Ativado') : simNao('Desativado')}</div>
 			<div class='card'></div>
 			<div class='card'></div>
 			<div class='card'></div>
@@ -40,7 +40,8 @@ function alerta(msg) {
 }
 
 function simNao(simNao) {
+	const msTrueOrFalse = false;
 	return (`
-		<span>Mensagem: ${simNao}</span>
+		<h2 class='mensagem'>Mensagem: <span class='${msTrueOrFalse === true ? 'verde' : 'vermelho'}'>${simNao}</span></h2>
 	`)
 }
