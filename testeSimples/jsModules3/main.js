@@ -1,3 +1,5 @@
+import { utils } from './utils.js';
+
 document.getElementById('root').innerHTML = `
 	${h1()}
 
@@ -11,7 +13,7 @@ function h1() {
 }
 
 function grid(msg) {
-	const mensagem = false;
+	const mensagem = utils.trueFalse;
 	alerta(msg)
 
 	return (`
@@ -40,7 +42,7 @@ function alerta(msg) {
 }
 
 function simNao(simNao) {
-	const msTrueOrFalse = false;
+	const msTrueOrFalse = utils.trueFalse;
 	return (`
 		<h2 class='mensagem'>Mensagem: <span class='${msTrueOrFalse === true ? 'verde' : 'vermelho'}'>${simNao}</span></h2>
 	`)
