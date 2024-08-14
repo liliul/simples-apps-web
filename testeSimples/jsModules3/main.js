@@ -1,16 +1,10 @@
 import { utils } from './utils.js';
 
 document.getElementById('root').innerHTML = `
-	${h1()}
+	${utils.h1()}
 
 	${grid('variavel por parametro function')}
 `;
-
-function h1() {
-	return (`
-		<h1 class='h1'>function javascript</h1>
-	`)
-}
 
 function grid(msg) {
 	const mensagem = utils.trueFalse;
