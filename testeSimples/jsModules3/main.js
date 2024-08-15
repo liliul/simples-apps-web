@@ -17,7 +17,13 @@ function grid(msg) {
 			<div class='card'></div>
 			<div class='card'></div>
 			<div class='card'></div>
-			<div class='card'></div>
+			<div class='card'>
+				<section style='${utils.cardDrawcss}'>
+					<span style='${utils.cardDrawSpan1css}'></span>
+					<span style='${utils.cardDrawSpan2css}'></span>
+					<span style='${utils.cardDrawSpan3css}'></span>
+				</section>
+			</div>
 			<div class='card'></div>
 			<div class='card'></div>
 			<div class='card'></div>
