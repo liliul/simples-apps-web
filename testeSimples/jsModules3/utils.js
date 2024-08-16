@@ -1,5 +1,13 @@
 const trueFalse = true;
 
+function cardBtn() {
+	return (`
+		<section class='cardContainerBtn'>
+			<button class='cardBtn'>Butão</button>
+		</section>
+	`)
+}
+
 function h1() {
 	return (`
 		<h1 class='h1'>function javascript</h1>
@@ -43,6 +51,7 @@ export const utils = {
 	cardDrawcss,
 	cardDrawSpan1css,
 	cardDrawSpan2css,
-	cardDrawSpan3css
+	cardDrawSpan3css,
+	cardBtn
 }
 

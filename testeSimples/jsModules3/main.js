@@ -33,7 +33,7 @@ function grid(msg) {
 			<div class='card'></div>
 			<div class='card'></div>
 			<div class='card'>
-				${cardBtn()}
+				${utils.cardBtn()}
 			</div>
 		</article>
 	`)
@@ -47,13 +47,5 @@ function simNao(simNao) {
 	const msTrueOrFalse = utils.trueFalse;
 	return (`
 		<h2 class='mensagem'>Mensagem: <span class='${msTrueOrFalse === true ? 'verde' : 'vermelho'}'>${simNao}</span></h2>
-	`)
-}
-
-function cardBtn() {
-	return (`
-		<section class='cardContainerBtn'>
-			<button class='cardBtn'>Butão</button>
-		</section>
 	`)
 }
