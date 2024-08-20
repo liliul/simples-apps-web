@@ -21,7 +21,7 @@ function cardDrawcss() {
 	`)
 }
 
-function texto(texto) {
+function textoHtml(texto) {
 	return (`
 		<p class='texto'>${texto}</p>
 	`)
