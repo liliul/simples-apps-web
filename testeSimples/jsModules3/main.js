@@ -17,7 +17,7 @@ function grid(msg) {
 			<div class='card'></div>
 			<div class='card'>${mensagem === true ? component.simNao('Ativado') : component.simNao('Desativado')}</div>
 			<div class='card'></div>
-			<div class='card'></div>
+			<div class='card'>${component.texto('JSmodule3')}</div>
 			<div class='card'></div>
 			<div class='card'></div>
 			<div class='card'></div>

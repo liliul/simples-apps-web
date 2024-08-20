@@ -21,8 +21,15 @@ function cardDrawcss() {
 	`)
 }
 
+function texto(texto) {
+	return (`
+		<p class='texto'>${texto}</p>
+	`)
+}
+
 export const component = {
     alerta,
     simNao,
-    cardDrawcss
+    cardDrawcss,
+	texto
 }
