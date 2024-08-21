@@ -45,6 +45,13 @@ const cardDrawSpan3css = `
 	background-color: white;
 `;
 
+const textoCss = `
+	color: white;
+	text-align: center;
+	font-size: 22px;
+	margin-top: 20px;
+`;
+
 export const utils = {
     trueFalse,
     h1,
@@ -52,6 +59,7 @@ export const utils = {
 	cardDrawSpan1css,
 	cardDrawSpan2css,
 	cardDrawSpan3css,
-	cardBtn
+	cardBtn,
+	textoCss
 }
 

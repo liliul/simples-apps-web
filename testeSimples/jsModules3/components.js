@@ -23,7 +23,7 @@ function cardDrawcss() {
 
 function textoHtml(texto) {
 	return (`
-		<p class='texto'>${texto}</p>
+		<p style='${utils.textoCss}'>${texto}</p>
 	`)
 }
 
@@ -31,5 +31,5 @@ export const component = {
     alerta,
     simNao,
     cardDrawcss,
-	texto
+	textoHtml
 }
