@@ -23,7 +23,7 @@ function grid(msg) {
 			<div class='card'></div>
 			<div class='card'>${component.cardDrawcss()}</div>
 			<div class='card'></div>
-			<div class='card'></div> 
+			<div class='card'>${component.svgHtml()}</div>
 			<div class='card'></div>
 			<div class='card'></div>
 			<div class='card'></div>
