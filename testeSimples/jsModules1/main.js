@@ -1,3 +1,5 @@
+import { header } from './components/header/index.js'
+
 document.getElementById('root').innerHTML = `
     ${main()}
 `;
@@ -5,8 +7,8 @@ document.getElementById('root').innerHTML = `
 function main() {
     return (`
         <section class='isolate'>
-            <header>
-                <h1>Header</h1>
+            <header class="w-full h-[280px]">
+                ${header.HeaderComponent()}
             </header>
 
             <main>
