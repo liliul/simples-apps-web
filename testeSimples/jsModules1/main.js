@@ -1,4 +1,5 @@
 import { header } from './components/header/index.js'
+import { content } from './components/content/index.js';
 
 document.getElementById('root').innerHTML = `
     ${main()}
@@ -11,8 +12,8 @@ function main() {
                 ${header.HeaderComponent()}
             </header>
 
-            <main>
-                <h1>Content</h1>
+            <main class="w-full">
+                ${content.ContentComponent()}
             </main>
 
             <footer>
