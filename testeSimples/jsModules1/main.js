@@ -2,11 +2,7 @@ import { header } from './components/header/index.js'
 import { content } from './components/content/index.js';
 import { footer } from './components/footer/index.js';
 
-document.getElementById('root').innerHTML = `
-    ${main()}
-`;
-
-function main() {
+function Main() {
     return (`
         <section class='isolate'>
             <header class="w-full h-[280px]">
@@ -22,4 +18,8 @@ function main() {
             </footer>
         </section>
     `)
+}
+
+export const main = {
+    Main
 }
