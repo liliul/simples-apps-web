@@ -1,4 +1,5 @@
-import {CalculandoImc} from './hook/calculoImc.js';
+import { CalculandoImc } from './hook/calculoImc.js';
+import { QualCategory } from './hook/category.js';
 
 document.getElementById('imcForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita o envio do formulário
@@ -11,16 +12,7 @@ document.getElementById('imcForm').addEventListener('submit', function(event) {
     const imc = CalculandoImc(weight, height);
 
     // Define a categoria
-    let category;
-    if (imc < 18.5) {
-        category = 'Abaixo do peso';
-    } else if (imc < 24.9) {
-        category = 'Peso normal';
-    } else if (imc < 29.9) {
-        category = 'Sobrepeso';
-    } else {
-        category = 'Obesidade';
-    }
+    let category = QualCategory(imc);
 
     // Exibe o resultado
     document.getElementById('imcValue').textContent = `Seu IMC é ${imc.toFixed(2)}`;
