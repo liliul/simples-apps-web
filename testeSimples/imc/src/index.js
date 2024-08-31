@@ -1,3 +1,5 @@
+import {CalculandoImc} from './hook/calculoImc.js';
+
 document.getElementById('imcForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita o envio do formulário
 
@@ -6,7 +8,7 @@ document.getElementById('imcForm').addEventListener('submit', function(event) {
     const height = parseFloat(document.getElementById('height').value);
 
     // Calcula o IMC
-    const imc = weight / (height * height);
+    const imc = CalculandoImc(weight, height);
 
     // Define a categoria
     let category;
