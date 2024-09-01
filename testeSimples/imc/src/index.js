@@ -1,5 +1,8 @@
+import { html } from './components/layoutImc.js';
 import { CalculandoImc } from './hook/calculoImc.js';
 import { QualCategory } from './hook/category.js';
+
+document.getElementById('root').innerHTML = `${html.LayoutImc()}`;
 
 document.getElementById('imcForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita o envio do formulário
