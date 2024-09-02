@@ -2,7 +2,7 @@ import { Home } from './layouts/home.js';
 import { Contact } from './layouts/contact.js';
 import { PageError } from './layouts/404.js';
 import { About } from './layouts/about.js';
-
+import { Content } from './layouts/content.js';
 
 window.document.querySelector('body').innerHTML = `
     <nav>
@@ -12,6 +12,7 @@ window.document.querySelector('body').innerHTML = `
         <li><a href="#about" class="text-white">About</a></li>
         <li><a href="#contact" class="text-white">Contact</a></li>
         <li><a href="#rote" class="text-white">Roteamento</a></li>
+        <li><a href="#Content" class="text-white">Content</a></li>
       </ul>
     </nav>
 
@@ -45,6 +46,9 @@ function loadContent() {
             break;
         case 'contact':
             content = Contact();
+            break;
+        case 'Content':
+            content = Content();
             break;
         case 'rote':
             content = '<h2 class="text-orange-500">Router: </h2><p class="text-blue-400">Testando Reteamento com javascript puro</p>';
