@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plataforma de Blogging com Markdown</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Plataforma de Blogging com Markdown</h1>
+  </header>
+  <main>
+    <section id="editor-section">
+      <h2>Criar Novo Post</h2>
+      <textarea id="markdown-editor" placeholder="Escreva seu post em Markdown..."></textarea>
+      <button id="save-post">Salvar Post</button>
+    </section>
+    <section id="posts-section">
+      <h2>Posts</h2>
+      <div id="posts-container"></div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
