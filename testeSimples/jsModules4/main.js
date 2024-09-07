@@ -3,7 +3,9 @@ document.getElementById("root").innerHTML = `${home()}`;
 
 function home() {
     return (`
-        <header class="">${menu()}</header>
+        <div class="w-[1000px] h-[100vh] m-auto bg-slate-100">
+            <header class="ml-10">${menu()}</header>
+        </div>    
     `)
 }
 
@@ -11,7 +13,6 @@ function home() {
 
 function menu() {
     return (`
-        <div class="w-[1000px] h-[100vh] m-auto bg-slate-100">
             <div class="">
                 <h1 class="text-orange-500">Menu</h1>
                 
@@ -25,6 +26,5 @@ function menu() {
                     </ul>
                 </div>
             </div>
-        </div>
     `)
 }
