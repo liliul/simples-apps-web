@@ -16,7 +16,7 @@ function displayPosts() {
     postElement.classList.add('post');
     postElement.innerHTML = `
       <h3>${post.title}</h3>
-      <div>${marked(post.content)}</div>
+      <div>${marked.parse(post.content)}</div>
     `;
     postsContainer.appendChild(postElement);
   });
@@ -32,6 +32,7 @@ document.getElementById('save-post').addEventListener('click', () => {
     savePost(title, content);
     editor.value = ''; // Limpa o editor
     displayPosts(); // Atualiza a lista de posts
+    alert('Post salvo com sucesso!'); // Confirmação de sucesso
   } else {
     alert('Título e conteúdo não podem estar vazios.');
   }
