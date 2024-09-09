@@ -3,10 +3,10 @@ class Component {
     this.props = props || {};
     this.state = this.getInitialState ? this.getInitialState() : {};
     this._rootElement = null;
-    this._render();
   }
 
   _render() {
+    if (!this._rootElement) return;
     const html = this.render();
     this._rootElement.innerHTML = html;
     this.bindEvents();
@@ -24,9 +24,17 @@ class Component {
     this._rootElement = document.querySelector(selector);
     if (this._rootElement) {
       this._render();
+    } else {
+      console.error(`Element with selector ${selector} not found.`);
     }
   }
+
+  setState(newState) {
+    this.state = { ...this.state, ...newState };
+    this._render();
+  }
 }
+
 
 class Button extends Component {
   render() {
@@ -64,3 +72,4 @@ class Counter extends Component {
     this._render();
   }
 }
+
