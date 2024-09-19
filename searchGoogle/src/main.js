@@ -16,7 +16,7 @@ const searchFrom   = document.getElementById('search-form');
     document.title = `${valueSearch} - searchGoogle`;
 }
 
-window.addEventListener('submit', function(event) {
+searchFrom.addEventListener('submit', function(event) {
     event.preventDefault()
 
     createLink()
