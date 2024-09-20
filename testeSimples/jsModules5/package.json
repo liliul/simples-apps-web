@@ -1,0 +1,12 @@
+{
+  "name": "jsmodules5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server --no-browser --port=8081"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
