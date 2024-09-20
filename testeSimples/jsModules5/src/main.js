@@ -1,1 +1,3 @@
-document.getElementById('root').innerHTML = `<h1 class="text-white">OK</h1>`;
+import { Home } from './components/home/home.js'
+
+document.getElementById('root').innerHTML = `<div>${Home()}</div>`;
