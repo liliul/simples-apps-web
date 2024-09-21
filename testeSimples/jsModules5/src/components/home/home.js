@@ -1,5 +1,9 @@
+import { Header } from "../header/header.js";
+
 export function Home() {
     return (`
-        <h1 class="text-white">Dev SPA</h1>
+        <div class="w-full m-auto p-3 bg-slate-300 rounded-lg">
+            ${Header()}
+        </div>
     `)
 }
