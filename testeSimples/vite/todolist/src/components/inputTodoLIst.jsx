@@ -41,7 +41,7 @@ export function InputTodoList() {
                 <ul>
                     {tasks.map((items, index) => (
                         <li key={index}>
-                            {tasks}
+                            {items}
 
                             <button onClick={() => handleRemove(index)}>Excluir</button>
                         </li>
