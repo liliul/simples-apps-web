@@ -2,15 +2,21 @@ import { useState } from "react";
 import "./index.css";
 
 export function InputTodoList() {
+    const [tasks, setTasks] = useState([]);
     const [eventInput, setEventInput] = useState('');
 
     function handleInput(e) {
         e.preventDefault();
        if(eventInput.trim() !== '') {
-        console.log(eventInput)
-        setEventInput('')
+        setTasks([...tasks, eventInput]);
+        setEventInput('');  
        }
     }
+
+    function handleRemove(index) {
+        const novaTodolist = tasks.filter((_, i) => i !== index);
+        setTasks(novaTodolist);
+    }            
 
     return (
         <>
@@ -31,6 +37,17 @@ export function InputTodoList() {
                 </section>
             </header>
 
+            <main className="main-container">
+                <ul>
+                    {tasks.map((items, index) => (
+                        <li key={index}>
+                            {tasks}
+
+                            <button onClick={() => handleRemove(index)}>Excluir</button>
+                        </li>
+                    ))}
+                </ul>
+            </main>
         </>
     )
 }
