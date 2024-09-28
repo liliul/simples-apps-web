@@ -1,9 +1,10 @@
 import './App.css'
+import { InputTodoList } from './components/inputTodoLIst'
 
 function App() {
   return (
     <>
-      <h1>Todolist</h1>
+     <InputTodoList />
     </>
   )
 }
