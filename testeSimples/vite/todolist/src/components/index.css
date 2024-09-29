@@ -12,3 +12,25 @@
     border: 0;
     background-color: black;
 }
+
+.main-container {
+    width: 100%;
+}
+
+.main-container ul {
+    list-style-type: none;
+}
+
+.main-container ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+    transition: 2 all;
+}
+
+.main-container ul li button {
+    padding: 10px 10px;
+    background-color: black;
+    border: 0;
+    border-radius: 5px;
+}
