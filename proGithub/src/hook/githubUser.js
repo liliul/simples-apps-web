@@ -33,7 +33,7 @@ export function User(data) {
     bio.innerText = data.bio
 
     const bloglink = data.blog
-    linkBlog.href = `${http}${bloglink}`
+    linkBlog.href = `${bloglink.startsWith('https://') ? bloglink : http + bloglink}`
 
     local.innerText = data.location
     company.innerText = data.company

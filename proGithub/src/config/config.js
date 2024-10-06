@@ -2,7 +2,7 @@
  * @description ### Aqui fica as configurações do protifolio
 */
 
-const githubUser = 'diego3g';
+const githubUser = 'maykbrito';
 
 
 /**
