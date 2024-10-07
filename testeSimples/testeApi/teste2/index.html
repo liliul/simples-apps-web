@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Fetch Api</title>
+</head>
+<body>
+
+	<div id="root"></div>
+
+	<script type="text/javascript">
+		const divRoot = document.getElementById('root')
+
+		async function github() {
+			const req = await fetch('https://api.github.com/users/liliul')
+			const res = await req.json()
+
+			console.log(res)
+
+			document.getElementById('root').innerHTML = `
+				<h1>${res.name}</h1>
+				<img src="${res.avatar_url}" >
+				<h2>${res.html_url}</h2>
+				<h2>${res.repos_url}</h2>
+			`
+		} 
+
+		github()
+	</script>
+</body>
+</html>
