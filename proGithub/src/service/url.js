@@ -1,4 +1,4 @@
-const URL_TWITTER = 'https://twitter.com/';
+const URL_TWITTER = 'https://x.com/';
 const URL_GITHUB_API = 'https://api.github.com/users/';
 
 /**
