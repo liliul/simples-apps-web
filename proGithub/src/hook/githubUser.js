@@ -39,8 +39,16 @@ export function User(data) {
     company.innerText = data.company
     
     const twitterlink = data.twitter_username
-    twitter.innerText = data.twitter_username
-    twitter.href = `${urlTwitter}${twitterlink}`
+    // twitter.href = `${urlTwitter}${twitterlink}`
+    // twitter.href = `${!twitterlink ? twitter.href = '#semTwitter' : urlTwitter + twitterlink}`
+    if(!twitterlink) {
+        twitter.innerText = 'sem twitter'
+        twitter.href = "#"
+        document.getElementById('twitter').addEventListener('click', (e) => {e.preventDefault()})
+    } else {
+        twitter.innerText = data.twitter_username
+        twitter.href = `${urlTwitter}${twitterlink}`
+    }
     
     followers.innerText = data.followers
     following.innerText = data.following
