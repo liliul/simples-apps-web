@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag HTML Template</title>
+</head>
+<body>
+
+    <template id="meuTemplate">
+        <div class="item">
+            <h2>Testando a tag template do html</h2>
+            <p>Template é uma tag html5 é usada para armazenar conteúdo que não será exibido na página até que seja instanciado com JavaScript</p>
+            <p> Isso é útil para criar layouts ou estruturas que você pode reutilizar dinamicamente.</p>
+        </div>
+    </template>
+
+    <div id="container"></div>
+    <button id="adicionar">Adicionar</button>
+
+    <script>
+        const botaoAdicionar = document.getElementById('adicionar');
+        const container = document.getElementById('container');
+        const template = document.getElementById('meuTemplate');
+
+        botaoAdicionar.addEventListener('click', () => {
+            const clone = document.importNode(template.content, true);
+            container.appendChild(clone);
+
+            // botaoAdicionar.style.backgroundColor = "#191919"
+
+            setTimeout(() => {
+                botaoAdicionar.remove()
+            }, 2000)
+        });
+
+    </script>
+
+</body>
+</html>
