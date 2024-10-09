@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>importNode</title>
+</head>
+<body>
+
+    <ul id="lista"></ul>
+    <button id="adicionar">Adicionar Item</button>
+
+    <script>
+        // Cria um elemento <li> e configura seu conteúdo
+        const criarItem = () => {
+            const item = document.createElement('li');
+            item.textContent = 'Item de Lista';
+            return item;
+        };
+
+        const botaoAdicionar = document.getElementById('adicionar');
+        const lista = document.getElementById('lista');
+
+        botaoAdicionar.addEventListener('click', () => {
+            // Cria um novo item
+            const novoItem = criarItem();
+            // Clona o novo item
+            const clone = document.importNode(novoItem, true); // false para não clonar filhos
+            // Adiciona o clone à lista
+            lista.appendChild(clone);
+        });
+    </script>
+
+</body>
+</html>
