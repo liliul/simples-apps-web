@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo parentElement</title>
+</head>
+<body>
+<!--
+O parentElement é uma propriedade do DOM que permite acessar o elemento pai de um determinado nó. É útil para manipular a estrutura do DOM.
+-->
+
+    <div id="pai">
+        <p id="filho">Este é um parágrafo.</p>
+    </div>
+
+    <script>
+        const filho = document.getElementById('filho');
+        const pai = filho.parentElement; // Acessa o elemento pai
+
+        console.log(pai.id); // Saída: "pai"
+    </script>
+</body>
+</html>
