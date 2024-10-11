@@ -44,6 +44,16 @@ const skillsTech = `
     <div class="item-skills">
         <p>sass</p>
     </div>
+
+    <div class="item-skills">
+        <p>firebase</p>
+    </div>
+    <div class="item-skills">
+        <p>mysql</p>
+    </div>
+    <div class="item-skills">
+        <p>php</p>
+    </div>
 `;
 
 
