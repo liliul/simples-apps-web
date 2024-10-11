@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo cloneNode</title>
+</head>
+<body>
+
+<!--
+O método cloneNode é usado para criar uma cópia de um elemento HTML. Ele pode ser chamado em qualquer elemento do DOM e aceita um argumento que define se a cópia deve ser feita de forma profunda (incluindo todos os filhos) ou superficial (apenas o elemento em si).
+-->
+
+    <div id="original">
+        <p>Este é um parágrafo no elemento original. Naruto</p>
+    </div>
+    <button id="cloneButton">Clonar</button>
+    <div id="container"></div>
+
+    <script>
+        document.getElementById('cloneButton').addEventListener('click', function() {
+            // Seleciona o elemento original
+            const original = document.getElementById('original');
+
+            // Clona o elemento original, incluindo seus filhos
+            const cloned = original.cloneNode(true);
+
+            // Adiciona o elemento clonado ao container
+            document.getElementById('container').appendChild(cloned);
+        });
+    </script>
+</body>
+</html>
