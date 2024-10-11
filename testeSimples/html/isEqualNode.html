@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo isEqualNode</title>
+</head>
+<body>
+<!--
+O método isEqualNode é utilizado para comparar dois nós do DOM, verificando se eles são iguais em termos de estrutura e conteúdo. Ele retorna true se os nós são idênticos e false caso contrário.
+-->
+
+    <!--<div id="node1">Texto</div>
+    <div id="node2">Texto</div>
+
+    <script>
+        const node1 = document.getElementById('node1');
+        const node2 = document.getElementById('node2');
+
+        // Compara os dois nós
+        const areEqual = node1.isEqualNode(node2);
+        console.log(areEqual); // Saída: false
+    </script>-->
+
+
+<!--
+Detecção de Duplicatas
+Se você estiver adicionando elementos a uma lista ou a uma coleção, pode usar isEqualNode para verificar se um elemento já existe, evitando duplicatas.
+-->
+    <div>
+        <ul id="lista">
+            <li>Naruto</li>
+            <li>Goku</li>
+        </ul>
+    </div>
+    <script>
+
+        const lista = document.getElementById('lista');
+        const novoItem = document.createElement('li');
+        novoItem.textContent = 'Vegeta';
+
+        console.log('c',lista.children)
+
+        let existe = false;
+        for (let item of lista.children) {
+            if (item.isEqualNode(novoItem)) {
+                existe = true;
+                break;
+            }
+        }
+
+        if (!existe) {
+            lista.appendChild(novoItem);
+        }
+
+
+// Testes de UI
+// Durante o desenvolvimento de testes automatizados, você pode usar isEqualNode para verificar se o DOM está no estado esperado após uma ação do usuário.
+        function verificarEstadoEsperado(estadoEsperado) {
+            const estadoAtual = document.getElementById('lista');
+
+            if (!estadoAtual.isEqualNode(estadoEsperado)) {
+                console.error('O estado atual não corresponde ao esperado.');
+            }
+        }
+
+        verificarEstadoEsperado(novoItem)
+
+    </script>
+</body>
+</html>
