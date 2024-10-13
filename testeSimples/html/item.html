@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITEM</title>
+</head>
+<body>
+
+    <section>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+        <p> Voluptate vel velit, unde consequuntur aspernatur perspiciatis</p>
+        <p>delectus vero quo beatae magnam iste inventore quod! Provident velit dolor</p>
+        <p>eius sit consequatur voluptatibus?</p>
+    </section>
+    
+    <script>
+        // Suponha que você tenha várias <p> em seu HTML
+        const paragrafos = document.getElementsByTagName('p');
+
+        // Usando item() para acessar o primeiro <p>
+        const primeiroParagrafo = paragrafos.item(2);
+        console.log(primeiroParagrafo.textContent);
+
+    </script>
+</body>
+</html>
