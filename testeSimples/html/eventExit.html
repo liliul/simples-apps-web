@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancelando e event do DOM</title>
+</head>
+<body>
+    
+    <div id="meuDiv" style="width: 100px; height: 100px;">
+        <button id="meuBotao">Clique aqui</button>
+    </div>
+    
+    <script>
+    document.getElementById('meuDiv').addEventListener('click', function() {
+        alert('Div clicada!');
+    });
+    
+    document.getElementById('meuBotao').addEventListener('click', function(event) {
+        event.stopPropagation(); // Cancela a propagação do clique
+        alert('Botão clicado!');
+    });
+    </script>
+    
+</body>
+</html>
