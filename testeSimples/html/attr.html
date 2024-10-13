@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATTR</title>
+</head>
+<body>
+    
+    <section id="meuElemento" data-info="adas"></section>
+
+    <script>
+        const elemento1 = document.getElementById('meuElemento');
+        const valor = elemento1.getAttribute('data-info');
+        console.log(valor);
+
+        // const elemento2 = document.getElementById('meuElemento');
+        // elemento2.setAttribute('data-info', 'adasda');
+
+        // const elemento3 = document.getElementById('meuElemento');
+        // elemento3.removeAttribute('data-info');
+    </script>
+</body>
+</html>
