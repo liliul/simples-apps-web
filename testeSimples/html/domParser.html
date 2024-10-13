@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOMParser</title>
+</head>
+<body>
+
+    <!-- 
+        O DOMParser é uma interface do JavaScript que permite converter strings de texto contendo HTML
+        ou XML em um objeto Document, que pode ser manipulado usando a API do DOM. Isso é útil quando
+        você tem dados em formato de texto que precisa transformar em um formato que o navegador possa manipular.
+    -->
+    
+    <script>
+        // Cria uma nova instância do DOMParser
+        const parser = new DOMParser();
+
+        // String HTML que queremos analisar
+        const htmlString = '<div><p>Olá, testando domParser!</p><a href="#">Clique aqui</a></div>';
+
+        // Analisa a string HTML
+        const doc = parser.parseFromString(htmlString, 'text/html');
+
+        // Acessa elementos do documento
+        const pElement = doc.querySelector('p');
+        const linkElement = doc.querySelector('a');
+
+        // Exibe os conteúdos
+        console.log(pElement.textContent); // "Olá, mundo!"
+        console.log(linkElement.href); // "#"
+
+    </script>
+</body>
+</html>
