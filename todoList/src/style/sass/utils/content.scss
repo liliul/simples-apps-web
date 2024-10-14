@@ -130,7 +130,58 @@
 			}
 		}
 		.main_right {
+			padding: 5px;
+			
+			.tasks {
+				width: 100%;
+				height: auto;
 
+				padding: 1.6rem;
+				border-radius: $radius_i_b;
+
+				background-color: $tasks_bg;
+
+				display: flex;
+				justify-content: space-between;
+				gap: $gap;
+
+				margin-bottom: 1.2rem;
+
+				.checked {
+
+					.checked_input {
+						outline: none;
+						border: none;
+						border-radius: 50%;
+						background-color: purple;
+					
+					}	
+				}
+				.tasks_text {
+
+					.tasks-p {
+						color: $gray-100;
+						font-size: 1.4rem;
+						font-weight: 400;
+						line-height: 140%;
+					}
+				}
+				.trash {
+					width: 2.4rem;
+					height: 2.4rem;
+
+					@extend %flex_center;
+
+					& > svg:hover {
+						border-radius: $radius_i_b;
+
+						background-color: $gray-400;
+						
+						fill: #E25858;
+					}
+				}
+					
+			}
 		}
 	}
 }

@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
-.isolate .main .main_content .content_articles .tasks .trash, .isolate .main .main_content .content_header .content_completed .completed-counter, .isolate .main .main_content .content_header .content_task-create .task-counter, .isolate .main .main_content .content_header .content_task-create, .isolate .container_header .header .header_input .button, .isolate .container_header .header .header_title {
+.isolate .main .main_right .tasks .trash, .isolate .main .main_content .content_articles .tasks .trash, .isolate .main .main_content .content_header .content_completed .completed-counter, .isolate .main .main_content .content_header .content_task-create .task-counter, .isolate .main .main_content .content_header .content_task-create, .isolate .container_header .header .header_input .button, .isolate .container_header .header .header_title {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,7 +86,7 @@
   background-color: #4EA8DE;
 }
 
-.isolate .main .main_content .content_articles .tasks .trash, .isolate .main .main_content .content_header .content_completed .completed-counter, .isolate .main .main_content .content_header .content_task-create .task-counter, .isolate .main .main_content .content_header .content_task-create, .isolate .container_header .header .header_title, .isolate .container_header .header .header_input .button {
+.isolate .main .main_right .tasks .trash, .isolate .main .main_content .content_articles .tasks .trash, .isolate .main .main_content .content_header .content_completed .completed-counter, .isolate .main .main_content .content_header .content_task-create .task-counter, .isolate .main .main_content .content_header .content_task-create, .isolate .container_header .header .header_title, .isolate .container_header .header .header_input .button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -189,6 +189,42 @@
   background-color: #333333;
   fill: #E25858;
 }
+.isolate .main .main_right {
+  padding: 5px;
+}
+.isolate .main .main_right .tasks {
+  width: 100%;
+  height: auto;
+  padding: 1.6rem;
+  border-radius: 0.8rem;
+  background-color: #262626;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+.isolate .main .main_right .tasks .checked .checked_input {
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  background-color: purple;
+}
+.isolate .main .main_right .tasks .tasks_text .tasks-p {
+  color: #F2F2F2;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 140%;
+}
+.isolate .main .main_right .tasks .trash {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+.isolate .main .main_right .tasks .trash > svg:hover {
+  border-radius: 0.8rem;
+  background-color: #333333;
+  fill: #E25858;
+}
+
 * {
   margin: 0;
   padding: 0;

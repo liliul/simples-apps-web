@@ -62,7 +62,7 @@ function setHtml() {
 	// renderizar as informações do banco de dados no html
 	db.map((list, index) => {
 		addTask(list.inputDB, list.checkedDB , index)
-	})	
+	})
 }
 
 // fução cria o html das tarefas
@@ -70,9 +70,9 @@ function addTask(text, checkedDB, index) {
 	
 	// cria uma div com html das tarefas e adiciona no id add-task
 	const div = document.createElement('div')
-		
+	div.classList.add('todos')		
 	div.innerHTML = `
-		<article class="tasks">
+		<article class="tasks" draggable="true">
 			<div class="checked">
 				<input type="checkbox" ${checkedDB} onchange="checkboxUp(this,${index})" class="checked_input" name="nameCheck" data-input=${index}>
 			</div>
@@ -153,3 +153,43 @@ buttonTask.addEventListener('click', function () {
 
 // se a tarefa foi criada mostra
 setHtml()
+
+document.querySelectorAll('.tasks').forEach(itens => {
+	itens.addEventListener('dragstart', (e) => {
+		console.log('adasd')
+		e.currentTarget.classList.add('dragging')
+	})
+
+	itens.addEventListener('dragend', (e) => {
+		e.currentTarget.classList.remove('dragging')
+	})
+})
+
+// document.querySelector('.main_right').addEventListener('dragover', (e) => {
+// 	e.preventDefault()
+// })
+
+// document.querySelector('.main_right').addEventListener('drop', (e) => {
+	
+// 	const mover = document.querySelector('.tasks.dragging')
+// 	console.log(mover)
+// 	e.currentTarget.appendChild(mover)
+// })
+
+// const todos = document.querySelectorAll('.todos')
+document.querySelectorAll('.todos').forEach((itens) => {
+	
+	itens.addEventListener('dragover', (e) => {
+		console.log('dragover')
+		e.preventDefault()
+	})
+
+	itens.addEventListener('dragleave', (e) => {
+		console.log('dragleave')
+	})
+
+	itens.addEventListener('drop', (e) => {
+		const mover = document.querySelector('.tasks.dragging')
+		e.currentTarget.appendChild(mover)
+	})
+})
