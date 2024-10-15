@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <style>
+        .draggable {
+            width: 100px;
+            height: 50px;
+            margin: 5px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 50px;
+            cursor: move;
+        }
+        .dropzone {
+            width: 300px;
+            height: 300px;
+            border: 2px dashed #aaa;
+            text-align: center;
+            line-height: 300px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="draggable" draggable="true">Item 1</div>
+    <div class="draggable" draggable="true">Item 2</div>
+    <div class="draggable" draggable="true">Item 3</div>
+
+    <div class="dropzone">Solte aqui</div>
+
+    <script>
+        const draggables = document.querySelectorAll('.draggable');
+        const dropzone = document.querySelector('.dropzone');
+
+        draggables.forEach(draggable => {
+            draggable.addEventListener('dragstart', () => {
+                draggable.classList.add('dragging');
+            });
+
+            draggable.addEventListener('dragend', () => {
+                draggable.classList.remove('dragging');
+            });
+        });
+
+        dropzone.addEventListener('dragover', (e) => {
+            e.preventDefault(); // Impede o comportamento padrão para permitir o drop
+        });
+
+        dropzone.addEventListener('drop', (e) => {
+            const dragging = document.querySelector('.dragging');
+            dropzone.appendChild(dragging); // Move o item arrastado para a dropzone
+        });
+
+    </script>
+</body>
+</html>
