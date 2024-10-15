@@ -33,6 +33,10 @@
     <div class="dropzone">Solte aqui</div>
 
     <script>
+        /**
+         * // codigo 1
+         * 
+        
         const draggables = document.querySelectorAll('.draggable');
         const dropzone = document.querySelector('.dropzone');
 
@@ -54,6 +58,62 @@
             const dragging = document.querySelector('.dragging');
             dropzone.appendChild(dragging); // Move o item arrastado para a dropzone
         });
+
+        */
+
+        /**
+         * 
+         * // codigo 2*/
+        const draggables = document.querySelectorAll('.draggable');
+        const dropzone = document.querySelector('.dropzone');
+
+        // Função para carregar itens do localStorage na dropzone
+        function loadItems() {
+            const items = JSON.parse(localStorage.getItem('droppedItems')) || [];
+            items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'draggable';
+                div.draggable = true;
+                div.textContent = item;
+                dropzone.appendChild(div);
+                addDragAndDropListeners(div); // Adiciona os ouvintes de eventos para novos itens
+            });
+        }
+
+        // Função para adicionar ouvintes de eventos para arrastar e soltar
+        function addDragAndDropListeners(draggable) {
+            draggable.addEventListener('dragstart', () => {
+                draggable.classList.add('dragging');
+            });
+
+            draggable.addEventListener('dragend', () => {
+                draggable.classList.remove('dragging');
+            });
+        }
+
+        // Carrega os itens da dropzone ao iniciar
+        loadItems();
+
+        draggables.forEach(draggable => {
+            addDragAndDropListeners(draggable);
+        });
+
+        dropzone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        dropzone.addEventListener('drop', (e) => {
+            const dragging = document.querySelector('.dragging');
+            dropzone.appendChild(dragging);
+            
+            // Atualiza o localStorage
+            const items = JSON.parse(localStorage.getItem('droppedItems')) || [];
+            if (!items.includes(dragging.textContent)) {
+                items.push(dragging.textContent);
+                localStorage.setItem('droppedItems', JSON.stringify(items));
+            }
+        });
+
 
     </script>
 </body>
