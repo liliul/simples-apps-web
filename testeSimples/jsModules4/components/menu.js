@@ -3,8 +3,8 @@ function Menu() {
             <div class="">
                 <h1 class="text-orange-500">Menu</h1>
                 
-                <div class="">
-                    <ul>
+                <div class="text-white">
+                    <ul class="ml-2">
                         <li>Home</li>
                         <li>About</li>
                         <li>Exit</li>
