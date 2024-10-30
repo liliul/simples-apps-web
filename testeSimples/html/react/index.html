@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React App Sem JSX</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script>
+	/**
+	1: const element = <h1 className="title">Hello, world!</h1>;
+
+	2: const element = React.createElement(
+	  'h1',
+	  { className: 'title' },
+	  'Hello, world!'
+	);
+	
+	3: {
+	  type: 'h1', // Tipo do elemento
+	  props: {
+	    className: 'title',
+	    children: 'Hello, world!' // ou um array de filhos se houver múltiplos filhos
+	  },
+	  key: null // Uma chave opcional para identificação
+	}
+
+	
+	**/
+	const { useState } = React;
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return React.createElement(
+    'div',
+    null,
+    React.createElement('h1', null, 'Contador: ' + count),
+    React.createElement(
+      'button',
+      { onClick: () => setCount(count + 1) },
+      'Incrementar'
+    )
+  );
+}
+
+const root = document.getElementById('root');
+ReactDOM.render(React.createElement(App), root);
+
+    </script>
+</body>
+</html>
