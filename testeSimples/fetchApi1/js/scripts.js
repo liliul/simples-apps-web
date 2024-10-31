@@ -25,7 +25,9 @@ async function getAllPosts() {
 
   console.log(data);
 
-  loadingElement.classList.add("hide");
+  // loadingElement.classList.add("hide");
+  // loadingElement.remove();
+  setTimeout(() => loadingElement.remove(), 2000)
 
   data.map((post) => {
     const div = document.createElement("div");
@@ -56,7 +58,8 @@ async function getPost(id) {
 
   const dataComments = await responseComments.json();
 
-  loadingElement.classList.add("hide");
+  // loadingElement.classList.add("hide");
+  loadingElement.remove();
   postPage.classList.remove("hide");
 
   const title = document.createElement("h1");
