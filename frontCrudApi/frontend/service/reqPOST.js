@@ -1,4 +1,4 @@
-const urlApiCrud = 'http://localhost:5500/api';
+import { urlApiCrud } from "../utils/utils.js"
 
 // Crie uma função para enviar dados ao servidor usando uma requisição POST:
 export default function enviarDados(dados) {

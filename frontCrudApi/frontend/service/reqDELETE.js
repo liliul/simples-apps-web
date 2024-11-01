@@ -1,4 +1,4 @@
-const urlApiCrud = 'http://localhost:5500/api';
+import { urlApiCrud } from "../utils/utils.js";
 
 export default function deletarDados(id) {
     fetch(`${urlApiCrud}/${id}`, {

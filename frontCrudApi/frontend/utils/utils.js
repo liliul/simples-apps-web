@@ -8,6 +8,7 @@ export function ButtonTxt(){
     `)
 }
 
+export const urlApiCrud = 'http://localhost:5500/api';
 
 // dados para teste 
 // const dados = {

@@ -1,4 +1,4 @@
-const urlApiCrud = 'http://localhost:5500/api';
+import { urlApiCrud } from "../utils/utils.js"
 
 // Crie uma função para atualizar dados no servidor usando uma requisição PUT:
 export default function atualizarDados(id, dados) {
