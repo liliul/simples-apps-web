@@ -1,4 +1,3 @@
-import atualizarDados from '../service/reqPUT.js';
 import getDados from '../service/reqGET.js';
 import updateInterface from '../hook/atualizandoDados.js';
 
