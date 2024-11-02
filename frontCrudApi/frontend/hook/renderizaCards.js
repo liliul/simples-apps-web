@@ -10,7 +10,11 @@ import renderizandoCardDados from '../component/creandoCardDados.js';
 export default async function renderCards() {
   const isdata = await getDados();
 
-  isdata.users.forEach((itens) => {
+  // isdata.users.forEach((itens) => {
+  //   renderizandoCardDados(itens)
+  // })
+
+  isdata.forEach((itens) => {
     renderizandoCardDados(itens)
   })
 }
