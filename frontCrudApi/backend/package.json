@@ -4,14 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ."
+    "start": "nodemon index.js",
+    "mydev": "nodemon index2.js"
   },
   "keywords": [],
   "author": "Jakeliny Gracielly",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mysql2": "^3.11.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.13"
