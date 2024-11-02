@@ -16,7 +16,8 @@ export async function editarDados(){
         if (editarDateset) {
             console.log(editarDateset)
 
-            getApiEditarUser.users.filter(idNumber => {
+            // getApiEditarUser.users.filter
+            getApiEditarUser.filter(idNumber => {
             
             if(idNumber.id == editarDateset){
                 
