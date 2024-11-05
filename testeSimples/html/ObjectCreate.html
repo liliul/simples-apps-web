@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objec.create</title>
+</head>
+<body>
+<!--
+
+    O método Object.create() em JavaScript é uma maneira de criar um novo objeto, que herda propriedades de outro objeto, chamado de "objeto protótipo". Isso permite que você crie novos objetos de maneira mais flexível, controlando diretamente o protótipo do objeto criado.
+
+    Object.create(proto, propertiesObject)
+
+-->
+    <section id="meuElemento" data-info="adas"></section>
+
+    <script>
+         // object.create
+        const prototipo = {
+            saudacao: function() {
+            return 'Olá!';
+        }
+        };
+
+        const novoObjeto = Object.create(prototipo);
+        console.log(novoObjeto.saudacao());
+
+
+        const objetoSemPrototipo = Object.create(null);
+        console.log(objetoSemPrototipo.toString);
+
+        const pessoa3 = Object.create({}, {
+        nome: { value: 'João', writable: true, enumerable: true },
+        idade: { value: 30, writable: false, enumerable: true }
+        });
+
+        console.log(pessoa3.nome);
+        console.log(pessoa3.idade);
+        pessoa3.idade = 31;
+        console.log(pessoa3.idade);
+
+        const obj1 = new Object();  // protótipo é Object.prototype
+        const obj2 = Object.create(null);  // protótipo é null
+
+    </script>
+</body>
+</html>
