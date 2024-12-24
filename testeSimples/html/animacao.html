@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animações com Javascript</title>
     <style>
-        .objeto {width:100px;height:25px;background-color:blue;}
+        .objeto {width:100px;height:25px;background-color:blue;position:relative;}
     </style>
 </head>
 <body>
@@ -29,7 +29,7 @@
         objeto.style = 'position:relative;left:0px;'
        }
        
-       const anima = null
+       let anima = null
        
        function mover(move) {
         objeto.style.left = parseInt(objeto.style.left) + (10 * move) + 'px'
@@ -37,6 +37,8 @@
 
        stop.addEventListener('click', () => {
         clearInterval(anima)
+        console.log(anima);
+        
        })
        
        
