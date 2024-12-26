@@ -23,3 +23,11 @@ try {
 } finally {
     console.log("O bloco finally sempre será executado.");
 }
+
+
+setTimeout(() => console.log('time'), 1)
+
+for (let i=0;i<10000;i++) {
+    console.log(i)
+}
+console.log('fim')
