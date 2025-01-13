@@ -18,20 +18,35 @@ let matrixLetras = [
     ['O', 'M', 'N']
 ]
 
-for (let i = 0; i < matrixLetras.length; i++) {
+// for (let i = 0; i < matrixLetras.length; i++) {
 
-    for (let j = 0; j < matrixLetras[i].length; j++) {
-        console.log(matrixLetras[i][j]);
+//     for (let j = 0; j < matrixLetras[i].length; j++) {
+//         console.log(matrixLetras[i][j]);
         
-        if (matrixLetras[i][j] == 'B') {
-            console.log('sim');
-        }
+//         if (matrixLetras[i][j] == 'B') {
+//             console.log('sim');
+//         }
 
-        if (matrixLetras[i][j] == 'G') {
-            console.log('sim');
+//         if (matrixLetras[i][j] == 'G') {
+//             console.log('sim');
             
+//         }
+//     }
+// }
+
+
+function Matrix(letra) {
+    for (let i = 0; i < matrixLetras.length; i++) {
+
+        for (let j = 0; j < matrixLetras[i].length; j++) {
+            console.log(matrixLetras[i][j]);
+    
+            if (matrixLetras[i][j] == letra) {
+                console.log('sim');
+                
+            }
         }
     }
 }
-
+Matrix('A')
 // console.log(matrixLetras);
