@@ -10,13 +10,14 @@
 
 
 // matrix
-let matrixLetras = [
-    ['A', 'B', 'C'],
-    ['D', 'E', 'F'],
-    ['G', 'I', 'J'],
-    ['L', 'H', 'P'],
-    ['O', 'M', 'N']
-]
+
+// let matrixLetras = [
+//     ['A', 'B', 'C'],
+//     ['D', 'E', 'F'],
+//     ['G', 'I', 'J'],
+//     ['L', 'H', 'P'],
+//     ['O', 'M', 'N']
+//]
 
 // for (let i = 0; i < matrixLetras.length; i++) {
 
@@ -34,6 +35,15 @@ let matrixLetras = [
 //     }
 // }
 
+
+let matrixLetras = [
+     ['A', 'B', 'C'],
+     ['D', 'E', 'F'],
+     ['G', 'I', 'J'],
+     ['L', 'H', 'P'],
+     ['O', 'M', 'N'],
+     ['A', 'A', 'A']
+]
 
 function Matrix(letra) {
     for (let i = 0; i < matrixLetras.length; i++) {
