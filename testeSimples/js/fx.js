@@ -7,3 +7,10 @@ function f(index) {
 }
 
 f(10)
+
+function fx(n) {
+    const conta = 3 * n + 9
+    return console.log('n:' + n + ' R:' +'(' + n + ',' + conta + ')');
+}
+
+fx(5)
