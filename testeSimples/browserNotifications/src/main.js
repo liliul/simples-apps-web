@@ -1,30 +1,36 @@
 import Home from "./pages/home.js";
+import ButtonNotification from "./pages/buttonNotification.js";
 
 Home()
+ButtonNotification()
 
 
-if ('Notification' in window) {
-    if (Notification.permission === 'granted') {
-        notify();
+
+
+
+document.getElementById('notify-button').addEventListener('click', () => {
+
+    if ('Notification' in window) {
+        if (Notification.permission === 'granted') {
+            notify();
+        } else {
+            Notification.requestPermission().then((res) => {
+                if (res === 'granted') {
+                    notify();
+
+                } else if (res === 'denied') {
+                    console.log('Accesso negado denied')
+
+                }else if(res === 'default')  {
+                    console.log('Accesso negado default')
+                }
+            })
+        }
     } else {
-        Notification.requestPermission().then((res) => {
-            if (res === 'granted') {
-                notify();
-
-            } else if (res === 'denied') {
-                console.log('Accesso negado denied')
-
-            }else if(res === 'default')  {
-                console.log('Accesso negado default')
-            }
-        })
+        console.log('Notification sem suporte')
     }
-} else {
-    console.log('Notification sem suporte')
-}
 
-
-function notify() {
+    function notify() {
     // new Notification("Naruto v Goku", {
     //     body: 'A batalha dos animes jopones Dragon Ball Z vs Naruto Shippuden.',
     //     icon: './src/assets/manjaro.png',
@@ -43,3 +49,4 @@ function notify() {
 
     setTimeout(() => { notification.close }, 3000)
 }
+})
