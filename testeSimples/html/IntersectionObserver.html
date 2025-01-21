@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntersectionObserver</title>
+</head>
+<body>
+    
+
+    <script>
+        const sections = [...document.querySelectorAll('section')]
+
+        let options = {
+            threshold: 0.5
+        }
+
+        const handleIntersect = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log(entry.target.dataset);
+                    document.body.style.backgroundColor = entry.target.dataset.color
+                    
+                }
+            });
+        }
+
+        const observer = IntersectionObserver(handleIntersect, options)
+
+        sections.forEach((section) => {
+            observer.observer(section)
+        })
+    </script>
+</body>
+</html>
