@@ -1,9 +1,10 @@
 import Home from "./pages/home.js";
 import ButtonNotification from "./pages/buttonNotification.js";
+import ButtonCancelNotify from "./pages/buttonCancelNotify.js";
 
 Home()
 ButtonNotification()
-
+ButtonCancelNotify()
 
 
 
@@ -53,5 +54,16 @@ document.getElementById('notify-button').addEventListener('click', () => {
 
 // cancelar notificação
 function noNotify() {
-    return Notification.permission 
+    /**
+     * Infelizmente, não existe uma API que permita que você diretamente cancele a permissão de notificações do navegador via JavaScript.
+     * 
+     * Se a permissão de notificações já foi granted (concedida) uma vez, o navegador não vai mostrar a caixa de diálogo de permissão novamente. 
+     * Isso é feito para evitar uma experiência ruim para o usuário, solicitando a permissão repetidamente, mesmo após ela já ter sido dada.
+     */
+    
+    document.getElementById("cancel-button").addEventListener('click', () => {
+        alert('Para desativar as notificações vai para as configurações do navegador') 
+    })
 }
+noNotify()
+
