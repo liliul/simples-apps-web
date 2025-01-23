@@ -50,3 +50,8 @@ document.getElementById('notify-button').addEventListener('click', () => {
     setTimeout(() => { notification.close }, 3000)
 }
 })
+
+// cancelar notificação
+function noNotify() {
+    return Notification.permission 
+}
