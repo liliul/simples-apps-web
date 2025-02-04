@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Renderizando Markdown</title>
+</head>
+<body>
+
+
+	<div id="readme-container"></div>
+
+
+	<!-- Via CDN -->
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+	<script type="text/javascript">
+		// https://api.github.com/repos/maykbrito/adonisjs-graphql-wordpressdb/contents/README.md
+		fetch('https://api.github.com/repos/liliul/docker_nginx_app_climaTempo/contents/README.md')
+		  .then(response => response.json())
+		  .then(data => {
+		  	console.log(data.content)
+		    const decodedContent = b64DecodeUnicode(data.content);
+		    // Converte o Markdown para HTML
+		    const htmlContent = marked.parse(decodedContent);
+		    console.log(htmlContent)
+		    // Insere o conteúdo convertido em um elemento do seu site
+		    document.getElementById('readme-container').innerHTML = htmlContent;
+		  })
+		  .catch(error => console.error('Erro ao buscar o README:', error));
+
+		function b64DecodeUnicode(str) {
+		  // Decodifica o base64 para uma string em Latin1
+		  const binaryString = atob(str);
+		  // Converte cada caractere para sua representação hexadecimal e depois usa decodeURIComponent para montar a string UTF-8
+		  const utf8String = decodeURIComponent(
+		    Array.prototype.map.call(binaryString, function(c) {
+		    	console.log(binaryString)
+		      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+		    }).join('')
+		  );
+		  return utf8String;
+		}
+
+
+	</script>
+</body>
+</html>
