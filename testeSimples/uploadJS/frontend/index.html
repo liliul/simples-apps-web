@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload JS</title>
+</head>
+<body>
+
+    <input type="file" id="fileInput">
+    <button id="uploadBtn">Enviar</button>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+
+        fileInput.addEventListener('change', () => {
+            // A propriedade files é um FileList com os arquivos selecionados
+            const files = fileInput.files;
+            console.log(files);
+        });
+
+
+        document.getElementById('uploadBtn').addEventListener('click', () => {
+            const files = fileInput.files;
+            if (!files.length) {
+                alert('Selecione um arquivo primeiro!');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', files[0]);
+
+            fetch('http://localhost:8081/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Upload bem-sucedido:', data);
+            })
+            .catch(error => {
+                console.error('Erro no upload:', error);
+            });
+        });
+
+    </script>
+</body>
+</html>
