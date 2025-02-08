@@ -4,11 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload JS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #191919;
+            color: azure;
+
+            display: grid;
+            place-items: center;
+
+            margin-top: 50px;
+        }
+
+        .upload-input {
+            padding: 5px 10px;
+            
+        }
+        .button-input {
+            padding: 5px 10px;
+        }
+    </style>
 </head>
 <body>
 
-    <input type="file" id="fileInput">
-    <button id="uploadBtn">Enviar</button>
+    <input class="upload-input" type="file" id="fileInput">
+    <button id="uploadBtn" class="button-input">Enviar</button>
 
     <script>
         const fileInput = document.getElementById('fileInput');
