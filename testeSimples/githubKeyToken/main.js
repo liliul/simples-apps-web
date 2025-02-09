@@ -11,18 +11,27 @@ async function getApiGithub(url, headers) {
     const req = await fetch(`${url}/${user}`, { headers })
     const res = await req.json()
 
-    console.log(res);
+    return res;
     
 }
 
-getApiGithub(api.URL_GITHUB, headers)
+// getApiGithub(api.URL_GITHUB, headers)
 
 
-// criar env.js
-// const GITHUB_KEY=""
-// const URL_GITHUB="https://api.github.com/users"
+async function userInfos() {
+    const getGithubUser = await getApiGithub(api.URL_GITHUB, headers)
+    console.log(getGithubUser);
+        
+    const div = document.createElement('div')
 
-// export const api = {
-//     GITHUB_KEY,
-//     URL_GITHUB
-// }
+    div.innerHTML = `
+        <h1>${getGithubUser.name}</h1>
+        <span>${getGithubUser.login}</span>
+        <span>${getGithubUser.location}</span>
+    `
+
+    document.getElementById('root').appendChild(div)
+        
+}
+
+userInfos()
