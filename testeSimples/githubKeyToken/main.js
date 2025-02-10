@@ -35,3 +35,23 @@ async function userInfos() {
 }
 
 userInfos()
+
+const reposUrl = `${api.URL_GITHUB}/${user}/repos`
+const contenteUrl = `https://api.github.com/repos/liliul/AngularTourOfHeroes/contents/`
+const contentReadme = `https://api.github.com/repos/liliul/AngularTourOfHeroes/contents/README.md`
+
+const ulrsPromiseAll = [
+    fetch(reposUrl, headers),
+    fetch(contenteUrl, headers),
+    fetch(contentReadme, headers)
+]
+
+Promise.all(ulrsPromiseAll)
+    .then((res) => {
+        return Promise.all(res.map(response => response.json()))
+    })
+    .then((data) => {
+        console.log(data);
+        
+    })
+    .catch((erro) => console.error(erro))
