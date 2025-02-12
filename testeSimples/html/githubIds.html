@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Github node ids</title>
+</head>
+<body>
+
+
+	<div id="readme-container"></div>
+
+
+
+	<script type="text/javascript">
+	
+		const url = 'https://api.github.com/users/liliul/repos'; 
+
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Array com os IDs dos repositórios que você deseja selecionar
+                const selectedIds = [669965661, 606551349, 661433759]; // Substitua pelos IDs desejados
+
+                // Filtra os repositórios com base nos IDs selecionados
+                const selectedRepos = data.filter(repo => selectedIds.includes(repo.id));
+
+                console.log(selectedRepos);
+                
+                selectedRepos.map(itens => {
+                    const div = document.createElement('section')
+                    
+                    div.innerHTML = `
+                        <p>${itens.id} & ${itens.node_id}
+                        
+                        <h1>${itens.name}</h1>
+                    `
+                    
+                    document.getElementById('readme-container').appendChild(div)
+                })
+            })
+            .catch(error => {
+                console.error('Houve um problema com a requisição:', error);
+            });
+
+            
+            
+            
+            /** 
+            
+                const url = 'https://api.github.com/users/USERNAME/repos'; // Substitua USERNAME pelo nome de usuário desejado
+
+                fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Seleciona 30 repositórios aleatórios
+                    const randomRepos = data.sort(() => 0.5 - Math.random()).slice(0, 30);
+                    
+                    // Seleciona 5 repositórios dos 30 selecionados
+                    const selectedRepos = randomRepos.slice(0, 5);
+                    
+                    console.log(selectedRepos);
+                })
+                .catch(error => {
+                    console.error('Houve um problema com a requisição:', error);
+                });
+            
+            
+            
+            
+            */
+
+	</script>
+</body>
+</html>
