@@ -26,28 +26,32 @@ export function User(data) {
     const reposPublic = document.querySelector('#repo-public')
     const gistsPublic = document.querySelector('#gists-public')
 
-	nome.innerText = data.name
+    nome.innerText = data.name
     avatar.src = data.avatar_url
 
     linkGithub.href = data.html_url
     bio.innerText = data.bio
 
     const bloglink = data.blog
+    if (bloglink.trim().length === 0) {
+        document.getElementById('link-blog').addEventListener('click', (e) => { e.preventDefault() })
+        return
+    }
     linkBlog.href = `${bloglink.startsWith('https://') ? bloglink : http + bloglink}`
 
     local.innerText = data.location
     company.innerText = data.company
-    
+
     const twitterlink = data.twitter_username
-    if(!twitterlink) {
+    if (!twitterlink) {
         twitter.innerText = 'sem twitter'
         twitter.href = "#"
-        document.getElementById('twitter').addEventListener('click', (e) => {e.preventDefault()})
+        document.getElementById('twitter').addEventListener('click', (e) => { e.preventDefault() })
     } else {
         twitter.innerText = data.twitter_username
         twitter.href = `${urlTwitter}${twitterlink}`
     }
-    
+
     followers.innerText = data.followers
     following.innerText = data.following
 
