@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regex</title>
+</head>
+<body>
+    <input type="email" id="email" placeholder="Digite seu email">
+    <button onclick="validarEmail()">Validar</button>
+
+
+
+    <p id="texto">Goku e Vegeta lutam no torneio do poder.</p>
+    <button onclick="destacar('goku')">Destacar "Goku"</button>
+
+    <script>
+        function destacar(palavra) {
+            const regex = new RegExp(`\\b${palavra}\\b`, 'gi');
+            const texto = document.getElementById('texto').innerHTML;
+            const novoTexto = texto.replace(regex, '<span style="background: yellow">$&</span>');
+            document.getElementById('texto').innerHTML = novoTexto;
+        }
+    </script>
+
+
+
+    <script>
+        function validarEmail() {
+            const email = document.getElementById('email').value;
+            const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            
+            if (regex.test(email)) {
+                alert("Email válido!");
+            } else {
+                alert("Email inválido!");
+            }
+        }
+    </script>
+
+
+    <script>
+        const texto = "Evento em 12/03/2024 e 15/04/2024";
+        const regex = /\d{2}\/\d{2}\/\d{4}/g;
+        const datas = texto.match(regex);
+
+        console.log("regex: ", datas);
+        
+    </script>
+</body>
+</html>l
