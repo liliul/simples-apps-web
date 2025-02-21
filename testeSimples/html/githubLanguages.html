@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Languages</title>
+</head>
+<body>
+    
+    <script>
+        fetch('https://api.github.com/repos/liliul/reposAngularJs/languages')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            // Aqui você pode processar as linguagens, como exibi-las em uma lista, por exemplo.
+
+            const linguagens = Object.keys(data)
+            console.log(linguagens);
+            
+            document.querySelector('body').innerHTML = `
+                <div>
+                    <p>${linguagens.join(' ')}</p>    
+                </div>
+            `
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+
+    </script>
+</body>
+</html>
