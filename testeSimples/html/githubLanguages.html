@@ -4,24 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Github Languages</title>
+    
+    <style>
+        .b {
+            width: 10px;
+            height: 10px;
+            
+            border-radius: 50%;
+        }
+    </style>
 </head>
 <body>
+    
+    <section id="root"></section>
     
     <script>
         fetch('https://api.github.com/repos/liliul/reposAngularJs/languages')
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            // Aqui você pode processar as linguagens, como exibi-las em uma lista, por exemplo.
-
+    
             const linguagens = Object.keys(data)
             console.log(linguagens);
             
-            document.querySelector('body').innerHTML = `
-                <div>
-                    <p>${linguagens.join(' ')}</p>    
-                </div>
-            `
+            const cor = ['#444','#556', '#885','#998','#ff1','#ddd','#cec','#fe8','#214']
+            
+            let corLinguagenHtml = ''
+            
+            for (let i = 0; i < linguagens.length; i++) {
+                const corSelecionada = cor[i % cor.length]
+                console.log(corSelecionada)
+                console.log(i)
+                
+                corLinguagenHtml += `
+                    <div style="display:flex;itens-align:center;gap:5px;">
+                        <div class="b" style="background-color:${corSelecionada};"></div>
+                        ${linguagens[i]}
+                    </div>
+                `
+            }
+            
+            document.querySelector('#root').innerHTML = corLinguagenHtml
+            
+           
         })
         .catch(error => {
             console.error('Erro:', error);
