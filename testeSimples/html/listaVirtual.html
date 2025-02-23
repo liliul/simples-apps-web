@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Virtual</title>
+
+    <style>
+        body {
+            background-color: #212121;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <script>
+
+        const largura = window.outerWidth
+        const altura  = window.outerHeight
+
+        console.log(altura, largura)
+
+        const linhas = 15
+        const maximo = 30
+        const limit = linhas * maximo
+
+        console.log(limit);
+
+        const dados = Array.from({length: maximo},(_, itens) => itens + 1)
+        console.log(dados);
+        
+        const listaHtml = document.createElement('ul')
+        listaHtml.style.height = maximo * linhas + "px"
+        listaHtml.setAttribute("id", "ul-lista")
+
+        document.querySelector('body').appendChild(listaHtml)
+        
+        
+        let mouseScroll = 0
+
+        document.querySelector('#ul-lista').addEventListener('scroll', (e) => {
+            mouseScroll = e.currentTarget.scrollTop
+            lista(dados)
+
+        })
+        console.log(mouseScroll);
+        
+
+        let htmlLista = ''
+
+        function lista(numLinhas) {
+            
+            for(let i=1;i<numLinhas.length;i++) {
+                let counter = i * 2
+
+                htmlLista += `
+                    <li>
+                        <span>index: ${i}</span>
+                        <p>contar: ${counter}</p>
+                    </li>
+                ` 
+            }
+        }
+
+        
+        lista(dados)
+        // console.log(htmlLista);
+        
+        document.querySelector('ul').innerHTML = htmlLista.slice(0, limit)
+    </script>
+
+</body>
+</html>
