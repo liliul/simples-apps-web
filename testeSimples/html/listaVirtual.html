@@ -9,6 +9,9 @@
         body {
             background-color: #212121;
             color: aliceblue;
+
+            display: grid;
+            place-content: center;
         }
 
         ul {
@@ -21,7 +24,7 @@
 
     <script>
 
-        const largura = window.outerWidth
+        const largura = window.innerHeightWidth
         const altura  = window.outerHeight
 
         console.log(altura, largura)
@@ -36,6 +39,7 @@
         console.log(dados);
         
         const listaHtml = document.createElement('ul')
+        listaHtml.style.width  = 1000 - 530 + "px"
         listaHtml.style.height = maximo * linhas + "px"
         listaHtml.setAttribute("id", "ul-lista")
 
