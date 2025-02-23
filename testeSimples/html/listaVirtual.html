@@ -10,6 +10,10 @@
             background-color: #212121;
             color: aliceblue;
         }
+
+        ul {
+            overflow: auto;
+        }
     </style>
 </head>
 <body>
@@ -42,11 +46,11 @@
 
         document.querySelector('#ul-lista').addEventListener('scroll', (e) => {
             mouseScroll = e.currentTarget.scrollTop
+            console.log('scroll', mouseScroll);
+            
             lista(dados)
 
         })
-        console.log(mouseScroll);
-        
 
         let htmlLista = ''
 
@@ -68,8 +72,11 @@
         lista(dados)
         // console.log(htmlLista);
         
-        document.querySelector('ul').innerHTML = htmlLista.slice(0, limit)
-    </script>
+        // document.querySelector('ul').innerHTML = htmlLista.slice(0, limit)
+        document.querySelector('ul').innerHTML = htmlLista
 
+        
+    </script>
+    
 </body>
 </html>
