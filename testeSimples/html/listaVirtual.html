@@ -31,7 +31,7 @@
 
         const itens = 10000
         const linhas = 25
-        const maximo = 30
+        const maximo = 15
         const limit = linhas * maximo
 
         console.log(limit);
@@ -68,11 +68,16 @@
             const endItemIndex = startItemIndex + maximo
             const startSpacerHeight = mouseScroll
             const endSpacerHeight = data - startSpacerHeight - limit
-
-
+            
+            console.log(startItemIndex, endItemIndex)
+            
+            document.querySelector('ul').innerHTML = ''
+            
+            
             const liPrimaria = document.createElement("li")
             liPrimaria.style.height = startSpacerHeight + 'px'
             document.querySelector('ul').append(liPrimaria)
+            
 
             const dadosLimit = numLinhas.slice(startItemIndex, endItemIndex)
 
@@ -82,7 +87,6 @@
                 const listar = document.createElement("li");
                 listar.innerHTML = item.toLocaleString('pt-br');
                 listar.style.height = linhas + 'px';
-                // listar.classList.add('list__item');
                 document.querySelector('ul').append(listar);
             })
 
