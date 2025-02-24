@@ -29,18 +29,19 @@
 
         console.log(altura, largura)
 
-        const linhas = 15
+        const itens = 10000
+        const linhas = 25
         const maximo = 30
         const limit = linhas * maximo
 
         console.log(limit);
 
-        const dados = Array.from({length: maximo},(_, itens) => itens + 1)
+        const dados = Array.from({length: itens},(_, itens) => itens + 1)
         console.log(dados);
         
         const listaHtml = document.createElement('ul')
         listaHtml.style.width  = 1000 - 530 + "px"
-        listaHtml.style.height = maximo * linhas + "px"
+        listaHtml.style.height = linhas * maximo + "px"
         listaHtml.setAttribute("id", "ul-lista")
 
         document.querySelector('body').appendChild(listaHtml)
@@ -50,26 +51,57 @@
 
         document.querySelector('#ul-lista').addEventListener('scroll', (e) => {
             mouseScroll = e.currentTarget.scrollTop
-            console.log('scroll', mouseScroll);
+            console.log('scroll', mouseScroll)
             
             lista(dados)
 
         })
 
-        let htmlLista = ''
+        // let htmlLista = ''
+        
+        // document.querySelector("ul").innerHTML = ''
 
         function lista(numLinhas) {
-            
-            for(let i=1;i<numLinhas.length;i++) {
-                let counter = i * 2
 
-                htmlLista += `
-                    <li>
-                        <span>index: ${i}</span>
-                        <p>contar: ${counter}</p>
-                    </li>
-                ` 
-            }
+            const data = numLinhas.length * linhas
+            const startItemIndex = Math.ceil(mouseScroll / linhas)
+            const endItemIndex = startItemIndex + maximo
+            const startSpacerHeight = mouseScroll
+            const endSpacerHeight = data - startSpacerHeight - limit
+
+
+            const liPrimaria = document.createElement("li")
+            liPrimaria.style.height = startSpacerHeight + 'px'
+            document.querySelector('ul').append(liPrimaria)
+
+            const dadosLimit = numLinhas.slice(startItemIndex, endItemIndex)
+
+            
+            dadosLimit.map(item => {
+                console.log(item)
+                const listar = document.createElement("li");
+                listar.innerHTML = item.toLocaleString('pt-br');
+                listar.style.height = linhas + 'px';
+                // listar.classList.add('list__item');
+                document.querySelector('ul').append(listar);
+            })
+
+            // for(let i=1;i<dadosLimit;i++) {
+            //     let counter = i * 2
+                
+
+            //     htmlLista += `
+            //         <li>
+            //             <span>index: ${i}</span>
+            //             <p>contar: ${counter}</p>
+            //         </li>
+            //     ` 
+            //     document.querySelector('ul').append(htmlLista)
+            // }
+
+            const liSegundaria = document.createElement("li");
+            liSegundaria.style.height = startSpacerHeight + 'px';
+            document.querySelector('ul').append(liSegundaria);
         }
 
         
@@ -77,7 +109,6 @@
         // console.log(htmlLista);
         
         // document.querySelector('ul').innerHTML = htmlLista.slice(0, limit)
-        document.querySelector('ul').innerHTML = htmlLista
 
         
     </script>
