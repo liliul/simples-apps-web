@@ -16,6 +16,7 @@
 
         ul {
             overflow: auto;
+             
         }
     </style>
 </head>
@@ -81,12 +82,18 @@
 
             const dadosLimit = numLinhas.slice(startItemIndex, endItemIndex)
 
+            const cor = ['#885','#998']
             
             dadosLimit.map(item => {
                 console.log(item)
+                const corSelecionada = cor[item % cor.length]
+                
                 const listar = document.createElement("li");
                 listar.innerHTML = item.toLocaleString('pt-br');
                 listar.style.height = linhas + 'px';
+                listar.style.backgroundColor = `${corSelecionada}`
+                listar.style.color = '#214'
+                
                 document.querySelector('ul').append(listar);
             })
 
