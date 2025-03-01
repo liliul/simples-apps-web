@@ -45,7 +45,7 @@
         listaHtml.style.height = linhas * maximo + "px"
         listaHtml.setAttribute("id", "ul-lista")
 
-        document.querySelector('body').appendChild(listaHtml)
+        document.querySelector('body').insertAdjacentElement('afterbegin', listaHtml)
         
         
         let mouseScroll = 0
