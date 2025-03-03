@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Paginação</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: aliceblue;
+        }
+
+        .page-btn {
+            margin: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .active {
+            font-weight: bold;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Lista de Itens</h2>
+    <ul id="item-list"></ul>
+
+    <div id="pagination"></div>
+
+    <script>
+        
+        const items = [
+            'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5',
+            'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10',
+            'Item 11', 'Item 12', 'Item 13', 'Item 14', 'Item 15'
+        ];
+
+        const itemsPerPage = 5;
+        let currentPage = 1;
+
+        function displayItems() {
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const currentItems = items.slice(startIndex, endIndex);
+
+            
+            const itemList = document.getElementById('item-list');
+            itemList.innerHTML = '';
+            currentItems.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                itemList.appendChild(li);
+            });
+
+            // Atualiza a paginação
+            updatePagination();
+        }
+
+        function updatePagination() {
+            const pagination = document.getElementById('pagination');
+            const totalPages = Math.ceil(items.length / itemsPerPage);
+
+            // Limpa a paginação
+            pagination.innerHTML = '';
+
+            // Botões de navegação
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.classList.add('page-btn');
+                if (i === currentPage) {
+                    button.classList.add('active');
+                }
+
+                button.onclick = function() {
+                    currentPage = i;
+                    displayItems();
+                };
+
+                pagination.appendChild(button);
+            }
+        }
+
+        // Inicializa a página
+        displayItems();
+
+    </script>
+</body>
+</html>
