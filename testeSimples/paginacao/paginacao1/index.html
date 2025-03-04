@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paginação1</title>
+</head>
+<body>
+    <div id="data-container"></div>
+    <div id="pagination-controls"></div>
+
+    <script>
+        const dados = [
+        "Item 1", "Item 2", "Item 3", "Item 4", "Item 5",
+        "Item 6", "Item 7", "Item 8", "Item 9", "Item 10"
+        ];
+
+        const itensPorPagina = 3;
+        let paginaAtual = 1;
+
+        function exibirDados(pagina) {
+        const inicio = (pagina - 1) * itensPorPagina;
+        const fim = inicio + itensPorPagina;
+        const dadosPagina = dados.slice(inicio, fim);
+
+        const container = document.getElementById("data-container");
+        container.innerHTML = dadosPagina.map(item => `<div>${item}</div>`).join("");
+        }
+
+
+        function criarControlesPaginação() {
+        const totalPaginas = Math.ceil(dados.length / itensPorPagina);
+        const controles = document.getElementById("pagination-controls");
+
+        // Botões de Paginação
+        let html = "";
+        for (let i = 1; i <= totalPaginas; i++) {
+            html += `<button class="pagina-btn ${i === paginaAtual ? 'active' : ''}" data-pagina="${i}">${i}</button>`;
+        }
+
+        // Botões Anterior/Próximo
+        html = `<button id="anterior">Anterior</button> ${html} <button id="proximo">Próximo</button>`;
+        controles.innerHTML = html;
+
+        // Event Listeners
+        document.querySelectorAll(".pagina-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+            paginaAtual = parseInt(btn.dataset.pagina);
+            exibirDados(paginaAtual);
+            criarControlesPaginação(); // Atualiza os controles
+            });
+        });
+
+        document.getElementById("anterior").addEventListener("click", () => {
+            if (paginaAtual > 1) {
+            paginaAtual--;
+            exibirDados(paginaAtual);
+            criarControlesPaginação();
+            }
+        });
+
+        document.getElementById("proximo").addEventListener("click", () => {
+            if (paginaAtual < totalPaginas) {
+            paginaAtual++;
+            exibirDados(paginaAtual);
+            criarControlesPaginação();
+            }
+        });
+        }
+
+        // Inicialização
+        exibirDados(paginaAtual);
+        criarControlesPaginação();
+    </script>
+</body>
+</html>
