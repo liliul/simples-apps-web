@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paginação</title>
+</head>
+<body>
+    <div id="data-container"></div>
+    <div id="pagination-controls"></div>
+
+        <script>
+            // async function buscarDados(pagina, itensPorPagina) {
+            //     try {
+            //     const resposta = await fetch(`https://api.exemplo.com/dados?pagina=${pagina}&limite=${itensPorPagina}`);
+            //     const dados = await resposta.json();
+            //     return dados;
+            //     } catch (erro) {
+            //     console.error("Erro ao buscar dados:", erro);
+            //     }
+            // }
+
+            const db = [
+                {nome: 'naruto'},
+                {nome: 'goku'},
+                {nome: 'Sasuke'},
+                {nome: 'vegeta'},
+                {nome: 'bulma'},
+                {nome: 'naruto'},
+                {nome: 'goku'},
+                {nome: 'Sasuke'},
+                {nome: 'vegeta'},
+                {nome: 'bulma'},
+                {nome: 'naruto'},
+                {nome: 'goku'},
+                {nome: 'Sasuke'},
+                {nome: 'vegeta'},
+                {nome: 'bulma'},
+                {nome: 'naruto'},
+                {nome: 'goku'},
+                {nome: 'Sasuke'},
+                {nome: 'vegeta'},
+                {nome: 'bulma'},
+                {nome: 'naruto'},
+                {nome: 'goku'},
+                {nome: 'Sasuke'},
+                {nome: 'vegeta'},
+                {nome: 'bulma'}
+            ]
+
+            // const dados = await buscarDados(pagina, itensPorPagina);
+
+            async function exibirDados(pagina) {
+            const dados = db
+            const container = document.getElementById("data-container");
+            container.innerHTML = dados.map(item => `<div>${item.nome}</div>`).join("");
+            }
+
+
+            let paginaAtual = 1;
+            let totalPaginas = 1; // Inicializado após a primeira requisição
+
+            async function criarControlesPaginação() {
+            const controles = document.getElementById("pagination-controls");
+            controles.innerHTML = `
+                <button id="anterior">Anterior</button>
+                <span>Página ${paginaAtual} de ${totalPaginas}</span>
+                <button id="proximo">Próximo</button>
+            `;
+
+            document.getElementById("anterior").addEventListener("click", () => {
+                if (paginaAtual > 1) {
+                paginaAtual--;
+                exibirDados(paginaAtual);
+                criarControlesPaginação();
+                }
+            });
+
+            document.getElementById("proximo").addEventListener("click", () => {
+                if (paginaAtual < totalPaginas) {
+                paginaAtual++;
+                exibirDados(paginaAtual);
+                criarControlesPaginação();
+                }
+            });
+            }
+
+            // Inicialização
+            exibirDados(paginaAtual).then(() => {
+            // Supondo que a API retorna o total de páginas
+            totalPaginas = 5; // Substitua pelo valor real da API
+            criarControlesPaginação();
+            });
+    </script>
+</body>
+</html>

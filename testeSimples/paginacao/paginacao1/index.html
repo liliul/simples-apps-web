@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paginação1</title>
+    <style>
+        .active {
+            background-color: brown;
+            color: black;
+        }
+    </style>
 </head>
 <body>
     <div id="data-container"></div>
@@ -44,6 +50,8 @@
 
         // Event Listeners
         document.querySelectorAll(".pagina-btn").forEach(btn => {
+            console.log(btn);
+            
             btn.addEventListener("click", () => {
             paginaAtual = parseInt(btn.dataset.pagina);
             exibirDados(paginaAtual);
