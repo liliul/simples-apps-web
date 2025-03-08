@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paginação Avançada</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: auto; text-align: center; }
+        .pagination { display: flex; justify-content: center; margin-top: 20px; }
+        .pagination button { margin: 5px; padding: 10px; cursor: pointer; }
+        .active { font-weight: bold; background: #007bff; color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Lista de Itens</h2>
+        <ul id="itemsList"></ul>
+
+        <div class="pagination">
+            <button id="prevPage">« Anterior</button>
+            <span id="pageNumbers"></span>
+            <button id="nextPage">Próximo »</button>
+        </div>
+    </div>
+
+    <script>
+        const items = Array.from({ length: 100 }, (_, i) => `Item ${i + 1}`); // Simula 100 itens
+        const itemsPerPage = 10;
+        let currentPage = 1;
+
+        function renderItems() {
+            const list = document.getElementById('itemsList');
+            list.innerHTML = "";
+            
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginatedItems = items.slice(start, end);
+
+            paginatedItems.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                list.appendChild(li);
+            });
+
+            renderPagination();
+        }
+
+        function renderPagination() {
+            const pageNumbers = document.getElementById('pageNumbers');
+            pageNumbers.innerHTML = "";
+
+            const totalPages = Math.ceil(items.length / itemsPerPage);
+            
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.classList.add('page-btn');
+                if (i === currentPage) button.classList.add('active');
+
+                button.addEventListener('click', () => {
+                    currentPage = i;
+                    renderItems();
+                });
+
+                pageNumbers.appendChild(button);
+            }
+        }
+
+        document.getElementById('prevPage').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderItems();
+            }
+        });
+
+        document.getElementById('nextPage').addEventListener('click', () => {
+            const totalPages = Math.ceil(items.length / itemsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderItems();
+            }
+        });
+
+        renderItems();
+    </script>
+
+</body>
+</html>
