@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paginação Infinita</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { max-width: 600px; margin: auto; }
+        .loading { font-size: 18px; color: #007bff; margin-top: 20px; }
+
+        .ul-itens {list-style: none;}
+        .ul-itens li {height: 55px;border: 1px solid black;margin-bottom: 10px;}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Lista de Itens (Scroll Infinito)</h2>
+        <ul id="itemsList" class="ul-itens"></ul>
+        <div id="observerTarget" class="loading">Carregando mais itens...</div>
+    </div>
+
+    <script>
+        const items = Array.from({ length: 100 }, (_, i) => `Item ${i + 1}`); // Simula 100 itens
+        const itemsPerPage = 10;
+        let currentPage = 1;
+        let isLoading = false; // Evita chamadas duplicadas
+
+        function loadItems() {
+            if (isLoading) return; // Impede carregamentos duplicados
+            isLoading = true;
+
+            setTimeout(() => { // Simula atraso de requisição
+                const list = document.getElementById('itemsList');
+                const start = (currentPage - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+                const paginatedItems = items.slice(start, end);
+
+                paginatedItems.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    list.appendChild(li);
+                });
+
+                currentPage++;
+                isLoading = false;
+
+                // Atualiza o target do Observer para o último item carregado
+                const newTarget = document.querySelector("#itemsList li:last-child");
+                if (newTarget) {
+                    observer.observe(newTarget);
+                }
+
+                // Para o carregamento quando todos os itens forem carregados
+                if (start >= items.length - itemsPerPage) {
+                    observer.disconnect();
+                    document.getElementById('observerTarget').innerText = "Nenhum item restante.";
+                }
+            }, 500); // Simula tempo de carregamento
+        }
+
+        // Configuração do IntersectionObserver
+        const observer = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                loadItems();
+            }
+        }, { rootMargin: "100px" }); // Margem para antecipar carregamento
+
+        // Inicia observação pelo primeiro alvo
+        observer.observe(document.getElementById('observerTarget'));
+
+        // Carrega a primeira página manualmente
+        loadItems();
+    </script>
+
+</body>
+</html>
