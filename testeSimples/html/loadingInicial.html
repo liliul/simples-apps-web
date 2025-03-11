@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style> 
+        /* styles.css */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .login-container {
+            position: relative;
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .login-form {
+            display: none;
+        }
+
+        #loading {
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            font-weight: bold;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div id="loading" class="loading">Carregando...</div>
+
+        <div class="login-form" id="login-form">
+            <h2>Login</h2>
+            <form id="login">
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+       
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simula o carregamento de dados (pode ser um AJAX ou outra operação assíncrona)
+            setTimeout(function() {
+                // Ocultar a mensagem de carregamento
+                document.getElementById('loading').style.display = 'none';
+                
+                // Exibir o formulário de login
+                document.getElementById('login-form').style.display = 'block';
+            }, 3000);  // Simulando um carregamento de 3 segundos
+        });
+
+        document.getElementById('login').addEventListener('submit', function(event) {
+            event.preventDefault();  // Previne o envio real do formulário para demonstrar a animação de carregamento
+            
+            // Simula o envio do formulário e exibe o carregamento novamente
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('login-form').style.display = 'none';
+            
+            setTimeout(function() {
+                // Aqui você pode verificar a autenticação ou redirecionar para outra página
+                alert('Login bem-sucedido!');  // Simulação de sucesso
+            }, 2000);  
+        });
+
+    </script>
+</body>
+</html>
