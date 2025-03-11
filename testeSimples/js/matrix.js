@@ -45,6 +45,8 @@ let matrixLetras = [
      ['A', 'A', 'A']
 ]
 
+const matrixArray = []
+
 function Matrix(letra) {
     for (let i = 0; i < matrixLetras.length; i++) {
 
@@ -53,10 +55,10 @@ function Matrix(letra) {
     
             if (matrixLetras[i][j] == letra) {
                 console.log('sim');
-                
+                matrixArray.push(letra)
             }
         }
     }
 }
 Matrix('A')
-// console.log(matrixLetras);
+console.log('matrixArray: ',matrixArray, 'length: ', matrixArray.length);
