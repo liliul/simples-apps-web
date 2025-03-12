@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barra de Progresso</title>
+  <style>
+    #barra-de-progresso {
+      width: 100%;
+      background-color: #f3f3f3;
+      border: 1px solid #ccc;
+    }
+
+    #progresso {
+      width: 0%;
+      height: 30px;
+      background-color: #4caf50;
+      text-align: center;
+      color: white;
+      line-height: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Exemplo de Barra de Progresso com JavaScript</h2>
+
+  <div id="barra-de-progresso">
+    <div id="progresso">0%</div>
+  </div>
+
+  <br>
+  <button id="btn-progresso" onclick="iniciarProgresso()">Iniciar Progresso</button>
+
+  <script>
+    function iniciarProgresso() {
+      var barra = document.getElementById('progresso');
+      var largura = 0;
+      
+      var intervalo = setInterval(function() {
+          console.log(largura);
+
+          if(largura > 0) {
+            console.log('sim')
+            document.querySelector("#btn-progresso").disabled = true
+          } 
+          if(largura === 100) {
+            document.querySelector("#btn-progresso").disabled = false
+          }
+
+        if (largura >= 100) {
+          clearInterval(intervalo); 
+        } else {
+          largura++;
+          barra.style.width = largura + '%';
+          barra.innerHTML = largura + '%';
+        }
+      }, 100);
+    }
+  </script>
+
+</body>
+</html>
