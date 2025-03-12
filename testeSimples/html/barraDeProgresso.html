@@ -35,54 +35,57 @@
   <button id="btn-continuar">Continuar Progresso</button>
 
   <script>
-    function iniciarProgresso() {
-      var barra = document.getElementById('progresso');
       var largura = 0;
-      console.log(largura);
-
       let intervalo = null
+
+      function iniciarProgresso() {
+        var barra = document.getElementById('progresso');
       
-      intervalo = setInterval(function() {
-          console.log(largura);
-
-          if(largura > 0) {
-            console.log('sim')
-            document.querySelector("#btn-progresso").disabled = true
-          } 
-          if(largura === 100) {
-            document.querySelector("#btn-progresso").disabled = false
-          }
-
-        if (largura >= 100) {
-          clearInterval(intervalo); 
-        } else {
-          largura++;
-          barra.style.width = largura + '%';
-          barra.innerHTML = largura + '%';
+        if(intervalo) {return}
+        
+        if(largura >= 100 || largura === 0) {
+          largura = 0;
         }
 
-        document.getElementById('btn-parar').addEventListener('click', () => {
-          console.log('parar');
-          clearInterval(intervalo)
-           
-          document.querySelector("#btn-progresso").disabled = false
+        intervalo = setInterval(function() {
 
-        })
+            if(largura > 0) {
+              document.querySelector("#btn-progresso").disabled = true
+            } 
+            if(largura === 100) {
+              document.querySelector("#btn-progresso").disabled = false
+            }
 
-        document.querySelector('#btn-continuar').addEventListener('click', () => {
-          console.log(largura);
-          intervalo
-          // if(largura >= 100) {
-          //   clearInterval(intervalo)
-          // }else {
-          //   largura++;
-          //   barra.style.width = largura + '%';
-          //   barra.innerHTML = largura + '%';
-          // }
-        })
+          if (largura >= 100) {
+            clearInterval(intervalo); 
+            intervalo = null 
+            
+          } else {
+            largura++;
+            barra.style.width = largura + '%';
+            barra.innerHTML = largura + '%';
+            
+          }
 
-      }, 100);
-    }
+        }, 100);
+      }
+
+      document.getElementById('btn-parar').addEventListener('click', () => {
+        
+        clearInterval(intervalo)
+        intervalo = null
+        document.querySelector("#btn-progresso").disabled = false
+
+      })
+
+      document.querySelector('#btn-continuar').addEventListener('click', () => {
+        
+        if (!intervalo) {
+          iniciarProgresso()
+        }
+        
+      })
+
   </script>
 
 </body>
