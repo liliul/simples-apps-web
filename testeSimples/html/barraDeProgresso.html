@@ -31,13 +31,18 @@
 
   <br>
   <button id="btn-progresso" onclick="iniciarProgresso()">Iniciar Progresso</button>
+  <button id="btn-parar">Parar Progresso</button>
+  <button id="btn-continuar">Continuar Progresso</button>
 
   <script>
     function iniciarProgresso() {
       var barra = document.getElementById('progresso');
       var largura = 0;
+      console.log(largura);
+
+      let intervalo = null
       
-      var intervalo = setInterval(function() {
+      intervalo = setInterval(function() {
           console.log(largura);
 
           if(largura > 0) {
@@ -55,6 +60,27 @@
           barra.style.width = largura + '%';
           barra.innerHTML = largura + '%';
         }
+
+        document.getElementById('btn-parar').addEventListener('click', () => {
+          console.log('parar');
+          clearInterval(intervalo)
+           
+          document.querySelector("#btn-progresso").disabled = false
+
+        })
+
+        document.querySelector('#btn-continuar').addEventListener('click', () => {
+          console.log(largura);
+          intervalo
+          // if(largura >= 100) {
+          //   clearInterval(intervalo)
+          // }else {
+          //   largura++;
+          //   barra.style.width = largura + '%';
+          //   barra.innerHTML = largura + '%';
+          // }
+        })
+
       }, 100);
     }
   </script>
