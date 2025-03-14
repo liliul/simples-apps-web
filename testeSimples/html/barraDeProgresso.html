@@ -33,6 +33,7 @@
   <button id="btn-progresso" onclick="iniciarProgresso()">Iniciar Progresso</button>
   <button id="btn-parar">Parar Progresso</button>
   <button id="btn-continuar">Continuar Progresso</button>
+  <button id="btn-resetar">Resetar Progresso</button>
 
   <script>
       var largura = 0;
@@ -84,6 +85,16 @@
           iniciarProgresso()
         }
         
+      })
+
+      document.querySelector('#btn-resetar').addEventListener('click', () => {
+        clearInterval(intervalo)
+
+        intervalo = null;
+        largura = 0; 
+        document.getElementById('progresso').style.width = '0%'; 
+        document.getElementById('progresso').innerHTML = '0%'; 
+        document.querySelector("#btn-progresso").disabled = false;
       })
 
   </script>
