@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Javascript com Html</title>
+    <style>
+        #root {display: flex;flex-direction: column;gap: 10px;}
+        .header {padding: 20px 30px;background-color: brown; color: #000;}
+    </style>
+</head>
+<body>
+    
+    <section id="root"></section>
+
+    <script>
+
+        const interface = {
+            nome: "Naruto Uchiha",
+            email: "Uchihanana@email.com"
+        }
+
+        class infoUserLogin {
+            constructor(nome, email) {
+                this.nome = nome 
+                this.email = email 
+            }
+        }
+
+
+        class UserLoginHtml extends infoUserLogin{
+            constructor(nome, email) {
+                super(nome, email)
+                console.log(this);
+            }
+
+            htmlLogin() {
+                this.headerHtml()
+
+                const formLogin = document.createElement('form')
+
+                formLogin.innerHTML = `
+                    <input type="text" placeholder="Nome" value="${this.nome}" />
+
+                    <br>
+
+                    <input type="email" placeholder="@Email" value="${this.email}" />
+
+                    <br>
+
+                    <button type="submit">Enviar</button>
+                `
+
+                document.getElementById('root').appendChild(formLogin)
+            }
+
+            headerHtml() {                
+                const header = document.createElement('header')
+                header.classList.add('header')
+
+                header.innerHTML = `
+                    <h1>Header da Class com Javascript</h1>
+                `
+
+                document.getElementById('root').appendChild(header)
+            }
+        }
+
+        
+        // const userLoginHtml = new UserLoginHtml('Naruto Uzumaki', 'Uzumaki23na@email.com')
+        const userLoginHtml = new UserLoginHtml(interface.nome, interface.email)
+        userLoginHtml.htmlLogin()
+        // userLoginHtml.headerHtml()
+
+        // const InfoUserLogin = new infoUserLogin()
+
+
+    console.log('-----------------------------------------------------------------------------------------------');
+
+    class Usuario {
+        constructor(nome, email) {
+            this.nome = nome;
+            this.email = email;
+        }
+    }
+
+    class GerenciadorUsuarios {
+        static salvarUsuario(usuario) {
+            let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+            console.log(usuario);
+            
+            usuarios.push(usuario);
+            localStorage.setItem("usuarios", JSON.stringify(usuarios));
+        }
+
+        static listarUsuarios() {
+            return JSON.parse(localStorage.getItem("usuarios")) || [];
+        }
+    }
+
+    // Criando usuários
+    GerenciadorUsuarios.salvarUsuario(new Usuario("Sasuke", "Sasuke@email.com"));
+    GerenciadorUsuarios.salvarUsuario(new Usuario("Naruto", "Naruto@email.com"));
+
+    // Listando usuários
+    console.log(GerenciadorUsuarios.listarUsuarios());
+
+
+    </script>
+</body>
+</html>
