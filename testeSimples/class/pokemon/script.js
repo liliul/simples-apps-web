@@ -32,7 +32,11 @@ class Call extends ApiPokemon {
 
                     const div = document.createElement('div')
                     
-                    div.innerHTML = `<h1>Pokémon: ${res.name}</h1>`
+                    div.innerHTML = `
+                        <h1>Pokémon: ${res.name}</h1>
+
+                        <img src="${res.sprites.front_default}" alt="pokemon" />
+                    `
                     
                     document.getElementById('container').appendChild(div) 
                 }
