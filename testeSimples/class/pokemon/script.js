@@ -24,15 +24,23 @@ class Call extends ApiPokemon {
             
             const pokemonName = document.getElementById('input').value.trim()
             if (pokemonName) {
-                const res = await this.GetApi(pokemonName)  
                 
-                console.log(res)
+                try {
+                    const res = await this.GetApi(pokemonName)  
+                    
+                    console.log(res)
 
-                const div = document.createElement('div')
-                
-                div.innerHTML = `<h1>Pokémon: ${res.name}</h1>`
-                
-                document.getElementById('container').appendChild(div)  
+                    const div = document.createElement('div')
+                    
+                    div.innerHTML = `<h1>Pokémon: ${res.name}</h1>`
+                    
+                    document.getElementById('container').appendChild(div) 
+                }
+                catch(e) {
+                    document.getElementById('container').innerHTML = `
+                        <p>Erro na api pokemon. Status: ${e}</p>
+                    `
+                }
                 
                 } else {
                 alert('Por favor, insira o nome de um Pokémon.')
