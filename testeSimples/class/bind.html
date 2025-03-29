@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind javascript</title>
+</head> 
+<body>
+    
+    <div id="root"></div>
+
+    <script>
+        class Bind {
+            constructor(idDom, msg) {
+                this.idDom = idDom
+                this.root = document.getElementById(this.idDom)
+
+                this.msg = msg
+
+                this.render = this.render.bind(this)
+            }
+
+            render() {
+                if (!this.root) return
+
+                this.root.style.width = '300px'
+                this.root.style.height = '200px'
+                this.root.style.backgroundColor = 'green'
+
+                this.root.innerHTML = `<h1>Chave: ${this.msg}</h1>`
+                
+            }
+        }
+
+        const bind = new Bind('root', 'Bind')
+        bind.render()
+        console.log(bind);
+        
+    </script>
+</body>
+</html>
