@@ -2,20 +2,30 @@ class Mensagem {
     constructor(msg) {
         this.msg = msg
         // this.section = null;
+
     }
 
     htmlMsg() {
+        // const checkMsg = document.querySelector('.container');
+        // if (checkMsg) {
+        //     checkMsg.remove();
+        // }
+        
         const section = document.createElement('section')
         section.classList.add('container')
 
         section.innerHTML = (`
             <div class="c-msg">
+                <button class="b-close">X</button>
                 <h1 class="c-h1">${this.msg}</h1>
             </div>    
         `)
 
         // this.section = section;
         document.querySelector('body').appendChild(section)
+
+        // chamando ButClose de Button static
+        Button.butClose(section)
     }
 }
 
@@ -52,11 +62,47 @@ class Button {
 
         document.getElementById('buttons').appendChild(button)
     }
+
+    static butClose(section) {
+        const closeButton = section.querySelector('.b-close')
+        console.log(section)
+        console.log(closeButton);
+        
+        
+        closeButton.addEventListener('click', () => {
+            section.remove()
+            console.log('m');
+            
+        });
+    }
+    // static butClose() {
+    //     const button = document.createElement('button')
+    //     button.setAttribute('id', 'close')
+    //     button.classList.add('b-close')
+    //     button.textContent = 'X'
+
+    //     document.querySelector('.c-msg').appendChild(button)
+
+    //     document.querySelector('.container').addEventListener('click', (e) => {
+    //         // <button id="close" class="b-close">X</button>
+    //         console.log(e.target.remove());
+            
+
+    //         document.querySelector('.container').remove()
+        
+    //         // if (msg.section) {
+    //         //     msg.section.remove()
+    //         //     console.log('msg');
+                
+    //         // }
+    //     })
+    // }
 }
 
 const but = new Button()
 but.buttonOpen()
 but.buttonClose()
+
 
 //
 
@@ -68,13 +114,16 @@ class ChamandoOpenClose {
     }
 
     Close() {
+        
         document.getElementById('b-close').addEventListener('click', (e) => {
+                
             document.querySelector('.container').remove()
         
             // if (msg.section) {
             //     msg.section.remove()
             // }
         })
+
     }
 }
 
