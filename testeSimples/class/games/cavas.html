@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game com Cavas</title>
+    <style>
+        body{background-color: #212121; color: antiquewhite;}
+        canvas {border: 1px solid chocolate;}
+    </style>
+</head>
+<body>
+    
+    <canvas width="500" height="500"></canvas>
+
+
+    <script>
+        const canvas = document.querySelector('canvas')
+        let ctx = canvas.getContext('2d')
+
+        function desenhar() {
+            ctx.fillStyle = "green";
+            // ctx.fillRect(10, 10, 150, 100);
+
+            ctx.beginPath();
+            ctx.moveTo(75, 50);
+            ctx.lineTo(100, 75);
+            ctx.lineTo(100, 25);
+            ctx.fill();
+        }
+
+        desenhar()
+        canvas.addEventListener('click', function(event) {
+        const x = event.offsetX;
+        const y = event.offsetY;
+        console.log(`Clique em: ${x}, ${y}`);
+        });
+
+        window.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowUp') {
+            console.log('Cima pressionado');
+        }
+        });
+
+
+        let x = 50;
+        let y = 50;
+        let velocidade = 5;
+
+        function update() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
+        ctx.fillStyle = 'blue';
+        ctx.fillRect(x, y, 50, 50); // Desenha um retângulo em uma nova posição
+
+        // Atualizar a posição
+        x += velocidade;
+
+        if (x > canvas.width || x < 0) {
+            velocidade = -velocidade; // Muda a direção quando atinge a borda
+        }
+
+        requestAnimationFrame(update);
+        }
+
+        update(); 
+
+        class Vetor {
+            constructor(x, y) {
+                this.x = x 
+                this.y = y 
+            } 
+
+            cal() {
+                return Math.PI * this.x * this.y 
+            }
+        }
+
+        const vetor = new Vetor(12, 10)
+        console.log(vetor.cal());
+    </script>
+</body>
+</html>
