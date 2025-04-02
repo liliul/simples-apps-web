@@ -30,6 +30,7 @@
         }
 
         desenhar()
+
         canvas.addEventListener('click', function(event) {
         const x = event.offsetX;
         const y = event.offsetY;
@@ -48,18 +49,24 @@
         let velocidade = 5;
 
         function update() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
-        ctx.fillStyle = 'blue';
-        ctx.fillRect(x, y, 50, 50); // Desenha um retângulo em uma nova posição
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
+            ctx.fillStyle = 'blue';
+            ctx.fillRect(x, y, 50, 50); // Desenha um retângulo em uma nova posição
 
-        // Atualizar a posição
-        x += velocidade;
-
-        if (x > canvas.width || x < 0) {
-            velocidade = -velocidade; // Muda a direção quando atinge a borda
-        }
-
-        requestAnimationFrame(update);
+            // Atualizar a posição
+            x += velocidade;
+            
+            if (x > canvas.width || x < 0) {
+                velocidade = -velocidade; // Muda a direção quando atinge a borda
+            }
+            
+            y += velocidade
+            if (y > canvas.height || y < 0) {
+                velocidade = -velocidade
+            }
+ 
+            requestAnimationFrame(update);
         }
 
         update(); 
