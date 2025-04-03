@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternando a Cada Dois Segundos</title>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script>
+        const ArrayItens = ["Naruto Uzumaki", "Som Goku", "Vegeta", "Kakashi Hatake", "Itachi Uchiha", "Sasuke Uchiha"]
+        const Cor = ["blue", "tomato", "violet", "green", "yellow", "orange"]
+
+
+        let index = 0
+        let lastColorIndex = -1;
+
+        setInterval(() => {
+            const root = document.querySelector('#root')
+
+
+            // const sortear = Math.floor(Math.random() * Cor.length)
+            const sortear = SortiandoCores()
+
+            console.log(sortear)
+
+            root.innerHTML = `<h1>(* *): <span style="color: ${Cor[sortear]};">${ArrayItens[index]}</span></h1>`
+
+            index++
+
+            if (index >= ArrayItens.length) {
+                index = 0
+            }
+
+
+        }, 2000)
+
+
+        function SortiandoCores() {
+            let sortear
+            do {
+                sortear = Math.floor(Math.random() * Cor.length)
+            } while (sortear === lastColorIndex)
+
+            lastColorIndex = sortear
+            return sortear
+        }
+    </script>
+</body>
+</html>
