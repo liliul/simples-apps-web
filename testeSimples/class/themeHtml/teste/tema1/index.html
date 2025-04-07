@@ -1,0 +1,21 @@
+<html data-theme="light">
+<head>
+  <title>Exemplo Tema</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function() {
+      try {
+        const tema = JSON.parse(localStorage.getItem('tema')) || 'light';
+        document.documentElement.setAttribute('data-theme', tema);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>  
+</head>
+<body>
+  <button id="theme-toggle">Trocar Tema</button>
+
+  <script src="./main.js"></script>
+</body>
+</html>
