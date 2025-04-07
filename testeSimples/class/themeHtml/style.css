@@ -1,0 +1,119 @@
+/* Estilos Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+  }
+  
+  .theme-switcher {
+    text-align: right;
+  }
+  
+  .theme-switcher button {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .login-form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Tema Claro */
+  body.light-theme {
+    background-color: #f4f4f4;
+  }
+  
+  body.light-theme .login-container {
+    background-color: white;
+  }
+  
+  body.light-theme .input-group input {
+    border-color: #ccc;
+  }
+  
+  body.light-theme button {
+    background-color: #007bff;
+  }
+  
+  /* Tema Escuro */
+  body.dark-theme {
+    background-color: #333;
+  }
+  
+  body.dark-theme .login-container {
+    background-color: #444;
+  }
+  
+  body.dark-theme .input-group input {
+    border-color: #555;
+    background-color: #666;
+    color: #fff;
+  }
+  
+  body.dark-theme button {
+    background-color: #555;
+  }
+  
+  body.dark-theme button:hover {
+    background-color: #333;
+  }
+  
+  body.dark-theme .theme-switcher button {
+    color: #fff;
+  }
+  
