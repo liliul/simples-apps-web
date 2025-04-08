@@ -1,8 +1,12 @@
 
 
 class Theme {
-    mudarThemeBasico() {
 
+    constructor() {
+        this.body = document.body
+    }
+
+    mudarThemeBasico() {
         const themeToggleButton = document.getElementById('theme-toggle');
         const body = document.body;
 
@@ -16,19 +20,18 @@ class Theme {
 
     mudarTemacomLocalStorage() {
         const themeToggleButton = document.getElementById('theme-toggle');
-        const body = document.body;
 
         themeToggleButton.addEventListener('click', () => {
-          const local = body.classList.contains('light-theme')
-
+          const local = this.body.classList.contains('light-theme')
+            
             if (local) {
-                body.classList.add('dark-theme')
+                this.body.classList.add('dark-theme')
                 this.setLocalStorage('itens', 'dark-theme')
-                body.classList.remove('light-theme')
+                this.body.classList.remove('light-theme')
             } else {
-                body.classList.add('light-theme')
+                this.body.classList.add('light-theme')
                 this.setLocalStorage('itens', 'light-theme')
-                body.classList.remove('dark-theme')
+                this.body.classList.remove('dark-theme')
             }
             
         });
@@ -49,9 +52,9 @@ class Theme {
     
         if (checkThemeStorage) {
             
-            document.querySelector('body').classList.remove('light-theme')
+            this.body.classList.remove('light-theme')
             
-            document.querySelector('body').classList.add(checkThemeStorage)
+            this.body.classList.add(checkThemeStorage)
         }
         
     }
