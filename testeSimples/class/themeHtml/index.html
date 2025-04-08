@@ -1,10 +1,20 @@
-<!DOCTYPE html>
+<!DOCTYPE html data-theme="light-theme">
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Theme com css html</title>
   <link rel="stylesheet" href="style.css">
+  <script>
+    (function() {
+      try {
+        const tema = JSON.parse(localStorage.getItem('tema')) || 'light-theme';
+        document.documentElement.setAttribute('data-theme', tema);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light-theme');
+      }
+    })();
+  </script> 
 </head>
 <body class="light-theme">
   <div class="login-container">

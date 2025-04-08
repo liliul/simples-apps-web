@@ -6,23 +6,22 @@ class Theme {
     }
 
     iniciar() {
-        this.aplicarTemaSalvo();
+        // this.aplicarTemaSalvo();
         this.themeToggleButton.addEventListener('click', () => this.trocarTema());
     }
 
     trocarTema() {
-        const temaAtual = this.body.classList.contains('light-theme') ? 'light-theme' : 'dark-theme';
+        const temaAtual = document.documentElement.getAttribute('data-theme') || 'light-theme';
         const novoTema = temaAtual === 'light-theme' ? 'dark-theme' : 'light-theme';
-
-        this.body.classList.replace(temaAtual, novoTema);
+        document.documentElement.setAttribute('data-theme', novoTema);
         this.setLocalStorage(this.chaveStorage, novoTema);
     }
 
-    aplicarTemaSalvo() {
-        const temaSalvo = this.getLocalStorage(this.chaveStorage) || 'light-theme';
-        this.body.classList.remove('light-theme', 'dark-theme');
-        this.body.classList.add(temaSalvo);
-    }
+    // aplicarTemaSalvo() {
+    //     const temaSalvo = this.getLocalStorage(this.chaveStorage) || 'light-theme';
+    //     this.body.classList.remove('light-theme', 'dark-theme');
+    //     this.body.classList.add(temaSalvo);
+    // }
 
     getLocalStorage(chave) {
         return JSON.parse(localStorage.getItem(chave));
