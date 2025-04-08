@@ -1,6 +1,6 @@
 class Theme {
     constructor() {
-        this.chaveStorage = 'tema';
+        this.chaveStorage = 'tema2';
         this.body = document.body;
         this.themeToggleButton = document.getElementById('theme-toggle');
     }

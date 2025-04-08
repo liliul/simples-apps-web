@@ -1,0 +1,42 @@
+<!DOCTYPE html data-theme="light-theme">
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme com css html</title>
+  <link rel="stylesheet" href="./style2.css">
+  <script>
+    (function() {
+      try {
+        const tema = JSON.parse(localStorage.getItem('tema2')) || 'light-theme';
+        document.documentElement.setAttribute('data-theme', tema);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light-theme');
+      }
+    })();
+  </script> 
+</head>
+<body>
+  <div class="login-container">
+    <div class="theme-switcher">
+      <button id="theme-toggle">Mudar Tema</button>
+    </div>
+    <div class="login-form">
+      <h2>Login</h2>
+      <form>
+        <div class="input-group">
+          <label for="username">Usuário</label>
+          <input type="text" id="username" placeholder="Digite seu usuário" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Senha</label>
+          <input type="password" id="password" placeholder="Digite sua senha" required>
+        </div>
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="./main2.js"></script>
+</body>
+</html>
