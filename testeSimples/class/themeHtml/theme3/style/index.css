@@ -1,0 +1,86 @@
+:root {
+  --background-color: #f4f4f4;
+  --text-color: #000;
+  --input-bg: #fff;
+  --button-bg: #007bff;
+}
+
+[data-theme=temaBlack] {
+  --background-color: #333;
+  --text-color: #fff;
+  --input-bg: #212121;
+  --button-bg: #07976c;
+}
+
+[data-theme=massaRosa] {
+  --background-color: #ce7095;
+  --text-color: #855e6e;
+  --input-bg: #ffdbd7;
+  --button-bg: #ce7095;
+}
+
+[data-theme=dracula] {
+  --background-color: #262626;
+  --text-color: #E356A7;
+  --input-bg: #282A36;
+  --button-bg: #9B6BDF;
+}
+
+[data-theme=sorvete] {
+  --background-color: #E7E6FB;
+  --text-color: #4e031e;
+  --input-bg: #05a1ad;
+  --button-bg: #E7E6FB;
+}
+
+[data-theme=geleia] {
+  --background-color: #6D67D0;
+  --text-color: #723e4e;
+  --input-bg: #ef3353;
+  --button-bg: #f4b036;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.login-container {
+  background-color: var(--input-bg);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+.input-group input {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  filter: brightness(0.9);
+}
+
+/*# sourceMappingURL=index.css.map */
