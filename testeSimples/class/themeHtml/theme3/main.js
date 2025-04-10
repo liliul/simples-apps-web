@@ -1,34 +1,41 @@
 import { guardarNoLocalStorage } from './utils/setLocalStorage.js';
 
-const selec = document.querySelector('#select');
-const root = document.documentElement;
+class Theme {
+  constructor() {
+    this.selec = document.querySelector('#select');
+    this.root = document.documentElement;
+  }
 
-window.addEventListener('DOMContentLoaded', getTheme);
+  iniciar() {
+    window.addEventListener('DOMContentLoaded', this.getTheme.bind(this));
+    this.selec.addEventListener('change', this.selected.bind(this));
+  }
 
-function getTheme() {
-  const temaSalvo = localStorage.getItem('TempThemes');
+  getTheme() {
+    const temaSalvo = localStorage.getItem('TempThemes');
+  
+    if (temaSalvo) {
+      this.root.setAttribute('data-theme', temaSalvo);
+  
+      const op = document.createElement('option');
+      op.selecred = true;
+      op.disabled = true;
+      op.textContent = temaSalvo;
+      op.style.color = 'green';
+  
+      this.selec.appendChild(op);
+    }
+  }
 
-  if (temaSalvo) {
-    root.setAttribute('data-theme', temaSalvo);
-
-    const op = document.createElement('option');
-    op.setAttribute('selected', '');
-    op.setAttribute('disabled', '');
-    op.textContent = temaSalvo;
-    op.style.color = 'green';
-
-    selec.appendChild(op);
+  selected() {
+    const selectedOption = this.selec.options[this.selec.selectedIndex];
+    const selectedText = selectedOption.text;
+    const selectedString = selectedText.charAt(0).toLowerCase() + selectedText.slice(1)
+  
+    guardarNoLocalStorage('TempThemes', selectedString);
+  
+    this.root.setAttribute('data-theme', selectedString);
   }
 }
 
-selec.addEventListener('change', selected);
-
-function selected() {
-  const selectedOption = selec.options[selec.selectedIndex];
-  const selectedText = selectedOption.text;
-  const selectedString = selectedText.charAt(0).toLowerCase() + selectedText.slice(1)
-
-  guardarNoLocalStorage('TempThemes', selectedString);
-
-  root.setAttribute('data-theme', selectedString);
-}
+ new Theme().iniciar()
