@@ -18,7 +18,7 @@ class Theme {
       this.root.setAttribute('data-theme', temaSalvo);
   
       const op = document.createElement('option');
-      op.selecred = true;
+      op.selected = true;
       op.disabled = true;
       op.textContent = temaSalvo;
       op.style.color = 'green';
