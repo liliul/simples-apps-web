@@ -1,0 +1,34 @@
+[data-theme="temaBlack"] {
+    --background-color: #333;
+    --text-color: #fff;
+    --input-bg: #212121;
+    --button-bg: #07976c;
+  }
+
+[data-theme="massaRosa"] {
+    --background-color: #ce7095;
+    --text-color: #855e6e;
+    --input-bg: #ffdbd7;
+    --button-bg: #ce7095;
+}
+
+[data-theme="dracula"] {
+    --background-color: #262626;
+    --text-color: #E356A7;
+    --input-bg: #282A36;
+    --button-bg: #9B6BDF;
+}
+
+[data-theme="sorvete"] {
+    --background-color: #E7E6FB;
+    --text-color: #4e031e;
+    --input-bg: #05a1ad;
+    --button-bg: #E7E6FB;
+}
+
+[data-theme="geleia"] {
+    --background-color: #6D67D0;
+    --text-color: #723e4e;
+    --input-bg: #ef3353;
+    --button-bg: #f4b036;
+}

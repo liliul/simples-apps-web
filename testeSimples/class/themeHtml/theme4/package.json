@@ -1,0 +1,12 @@
+{
+  "name": "theme3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "sass --watch style/sass/index.scss:style/index.css & live-server --no-browser --port=8080"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
