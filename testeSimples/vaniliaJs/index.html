@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>vanilia-js.github.io</title>
+  <script type="module">
+    export let $ = (value = undefined, tag = undefined, effects = new Set(), range = document.createRange()) => {
+      let reload = (ctx, strs, vals) => ctx.replaceChildren(range.createContextualFragment(
+            strs.map((str, i) => str + (vals[i] ?? '')).join('')
+          )),
+          remove = (ctx) => ($ && effects.delete($)),
+          render = (ctx) => ($ = () => value(ctx), remove = value(ctx) || remove, $ = null)
+
+      typeof value === 'function' && (!tag ?
+        (render(), remove()) :
+        (!customElements.get(tag) && customElements.define(tag, class extends HTMLElement {
+          connectedCallback() { render(this) }
+          disconnectedCallback() { remove(this) }
+          html(strs, ...vals) { reload(this, strs, vals) }
+        })))
+        
+      return newValue => newValue === undefined ?
+        ($ && effects.add($), value) :
+        (queueMicrotask(() => effects.forEach($ => $())), value = newValue)
+    }
+    window['$'] = $
+  </script>
+  <script type="module" src="./main.js"></script>
+</head>
+<body>
+  <sample-counter></sample-counter>
+</body>
+</html>
+    </head>
+<body>
+  <!-- <button>0</button> -->
+</body>
+<!-- <script>
+  // kinda like reactive framework but one-liner:
+  const $ = (value, effects = new Set()) => newValue => newValue === undefined ? (effects.add($), value) : (effects.forEach($ => $()), value = newValue)
+
+  // usage:
+  let count = $(0)
+  document.querySelector('button').addEventListener('click', e => e.target.textContent = count(count() + 1))
+</script> -->
+</html>
