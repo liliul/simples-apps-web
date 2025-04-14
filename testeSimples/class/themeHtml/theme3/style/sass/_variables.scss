@@ -3,13 +3,15 @@
     --text-color: #fff;
     --input-bg: #212121;
     --button-bg: #07976c;
+    --button-text: #191919;
   }
 
 [data-theme="massaRosa"] {
-    --background-color: #ce7095;
+    --background-color: #ffdbd7;
     --text-color: #855e6e;
     --input-bg: #ffdbd7;
     --button-bg: #ce7095;
+    --button-text: #f7f1e1;
 }
 
 [data-theme="dracula"] {
@@ -17,6 +19,7 @@
     --text-color: #E356A7;
     --input-bg: #282A36;
     --button-bg: #9B6BDF;
+    --button-text: #FF5555;
 }
 
 [data-theme="sorvete"] {
@@ -24,6 +27,7 @@
     --text-color: #4e031e;
     --input-bg: #05a1ad;
     --button-bg: #E7E6FB;
+    --button-text: #5a4c6e;
 }
 
 [data-theme="geleia"] {
@@ -31,4 +35,5 @@
     --text-color: #723e4e;
     --input-bg: #ef3353;
     --button-bg: #f4b036;
+    --button-text: #6D67D0;
 }
