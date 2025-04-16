@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+    <style>
+        .sim{color: aquamarine;}
+        .nao{color: brown;}
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script>
+        class Class1 {
+            constructor(name, sobre) {
+                this.name = name 
+                this.sobre = sobre
+            }
+
+            Shinobi() {
+                console.log(`qual o nome do shinobi ${this.name} e sobre ${this.sobre}`)
+            }
+        }
+
+        class Class2 extends Class1 {
+            constructor(name, sobre, poder) {
+                super(name, sobre)
+                this.poder = poder
+            }
+            
+            Shinobi() {
+                console.log(`qual o nome do shinobi ${this.name} e sobre ${this.sobre}`)
+            }
+
+            Mais() {
+                console.log(`poder: ${this.poder}`);
+                
+            }
+
+            html() {
+                document.getElementById('root').innerHTML = `
+                    <p class="${this.name = 'naruto' ? 'sim' : 'nao'}">Naruto ${this.sobre} e poder: ${this.poder}</p>
+                `
+            }
+        }
+
+        // const rClass1 = new Class1('naruto','ninja')
+        // console.log(rClass1);
+
+        // rClass1.Shinobi()
+
+        const rClass2 = new Class2('naruto','ninja','resengan')
+        console.log(rClass2);
+
+        rClass2.Shinobi()
+        rClass2.html()
+    </script>
+</body>
+</html>
