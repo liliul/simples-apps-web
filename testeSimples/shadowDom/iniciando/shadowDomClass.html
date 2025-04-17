@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Shadow Dom</title>
+</head>
+<body>
+    <class-shadow id="classShadow">
+        <h1>Class & shadow Dom</h1>
+    </class-shadow>
+
+    <script>
+        class ShadowDom extends HTMLElement {
+            constructor() {
+                super(); // Chamada obrigatória para o construtor da classe pai
+                this._shadowRoot = this.attachShadow({ mode: 'open' }); // Anexa o Shadow DOM
+                this._mensagem = 'Olá eu sou o Goku';
+            }
+
+            // Métodos do componente (serão explicados abaixo)
+            connectedCallback() {
+                this._render();
+            }
+
+            static get observedAttributes() {
+                return ['mensagem']; // Lista de atributos a serem observados
+            }
+
+            attributeChangedCallback(name, oldValue, newValue) {
+                if (name === 'mensagem') {
+                this._mensagem = newValue;
+                this._render();
+                }
+            }
+
+            _render() {
+                this._shadowRoot.innerHTML = `
+                <style>
+                    :host {
+                    display: block;
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    }
+
+                    .mensagem {
+                    color: blue;
+                    font-weight: bold;
+                    }
+                </style>
+                <div class="mensagem">${this._mensagem}</div>
+                <slot></slot> <!- Para conteúdo inserido do DOM principal ->
+                `;
+            }
+        }
+        customElements.define('class-shadow', ShadowDom);
+    </script>
+</body>
+</html>

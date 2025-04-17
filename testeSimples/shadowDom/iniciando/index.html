@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Dom</title>
+    <style>
+        #root {
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+    <h1>Elemento fora do shadow dom</h1>
+    <section id="root">
+        <h2>shadow host</h2>
+    </section>
+
+    <script>
+        const hostElement = document.querySelector('#root');
+        const shadowRoot = hostElement.attachShadow({ mode: 'open' });
+        // const shadowRoot = hostElement.attachShadow({ mode: 'closed' });
+
+
+        shadowRoot.innerHTML = `
+            <style>
+                :host { /* Estilos para o elemento host */
+                display: block;
+                border: 1px solid blue;
+                padding: 10px;
+                }
+
+                .texto-interno { /* Estilos para elementos dentro do Shadow DOM */
+                color: green;
+                font-weight: bold;
+                }
+            </style>
+            <p class="texto-interno">Este texto está dentro do Shadow DOM!</p>
+            <slot></slot> <!- Para conteúdo do DOM principal ->
+
+
+            <div>
+                <ul>
+                    <li>
+                        <a href="./shadowDomClass.html">Class & Shadow Dom</a>
+                    </li>
+                </ul>
+            </div>
+        `;
+    </script>
+</body>
+</html>
