@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="ipu">Input teste</label>
+        <input type="text" id="ipu">
+    </div>
+
+    <script>
+        const input = document.querySelector('#ipu')
+
+        input.addEventListener('input', (e) => {
+            console.log(e.target.value);
+            
+        })
+    </script>
+</body>
+</html>
