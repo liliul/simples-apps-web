@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Api</title>
+</head>
+<body>
+    <article id="root"></article>
+
+    <script>
+
+        class Api {
+            constructor(url) {
+                this.url = url 
+            }
+
+            async build() {
+                const apiGithub = await this.getGithub()
+                
+                this.render(apiGithub.name, apiGithub.bio, apiGithub.company)
+            }
+
+            render(name, bio, company) {
+                const section = document.createElement('section')    
+                
+                section.innerHTML = `
+                    <h1>${name}</h1>
+                    <p>${bio}</p>
+                    <h3>${company}</h3>
+                `
+
+                document.getElementById('root').appendChild(section)
+            }
+
+            async getGithub() {
+                const req = await fetch(this.url)
+                const res = await req.json()
+
+                return res
+                
+            }
+        }
+
+        const api = new Api('https://api.github.com/users/maykbrito')
+        api.build()
+
+    </script>
+</body>
+</html>
