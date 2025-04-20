@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Api</title>
+</head>
+<body>
+    <article id="root"></article>
+
+    <script>
+
+        class ApiGithub {
+            async getGithub(url) {
+                try {
+                    const req = await fetch(url)
+                    if (!req.ok) {
+                        throw new Error(`Erro na requisição para o GitHub: ${req.status}`);
+                    }
+                    
+                    const res = await req.json()
+
+                    return res
+                } catch(e) {
+                    console.log(e)
+                }
+                
+            }
+        }
+
+        class Api extends ApiGithub {
+            constructor(url) {
+                super()
+                this.url = url
+            }
+
+            async build() {
+                try {
+                    const apiGithub = await this.getGithub(this.url)
+                    
+                    if (apiGithub.name && apiGithub.bio && apiGithub.company) {
+
+                        this.render(apiGithub.name, apiGithub.bio, apiGithub.company)
+                    
+                    } else {
+                        console.log('Erro nas infos do github name bio company')
+                        
+                    }
+                } catch(e) {
+                    console.log('Erro em apiGithub', e)
+                    
+                }
+                
+            }
+
+            render(name, bio, company) {
+                const section = document.createElement('section')    
+                
+                section.innerHTML = `
+                    <h1>${name}</h1>
+                    <p>${bio}</p>
+                    <h3>${company}</h3>
+                `
+
+                document.getElementById('root').appendChild(section)
+            }
+
+           
+        }
+
+        const api = new Api('https://api.github.com/users/maykbrito')
+        api.build()
+
+    </script>
+</body>
+</html>
