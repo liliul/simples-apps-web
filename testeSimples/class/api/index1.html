@@ -16,9 +16,22 @@
             }
 
             async build() {
-                const apiGithub = await this.getGithub()
+                try {
+                    const apiGithub = await this.getGithub()
+                    
+                    if (apiGithub.name && apiGithub.bio && apiGithub.company) {
+
+                        this.render(apiGithub.name, apiGithub.bio, apiGithub.company)
+                    
+                    } else {
+                        console.log('Erro nas infos do github name bio company')
+                        
+                    }
+                } catch(e) {
+                    console.log('Erro em apiGithub', e)
+                    
+                }
                 
-                this.render(apiGithub.name, apiGithub.bio, apiGithub.company)
             }
 
             render(name, bio, company) {
@@ -34,10 +47,18 @@
             }
 
             async getGithub() {
-                const req = await fetch(this.url)
-                const res = await req.json()
+                try {
+                    const req = await fetch(this.url)
+                    if (!req.ok) {
+                        throw new Error(`Erro na requisição para o GitHub: ${req.status}`);
+                    }
+                    
+                    const res = await req.json()
 
-                return res
+                    return res
+                } catch(e) {
+                    console.log(e)
+                }
                 
             }
         }
