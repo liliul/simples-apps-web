@@ -69,7 +69,7 @@
 
                 section.innerHTML = `
                     <div data-id="${index}">
-                        <h1>Nome: ${name} Sobrenome: ${sobre}</h1>
+                        <h1>Nome: ${name} Sobrenome: ${sobre ?? 'sem sobrenome'}</h1>
                         <h3>Vilar: ${vila}</h3>    
                     </div>
                 `
