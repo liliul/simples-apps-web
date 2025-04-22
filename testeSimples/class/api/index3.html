@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api via json</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script>
+        const Json = [
+            {
+                name: 'Naruto',
+                sobre: 'Uzumaki',
+                vila: 'konoha'
+            },
+            {
+                name: 'Som',
+                sobre: 'Goku',
+                vila: 'Terra'
+            },
+            {
+                name: 'Vegeta',
+                sobre: null,
+                vila: 'Vegeta'
+            },
+            {
+                name: 'Som',
+                sobre: 'Gohan',
+                vila: 'Terra'
+            },
+            {
+                name: 'Sasuke',
+                sobre: 'Uchiha',
+                vila: 'konoha'
+            }
+        ]
+    
+        class LendoJsonApi {
+            constructor (json) {
+                this.json = json 
+            }
+
+            build() {
+                this.renderJson()
+            }
+
+            renderJson() {
+                this.json.map((itens, index) => {
+                    this.render(itens.name, itens.sobre, itens.vila, index)
+                })
+            }
+
+            render(name, sobre, vila, index) {
+                const section = document.createElement('section')
+
+                section.innerHTML = `
+                    <div data-id="${index}">
+                        <h1>Nome: ${name} Sobrenome: ${sobre}</h1>
+                        <h3>Vilar: ${vila}</h3>    
+                    </div>
+                `
+
+                document.getElementById('root').appendChild(section)
+            }
+        }
+
+        const lendoJsonApi = new LendoJsonApi(Json)
+        lendoJsonApi.build()
+    </script>
+</body>
+</html>
