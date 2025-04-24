@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animais</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script>
+        class Animal {
+            constructor(nome) {
+                this.nome = nome;
+            }
+
+            fazerSom() {
+                console.log("Som genérico de animal");
+            }
+        }
+
+        class Cachorro extends Animal {
+            fazerSom() {
+                console.log("Au au!"); 
+            }
+        }
+
+        class Gato extends Animal {
+            fazerSom() {
+                console.log("Miau!"); 
+            }
+        }
+
+        const animalGenerico = new Animal("Bicho");
+        const meuCachorro = new Cachorro("Rex");
+        const meuGato = new Gato("Whiskers");
+
+        animalGenerico.fazerSom();  
+        meuCachorro.fazerSom();  
+        meuGato.fazerSom();     
+
+        
+        function fazerAnimalFalar(animal) {
+            // animal.fazerSom();
+            const div = document.createElement('div')
+            div.innerHTML += `
+                ${animal.fazerSom()}
+            `  
+            document.getElementById('root').appendChild(div)
+        }
+
+        fazerAnimalFalar(animalGenerico); 
+        fazerAnimalFalar(meuCachorro);  
+        fazerAnimalFalar(meuGato);     
+    </script>
+</body>
+</html>
