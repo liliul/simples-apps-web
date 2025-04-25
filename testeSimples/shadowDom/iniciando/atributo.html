@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atributo</title>
+</head>
+<body>
+    <atributo-shadow text="Naruto Atributos" cor="tomato">
+
+    </atributo-shadow>
+
+    <script>
+        class Atributo extends HTMLElement {
+            constructor() {
+                super();
+                this._shadowRoot = this.attachShadow({ mode: 'open' });
+
+            }
+
+            connectedCallback() {
+                this._render();
+            }
+
+            _render() {
+               const text = document.createElement('span')
+               text.setAttribute('class', 'cor-text')
+               text.textContent = this.getAttribute('text')
+
+               const style =document.createElement('style')
+               style.textContent = `
+                .cor-text {
+                    color: ${this.getAttribute('cor') || 'blue'};
+                }
+               `
+
+               this._shadowRoot.appendChild(style)
+               this._shadowRoot.appendChild(text)
+            }
+        }
+        customElements.define('atributo-shadow', Atributo);
+    </script>
+</body>
+</html>
