@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="root"></div>
+
+    <script>
+        class ApiGithub {
+            async getGithub(url) {
+                try {
+                    const req = await fetch(url)
+                    if (!req.ok) {
+                        throw new Error(`Erro na requisição para o GitHub: ${req.status}`);
+                    }
+                    
+                    const res = await req.json()
+
+                    return res
+                } catch(e) {
+                    console.log(e)
+                }
+                
+            }
+        }
+
+        class ApiInformacoesBasicaUsuarioGithub extends ApiGithub {
+            constructor(url) {
+                super()
+                this.url = url 
+            }
+
+            build() {
+                this.html()
+            }
+
+            async html() {
+                const api = await this.getGithub(this.url)
+
+                const article = document.createElement('article')
+                article.innerHTML = `
+                    <h1>Informações Basicas do Usuario do Github</h1>
+
+                    <p>Nome: <strong>${api.name}</strong></p>
+                    <p>Blog: <strong>${api.blog}</strong></p>
+                    <p>Company: <strong>${api.company}</strong></p>
+                    <p>local: <strong>${api.location}</strong></p>
+                `
+
+                document.getElementById('root').appendChild(article)
+            }
+        }
+
+        const api1 = new ApiInformacoesBasicaUsuarioGithub('https://api.github.com/users/maykbrito')
+        api1.build()
+
+
+        class ApiInformacoesDoRepositorioGithub extends ApiGithub {
+            constructor(url) {
+                super()
+                this.url = url 
+            }
+
+            build() {
+                this.html()
+            }
+
+            async html() {
+                const api = await this.getGithub(this.url)
+
+                let stylep = `
+                    font-size: 16px;
+                    color: tomato; 
+                `
+
+                api.map((repos, index) => {
+                    const section = document.createElement('section')
+                    section.innerHTML = `
+                        <h1>Informações do Repositorios do Github</h1>
+
+                        <h2>Repo: ${repos.name}</h2>
+                        <p style="${stylep}">Descrição: ${repos.description}</p>
+                    `
+
+                    document.getElementById('root').appendChild(section)
+                })
+            }
+        }
+
+        const api2 = new ApiInformacoesDoRepositorioGithub('https://api.github.com/users/maykbrito/repos')
+        api2.build()
+    </script>
+</body>
+</html>
