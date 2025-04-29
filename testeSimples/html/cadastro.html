@@ -23,18 +23,20 @@
         <div>
             <h1>Cadastro Simples</h1>
     
-            <input type="text" placeholder="Nome completo" id="id-nome">
-            <div>
-                <input type="number" placeholder="Idade" id="id-idade">
+            <form id="form">
+                <input type="text" name="nome" placeholder="Nome completo" id="id-nome">
 
-                <select name="genero" id="id-genero">
-                    <option default>Genero</option>
-                    <option value="0">Masculino</option>
-                    <option value="1">Feminino</option>
-                </select>
-            </div>
-            
-            <button id="id-submit">Enviar</button>
+                <div>
+                    <input type="number" name="idade" placeholder="Idade" id="id-idade">
+
+                    <select name="genero" id="id-genero">
+                        <option value="0">Masculino</option>
+                        <option value="1">Feminino</option>
+                    </select>
+                </div>
+                
+                <button id="id-submit">Enviar</button>
+            </form>
         </div>
     </section>
 
@@ -44,23 +46,23 @@
                 this.idNome = document.getElementById('id-nome')
                 this.idIdade = document.getElementById('id-idade')
                 this.idGenero = document.getElementById('id-genero')
+
+                this.form = document.getElementById('form')
             }
 
-            metodoNome() {
-                this.idNome.addEventListener('input', (event) => {
-                    console.log(event.target.value)
-                })
-            }
+            formData() {
+                this.form.addEventListener('submit', (event) =>  {
+                    event.preventDefault()
 
-            metodoIdade() {
-                this.idIdade.addEventListener('input', (event) => {       
-                    console.log(event.target.value)
-                })
-            }
+                    const formData = new FormData(this.form)
 
-            metodoGenero() {
-                this.idGenero.addEventListener('change', (event) => {
-                    console.log(Number(this.idGenero.value))
+                    const pegandoFormData = {
+                        nome: formData.get('nome'),
+                        idade: formData.get('idade'),
+                        genero: formData.get('genero')
+                    }
+
+                    console.log({pegandoFormData})
                 })
             }
         }
@@ -74,19 +76,8 @@
             }
 
             build() {
-                this.buttonEnviar()
+                this.formData()
             }
-
-            buttonEnviar() {
-                this.idSubmit.addEventListener('click', () => {
-                    console.log('sim')
-                    
-                    const metodos = [this.metodoNome(),this.metodoIdade(),this.metodoGenero()]
-                    console.log(metodos);
-                    
-                })
-            }
-            
         }
 
         const cadastro = new Cadastro()
