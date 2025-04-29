@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <style>
+        body {
+            margin: 10px;
+        }
+        #root {
+            width: 950px;
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 10px;
+            box-shadow: 3px 5px 8px rgba(0,0,0,0.15);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section id="root">
+        <div>
+            <h1>Cadastro Simples</h1>
+    
+            <input type="text" placeholder="Nome completo" id="id-nome">
+            <div>
+                <input type="number" placeholder="Idade" id="id-idade">
+
+                <select name="genero" id="id-genero">
+                    <option default>Genero</option>
+                    <option value="0">Masculino</option>
+                    <option value="1">Feminino</option>
+                </select>
+            </div>
+            
+            <button id="id-submit">Enviar</button>
+        </div>
+    </section>
+
+    <script>
+        class Inputs {
+            constructor() {
+                this.idNome = document.getElementById('id-nome')
+                this.idIdade = document.getElementById('id-idade')
+                this.idGenero = document.getElementById('id-genero')
+            }
+
+            metodoNome() {
+                this.idNome.addEventListener('input', (event) => {
+                    console.log(event.target.value)
+                })
+            }
+
+            metodoIdade() {
+                this.idIdade.addEventListener('input', (event) => {       
+                    console.log(event.target.value)
+                })
+            }
+
+            metodoGenero() {
+                this.idGenero.addEventListener('change', (event) => {
+                    console.log(Number(this.idGenero.value))
+                })
+            }
+        }
+
+
+        class Cadastro extends Inputs {
+            constructor() {
+                super()
+
+                this.idSubmit = document.getElementById('id-submit')
+            }
+
+            build() {
+                this.buttonEnviar()
+            }
+
+            buttonEnviar() {
+                this.idSubmit.addEventListener('click', () => {
+                    console.log('sim')
+                    
+                    const metodos = [this.metodoNome(),this.metodoIdade(),this.metodoGenero()]
+                    console.log(metodos);
+                    
+                })
+            }
+            
+        }
+
+        const cadastro = new Cadastro()
+        cadastro.build()
+    </script>
+</body>
+</html>
