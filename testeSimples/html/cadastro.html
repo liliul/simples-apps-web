@@ -41,6 +41,16 @@
     </section>
 
     <script>
+        class LocalStorage {
+            static setStorage(chave, item) {
+                window.localStorage.setItem(chave, JSON.stringify(item))
+            }
+
+            static getStorage(chave) {
+                JSON.parse(window.localStorage.getItem(chave))
+            }
+        }
+
         class Inputs {
             constructor() {
                 this.idNome = document.getElementById('id-nome')
