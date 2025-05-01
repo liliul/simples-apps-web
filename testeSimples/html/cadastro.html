@@ -41,15 +41,20 @@
     </section>
 
     <script>
+
         class LocalStorage {
             static setStorage(chave, item) {
                 window.localStorage.setItem(chave, JSON.stringify(item))
             }
 
             static getStorage(chave) {
-                JSON.parse(window.localStorage.getItem(chave))
+                return JSON.parse(window.localStorage.getItem(chave)) || []
             }
         }
+
+        let db = LocalStorage.getStorage('inputs') || []
+        console.log(db);
+        
 
         class Inputs {
             constructor() {
