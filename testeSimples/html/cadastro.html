@@ -77,7 +77,12 @@
                         genero: formData.get('genero')
                     }
 
-                    console.log({pegandoFormData})
+                    // console.log({pegandoFormData})
+
+                    db.push(pegandoFormData)
+
+                    LocalStorage.setStorage('inputs', db)
+
                 })
             }
         }
@@ -92,6 +97,12 @@
 
             build() {
                 this.formData()
+                // this.update()
+            }
+
+            update() {
+                console.log(db)
+                
             }
         }
 
