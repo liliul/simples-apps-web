@@ -102,6 +102,7 @@
                 })
 
                 this.metodoFetch()
+                this.metodoGetID(1)
             }
             async metodoFetch() {
                 const req = await fetch(`http://localhost:5139/api/Persons`)
@@ -203,6 +204,15 @@
                 
                     throw error; 
                 }
+            }
+
+            async metodoGetID(id) {
+                const req = await fetch(`http://localhost:5139/api/Persons/${id}`, {
+                    method: 'GET'
+                })
+                const res = await req.json()
+                console.log(res);
+                
             }
         }
 
