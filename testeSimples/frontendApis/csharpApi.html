@@ -92,7 +92,7 @@
             }
         }
         class ApiCsharp {
-            build() {
+            async build() {
                 Inputs.input()
                 Inputs.contentCards()
 
@@ -105,7 +105,7 @@
                     const remover = e.target.dataset.id
 
                     if (remover) {
-                        this.metodoDelete(remover)
+                        await this.metodoDelete(remover)
                     }
 
                     const editar = e.target.dataset.editar
@@ -126,7 +126,7 @@
                             }
                         })
 
-                        document.querySelector('#editar-enviar').addEventListener('click', () => {
+                        document.querySelector('#editar-enviar').addEventListener('click', async () => {
                             const nome = document.getElementById('editar-name')
                             const tipo = document.getElementById('editar-tipo')
 
@@ -148,19 +148,17 @@
                                 tipo: idTipo
                             }
 
-                            this.metodoPut(editar, enviar)
+                            await this.metodoPut(editar, enviar)
 
                             document.querySelector('.remove-editar').remove()
-
-                            // this.metodoFetch()
                         })
                     }
                 })
 
-                this.metodoFetch()
+                await this.metodoGet()
             }
 
-            async metodoFetch() {
+            async metodoGet() {
                 document.getElementById('content-cards').innerHTML = ""
 
                 const req = await fetch(`http://localhost:5139/api/Persons`)
@@ -221,7 +219,7 @@
                     nome.value = ''
                     tipo.value = ''
 
-                    this.metodoFetch()
+                    await this.metodoGet()
 
                 } catch (error) {
                     console.error("Erro no POST");
@@ -235,7 +233,7 @@
                         method: 'DELETE',
                     })
 
-                    setTimeout(() => { this.metodoFetch() }, 1000)
+                    setTimeout(async () => { await this.metodoGet() }, 1000)
 
                 } catch (error) {
                     console.error("Erro no Delete");
@@ -257,7 +255,7 @@
                     const res = await req.json()
                     console.log(`PUT Sucesso para ID ${id}:`, res)
 
-                    await this.metodoFetch();
+                    await this.metodoGet();
 
                     return res;
 
@@ -279,7 +277,6 @@
         }
 
         const apiCsharp = new ApiCsharp()
-        // apiCsharp.metodoFetch()
         apiCsharp.build()
     </script>
 </body>
