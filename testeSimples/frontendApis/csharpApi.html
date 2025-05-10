@@ -70,6 +70,13 @@
                 document.getElementById('root').appendChild(div)
             }
 
+            static contentCards() {
+                const article = document.createElement('article')
+                article.setAttribute('id', 'content-cards')
+
+                document.getElementById('root').appendChild(article)
+            }
+
             static inputEditar() {
                 const div = document.createElement('div')
                 div.classList.add('inputs')
@@ -87,6 +94,7 @@
         class ApiCsharp {
             build() {
                 Inputs.input()
+                Inputs.contentCards()
 
                 document.getElementById('enviar').addEventListener('click', () => {
                     this.metodoPost()
@@ -143,6 +151,8 @@
                             this.metodoPut(editar, enviar)
 
                             document.querySelector('.remove-editar').remove()
+
+                            this.metodoFetch()
                         })
                     }
                 })
@@ -166,7 +176,7 @@
                         <button data-editar="${itens.id}">editar</button>
                         <button data-id="${itens.id}">X</button>
                     `
-                    document.getElementById('root').appendChild(section)
+                    document.getElementById('content-cards').appendChild(section)
                 })
 
 
