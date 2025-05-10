@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{margin: 0;padding: 0;box-sizing: border-box;}
-        body{background-color: black;color: white;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+        }
 
         #root {
             width: 850px;
@@ -21,6 +30,7 @@
             border-radius: 10px;
             margin-top: 10px;
         }
+
         .inputs input {
             width: 40%;
             padding: 10px;
@@ -35,13 +45,15 @@
             margin: 10px 0px 10px 0px;
             padding: 10px;
         }
+
         .cards h1 {
             margin-bottom: 6px;
         }
     </style>
 </head>
+
 <body>
-    
+
     <div id="root"></div>
 
     <script>
@@ -57,6 +69,20 @@
 
                 document.getElementById('root').appendChild(div)
             }
+
+            static inputEditar() {
+                const div = document.createElement('div')
+                div.classList.add('inputs')
+                div.classList.add('remove-editar')
+                div.innerHTML = `
+                    <input type='text' id="editar-name" name="editar-name" placeholder="Editar Nome" />
+                    <input type='text' id="editar-tipo" name="editar-tipo" placeholder="Editar Tipo" />
+                    <button id="editar-enviar">Editar e enviar</button>
+                    <button id="cancelar-edicao">Cancelar</button>
+                `
+
+                document.querySelector('#root').appendChild(div)
+            }
         }
         class ApiCsharp {
             build() {
@@ -66,7 +92,7 @@
                     this.metodoPost()
                 })
 
-                document.querySelector('#root').addEventListener('click', (e) => {
+                document.querySelector('#root').addEventListener('click', async (e) => {
                     console.log(e.target.dataset.id);
                     const remover = e.target.dataset.id
 
@@ -74,43 +100,63 @@
                         this.metodoDelete(remover)
                     }
 
-                    const editar = e.target.dataset.editar 
+                    const editar = e.target.dataset.editar
                     if (editar) {
-                        const nome = document.getElementById('name')
-                        const tipo = document.getElementById('tipo')
+                        Inputs.inputEditar()
 
-                        if (!nome || !tipo) {
-                            console.error("Inputs nome e tipo não encontrado");
-                            return
-                        }
-                        
-                        const idNome = nome.value.trim()
-                        const idTipo = tipo.value.trim()
+                        const valueIdEdita = await this.metodoGetID(editar)
+                        console.log(valueIdEdita);
 
-                        if (!idNome || ! idTipo) {
-                            console.warn("idNome e idTipo nao pode estar vazios");
-                            return
-                        }
+                        document.getElementById('editar-name').value = valueIdEdita.nome
+                        document.getElementById('editar-tipo').value = valueIdEdita.tipo
 
-                        const enviar = {
-                            nome: idNome,
-                            tipo: idTipo
-                        }
 
-                        this.metodoPut(editar, enviar)
-                    }    
+                        document.getElementById('cancelar-edicao').addEventListener('click', () => {
+                            const editarDiv = document.querySelector('.remove-editar')
+                            if (editarDiv) {
+                                editarDiv.remove()
+                            }
+                        })
+
+                        document.querySelector('#editar-enviar').addEventListener('click', () => {
+                            const nome = document.getElementById('editar-name')
+                            const tipo = document.getElementById('editar-tipo')
+
+                            if (!nome || !tipo) {
+                                console.error("Inputs nome e tipo não encontrado")
+                                return
+                            }
+
+                            const idNome = nome.value.trim()
+                            const idTipo = tipo.value.trim()
+
+                            if (!idNome || !idTipo) {
+                                console.warn("idNome e idTipo nao pode estar vazios");
+                                return
+                            }
+
+                            const enviar = {
+                                nome: idNome,
+                                tipo: idTipo
+                            }
+
+                            this.metodoPut(editar, enviar)
+
+                            document.querySelector('.remove-editar').remove()
+                        })
+                    }
                 })
 
                 this.metodoFetch()
-                this.metodoGetID(1)
             }
+
             async metodoFetch() {
                 const req = await fetch(`http://localhost:5139/api/Persons`)
                 const res = await req.json()
-                
+
                 res.map((itens) => {
                     console.log(itens.length);
-                    
+
                     const section = document.createElement('section')
                     section.classList.add('cards');
                     // section.setAttribute('data-id', `${itens.id}`)
@@ -123,7 +169,7 @@
                     document.getElementById('root').appendChild(section)
                 })
 
-                
+
             }
 
             async metodoPost() {
@@ -134,11 +180,11 @@
                     console.error("Inputs nome e tipo não encontrado");
                     return
                 }
-                
+
                 const idNome = nome.value.trim()
                 const idTipo = tipo.value.trim()
 
-                if (!idNome || ! idTipo) {
+                if (!idNome || !idTipo) {
                     console.warn("idNome e idTipo nao pode estar vazios");
                     return
                 }
@@ -148,7 +194,7 @@
                     tipo: idTipo
                 }
                 console.log(enviar);
-                
+
                 try {
                     const req = await fetch(`http://localhost:5139/api/Persons`, {
                         method: 'POST',
@@ -162,7 +208,7 @@
 
                     nome.value = ''
                     tipo.value = ''
-                    
+
                 } catch (error) {
                     console.error("Erro no POST");
                 }
@@ -174,7 +220,7 @@
                     const req = await fetch(`http://localhost:5139/api/Persons/${id}`, {
                         method: 'DELETE',
                     })
-                    
+
                 } catch (error) {
                     console.error("Erro no Delete");
                 }
@@ -182,13 +228,13 @@
 
             async metodoPut(id, dados) {
                 try {
-                    const req = await fetch(`http://localhost:5139/api/Persons/${id}`, { 
-                        method: 'PUT', 
+                    const req = await fetch(`http://localhost:5139/api/Persons/${id}`, {
+                        method: 'PUT',
                         headers: {
-                            'Content-Type': 'application/json' 
-                        
+                            'Content-Type': 'application/json'
+
                         },
-                        body: JSON.stringify(dados) 
+                        body: JSON.stringify(dados)
                     });
 
 
@@ -197,12 +243,12 @@
 
                     // await this.metodoFetch(); 
 
-                    return res; 
+                    return res;
 
                 } catch (error) {
                     console.error(`Erro inesperado no PUT para ID ${id}:`, error.message || error)
-                
-                    throw error; 
+
+                    throw error;
                 }
             }
 
@@ -211,8 +257,8 @@
                     method: 'GET'
                 })
                 const res = await req.json()
-                console.log(res);
-                
+                return res;
+
             }
         }
 
@@ -221,4 +267,5 @@
         apiCsharp.build()
     </script>
 </body>
+
 </html>
