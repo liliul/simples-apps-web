@@ -152,7 +152,7 @@
 
                             document.querySelector('.remove-editar').remove()
 
-                            this.metodoFetch()
+                            // this.metodoFetch()
                         })
                     }
                 })
@@ -161,6 +161,8 @@
             }
 
             async metodoFetch() {
+                document.getElementById('content-cards').innerHTML = ""
+
                 const req = await fetch(`http://localhost:5139/api/Persons`)
                 const res = await req.json()
 
@@ -219,6 +221,8 @@
                     nome.value = ''
                     tipo.value = ''
 
+                    this.metodoFetch()
+
                 } catch (error) {
                     console.error("Erro no POST");
                 }
@@ -230,6 +234,8 @@
                     const req = await fetch(`http://localhost:5139/api/Persons/${id}`, {
                         method: 'DELETE',
                     })
+
+                    setTimeout(() => { this.metodoFetch() }, 1000)
 
                 } catch (error) {
                     console.error("Erro no Delete");
@@ -251,7 +257,7 @@
                     const res = await req.json()
                     console.log(`PUT Sucesso para ID ${id}:`, res)
 
-                    // await this.metodoFetch(); 
+                    await this.metodoFetch();
 
                     return res;
 
