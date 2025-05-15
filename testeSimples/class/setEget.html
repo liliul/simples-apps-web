@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SET & GET</title>
+    <style>
+        body {
+            background-color: #262626;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        class Carrinho {
+            constructor() {
+                this._itens = []
+            }
+
+            adicionarItem(produto, preco, quantidade = 1) {
+                this._itens.push({ produto, preco, quantidade })
+            }
+
+            get totalItens() {
+                return this._itens.reduce((soma, item) => soma + item.quantidade, 0)
+            }
+
+            get totalCompra() {
+                return this._itens.reduce((total, item) => total + item.preco * item.quantidade, 0)
+            }
+
+            get totalFormatado() {
+                return `R$ ${this.totalCompra.toFixed(2).replace('.', ',')}`
+            }
+
+            set aplicarDesconto(percentual) {
+                if (percentual < 0 || percentual > 100) {
+                console.warn("Percentual inválido. Deve estar entre 0 e 100.")
+                return
+                }
+                this._itens = this._itens.map(item => ({
+                ...item,
+                preco: item.preco * (1 - percentual / 100)
+                }))
+            }
+
+            mostrarItens() {
+                this._itens.forEach(item => {
+                console.log(`${item.quantidade}x ${item.produto} - R$ ${item.preco.toFixed(2)}`)
+                });
+            }
+        }
+
+            const carrinho = new Carrinho()
+
+            carrinho.adicionarItem("Notebook", 3500, 1)
+            carrinho.adicionarItem("Mouse", 120, 2)
+            carrinho.adicionarItem("Teclado", 200, 1)
+
+            console.log("Itens no carrinho:")
+            carrinho.mostrarItens()
+
+            console.log("\nTotal de itens:", carrinho.totalItens)
+            console.log("Total sem desconto:", carrinho.totalFormatado)
+
+            carrinho.aplicarDesconto = 10
+
+            console.log("\nTotal COM desconto:", carrinho.totalFormatado)
+
+    </script>
+</body>
+</html>
