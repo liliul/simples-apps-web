@@ -57,6 +57,133 @@
     <div id="root"></div>
 
     <script>
+        // class Mensagem {
+        //     mensagem(txt, cor = "green") {
+        //         const divMensagem = document.createElement('div')
+
+        //         divMensagem.textContent = txt 
+        //         // divMensagem.style.color = cor 
+
+        //         divMensagem.style.width = "300px"
+        //         divMensagem.style.height = "105px"
+        //         divMensagem.style.position = "fixed"
+        //         divMensagem.style.top = "15px"
+        //         divMensagem.style.right = "25px"
+        //         divMensagem.style.display = "grid"
+        //         divMensagem.style.placeItems = "center"
+
+        //         divMensagem.style.borderRadius = "5px"
+        //         // divMensagem.style.backgroundColor = "#999"
+
+        //         divMensagem.style.color = "white"
+        //         divMensagem.style.fontWeight = "bold"
+        //         divMensagem.style.boxShadow = "0 0 10px rgba(0,0,0,0.3)"
+        //         divMensagem.style.opacity = "0"
+        //         divMensagem.style.transform = "translateY(-20px)"
+        //         divMensagem.style.transition = "all 0.5s ease"
+
+        //         switch (cor) {
+        //             case "green":
+        //                 divMensagem.style.backgroundColor = "#4CAF50" 
+        //                 break
+        //             case "red":
+        //                 divMensagem.style.backgroundColor = "#f44336" 
+        //                 break
+        //             case "orange":
+        //                 divMensagem.style.backgroundColor = "#FF9800" 
+        //                 break
+        //             default:
+        //                 divMensagem.style.backgroundColor = "#333"
+        //         }
+
+        //         document.body.appendChild(divMensagem)
+
+        //         requestAnimationFrame(() => {
+        //             divMensagem.style.opacity = "1"
+        //             divMensagem.style.transform = "translateY(0)"
+        //         })
+
+        //         setTimeout(() => {
+        //             divMensagem.style.opacity = "0"
+        //             divMensagem.style.transform = "translateY(-20px)"
+        //             setTimeout(() => divMensagem.remove(), 500)
+        //         }, 4000)
+
+        //         // document.getElementById('root').prepend(divMensagem)
+        //         // setTimeout(() => { divMensagem.remove() }, 5000)
+        //     }
+        // }
+
+        class Mensagem {
+            constructor() {
+                this.container = document.getElementById("toast-container")
+                if (!this.container) {
+                    this.container = document.createElement("div")
+                    this.container.id = "toast-container"
+                    this.container.style.position = "fixed"
+                    this.container.style.top = "20px"
+                    this.container.style.right = "20px"
+                    this.container.style.zIndex = "9999"
+                    this.container.style.display = "flex"
+                    this.container.style.flexDirection = "column"
+                    this.container.style.gap = "10px"
+                    document.body.appendChild(this.container)
+                }
+            }
+
+            mensagem(txt, tipo = "sucesso") {
+                const div = document.createElement("div")
+                div.classList.add("toast")
+                div.style.display = "flex"
+                div.style.alignItems = "center"
+                div.style.padding = "12px 18px"
+                div.style.borderRadius = "8px"
+                div.style.minWidth = "250px"
+                div.style.maxWidth = "320px"
+                div.style.boxShadow = "0 0 10px rgba(0,0,0,0.3)"
+                div.style.gap = "12px"
+                div.style.color = "white"
+                div.style.opacity = "0"
+                div.style.transform = "translateX(100%)"
+                div.style.transition = "all 0.4s ease"
+
+                let bgColor, icon
+                switch (tipo) {
+                    case "erro":
+                        bgColor = "#f44336"
+                        icon = "❌"
+                        break
+                    case "aviso":
+                        bgColor = "#ff9800"
+                        icon = "⚠️"
+                        break
+                    case "sucesso":
+                    default:
+                        bgColor = "#4CAF50"
+                        icon = "✅"
+                }
+
+                div.style.backgroundColor = bgColor
+                div.innerHTML = `<span style="font-size: 20px;">${icon}</span><span style="flex: 1">${txt}</span>`
+
+                this.container.appendChild(div)
+
+                // animação de entrada
+                requestAnimationFrame(() => {
+                    div.style.opacity = "1"
+                    div.style.transform = "translateX(0)"
+                })
+
+                // animação de saída após 4s
+                setTimeout(() => {
+                    div.style.opacity = "0"
+                    div.style.transform = "translateX(100%)"
+                    setTimeout(() => div.remove(), 500)
+                }, 4000)
+            }
+        }
+
+
         class Inputs {
             static input() {
                 const div = document.createElement('div')
@@ -91,7 +218,11 @@
                 document.querySelector('#root').appendChild(div)
             }
         }
-        class ApiCsharp {
+        class ApiCsharp extends Mensagem {
+            constructor() {
+                super()
+            }
+
             async build() {
                 Inputs.input()
                 Inputs.contentCards()
@@ -217,6 +348,8 @@
 
                     await this.metodoGet()
 
+                    this.mensagem('Tarefa Criando com sucesso', 'aviso')
+
                 } catch (error) {
                     console.error("Erro no POST");
                 }
@@ -230,6 +363,8 @@
                     })
 
                     setTimeout(async () => { await this.metodoGet() }, 1000)
+
+                    this.mensagem('Deletando com Sucesso!', 'erro')
 
                 } catch (error) {
                     console.error("Erro no Delete");
@@ -251,6 +386,8 @@
                     const res = await req.json()
 
                     await this.metodoGet();
+
+                    this.mensagem('Update sucesso', 'sucesso')
 
                     return res;
 
