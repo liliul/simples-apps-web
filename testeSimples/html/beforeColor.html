@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .circle::before {
+            content: "";
+            display: inline-block;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            background-color: var(--circle-color, gray);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="circles-container">
+        <span class="circle">javascript</span>
+        <span class="circle">typescript</span>
+        <span class="circle">golang</span>
+        <span class="circle">c/c++</span>
+    </div>
+
+    <script>
+        document.querySelectorAll('.circle').forEach((el, i) => {
+            const colors = ['red', 'blue', 'green', 'purple'];
+            el.style.setProperty('--circle-color', colors[i % colors.length]);
+        });
+
+    </script>
+</body>
+
+</html>
