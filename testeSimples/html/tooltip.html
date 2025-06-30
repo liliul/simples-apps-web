@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooltip Personalizado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            position: relative; /* Importante para o posicionamento absoluto do tooltip */
+            display: inline-block; /* Para que o hover funcione apenas no link */
+        }
+
+        .my-link {
+            color: #007bff;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .custom-tooltip {
+            visibility: hidden; /* Esconde o tooltip por padrão */
+            opacity: 0; /* Para transição de opacidade */
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 12px;
+            position: absolute;
+            z-index: 1; /* Garante que o tooltip fique acima de outros elementos */
+            bottom: 125%; /* Posiciona acima do link */
+            left: 50%;
+            transform: translateX(-50%); /* Centraliza horizontalmente */
+            white-space: nowrap; /* Impede que o texto quebre linha */
+            transition: opacity 0.3s ease, visibility 0.3s ease; /* Transição suave */
+            pointer-events: none; /* Permite clicar no elemento abaixo do tooltip */
+        }
+
+        .custom-tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%; /* Posiciona a seta abaixo do tooltip */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent; /* Cria uma seta */
+        }
+
+        /* Mostra o tooltip quando o container é hoverado */
+        .container:hover .custom-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="#" class="my-link">Passe o mouse aqui</a>
+        <span class="custom-tooltip">Esta é uma dica de ferramenta personalizada!</span>
+    </div>
+
+</body>
+</html>
