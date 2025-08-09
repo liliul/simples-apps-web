@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simulador do pulo do Mario (Super Mario-like)</title>
+  <style>
+    :root{--bg:#7ec0ff;--ground:#6bb24b;--mario:#e85b3a}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
+    .wrap{display:flex;height:100vh;gap:12px;padding:12px;box-sizing:border-box}
+    canvas{background:linear-gradient(#7ec0ff 0%, #a0d8ff 60%);border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.15)}
+    .panel{width:340px;display:flex;flex-direction:column;gap:10px}
+    .card{background:#fff;padding:10px;border-radius:8px;box-shadow:0 3px 8px rgba(0,0,0,0.06)}
+    label{font-size:13px;color:#333}
+    input[type=range]{width:100%}
+    .row{display:flex;gap:8px;align-items:center}
+    .btn{padding:8px 12px;border-radius:8px;border:0;background:#2b7cff;color:#fff;cursor:pointer}
+    .small{font-size:12px;color:#555}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <canvas id="c"></canvas>
+    <div class="panel">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>Simulação: pulo do Mario</strong>
+          <div class="small">Pressione <kbd>Space</kbd> ou clique</div>
+        </div>
+        <p class="small">Mecânicas implementadas: gravidade, 'hold-to-jump' (segurar para pulo maior), coyote time e buffer de salto para resposta parecida com jogos de plataforma.</p>
+      </div>
+
+      <div class="card">
+        <label>Gravidade (<span id="gVal">2000</span> px/s²)</label>
+        <input id="g" type="range" min="400" max="5000" value="2000">
+        <label>Velocidade inicial do pulo (<span id="jVal">700</span> px/s)</label>
+        <input id="j" type="range" min="200" max="1200" value="700">
+        <label>Tempo máximo de hold (segundos) (<span id="hVal">0.15</span>s)</label>
+        <input id="h" type="range" min="0" max="0.4" step="0.01" value="0.15">
+        <label>Fator de redução de gravidade ao segurar (0-1) (<span id="fVal">0.5</span>)</label>
+        <input id="f" type="range" min="0.05" max="1" step="0.01" value="0.5">
+      </div>
+
+      <div class="card">
+        <div class="row">
+          <button id="reset" class="btn">Resetar</button>
+          <button id="single" class="btn" style="background:#4caf50">Pular 1x</button>
+        </div>
+        <div class="small" style="margin-top:8px">Coyote time e buffer ajudam a deixar o pulo mais "responsivo" (0.1s por padrão).</div>
+      </div>
+
+      <div class="card">
+        <strong>Estatísticas</strong>
+        <div class="stats small" style="margin-top:8px">
+          <div>Y: <span id="py">0</span> px</div>
+          <div>Vy: <span id="pvy">0</span> px/s</div>
+          <div>Em solo: <span id="onGround">true</span></div>
+          <div>Maior altura: <span id="maxH">0</span> px</div>
+        </div>
+      </div>
+
+      <div class="card small">
+        Quer que eu adicione: sprites, colisões com inimigos, múltiplos saltos, ou exportar como arquivo? Diga qual recurso quer em seguida.
+      </div>
+    </div>
+  </div>
+
+<script>
+(() => {
+  // Canvas setup
+  const canvas = document.getElementById('c');
+  const ctx = canvas.getContext('2d');
+  function resize() {
+    canvas.width = Math.min(window.innerWidth - 400, 1000);
+    canvas.height = window.innerHeight - 40;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  // Controls
+  const gEl = document.getElementById('g');
+  const jEl = document.getElementById('j');
+  const hEl = document.getElementById('h');
+  const fEl = document.getElementById('f');
+  const gVal = document.getElementById('gVal');
+  const jVal = document.getElementById('jVal');
+  const hVal = document.getElementById('hVal');
+  const fVal = document.getElementById('fVal');
+
+  function readControls(){
+    return {
+      gravity: Number(gEl.value),
+      jumpSpeed: Number(jEl.value),
+      maxHold: Number(hEl.value),
+      holdGravityFactor: Number(fEl.value)
+    }
+  }
+  [gEl,jEl,hEl,fEl].forEach(s => s.addEventListener('input', () => {
+    gVal.textContent = gEl.value;
+    jVal.textContent = jEl.value;
+    hVal.textContent = Number(hEl.value).toFixed(2);
+    fVal.textContent = Number(fEl.value).toFixed(2);
+  }));
+
+  // Player
+  const player = {
+    x: 120,
+    y: 0,
+    w: 36,
+    h: 48,
+    vy: 0,
+    color: getComputedStyle(document.documentElement).getPropertyValue('--mario') || '#e85b3a'
+  };
+
+  let lastTime = performance.now();
+  const groundOffset = 80;
+  function groundY(){ return canvas.height - groundOffset }
+
+  // Jump niceties
+  const COYOTE_TIME = 0.12; // segundos
+  const JUMP_BUFFER = 0.12;
+  let coyoteTimer = 0;
+  let jumpBufferTimer = 0;
+  let holdingJump = false;
+  let holdTimer = 0;
+
+  // Debug
+  const py = document.getElementById('py');
+  const pvy = document.getElementById('pvy');
+  const onGroundEl = document.getElementById('onGround');
+  const maxHEl = document.getElementById('maxH');
+  let maxHeight = 0;
+
+  // Input
+  window.addEventListener('keydown', e => {
+    if(e.code === 'Space') {
+      e.preventDefault();
+      pressJump();
+    }
+  });
+  window.addEventListener('keyup', e => {
+    if(e.code === 'Space') {
+      releaseJump();
+    }
+  });
+  canvas.addEventListener('pointerdown', (e) => { pressJump(); });
+  canvas.addEventListener('pointerup', (e) => { releaseJump(); });
+
+  document.getElementById('reset').addEventListener('click', () => {
+    player.y = 0; player.vy = 0; maxHeight = 0; updateStats();
+  });
+  document.getElementById('single').addEventListener('click', ()=>{ pressJump(); setTimeout(releaseJump, 120)});
+
+  function pressJump(){
+    jumpBufferTimer = JUMP_BUFFER; // allow jump in next frames
+    holdingJump = true;
+    holdTimer = 0;
+  }
+  function releaseJump(){ holdingJump = false; }
+
+  function isOnGround(){
+    return player.y + player.h >= groundY() - 0.001;
+  }
+
+  function updateStats(){
+    py.textContent = Math.round(player.y);
+    pvy.textContent = Math.round(player.vy);
+    onGroundEl.textContent = isOnGround();
+    maxHEl.textContent = Math.round(maxHeight);
+  }
+
+  function step(dt){
+    const c = readControls();
+
+    // timers
+    if(!isOnGround()) coyoteTimer -= dt; else coyoteTimer = COYOTE_TIME;
+    jumpBufferTimer -= dt;
+
+    // If we have a jump buffered and we can jump, perform it
+    if(jumpBufferTimer > 0 && coyoteTimer > 0){
+      // do an initial impulse
+      player.vy = -c.jumpSpeed;
+      player.y = Math.min(player.y, groundY()-player.h - 0.001);
+      jumpBufferTimer = 0;
+      coyoteTimer = 0; // consume
+      holdingJump = true;
+      holdTimer = 0;
+    }
+
+    // Gravity: allow reduced gravity while holding jump (variable jump height)
+    let gravityThisFrame = c.gravity;
+    if(holdingJump && holdTimer < c.maxHold && player.vy < 0) {
+      gravityThisFrame *= c.holdGravityFactor; // less pull while holding
+      holdTimer += dt;
+    }
+
+    player.vy += gravityThisFrame * dt;
+    player.y += player.vy * dt;
+
+    // ground collision
+    if(player.y + player.h > groundY()){
+      player.y = groundY() - player.h;
+      if(player.vy > 0) player.vy = 0;
+    }
+
+    // track max height above ground
+    const heightAbove = groundY() - (player.y + player.h);
+    if(heightAbove > maxHeight) maxHeight = Math.round(heightAbove);
+
+    updateStats();
+  }
+
+  function draw(){
+    const g = ctx; const w = canvas.width; const h = canvas.height;
+    // sky is from CSS; we draw ground and player
+    g.clearRect(0,0,w,h);
+
+    // ground
+    g.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--ground') || '#6bb24b';
+    g.fillRect(0, groundY(), w, groundOffset);
+
+    // platform example
+    g.fillStyle = '#b97b50';
+    g.fillRect(420, groundY()-120, 140, 16);
+
+    // draw player (simple rounded rectangle)
+    const pr = player;
+    const corner = 6;
+    g.fillStyle = pr.color;
+    roundRect(g, pr.x, pr.y, pr.w, pr.h, corner);
+    g.fill();
+
+    // eyes (tiny)
+    g.fillStyle = '#111';
+    g.fillRect(pr.x + pr.w*0.55, pr.y + pr.h*0.25, 3, 3);
+
+    // debug line for ground
+    g.strokeStyle = 'rgba(0,0,0,0.06)';
+    g.beginPath(); g.moveTo(0, groundY()); g.lineTo(w, groundY()); g.stroke();
+  }
+
+  function roundRect(ctx,x,y,w,h,r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y);
+    ctx.arcTo(x+w,y,x+w,y+h,r);
+    ctx.arcTo(x+w,y+h,x,y+h,r);
+    ctx.arcTo(x,y+h,x,y,r);
+    ctx.arcTo(x,y,x+w,y,r);
+    ctx.closePath();
+  }
+
+  function loop(now){
+    const dt = Math.min(0.033, (now - lastTime)/1000);
+    lastTime = now;
+
+    step(dt);
+    draw();
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+})();
+</script>
+</body>
+</html>
