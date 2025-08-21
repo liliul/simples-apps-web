@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>mensagem</title>
+
+	<!-- <style>
+		.msg {
+			position: absolute;
+			top: 50px;
+			right: 50px;
+
+			width: 500px;
+			padding: 40px;
+
+			border: 1px solid black;
+			text-align: center;
+		}
+
+		#excluir {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			font-size: 16px;
+
+		}
+	</style> -->
+
+	<!-- <style>
+  .msg {
+    position: relative;
+    margin: 10px;
+    padding: 15px;
+    background: #333;
+    color: #fff;
+    border-radius: 8px;
+    width: 300px;
+    font-family: sans-serif;
+  }
+
+  .msg h1 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .msg .excluir {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  /* Barra de progresso */
+  .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    background: limegreen;
+    width: 100%;
+    transition: width linear;
+  }
+</style> -->
+
+
+<style>
+  .msg {
+    position: relative;
+    margin: 10px;
+    padding: 15px;
+    background: #333;
+    color: #fff;
+    border-radius: 8px;
+    width: 300px;
+    font-family: sans-serif;
+    overflow: hidden;
+  }
+
+  .msg h1 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .msg .excluir {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  /* Barra de progresso */
+  .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    background: limegreen;
+    width: 100%;
+    transition: width linear;
+  }
+</style>
+</head>
+<body>
+
+
+	<button id="mostrar-mensagem">mostar mensagem</button>
+
+	<script>
+		// document.getElementById('mostrar-mensagem').addEventListener('click', (e) => {
+		
+		// 	function message(text) {
+
+		// 		const div = document.createElement('div')
+		// 		div.setAttribute('id', 'container-message')
+		// 		div.classList.add('msg')
+
+		// 		div.innerHTML = `
+		// 			<span id="excluir" title="excluir">x</span>
+		// 			<h1>${text}</h1>
+		// 		`
+
+		// 		div.querySelector('#excluir').addEventListener('click', () => {
+		// 	        div.remove();
+		// 	      });
+		// 		document.querySelector('body').appendChild(div)
+		// 	}
+
+		// 	message('Notificação Mensagem')
+
+		// })
+	// 	let counter= 0
+	// 	document.getElementById('mostrar-mensagem').addEventListener('click', () => {
+
+	// 	    function message(text, duration = 5000) {
+	// 	      const div = document.createElement('div');
+	// 	      div.setAttribute('data-counter',`${counter++}`)
+	// 	      div.classList.add('msg');
+
+	// 	      div.innerHTML = `
+	// 	        <span class="excluir" title="excluir">x</span>
+	// 	        <h1>${text}</h1>
+	// 	        <div class="progress"></div>
+	// 	      `;
+
+	// 	      document.body.appendChild(div);
+
+	// 	      div.querySelector('.excluir').addEventListener('click', () => {
+	// 	        div.remove();
+	// 	      });
+
+	// 	      // Barra de progresso
+	// 	      const progress = div.querySelector('.progress');
+	// 	      progress.style.transitionDuration = duration + 'ms';
+	// 	      requestAnimationFrame(() => { 
+	// 	        progress.style.width = "0%";
+	// 	      });
+
+	// 	      setTimeout(() => {
+	// 	        div.remove();
+	// 	      }, duration);
+	// 	    }
+
+	// 	    message('Notificação com progresso', 5000); 
+	  // });
+
+
+
+		document.getElementById('mostrar-mensagem').addEventListener('click', () => {
+    function message(text, duration = 5000) {
+      const div = document.createElement('div');
+      div.classList.add('msg');
+
+      div.innerHTML = `
+        <span class="excluir" title="excluir">x</span>
+        <h1>${text}</h1>
+        <div class="progress"></div>
+      `;
+
+      document.body.appendChild(div);
+
+      const progress = div.querySelector('.progress');
+      const closeBtn = div.querySelector('.excluir');
+
+      let start = Date.now();
+      let remaining = duration;
+      let timeoutId;
+
+      function startTimer() {
+        progress.style.transitionDuration = remaining + 'ms';
+        progress.style.width = "0%";
+
+        timeoutId = setTimeout(() => {
+          div.remove();
+        }, remaining);
+      }
+
+      function pauseTimer() {
+        clearTimeout(timeoutId);
+        const elapsed = Date.now() - start;
+        remaining -= elapsed;
+
+        // Congela o estado da barra
+        const computedStyle = window.getComputedStyle(progress);
+        progress.style.transitionDuration = "0ms";
+        progress.style.width = computedStyle.width;
+      }
+
+      function resumeTimer() {
+        start = Date.now();
+        requestAnimationFrame(() => {
+          startTimer();
+        });
+      }
+
+      // Inicia o timer
+      startTimer();
+
+      // Hover pausa o progresso
+      div.addEventListener("mouseenter", pauseTimer);
+      div.addEventListener("mouseleave", resumeTimer);
+
+      // Fechar manualmente
+      closeBtn.addEventListener('click', () => {
+        clearTimeout(timeoutId);
+        div.remove();
+      });
+    }
+
+    message('Notificação com pausa no hover', 5000);
+  });
+	</script>
+</body>
+</html>
