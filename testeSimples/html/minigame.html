@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minigame de Bolhas</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    .bubble {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: rgba(0, 255, 0, 0.7);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // Cria bolhas aleatórias na tela
+    const numBubbles = 9;
+    const bubbles = [];
+
+    for (let i = 0; i < numBubbles; i++) {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      bubble.style.left = `${Math.random() * window.innerWidth}px`;
+      bubble.style.top = `${Math.random() * window.innerHeight}px`;
+      document.body.appendChild(bubble);
+      bubbles.push(bubble);
+    }
+
+    let expandedClickArea = false; // Controla o tamanho expandido da área de clique
+
+    // Função para detectar se uma bolha está dentro da área expandida do clique
+    function isInsideClickArea(x, y, bubble) {
+      const bubbleRect = bubble.getBoundingClientRect();
+      const radius = expandedClickArea ? window.innerWidth : window.innerWidth; // Tamanho maior da área de clique
+      const dx = (bubbleRect.left + bubbleRect.width / 2) - x;
+      const dy = (bubbleRect.top + bubbleRect.height / 2) - y;
+      return Math.sqrt(dx * dx + dy * dy) <= radius;
+    }
+
+    // Evento de clique no documento
+    document.addEventListener('click', (event) => {
+      const x = event.clientX;
+      const y = event.clientY;
+
+      expandedClickArea = true;  // Expande o tamanho da área de clique após o primeiro clique
+
+      // Verifica quais bolhas foram clicadas
+      bubbles.forEach(bubble => {
+        if (isInsideClickArea(x, y, bubble)) {
+          bubble.style.backgroundColor = 'rgba(255, 0, 0, 0.7)'; // Altera a cor da bolha clicada
+        }
+      });
+
+      // Reseta o estado após o clique
+      setTimeout(() => {
+        expandedClickArea = false; // Reseta o tamanho da área de clique
+      }, 500);
+    });
+  </script>
+</body>
+</html>
