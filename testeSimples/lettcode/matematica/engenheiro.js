@@ -14,8 +14,24 @@ engenheiro 1: 6 dias, numa jornada de 2 horas e meia por dia;
 Qual a maior diferença, em real, entre os valores recebidos por esse serviço entre dois desses engenheiros?
 */
 
+let diasEhoras = [
+	{
+		dias: 4,
+		hora: 5.5
+	},
+	{
+		dias: 5,
+		hora: 4
+	},
+	{
+		dias: 6,
+		hora: 2.5
+	}
+]
 
-function salarioProporcional(valorTotal, porcentagemPagaParaOsEngenheirosDoValorTotal) {
+salarioProporcional(71250, 40, diasEhoras)
+
+function salarioProporcional(valorTotal, porcentagemPagaParaOsEngenheirosDoValorTotal, diasEhoras) {
 	console.log('Calculando quanto cada engenheiro vão ganhar por dias e horas trabalhados (Proporcional).')
 	console.log('-')
 
@@ -25,7 +41,7 @@ function salarioProporcional(valorTotal, porcentagemPagaParaOsEngenheirosDoValor
 	console.log('-')
 
 	console.log('Calculando dias e horas trabalhados')
-	const resultadoDiasHoras = calculandoDiasEhorasComResultadoDaPorcentagem()
+	const resultadoDiasHoras = calculandoDiasEhorasComResultadoDaPorcentagem(diasEhoras)
 	console.log('Resultado da multiplicação de dias e horas trabalhados')
 	console.log('R: ', resultadoDiasHoras)
 	console.log('-')
@@ -50,15 +66,20 @@ function salarioProporcional(valorTotal, porcentagemPagaParaOsEngenheirosDoValor
 	const resultadoFinal = calcularQuantoCadaEngenheiroGanhaPorDia.map((item, index) => {
 		console.log(index + 1, 'primeiro engenheiro vai ganhar: ', item)
 	})
+	console.log('-')
+
+	console.log('Mais: Qual a maior diferença, em real, entre os valores recebidos por esse serviço entre dois desses engenheiros?')
+	const numMaior = Math.max(...calcularQuantoCadaEngenheiroGanhaPorDia)
+	const numMenor = Math.min(...calcularQuantoCadaEngenheiroGanhaPorDia)
+	console.log(`Numero: ${calcularQuantoCadaEngenheiroGanhaPorDia}. maximo: ${numMaior} minimo: ${numMenor}`)
+
+	const diminuir = numMaior - numMenor
+	console.log('Resultado: ', diminuir)
 
 }
-salarioProporcional(71250, 40)
 
 function calcularDiasEhorasTrabalhados(dias, horas) {
-	//console.log('Calculando dias e horas trabalhados')
-
 	const diasXhoras = dias * horas 
-	const resulatadoDiasXhoras = `Resultado de dias e horas trabalhados: ${diasXhoras}`
 
 	return diasXhoras
 }
@@ -69,30 +90,11 @@ function valorTotalDoServico(valor, porcentagem) {
 	return restadoValorPorcentagem
 }
 
-function calculandoDiasEhorasComResultadoDaPorcentagem() {
-	// let resultado = []
-	let diasEhoras = [
-		{
-			dias: 4,
-			hora: 5.5
-		},
-		{
-			dias: 5,
-			hora: 4
-		},
-		{
-			dias: 6,
-			hora: 2.5
-		}
-	]
+function calculandoDiasEhorasComResultadoDaPorcentagem(diasEhoras = []) {
 
 	const pegandoDiasEhoras = diasEhoras.map((item) => {
 		return calcularDiasEhorasTrabalhados(item.dias, item.hora)
 	})
 
-	// console.log(pegandoDiasEhoras)
-
 	return pegandoDiasEhoras
 }
-
-// calculandoDiasEhorasComResultadoDaPorcentagem()
