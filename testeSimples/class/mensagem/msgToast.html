@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toast com Classe</title>
+<style>
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #333;
+    color: #fff;
+    padding: 14px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: auto;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<button id="btn">Mostrar Toast</button>
+
+<script>
+  class Toast {
+    constructor(mensagem, duracao = 5000) {
+      this.mensagem = mensagem;
+      this.duracao = duracao;
+      this.toast = null;
+      this.tempoRestante = duracao;
+      this.inicio = null;
+      this.timeoutId = null;
+    }
+
+    criarElemento() {
+      this.toast = document.createElement('div');
+      this.toast.className = 'toast';
+      this.toast.textContent = this.mensagem;
+      document.body.appendChild(this.toast);
+
+      // Eventos de pausa e retomada
+      this.toast.addEventListener('mouseenter', () => this.pausar());
+      this.toast.addEventListener('mouseleave', () => this.iniciar());
+
+      // Mostra com animação
+      setTimeout(() => this.toast.classList.add('show'), 10);
+    }
+
+    iniciar() {
+      this.inicio = Date.now();
+      this.timeoutId = setTimeout(() => this.fechar(), this.tempoRestante);
+    }
+
+    pausar() {
+      clearTimeout(this.timeoutId);
+      this.tempoRestante -= Date.now() - this.inicio;
+    }
+
+    fechar() {
+      this.toast.classList.remove('show');
+      setTimeout(() => this.toast.remove(), 400);
+    }
+
+    mostrar() {
+      this.criarElemento();
+      this.iniciar();
+    }
+  }
+
+  // Exemplo de uso:
+  document.getElementById('btn').addEventListener('click', () => {
+    const t = new Toast('Olá! Essa mensagem some sozinha, mas pausa se você passar o mouse 😄', 5000);
+    t.mostrar();
+  });
+</script>
+
+</body>
+</html>
