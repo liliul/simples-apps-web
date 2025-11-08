@@ -3,29 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Toast com Classe</title>
+<title>Toast com Progresso Corrigido</title>
 <style>
   body {
     background-color: #212121;
     color: white;
+    font-family: sans-serif;
   }
+
   .toast {
     position: fixed;
     bottom: 30px;
     right: 30px;
     background: #333;
     color: #fff;
-    padding: 14px 20px;
+    padding: 14px 20px 10px 20px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.4s ease, transform 0.4s ease;
     pointer-events: auto;
+    overflow: hidden;
+    min-width: 250px;
   }
+
   .toast.show {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: #4caf50;
+    width: 100%;
+    transform-origin: left;
+    transform: scaleX(1);
   }
 </style>
 </head>
@@ -39,37 +55,59 @@
       this.mensagem = mensagem;
       this.duracao = duracao;
       this.toast = null;
+      this.progressBar = null;
       this.tempoRestante = duracao;
       this.inicio = null;
       this.timeoutId = null;
+      this.intervalId = null;
+      this.progressoAtual = 1;
     }
 
     criarElemento() {
       this.toast = document.createElement('div');
       this.toast.className = 'toast';
       this.toast.textContent = this.mensagem;
+
+      this.progressBar = document.createElement('div');
+      this.progressBar.className = 'progress';
+      this.toast.appendChild(this.progressBar);
+
       document.body.appendChild(this.toast);
 
-      // Eventos de pausa e retomada
       this.toast.addEventListener('mouseenter', () => this.pausar());
       this.toast.addEventListener('mouseleave', () => this.iniciar());
 
-      // Mostra com animação
       setTimeout(() => this.toast.classList.add('show'), 10);
     }
 
     iniciar() {
-      console.log(this.tempoRestante)
       this.inicio = Date.now();
       this.timeoutId = setTimeout(() => this.fechar(), this.tempoRestante);
+
+      const inicioAnimacao = Date.now();
+      const tempoInicial = this.tempoRestante;
+      const progressoInicial = this.progressoAtual;
+
+      this.intervalId = setInterval(() => {
+        const decorrido = Date.now() - inicioAnimacao;
+        const proporcao = Math.max(0, 1 - decorrido / tempoInicial);
+        this.progressoAtual = proporcao * progressoInicial;
+        this.progressBar.style.transform = `scaleX(${this.progressoAtual})`;
+
+        if (this.progressoAtual <= 0) clearInterval(this.intervalId);
+      }, 16);
     }
 
     pausar() {
       clearTimeout(this.timeoutId);
-      this.tempoRestante -= Date.now() - this.inicio;
+      clearInterval(this.intervalId);
+      const decorrido = Date.now() - this.inicio;
+      this.tempoRestante -= decorrido;
     }
 
     fechar() {
+      clearTimeout(this.timeoutId);
+      clearInterval(this.intervalId);
       this.toast.classList.remove('show');
       setTimeout(() => this.toast.remove(), 400);
     }
@@ -80,9 +118,8 @@
     }
   }
 
-  // Exemplo de uso:
   document.getElementById('btn').addEventListener('click', () => {
-    const t = new Toast('Olá! Essa mensagem some sozinha, mas pausa se você passar o mouse 😄', 5000);
+    const t = new Toast('Mensagem com barra de progresso ⏳', 5000);
     t.mostrar();
   });
 </script>
