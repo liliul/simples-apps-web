@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Ubuntu+Mono:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --text-color: #0f172a;
+  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+
+  --border: 1px solid rgba(15, 23, 42, 0.15);
+}
+
+body {
+  font-size: 1.6rem;
+  background: #f8fafc;
+
+  height: 100vh;
+  display: grid;
+  place-content: center;
+
+  color: var(--text-color);
+
+  margin: 2.5rem 0rem;
+}
+
+main {
+  padding: 6.4rem 8rem;
+  background: #ffffff;
+  box-shadow: 0rem 0.4rem 3.2rem rgba(15, 23, 42, 0.15);
+  border-radius: 1.6rem;
+
+  display: grid;
+  gap: 6.4rem;
+}
+
+section h1 {
+  font-size: 2.0rem;
+  line-height: 2.5rem;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+.conversor .wrapper {
+  margin-top: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  height: auto;
+}
+
+.money-wrapper {
+  background-color: white;
+  outline: 0.1rem solid #94a3b8;
+
+  width: 50rem;
+  padding: 1.6rem;
+  border-radius: 0.8rem;
+
+  display: flex;
+  align-items: center;
+
+  position: relative;
+
+  height: auto;
+}
+
+.info-moeda {
+  width: 100%;
+  display: grid;
+}
+.info-moeda > span {text-align: center;}
+
+
+.money-wrapper:hover,
+.money-wrapper:has(:focus) {
+  outline: 0.25rem solid #7c3aed;
+}
+
+.amount {
+  border: 0;
+  font-size: 1.5rem;
+  font-family: 'Ubuntu Mono', monospace;
+  line-height: 2.4rem;
+
+  color: var(--text-color);
+  width: 100%;
+}
+.amount-text {
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 1.5rem;
+}
+
+.amount:focus {
+  outline: 0;
+}
+
+.dropdown {
+  --bg-hover: #ede9fe;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  height: 5.6rem;
+  overflow: hidden;
+
+  margin: 10px;
+}
+
+.dropdown:hover {
+  height: fit-content;
+  overflow: initial;
+}
+
+.selected {
+  width: 15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  border-radius: 0 0.8rem 0.8rem 0;
+
+  padding: 1.6rem;
+
+  cursor: pointer;
+
+  border: var(--border);
+  background-color: var(--bg-hover);
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  transition: 500ms;
+}
+.selected > option {
+  font-size: 1.4rem;
+  font-weight: 400;
+} 
+
+li:hover,
+.selected:hover {
+  background-color: var(--bg-hover);
+  transform: translateX(-20px);border-radius: 0.8rem;
+}
+
+.dropdown-converter {
+  
+    --bg-hover: #ede9fe;
+  
+    position: absolute;
+    top: 2.5px;
+    right: 3px;
+  
+    height: 100%;
+    overflow: hidden;
+  
+   
+}
+.dropdown-converter:hover {
+  height: fit-content;
+  overflow: initial;
+}
+.dropdown-converter .selected-converter {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  border-radius: 0 0.8rem 0.8rem 0;
+
+  padding: 1.6rem;
+
+  cursor: pointer;
+
+  border: none;
+  background-color: var(--bg-hover);
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  transition: 500ms;
+}
+.dropdown-converter .selected-converter li:hover,
+.selected-converter:hover {
+  background-color: var(--bg-hover);
+  transform: translateX(-20px);border-radius: 0.8rem;
+}
+.fi.fis {
+  font-size: 2.4rem;
+  border-radius: 50%;
+}
+
+.middle {
+  width: 100%;
+  padding: 8px 0px;
+
+  display: flex;
+  justify-content: center;
+}
+.middle button {
+  padding: 3px 15px;
+  background-color:  #ede9fe;
+
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  border-radius: 0.5rem;
+  box-shadow: 1rem 0.4rem 3.2rem rgba(15, 23, 42, 0.15);
+}
+
+.conversor #res-converter {
+  margin-top: 10px;
+}
+
+@media (max-width: 48rem) {
+  main {
+    padding: 1.6rem;
+    gap: 3.2rem
+  }
+
+  section h2 {
+    font-size: 1.6rem;
+  }
+  
+  .conversor .wrapper {
+    flex-direction: column;
+    gap: .8rem;
+  }
+
+  .money-wrapper {
+    width: 100%;
+  }
+}
