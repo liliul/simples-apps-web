@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Ubuntu+Mono:wght@400;700&display=swap');
+@import 'theme-dark.css';
 
 * {
   margin: 0;
@@ -9,16 +10,21 @@
 }
 
 :root {
+  --bg-color: #f8fafc; 
   --text-color: #0f172a;
+  --border: 1px solid rgba(15, 23, 42, 0.15);
+  --bg-hover: #ede9fe;
+  --box-shadow: 0rem 0.4rem 3.2rem rgba(15, 23, 42, 0.15);
+  --outline-color: #7c3aed;
+  --value-color: #7c3aed;
+
   font-size: 62.5%;
   font-family: "Roboto", sans-serif;
-
-  --border: 1px solid rgba(15, 23, 42, 0.15);
 }
 
 body {
   font-size: 1.6rem;
-  background: #f8fafc;
+  background: var(--bg-color);
 
   height: 100vh;
   display: grid;
@@ -31,8 +37,8 @@ body {
 
 main {
   padding: 6.4rem 8rem;
-  background: #ffffff;
-  box-shadow: 0rem 0.4rem 3.2rem rgba(15, 23, 42, 0.15);
+  background: var(--bg-color);
+  box-shadow: var(--box-shadow);
   border-radius: 1.6rem;
 
   display: grid;
@@ -55,8 +61,8 @@ section h1 {
 }
 
 .money-wrapper {
-  background-color: white;
-  outline: 0.1rem solid #94a3b8;
+  background-color: var(--bg-color);
+  box-shadow: var(--box-shadow);
 
   width: 50rem;
   padding: 1.6rem;
@@ -68,6 +74,18 @@ section h1 {
   position: relative;
 
   height: auto;
+
+  .inputs {
+    border: 0;
+    font-size: 1.5rem;
+    font-family: 'Ubuntu Mono', monospace;
+    line-height: 2.4rem;
+
+    background-color: var(--bg-color);
+    color: var(--value-color);
+    width: 100%;
+    margin-left: 5px;
+  }
 }
 
 .info-moeda {
@@ -79,7 +97,7 @@ section h1 {
 
 .money-wrapper:hover,
 .money-wrapper:has(:focus) {
-  outline: 0.25rem solid #7c3aed;
+  outline: 0.25rem solid var(--outline-color);
 }
 
 .amount {
@@ -94,6 +112,23 @@ section h1 {
 .amount-text {
   font-family: 'Ubuntu Mono', monospace;
   font-size: 1.5rem;
+
+  .amount-value {
+    color: var(--value-color);
+  }
+}
+
+.data {
+  display: flex;
+  justify-content: center; 
+  gap: 5px;
+
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 1.5rem;
+
+  .amount-data {
+    color: var(--value-color);
+  }
 }
 
 .amount:focus {
@@ -101,8 +136,6 @@ section h1 {
 }
 
 .dropdown {
-  --bg-hover: #ede9fe;
-
   position: absolute;
   top: 0;
   right: 0;
@@ -132,6 +165,7 @@ section h1 {
 
   border: var(--border);
   background-color: var(--bg-hover);
+  color: var(--text-color);
   outline: none;
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
@@ -142,6 +176,11 @@ section h1 {
   font-weight: 400;
 } 
 
+.selected option:hover {
+  background-color: var(--bg-hover);
+
+}
+
 li:hover,
 .selected:hover {
   background-color: var(--bg-hover);
@@ -149,17 +188,12 @@ li:hover,
 }
 
 .dropdown-converter {
-  
-    --bg-hover: #ede9fe;
-  
     position: absolute;
     top: 2.5px;
     right: 3px;
   
     height: 100%;
     overflow: hidden;
-  
-   
 }
 .dropdown-converter:hover {
   height: fit-content;
@@ -202,15 +236,22 @@ li:hover,
 }
 .middle button {
   padding: 3px 15px;
-  background-color:  #ede9fe;
+  background-color: var(--bg-hover);
 
   border: 1px solid rgba(15, 23, 42, 0.15);
   border-radius: 0.5rem;
   box-shadow: 1rem 0.4rem 3.2rem rgba(15, 23, 42, 0.15);
 }
+.middle button:hover {
+  transform: scale(.9);
+}
 
 .conversor #res-converter {
   margin-top: 10px;
+}
+
+.value-color {
+  color: var(--value-color);
 }
 
 @media (max-width: 48rem) {

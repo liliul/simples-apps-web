@@ -47,22 +47,21 @@ function html(element) {
 	const output = `
 	<h2 class='amount'>${element.name}</h2>
 
-	<p class='amount-text'><b class='amount'>Alta $</b>${Number(element.high).toFixed(2)}</p>
+	<p class='amount-text'><b class='amount'>Alta </b><span class="amount-value">$${Number(element.high).toFixed(2)}</span></p>
 
-	<p class='amount-text'><b class='amount'>Baixa $</b>${Number(element.low).toFixed(2)}</p>
+	<p class='amount-text'><b class='amount'>Baixa </b><span class="amount-value">$${Number(element.low).toFixed(2)}</span></p>
 	
-	<p class='amount-text'><b class='amount'>bid $</b>${Number(element.bid).toFixed(2)}</p>
+	<p class='amount-text'><b class='amount'>bid </b><span class="amount-value">$${Number(element.bid).toFixed(2)}</span></p>
 	
-	<p class='amount-text'><b class='amount'>ask $</b>${Number(element.ask).toFixed(2)}</p>
+	<p class='amount-text'><b class='amount'>ask </b><span class="amount-value">$${Number(element.ask).toFixed(2)}</span></p>
 
-	<span class='amount-text'><b class='amount'>Data: </b>${element.create_date}</span>
-
+	<p class='data'><b>Data: </b><span class="amount-data">${element.create_date}</span></p>
 	`
 	document.getElementById('value-da-api').innerHTML = output;
 }
 
 function addOptions() {
-	const simbolos = ['USDBRL', 'EURBRL','BTCBRL','USDJPY','BTCUSD','USDARS','BRLARS','JPY-USD', 'BRLUSD'];
+	const simbolos = ['USDBRL', 'EURBRL','BTCBRL','USDJPY','BTCUSD','USDARS','BRLARS','JPYUSD', 'BRLUSD'];
 
 	simbolos.map((simbolo,index) => {createOptions(simbolo,index)})
 }

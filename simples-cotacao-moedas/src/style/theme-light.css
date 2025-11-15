@@ -1,0 +1,9 @@
+:root[data-theme="themeLight"] {
+    --bg-color: #f8fafc; 
+    --text-color: #0f172a;
+    --border: 1px solid rgba(15, 23, 42, 0.15);
+    --bg-hover: #ede9fe;
+    --box-shadow: 0rem 0.4rem 3.2rem rgba(15, 23, 42, 0.15);
+    --outline-color: #7c3aed;
+    --value-color: #7c3aed;
+}
