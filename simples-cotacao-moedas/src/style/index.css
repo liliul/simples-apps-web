@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Ubuntu+Mono:wght@400;700&display=swap');
 @import 'theme-dark.css';
+@import 'theme-light.css';
+@import 'toggle-mode.css';
 
 * {
   margin: 0;
@@ -10,7 +12,7 @@
 }
 
 :root {
-  --bg-color: #f8fafc; 
+  --bg-color: #f8fafc;
   --text-color: #0f172a;
   --border: 1px solid rgba(15, 23, 42, 0.15);
   --bg-hover: #ede9fe;
@@ -43,6 +45,7 @@ main {
 
   display: grid;
   gap: 6.4rem;
+  position: relative;
 }
 
 section h1 {
@@ -92,7 +95,10 @@ section h1 {
   width: 100%;
   display: grid;
 }
-.info-moeda > span {text-align: center;}
+
+.info-moeda>span {
+  text-align: center;
+}
 
 
 .money-wrapper:hover,
@@ -109,6 +115,7 @@ section h1 {
   color: var(--text-color);
   width: 100%;
 }
+
 .amount-text {
   font-family: 'Ubuntu Mono', monospace;
   font-size: 1.5rem;
@@ -120,7 +127,7 @@ section h1 {
 
 .data {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   gap: 5px;
 
   font-family: 'Ubuntu Mono', monospace;
@@ -171,10 +178,11 @@ section h1 {
   font-weight: 700;
   transition: 500ms;
 }
-.selected > option {
+
+.selected>option {
   font-size: 1.4rem;
   font-weight: 400;
-} 
+}
 
 .selected option:hover {
   background-color: var(--bg-hover);
@@ -184,21 +192,24 @@ section h1 {
 li:hover,
 .selected:hover {
   background-color: var(--bg-hover);
-  transform: translateX(-20px);border-radius: 0.8rem;
+  transform: translateX(-20px);
+  border-radius: 0.8rem;
 }
 
 .dropdown-converter {
-    position: absolute;
-    top: 2.5px;
-    right: 3px;
-  
-    height: 100%;
-    overflow: hidden;
+  position: absolute;
+  top: 2.5px;
+  right: 3px;
+
+  height: 100%;
+  overflow: hidden;
 }
+
 .dropdown-converter:hover {
   height: fit-content;
   overflow: initial;
 }
+
 .dropdown-converter .selected-converter {
   display: flex;
   align-items: center;
@@ -217,11 +228,14 @@ li:hover,
   font-weight: 700;
   transition: 500ms;
 }
+
 .dropdown-converter .selected-converter li:hover,
 .selected-converter:hover {
   background-color: var(--bg-hover);
-  transform: translateX(-20px);border-radius: 0.8rem;
+  transform: translateX(-20px);
+  border-radius: 0.8rem;
 }
+
 .fi.fis {
   font-size: 2.4rem;
   border-radius: 50%;
@@ -234,6 +248,7 @@ li:hover,
   display: flex;
   justify-content: center;
 }
+
 .middle button {
   padding: 3px 15px;
   background-color: var(--bg-hover);
@@ -242,6 +257,7 @@ li:hover,
   border-radius: 0.5rem;
   box-shadow: 1rem 0.4rem 3.2rem rgba(15, 23, 42, 0.15);
 }
+
 .middle button:hover {
   transform: scale(.9);
 }
@@ -263,7 +279,7 @@ li:hover,
   section h2 {
     font-size: 1.6rem;
   }
-  
+
   .conversor .wrapper {
     flex-direction: column;
     gap: .8rem;
