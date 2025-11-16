@@ -31,7 +31,7 @@
     }
 
     .checkbox-oculto:checked+.switch-label {
-        background-color: rgba(146, 26, 194, 0.24);
+        background-color: var(--bg-hover);
         ;
     }
 

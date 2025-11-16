@@ -10,3 +10,37 @@ export function resultadoDaConversao() {
 export function converte(input1, input2) {
 	return input1 * input2
 }
+
+const htmlElement = document.documentElement
+
+export function toggleMode() {
+
+	function darkMode() {
+		return htmlElement.dataset.theme = 'themeDark'
+	}
+
+	function lightMode() {
+		return htmlElement.dataset.theme = 'themeLight'
+	}
+
+	return { darkMode, lightMode }
+}
+
+const meuToggle = document.querySelector("#meuToggle")
+const buttonCoverte = document.querySelector("#button-coverter")
+
+meuToggle.checked = true
+
+meuToggle.addEventListener('click', (e) => {
+	const mode = toggleMode()
+
+	if (htmlElement.dataset.theme === 'themeDark') {
+		mode.lightMode()
+		buttonCoverte.innerHTML = '<img src="./src/assets/arrows-exchange.svg" alt="trocar moeda" />'
+	} else {
+		mode.darkMode()
+		meuToggle.checked = true
+		buttonCoverte.innerHTML = '<img style="width: 15px;" src="./src/assets/arrows-dark.svg" alt="trocar moeda" />'
+	}
+
+})
