@@ -28,13 +28,14 @@ export function toggleMode() {
 
 const meuToggle = document.querySelector("#meuToggle")
 const buttonCoverte = document.querySelector("#button-coverter")
+const tipotheme = 'themeDark'
 
 meuToggle.checked = true
 
-meuToggle.addEventListener('click', (e) => {
+meuToggle.addEventListener('click', () => {
 	const mode = toggleMode()
 
-	if (htmlElement.dataset.theme === 'themeDark') {
+	if (htmlElement.dataset.theme === tipotheme) {
 		mode.lightMode()
 		buttonCoverte.innerHTML = '<img src="./src/assets/arrows-exchange.svg" alt="trocar moeda" />'
 	} else {
