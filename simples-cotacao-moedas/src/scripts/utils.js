@@ -16,15 +16,19 @@ const htmlElement = document.documentElement
 export function toggleMode() {
 
 	function darkMode() {
-		return htmlElement.dataset.theme = 'themeDark'
+		let getLocalStorage = localStorage.getItem('themeMode')
+		return htmlElement.dataset.theme = getLocalStorage
 	}
 
 	function lightMode() {
-		return htmlElement.dataset.theme = 'themeLight'
+		let getLocalStorage = localStorage.getItem('themeMode')
+		return htmlElement.dataset.theme = getLocalStorage
 	}
 
 	return { darkMode, lightMode }
 }
+
+toggleMode().darkMode()
 
 const meuToggle = document.querySelector("#meuToggle")
 const buttonCoverte = document.querySelector("#button-coverter")
@@ -36,9 +40,12 @@ meuToggle.addEventListener('click', () => {
 	const mode = toggleMode()
 
 	if (htmlElement.dataset.theme === tipotheme) {
+		localStorage.setItem('themeMode', 'themeLight')
 		mode.lightMode()
+		meuToggle.checked = false
 		buttonCoverte.innerHTML = '<img src="./src/assets/arrows-exchange.svg" alt="trocar moeda" />'
 	} else {
+		localStorage.setItem('themeMode', 'themeDark')
 		mode.darkMode()
 		meuToggle.checked = true
 		buttonCoverte.innerHTML = '<img style="width: 15px;" src="./src/assets/arrows-dark.svg" alt="trocar moeda" />'
