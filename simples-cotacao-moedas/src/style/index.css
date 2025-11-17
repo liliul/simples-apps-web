@@ -188,12 +188,13 @@ section h1 {
 
 .selected option:hover {
   background-color: var(--bg-hover);
-
+  color: var(--text-color);
 }
 
 li:hover,
 .selected:hover {
   background-color: var(--bg-hover);
+  color: var(--text-color);
   transform: translateX(-20px);
   border-radius: 0.8rem;
 }
