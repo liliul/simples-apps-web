@@ -35,18 +35,20 @@ localStorage.setItem('imgConverter', './src/assets/arrows-exchange.svg')
 meuToggle.checked = true
 
 if (tipotheme === "themeDark") {
-	htmlElement.dataset.theme = "themeDark";
-	buttonCoverte.innerHTML = '<img style="width: 15px;" src="./src/assets/arrows-dark.svg" alt="trocar moeda" />';
-	meuToggle.checked = true;
+	htmlElement.dataset.theme = "themeDark"
+	buttonCoverte.innerHTML = '<img style="width: 15px;" src="./src/assets/arrows-dark.svg" alt="trocar moeda" />'
+	meuToggle.checked = true
 } else {
-	htmlElement.dataset.theme = "themeLight";
-	buttonCoverte.innerHTML = `<img src="${imgConverter}" alt="trocar moeda" />`;
-	meuToggle.checked = false;
+	htmlElement.dataset.theme = "themeLight"
+	buttonCoverte.innerHTML = `<img src="${imgConverter}" alt="trocar moeda" />`
+	meuToggle.checked = false
 }
 
 meuToggle.addEventListener('click', () => {
 	const mode = toggleMode()
-
+	
+	efeitoTransisaoTema()
+	
 	if (htmlElement.dataset.theme === 'themeDark') {
 		localStorage.setItem('themeMode', 'themeLight')
 		mode.lightMode()
@@ -60,3 +62,10 @@ meuToggle.addEventListener('click', () => {
 	}
 
 })
+
+function efeitoTransisaoTema() {
+    htmlElement.classList.add("theme-transition")
+    setTimeout(() => {
+        htmlElement.classList.remove("theme-transition")
+    }, 350)
+}
