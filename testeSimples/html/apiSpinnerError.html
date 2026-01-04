@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Spinner com API</title>
+  <style>
+    .spinner {
+      border: 4px solid #eee;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .error {
+      color: red;
+      text-align: center;
+    }
+
+    .container {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <button onclick="loadData()">Carregar dados</button>
+
+    <div id="spinner" class="spinner hidden"></div>
+
+    <div id="content"></div>
+
+    <div id="error" class="error hidden">
+      <p>Não foi possível carregar os dados.</p>
+      <button onclick="loadData()">Tentar novamente</button>
+    </div>
+  </div>
+
+  <script>
+    const spinner = document.getElementById("spinner");
+    const content = document.getElementById("content");
+    const error = document.getElementById("error");
+
+    function showLoading() {
+      spinner.classList.remove("hidden");
+      content.innerHTML = "";
+      error.classList.add("hidden");
+    }
+
+    function showError() {
+      spinner.classList.add("hidden");
+      error.classList.remove("hidden");
+    }
+
+    function showContent(data) {
+      spinner.classList.add("hidden");
+      error.classList.add("hidden");
+      content.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+    }
+
+    function loadData() {
+      showLoading();
+
+      const controller = new AbortController();
+      const timeout = setTimeout(() => {
+        controller.abort();
+      }, 10000); // 10 segundos
+
+      fetch("https://jsonplaceholder.typicode.com/posts/1", {
+        signal: controller.signal
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Erro na API");
+          }
+          return response.json();
+        })
+        .then(data => {
+          showContent(data);
+        })
+        .catch(err => {
+          console.error(err);
+          showError();
+        })
+        .finally(() => {
+          clearTimeout(timeout);
+        });
+    }
+
+  </script>
+</body>
+</html>
