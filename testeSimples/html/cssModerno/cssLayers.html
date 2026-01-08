@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css @Layers</title>
+</head>
+<body>
+    <style>
+        /* Importando CSS com layers */
+        /* @import url("reset.css") layer(reset);
+        @import url("components.css") layer(components); */
+
+        @layer reset, base, components, utilities;
+
+        @layer base {
+            button {
+                background: blue;
+            }
+            }
+
+            @layer utilities {
+            .btn-danger {
+                background: red;
+            }
+        }
+
+    </style>
+
+    Quando usar CSS Layers
+
+    ✔ Projetos grandes
+    ✔ Design Systems
+    ✔ Componentes reutilizáveis
+    ✔ Usando libs externas
+    ✔ Evitar !important
+
+    <hr>
+    <button class="btn-danger">Excluir</button>
+
+</body>
+</html>

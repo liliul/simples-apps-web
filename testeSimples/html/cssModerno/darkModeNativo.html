@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Nativo</title>
+</head>
+<body>
+    <style>
+        :root {
+            /* tambem evitando flash branco (FOUC) */
+            color-scheme: light dark;
+
+            
+            --bg: #ffffff;
+            --text: #111111;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #111111;
+                --text: #eeeeee;
+            }
+        }
+
+        /* Evitando flash branco (FOUC) */
+        html {
+            background-color: Canvas;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .h1__title {
+            font-size: clamp(1.5rem, 3vw, 3rem);
+        }
+
+        /* Dark Mode por componente */
+        .card {
+            width: 150px;
+            height: 150px;
+
+            background: #f9f9f9;
+            color: #222;
+
+            border: 3px solid #212121;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .card {
+                width: 150px;
+                height: 150px;
+                
+                background: #1e1e1e;
+                color: #ddd;
+
+                border: 3px solid #999;
+            }
+        }
+
+    </style>
+
+    <h1 class="h1__title">Dark Mode Nativos</h1>
+
+    <div>
+        <div class="card">
+            <h2 class="h1__title">Dark Mode por componente</h2>
+        </div>
+    </div>
+</body>
+</html>

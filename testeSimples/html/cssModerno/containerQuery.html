@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container Query</title>
+</head>
+<body>
+    <style>
+        .card {
+            container-type: inline-size;
+            border: 1px solid #ccc;
+            padding: 1rem;
+        }
+
+        /* Pequeno: empilhado */
+        .card img {
+            width: 100%;
+        }
+
+        /* Grande: lado a lado */
+        @container (min-width: 500px) {
+            .card {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .card img {
+                width: 150px;
+            }
+        }
+
+    </style>
+    
+
+    ✅ Quando usar
+
+    ✔ Cards
+    ✔ Sidebars
+    ✔ Widgets
+    ✔ Design System
+    ✔ Componentes reutilizáveis
+
+    <div class="card">
+        <img src="https://placehold.co/600x400" />
+        <div class="content">
+            <h3>Produto</h3>
+            <p>Descrição do produto</p>
+        </div>
+    </div>
+
+</body>
+</html>
