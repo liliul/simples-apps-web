@@ -68,6 +68,10 @@ class BuscaBinariaComFallback {
         return array
     }
 
+    gerarNumeroAleatorio(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
     buscaInteligente(arr, alvo) {
         if (!this.isOrdenado(arr)) {
             console.warn("⚠️ Array não ordenado. Usando busca linear.");
@@ -77,12 +81,13 @@ class BuscaBinariaComFallback {
         return this.buscaComFallback(arr, alvo);
     }
 
-    init(min, max, alvo) {
+    init(min, max) {
         const criarArray = this.criarArray(min, max)
+        const gerarNumeroAleatorio = this.gerarNumeroAleatorio(min, max)
 
-        this.buscaInteligente(criarArray, alvo)
+        this.buscaInteligente(criarArray, gerarNumeroAleatorio)
     }
 }
 
 const buscaBinariaComFallback = new BuscaBinariaComFallback()
-const iniciar = buscaBinariaComFallback.init(1, 300, 155)
+const iniciar = buscaBinariaComFallback.init(1, 300)
