@@ -8,50 +8,69 @@ const headers = {
 const user = "liliul"
 
 async function getApiGithub(url, headers) {
-    const req = await fetch(`${url}/${user}`, { headers })
-    const res = await req.json()
+    try {
+        const req = await fetch(`${url}/${user}`, { headers })
+        const res = await req.json()
 
-    return res;
+        return res;
+    } catch (error) {
+        console.error(error);
+    }
     
 }
 
-// getApiGithub(api.URL_GITHUB, headers)
+const getApiGithubApi = await getApiGithub(api.URL_GITHUB, headers)
 
 
-async function userInfos() {
-    const getGithubUser = await getApiGithub(api.URL_GITHUB, headers)
-    console.log(getGithubUser);
+async function userInfos(api) {
+   try {
+        // const getGithubUser = await getApiGithub(api.URL_GITHUB, headers)
+        // console.log(getGithubUser);
         
-    const div = document.createElement('div')
+        if (api.status === "401") {
+            multiplicaRequestGithub()
+            return
+        }
 
-    div.innerHTML = `
-        <h1>${getGithubUser.name}</h1>
-        <span>${getGithubUser.login}</span>
-        <span>${getGithubUser.location}</span>
-    `
+        const div = document.createElement('div')
 
-    document.getElementById('root').appendChild(div)
+        div.innerHTML = `
+            <h1>${api.name}</h1>
+            <span>${api.login}</span>
+            <span>${api.location}</span>
+        `
+
+        document.getElementById('root').appendChild(div)
         
+        return div
+   } catch (error) {
+        console.error(error);   
+   }
 }
 
-userInfos()
 
-const reposUrl = `${api.URL_GITHUB}/${user}/repos`
-const contenteUrl = `https://api.github.com/repos/liliul/AngularTourOfHeroes/contents/`
-const contentReadme = `https://api.github.com/repos/liliul/AngularTourOfHeroes/contents/README.md`
+function multiplicaRequestGithub() {
+    const userUrl = `${api.URL_GITHUB}/${user}`
+    const reposUrl = `${api.URL_GITHUB}/${user}/repos`
+    const contenteUrl = `https://api.github.com/repos/liliul/AngularTourOfHeroes/contents/`
+    const contentReadme = `https://api.github.com/repos/liliul/AngularTourOfHeroes/contents/README.md`
 
-const ulrsPromiseAll = [
-    fetch(reposUrl, headers),
-    fetch(contenteUrl, headers),
-    fetch(contentReadme, headers)
-]
+    const ulrsPromiseAll = [
+        fetch(userUrl),
+        fetch(reposUrl, headers),
+        fetch(contenteUrl, headers),
+        fetch(contentReadme, headers)
+    ]
 
-Promise.all(ulrsPromiseAll)
-    .then((res) => {
-        return Promise.all(res.map(response => response.json()))
-    })
-    .then((data) => {
-        console.log(data);
-        
-    })
-    .catch((erro) => console.error(erro))
+    Promise.all(ulrsPromiseAll)
+        .then((res) => {
+            return Promise.all(res.map(response => response.json()))
+        })
+        .then((data) => {
+            console.log(data);
+            
+        })
+        .catch((erro) => console.error(erro))
+}
+
+userInfos(getApiGithubApi)
