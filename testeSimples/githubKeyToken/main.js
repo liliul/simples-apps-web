@@ -40,6 +40,48 @@ function renderizarHTMLUser(api) {
    }
 }
 
+function renderizarHTMLRepos(api) {
+    try {
+        const div = document.createElement('div')
+
+        div.innerHTML = api.length > 0 ? (
+            api.map(i => {
+            return (`
+                <h1>${i.name}</h1>
+                <h3>${i.full_name}</h3>
+                <small>${i.created_at}</small>
+
+                <div>
+                    <small>${i.default_branch}</small>
+                    <small>${i.visibility}</small>
+                    <small>${i.size}</small>
+                </div>
+
+                <small>${i.pushed_at}</small>
+
+                <br>
+
+                <a href="${i.html_url}">
+                    <button>
+                        link para repositorio
+                    </button>
+                </a>
+
+                <hr>
+
+            `)
+        }).join("")
+        ) : (
+            `<p>Nenhum Conteudo Aqui...</p>`
+        )
+
+        document.getElementById('root').appendChild(div)
+
+    } catch(error) {
+        console.error(error)
+    }
+}
+
 async function userInfos(api) {
    try {
         // const getGithubUser = await getApiGithub(api.URL_GITHUB, headers)
@@ -78,7 +120,8 @@ function multiplicaRequestGithub() {
             console.log(data);
             if (!data) return
 
-            renderizarHTML(data[0])
+            renderizarHTMLUser(data[0])
+            renderizarHTMLRepos(data[1])
             
         })
         .catch((erro) => console.error(erro))
