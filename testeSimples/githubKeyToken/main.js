@@ -10,6 +10,10 @@ const user = "liliul"
 async function getApiGithub(url, headers) {
     try {
         const req = await fetch(`${url}/${user}`, { headers })
+        if (!req.ok) {
+            return { error: true, status: req.status }
+        }
+
         const res = await req.json()
 
         return res;
@@ -22,12 +26,28 @@ async function getApiGithub(url, headers) {
 const getApiGithubApi = await getApiGithub(api.URL_GITHUB, headers)
 
 
+function renderizarHTML(api) {
+     try {
+        const div = document.createElement('div')
+
+        div.innerHTML = `
+            <h1>${api.name}</h1>
+            <span>${api.login}</span>
+            <span>${api.location}</span>
+        `
+
+        document.getElementById('root').appendChild(div)
+        
+   } catch (error) {
+        console.error(error);   
+   }
+}
 async function userInfos(api) {
    try {
         // const getGithubUser = await getApiGithub(api.URL_GITHUB, headers)
         // console.log(getGithubUser);
         
-        if (api.status === "401") {
+        if (api.error && api.status === 401) {
             multiplicaRequestGithub()
             return
         }
@@ -68,6 +88,9 @@ function multiplicaRequestGithub() {
         })
         .then((data) => {
             console.log(data);
+            if (!data) return
+
+            renderizarHTML(data[0])
             
         })
         .catch((erro) => console.error(erro))
