@@ -3,7 +3,7 @@ import { api } from './env.js'
 const headers = {
     'Authorization': `Bearer ${api.GITHUB_KEY}`,
     'Accept': 'application/vnd.github.v3+json'
-};
+}
 
 const user = "liliul"
 
@@ -23,9 +23,6 @@ async function getApiGithub(url, headers) {
     
 }
 
-const getApiGithubApi = await getApiGithub(api.URL_GITHUB, headers)
-
-
 function renderizarHTML(api) {
      try {
         const div = document.createElement('div')
@@ -42,6 +39,7 @@ function renderizarHTML(api) {
         console.error(error);   
    }
 }
+
 async function userInfos(api) {
    try {
         // const getGithubUser = await getApiGithub(api.URL_GITHUB, headers)
@@ -52,22 +50,12 @@ async function userInfos(api) {
             return
         }
 
-        const div = document.createElement('div')
-
-        div.innerHTML = `
-            <h1>${api.name}</h1>
-            <span>${api.login}</span>
-            <span>${api.location}</span>
-        `
-
-        document.getElementById('root').appendChild(div)
+        renderizarHTML(api)
         
-        return div
    } catch (error) {
         console.error(error);   
    }
 }
-
 
 function multiplicaRequestGithub() {
     const userUrl = `${api.URL_GITHUB}/${user}`
@@ -96,4 +84,12 @@ function multiplicaRequestGithub() {
         .catch((erro) => console.error(erro))
 }
 
-userInfos(getApiGithubApi)
+async function INIT() {
+
+    const getApiGithubApi = await getApiGithub(api.URL_GITHUB, headers)
+    
+    userInfos(getApiGithubApi)
+    
+}
+
+INIT()
