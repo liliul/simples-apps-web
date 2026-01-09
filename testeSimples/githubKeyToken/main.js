@@ -23,7 +23,7 @@ async function getApiGithub(url, headers) {
     
 }
 
-function renderizarHTML(api) {
+function renderizarHTMLUser(api) {
      try {
         const div = document.createElement('div')
 
@@ -50,7 +50,7 @@ async function userInfos(api) {
             return
         }
 
-        renderizarHTML(api)
+        renderizarHTMLUser(api)
         
    } catch (error) {
         console.error(error);   
