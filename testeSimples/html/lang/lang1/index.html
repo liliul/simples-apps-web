@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lang</title>
+</head>
+<body>
+    <select id="selected">
+        <option value="pt">PT_BR</option>
+        <option value="en">EUA</option>
+        <option value="esp">ESP</option>
+    </select>
+
+    <div id="content"></div>
+
+    <script type="module">
+
+       class Traducao {
+
+        constructor() {
+            // const tipoLinguagem = 'pt'    
+        }
+
+        init() {
+            const selected = document.getElementById('selected')
+
+            this.setLinguagem()
+            selected.addEventListener('change', (e) => {
+                this.setLinguagem(e.target.value)
+            });
+            
+        }
+
+        async setLinguagem(lang) {
+            const tipoLinguagem = lang || 'pt'
+
+            const content = document.getElementById('content')
+            const texto = await this.fetchHtml(tipoLinguagem)
+
+            content.innerHTML = texto
+            
+            return texto
+        }
+
+        async fetchHtml(html) {
+            const requests = await fetch(`./htmls/${html}.html`)
+            const response = await requests.text()
+
+            return response
+        }
+       }
+
+       const traducao = new Traducao()
+       console.log(traducao.init());
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title_head">Document</title>
+</head>
+<body>
+
+     <select id="selected">
+        <option value="pt">PT_BR</option>
+        <option value="en">EUA</option>
+        <option value="es">ESP</option>
+    </select>
+
+    <h1 data-i18n="titulo"></h1>
+    <p data-i18n="descricao"></p>
+    <button data-i18n="botao"></button>
+
+    <script>
+        class Traducao {
+            constructor() {
+                this.langData = {};
+            }
+
+            init() {
+                const selected = document.getElementById('selected');
+
+                selected.addEventListener('change', (e) => {
+                    this.setLinguagem(e.target.value);
+                });
+
+                const lang = localStorage.getItem('lang')
+                selected.value = lang;
+                this.setLinguagem(lang);
+            }
+
+            async setLinguagem(lang) {
+                const idioma = lang || 'en';
+
+                localStorage.setItem('lang', idioma);
+                this.langData = await this.fetchLang(idioma);
+
+                this.traduzirPagina();
+            }
+
+            async fetchLang(lang) {
+                const res = await fetch(`./jsons/${lang}.json`);
+                return await res.json();
+            }
+
+            traduzirPagina() {
+                const elementos = document.querySelectorAll('[data-i18n]');
+
+                elementos.forEach(el => {
+                    const chave = el.getAttribute('data-i18n');
+                    el.innerText = this.langData[chave] || chave;
+                });
+            }
+        }
+
+        const traducao = new Traducao();
+        traducao.init();
+    </script>
+</body>
+</html>
