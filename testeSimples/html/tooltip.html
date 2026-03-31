@@ -68,5 +68,34 @@
         <span class="custom-tooltip">Esta é uma dica de ferramenta personalizada!</span>
     </div>
 
+    <hr>
+    
+    <style>
+    .tooltip {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .tooltip .tooltip-text {
+      visibility: hidden;
+      background-color: black;
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+    }
+    </style>
+
+    <div class="tooltip">
+      Passe o mouse aqui
+      <span class="tooltip-text">Tooltip estilizado 😎</span>
+    </div>
 </body>
 </html>
